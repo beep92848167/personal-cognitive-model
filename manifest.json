@@ -1,0 +1,34 @@
+{
+  "pcm_version": "0.1.0",
+  "profile_version": "21.0",
+  "created_utc": "2026-06-26T11:07:07.283475+00:00",
+  "name": "Personal Cognitive Model",
+  "description": "Portable AI profile for recommendations, learning, communication, and cognitive context.",
+  "modules": {
+    "profile": [
+      "profile/cognition.json",
+      "profile/learning.json",
+      "profile/health_context.json",
+      "profile/daily_capacity.json",
+      "profile/communication.json"
+    ],
+    "media": [
+      "media/television.json",
+      "media/movies.json",
+      "media/novels.json",
+      "media/documentaries.json",
+      "media/games.json",
+      "media/comedy.json",
+      "media/integrated_m2m.json"
+    ],
+    "knowledge": [
+      "knowledge/features.json",
+      "knowledge/creators.json",
+      "knowledge/evidence.json",
+      "knowledge/counterfactuals.json",
+      "knowledge/calibration.json",
+      "knowledge/recommendations.json"
+    ]
+  },
+  "core_instruction_for_ai": "Recommend by writing quality, systems, institutions, incentives, competence, consistency, stewardship, and current cognitive load before genre."
+}

@@ -1,0 +1,42 @@
+{
+  "module": "novels",
+  "loved_or_liked": [
+    "Rama series — Arthur C. Clarke",
+    "The Mote in God's Eye — Larry Niven & Jerry Pournelle",
+    "Riftwar Cycle — Raymond E. Feist",
+    "Foreigner series — C. J. Cherryh",
+    "Foundation — Isaac Asimov",
+    "I, Robot — Isaac Asimov",
+    "Ursula K. Le Guin works",
+    "Anne McCaffrey works (not for dragons; for society/survival/culture/continuity)",
+    "J. L. Langley gay romance",
+    "Project Hail Mary — Andy Weir"
+  ],
+  "reading_recovery_queue": [
+    {
+      "title": "All Systems Red",
+      "load": "green",
+      "why": "Murderbot TV loved; short; strong voice"
+    },
+    {
+      "title": "Artificial Condition",
+      "load": "green",
+      "why": "short and familiar"
+    },
+    {
+      "title": "The Warrior's Apprentice",
+      "load": "yellow",
+      "why": "fast, clever, competence, politics"
+    },
+    {
+      "title": "A Memory Called Empire",
+      "load": "orange",
+      "why": "strong fit later; diplomacy and empire"
+    },
+    {
+      "title": "A Deepness in the Sky",
+      "load": "red",
+      "why": "save for stronger reading endurance"
+    }
+  ]
+}

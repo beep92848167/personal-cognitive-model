@@ -1,0 +1,53 @@
+{
+  "module": "creators",
+  "trusted": [
+    {
+      "name": "Armando Iannucci",
+      "evidence": [
+        "Veep",
+        "The Thick of It",
+        "In the Loop",
+        "Avenue 5",
+        "The Franchise"
+      ],
+      "confidence": 10
+    },
+    {
+      "name": "Vince Gilligan",
+      "evidence": [
+        "Pluribus",
+        "Breaking Bad"
+      ],
+      "confidence": 10
+    },
+    {
+      "name": "Arthur C. Clarke",
+      "evidence": [
+        "Rama series"
+      ],
+      "confidence": 10
+    },
+    {
+      "name": "C. J. Cherryh",
+      "evidence": [
+        "Foreigner series"
+      ],
+      "confidence": 10
+    },
+    {
+      "name": "Isaac Asimov",
+      "evidence": [
+        "Foundation",
+        "I, Robot"
+      ],
+      "confidence": 10
+    },
+    {
+      "name": "Raymond E. Feist",
+      "evidence": [
+        "Riftwar Cycle"
+      ],
+      "confidence": 9
+    }
+  ]
+}

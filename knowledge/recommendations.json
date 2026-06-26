@@ -1,0 +1,22 @@
+{
+  "module": "recommendations",
+  "rule": "Always include predicted fit, cognitive fit, and reasons.",
+  "current": {
+    "books_low_load": [
+      "All Systems Red",
+      "Artificial Condition"
+    ],
+    "tv": [
+      "Counterpart",
+      "Generation Kill",
+      "The Looming Tower",
+      "Deadwood"
+    ],
+    "games_ps5": [
+      "Death Stranding Director's Cut",
+      "Cities: Skylines Remastered",
+      "Two Point Campus",
+      "Balatro"
+    ]
+  }
+}

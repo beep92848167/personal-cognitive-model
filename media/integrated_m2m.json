@@ -1,0 +1,25 @@
+{
+  "module": "integrated_m2m",
+  "core_rule": "M/M relationship should enhance an already excellent story, not replace the story.",
+  "positive_evidence": [
+    "J. L. Langley",
+    "I Love You Phillip Morris",
+    "Bros",
+    "Looking",
+    "Queer as Folk UK",
+    "Queer as Folk US",
+    "Sense8"
+  ],
+  "avoid": [
+    "relationship-only plot",
+    "formulaic tropes",
+    "poor dialogue",
+    "thin worldbuilding",
+    "melodrama for its own sake"
+  ],
+  "candidates_to_test": [
+    "Nightrunner — Lynn Flewelling",
+    "Swordspoint — Ellen Kushner",
+    "A Marvellous Light — Freya Marske"
+  ]
+}

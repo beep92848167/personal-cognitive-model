@@ -1,0 +1,19 @@
+{
+  "module": "learning",
+  "best_methods": [
+    "structured progression",
+    "real examples",
+    "cross-domain analogies",
+    "short regular sessions",
+    "clear explanations without fluff"
+  ],
+  "mandarin": {
+    "status": "learning Mandarin",
+    "course": "Mandarin Blueprint",
+    "notes": [
+      "Course teaches common characters first and does not map directly to HSK.",
+      "Likes Mandarin content where audio and subtitles exactly match.",
+      "Best studied in the morning during high-capacity window."
+    ]
+  }
+}

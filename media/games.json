@@ -1,0 +1,26 @@
+{
+  "module": "games",
+  "platform_context": {
+    "preferred": "PS5",
+    "constraint": "RSI limits PC gaming"
+  },
+  "loved": [
+    "SimCity 4 Deluxe",
+    "Factorio",
+    "Populous",
+    "Dune II"
+  ],
+  "liked_with_caution": [
+    {
+      "title": "Frostpunk 2",
+      "note": "Liked systems but stories felt disheartening"
+    }
+  ],
+  "motivation_rank": [
+    "Build something that grows and works",
+    "Optimise systems",
+    "Solve logistics",
+    "Create beauty/order",
+    "Observe emergence"
+  ]
+}

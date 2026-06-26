@@ -1,0 +1,21 @@
+{
+  "module": "calibration",
+  "confirmed": [
+    {
+      "title": "Black Sails",
+      "predicted": 9.5,
+      "actual_so_far": "strongly positive"
+    },
+    {
+      "title": "Murderbot TV",
+      "predicted": 9.5,
+      "actual": "loved"
+    }
+  ],
+  "awaiting_feedback": [
+    "Counterpart",
+    "Generation Kill",
+    "Thank You for Smoking",
+    "Vorkosigan Saga"
+  ]
+}

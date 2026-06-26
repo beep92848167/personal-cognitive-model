@@ -1,0 +1,14 @@
+{
+  "module": "health_context",
+  "purpose": "Adapt recommendations to cognitive load. Not for medical diagnosis or treatment.",
+  "migraine_context": {
+    "reported_history": "Recurrent hemiplegic migraines for about four years; previously around 30 migraine days per month in a repeating five-day cycle.",
+    "current_status": "Ajovy is controlling migraines.",
+    "reading_effect": "Reading is possible again but slower; attention drifts and immersion is harder."
+  },
+  "parotid_context": {
+    "reported_history": "Right parotid stricture with long-standing cognitive performance impact since about age 25.",
+    "pattern": "Best in the morning; focus and working memory often decline from around 11:00 AM as symptoms increase.",
+    "ai_instruction": "Use as functional context for recommendations. Assume it affects cognitive fit as the user requested."
+  }
+}

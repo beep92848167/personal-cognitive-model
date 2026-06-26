@@ -1,0 +1,20 @@
+{
+  "module": "counterfactuals",
+  "items": [
+    {
+      "title": "Farscape",
+      "issue": "camp",
+      "counterfactual": "might work with a grounded serious tone"
+    },
+    {
+      "title": "Industry",
+      "issue": "unrealistic finance/workplace melodrama",
+      "counterfactual": "might work if incentive-realistic"
+    },
+    {
+      "title": "Frostpunk 2",
+      "issue": "emotionally disheartening",
+      "counterfactual": "works better if difficult systems still allow hope/progress"
+    }
+  ]
+}

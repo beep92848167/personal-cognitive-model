@@ -1,0 +1,67 @@
+{
+  "module": "television",
+  "loved": [
+    "Babylon 5",
+    "Battlestar Galactica",
+    "Star Trek: Deep Space Nine",
+    "Star Trek: The Next Generation",
+    "The Expanse",
+    "Andor",
+    "Rome",
+    "Shōgun",
+    "Boardwalk Empire",
+    "The Americans",
+    "Homeland",
+    "Succession",
+    "The Diplomat",
+    "Black Sails",
+    "Murderbot",
+    "Pluribus",
+    "Breaking Bad",
+    "Orange Is the New Black",
+    "Six Feet Under",
+    "Sense8",
+    "Looking",
+    "Queer as Folk UK",
+    "Queer as Folk US",
+    "Veep",
+    "The Thick of It",
+    "Avenue 5",
+    "The Franchise",
+    "Yes Minister",
+    "Yes, Prime Minister",
+    "Superstore",
+    "Will & Grace",
+    "Keeping Up Appearances"
+  ],
+  "bounced_or_disliked": [
+    {
+      "title": "Farscape",
+      "reason": "too campy/not serious enough"
+    },
+    {
+      "title": "Industry",
+      "reason": "overly dramatic/unrealistic"
+    },
+    {
+      "title": "Silo",
+      "reason": "too slow/atmosphere over plot"
+    },
+    {
+      "title": "The Bureau",
+      "reason": "subtitle barrier"
+    },
+    {
+      "title": "The Walking Dead",
+      "reason": "loved early, dropped around seasons 4-5"
+    }
+  ],
+  "comfort_rewatches": [
+    "Veep",
+    "Superstore",
+    "Will & Grace",
+    "Keeping Up Appearances",
+    "Avenue 5",
+    "Star Trek: The Next Generation"
+  ]
+}

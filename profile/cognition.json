@@ -1,0 +1,21 @@
+{
+  "module": "cognition",
+  "summary": "Systems thinker who prefers coherent mental models, incentives, evidence, and long-term consequences.",
+  "thinking_style": [
+    "systems thinker",
+    "long-term planner",
+    "model builder",
+    "prefers incentives over simple good-vs-evil explanations",
+    "values internal consistency"
+  ],
+  "core_motivation": {
+    "name": "creation and stewardship",
+    "description": "Enjoys building, improving, and stewarding complex systems that grow and function well."
+  },
+  "decision_style": [
+    "evidence-driven",
+    "analytical",
+    "prefers deep reasoning before committing",
+    "sensitive to weak logic or poor internal consistency"
+  ]
+}

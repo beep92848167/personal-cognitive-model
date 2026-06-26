@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PCM Module",
+  "type": "object",
+  "required": [
+    "module"
+  ],
+  "properties": {
+    "module": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,24 @@
+{
+  "module": "comedy",
+  "engines": {
+    "institutional_satire": [
+      "Veep",
+      "The Thick of It",
+      "In the Loop",
+      "Avenue 5",
+      "The Franchise",
+      "Yes Minister"
+    ],
+    "status_comedy": [
+      "Keeping Up Appearances",
+      "Will & Grace",
+      "Superstore"
+    ],
+    "romcoms": [
+      "Love Actually",
+      "The Proposal",
+      "Hitch",
+      "27 Dresses"
+    ]
+  }
+}

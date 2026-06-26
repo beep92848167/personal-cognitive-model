@@ -1,0 +1,76 @@
+{
+  "module": "features",
+  "positive": {
+    "exceptional_writing": {
+      "weight": 10,
+      "confidence": 10
+    },
+    "people_navigating_complex_systems": {
+      "weight": 10,
+      "confidence": 10
+    },
+    "civilizational_storytelling": {
+      "weight": 10,
+      "confidence": 10
+    },
+    "institutional_conflict": {
+      "weight": 10,
+      "confidence": 10
+    },
+    "realistic_incentives": {
+      "weight": 10,
+      "confidence": 10
+    },
+    "competence_under_pressure": {
+      "weight": 10,
+      "confidence": 9
+    },
+    "consistent_quality": {
+      "weight": 10,
+      "confidence": 10
+    },
+    "strong_dialogue": {
+      "weight": 9,
+      "confidence": 9
+    },
+    "rich_ensemble": {
+      "weight": 9,
+      "confidence": 9
+    },
+    "stewardship": {
+      "weight": 10,
+      "confidence": 9
+    },
+    "science_fiction_bonus": {
+      "weight": 10,
+      "confidence": 10,
+      "note": "Secondary affinity; user forgives more flaws in sci-fi."
+    }
+  },
+  "negative": {
+    "weak_plotting": {
+      "weight": -10,
+      "confidence": 10
+    },
+    "meandering_story": {
+      "weight": -10,
+      "confidence": 10
+    },
+    "filler_episodes": {
+      "weight": -10,
+      "confidence": 10
+    },
+    "tonal_inconsistency": {
+      "weight": -9,
+      "confidence": 10
+    },
+    "unrealistic_melodrama": {
+      "weight": -8,
+      "confidence": 9
+    },
+    "relentlessly_bleak": {
+      "weight": -7,
+      "confidence": 8
+    }
+  }
+}

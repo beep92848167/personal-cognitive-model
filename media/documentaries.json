@@ -1,0 +1,16 @@
+{
+  "module": "documentaries",
+  "liked": [
+    "Rotten",
+    "Cosmos",
+    "Explained",
+    "Money, Explained"
+  ],
+  "recommendations": [
+    "Commanding Heights",
+    "The Century of the Self",
+    "Dirty Money",
+    "The Ascent of Money",
+    "Inside Job"
+  ]
+}

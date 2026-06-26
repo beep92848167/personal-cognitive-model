@@ -1,0 +1,34 @@
+{
+  "module": "evidence",
+  "principle": "Store reasons, not just ratings.",
+  "examples": [
+    {
+      "title": "Black Sails",
+      "reaction": "really enjoying halfway through S2",
+      "why": [
+        "institution-building",
+        "legitimacy",
+        "power"
+      ]
+    },
+    {
+      "title": "Murderbot TV",
+      "reaction": "really loved",
+      "why": [
+        "strong voice",
+        "competence",
+        "dry humour",
+        "sci-fi"
+      ]
+    },
+    {
+      "title": "Project Hail Mary",
+      "reaction": "liked book more than movie",
+      "why": [
+        "clear prose",
+        "science problem-solving"
+      ],
+      "note": "required disciplined 20 pages/day"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "module": "communication",
+  "preferences": [
+    "direct",
+    "clear",
+    "reasoned",
+    "not overly fluffy",
+    "show why a recommendation fits",
+    "separate high-confidence from speculative"
+  ]
+}

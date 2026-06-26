@@ -1,0 +1,32 @@
+{
+  "module": "daily_capacity",
+  "modes": {
+    "high_capacity": {
+      "when": "morning",
+      "recommend": [
+        "dense novels",
+        "Mandarin study",
+        "complex documentaries",
+        "new worlds",
+        "strategy-heavy media"
+      ]
+    },
+    "recovery": {
+      "when": "late morning onward or symptom flare",
+      "recommend": [
+        "novellas",
+        "short chapters",
+        "comfort rewatches",
+        "familiar universes",
+        "comedy",
+        "documentaries"
+      ],
+      "avoid": [
+        "dense new books",
+        "large new casts",
+        "slow-burn stories"
+      ]
+    }
+  },
+  "rule": "Always consider Current Cognitive Fit alongside Taste Fit."
+}

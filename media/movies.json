@@ -1,0 +1,42 @@
+{
+  "module": "movies",
+  "loved_or_liked": [
+    "The Death of Stalin",
+    "In the Loop",
+    "Burn After Reading",
+    "The Big Short",
+    "Bridesmaids",
+    "Bros",
+    "Trading Places",
+    "There's Something About Mary",
+    "Mrs. Doubtfire",
+    "Meet the Fockers",
+    "Galaxy Quest",
+    "Love Actually",
+    "The Proposal",
+    "He's Just Not That Into You",
+    "How to Lose a Guy in 10 Days",
+    "The Internship",
+    "27 Dresses",
+    "Hitch",
+    "The Switch",
+    "Shallow Hal",
+    "13 Going on 30",
+    "Amélie",
+    "The Invention of Lying",
+    "My Best Friend's Wedding",
+    "Spanglish",
+    "I Love You Phillip Morris",
+    "Fuze"
+  ],
+  "recommended_unwatched_or_unknown": [
+    "Thank You for Smoking",
+    "Master and Commander",
+    "Thirteen Days",
+    "Tinker Tailor Soldier Spy",
+    "Margin Call",
+    "Zero Dark Thirty",
+    "Michael Clayton",
+    "The Hunt for Red October"
+  ]
+}
