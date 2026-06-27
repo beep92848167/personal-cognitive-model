@@ -26,3 +26,8 @@ Build OpenPCM as a maintainable, evidence-driven cognitive modelling platform.
 ## AI Collaboration Protocol
 
 See `docs/AI_COLLABORATION_PROTOCOL.md` for the canonical `SYNC` and `.` workflow.
+
+
+## Requirement Registry
+
+Machine-readable requirements live in `requirements/requirements.json` and are used by `tools/run-tests.js` for coverage reporting.

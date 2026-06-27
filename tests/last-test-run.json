@@ -1,47 +1,72 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T08:40:01.592Z",
+  "timestamp": "2026-06-27T09:06:00.024Z",
   "status": "PASS",
   "passed": 28,
   "failed": 0,
   "total": 28,
-  "durationMs": 11,
+  "durationMs": 3,
   "runner": "tools/run-tests.js",
   "requirements": {
+    "source": "requirements/requirements.json",
     "total": 20,
     "covered": 12,
     "uncovered": [
       {
         "id": "REQ-LIBRARY-004",
-        "title": "Open detail view"
+        "title": "Open detail view",
+        "area": "Library",
+        "priority": "High",
+        "status": "Active"
       },
       {
         "id": "REQ-PORTABLE-001",
-        "title": "Export JSON"
+        "title": "Export JSON",
+        "area": "Import / Export",
+        "priority": "High",
+        "status": "Active"
       },
       {
         "id": "REQ-PORTABLE-002",
-        "title": "Import JSON"
+        "title": "Import JSON",
+        "area": "Import / Export",
+        "priority": "High",
+        "status": "Active"
       },
       {
         "id": "REQ-ANDROID-001",
-        "title": "One-command Android update"
+        "title": "One-command Android update",
+        "area": "Android Workflow",
+        "priority": "High",
+        "status": "Active"
       },
       {
         "id": "REQ-ANDROID-002",
-        "title": "Run locally through Termux"
+        "title": "Run locally through Termux",
+        "area": "Android Workflow",
+        "priority": "High",
+        "status": "Active"
       },
       {
         "id": "REQ-TEST-001",
-        "title": "Browser tests without Node/npm"
+        "title": "Browser tests without Node/npm",
+        "area": "Testing",
+        "priority": "High",
+        "status": "Active"
       },
       {
         "id": "REQ-TEST-002",
-        "title": "Pass/fail browser test runner"
+        "title": "Pass/fail browser test runner",
+        "area": "Testing",
+        "priority": "High",
+        "status": "Active"
       },
       {
         "id": "REQ-TEST-003",
-        "title": "Requirement coverage view"
+        "title": "Requirement coverage view",
+        "area": "Testing",
+        "priority": "High",
+        "status": "Active"
       }
     ]
   },

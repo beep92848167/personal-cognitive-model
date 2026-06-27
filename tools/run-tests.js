@@ -94,11 +94,31 @@ function runScript(relativePath) {
 }
 
 function loadManifest() {
+  const registryPath = path.join(repoRoot, "requirements", "requirements.json");
   const manifestPath = path.join(repoRoot, "tests", "test-manifest.json");
+
   try {
-    return JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+    const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
+    return {
+      source: "requirements/requirements.json",
+      requirements: (registry.requirements || []).map(req => ({
+        id: req.id,
+        title: req.shortTitle || req.title || "",
+        area: req.area || "",
+        priority: req.priority || "",
+        status: req.status || ""
+      }))
+    };
+  } catch {}
+
+  try {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+    return {
+      source: "tests/test-manifest.json",
+      requirements: manifest.requirements || []
+    };
   } catch {
-    return { requirements: [] };
+    return { source: "none", requirements: [] };
   }
 }
 
@@ -129,9 +149,16 @@ const report = {
   durationMs: Date.now() - started,
   runner: "tools/run-tests.js",
   requirements: {
+    source: manifest.source || "unknown",
     total: requirements.length,
     covered: covered.size,
-    uncovered: uncovered.map(req => ({ id: req.id, title: req.title || "" }))
+    uncovered: uncovered.map(req => ({
+      id: req.id,
+      title: req.title || "",
+      area: req.area || "",
+      priority: req.priority || "",
+      status: req.status || ""
+    }))
   },
   failures: failed.map(result => ({
     test: result.name,

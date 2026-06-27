@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "openpcm_requirements_registry_v1",
+  "source": "docs/REQUIREMENTS.md",
+  "version": 1,
+  "requirements": [
+    {
+      "id": "REQ-EVIDENCE-001",
+      "title": "Evidence item must have stable ID, title, type, reaction, tags, note, and timestamps.",
+      "shortTitle": "Evidence item has stable required fields",
+      "area": "Evidence",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-EVIDENCE-002",
+      "title": "Evidence normalization must support legacy fields such as `type`, `reasons`, and `notes`.",
+      "shortTitle": "Normalize legacy evidence fields",
+      "area": "Evidence",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-EVIDENCE-003",
+      "title": "Evidence must persist locally between page refreshes.",
+      "shortTitle": "Persist evidence locally",
+      "area": "Evidence",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-EVIDENCE-004",
+      "title": "User must be warned when adding a duplicate title.",
+      "shortTitle": "Warn on duplicate title",
+      "area": "Evidence",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-EVIDENCE-005",
+      "title": "User must be able to edit an existing evidence item.",
+      "shortTitle": "Edit existing evidence",
+      "area": "Evidence",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-EVIDENCE-006",
+      "title": "User must be able to delete an evidence item.",
+      "shortTitle": "Delete evidence",
+      "area": "Evidence",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-LIBRARY-001",
+      "title": "Library must list saved evidence newest-first.",
+      "shortTitle": "List evidence newest-first",
+      "area": "Library",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-LIBRARY-002",
+      "title": "Library must filter evidence by type.",
+      "shortTitle": "Filter by type",
+      "area": "Library",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-LIBRARY-003",
+      "title": "Library must search title, note, and tags.",
+      "shortTitle": "Search title, note, and tags",
+      "area": "Library",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-LIBRARY-004",
+      "title": "Tapping evidence must open a detail view.",
+      "shortTitle": "Open detail view",
+      "area": "Library",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-STATS-001",
+      "title": "Statistics must count total evidence items.",
+      "shortTitle": "Count total evidence",
+      "area": "Statistics",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-STATS-002",
+      "title": "Statistics must count evidence by type and reaction.",
+      "shortTitle": "Count by type and reaction",
+      "area": "Statistics",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-STATS-003",
+      "title": "Statistics must count unique tags.",
+      "shortTitle": "Count unique tags",
+      "area": "Statistics",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-PORTABLE-001",
+      "title": "User must be able to export evidence as JSON.",
+      "shortTitle": "Export JSON",
+      "area": "Import / Export",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-PORTABLE-002",
+      "title": "User must be able to import evidence from JSON.",
+      "shortTitle": "Import JSON",
+      "area": "Import / Export",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-ANDROID-001",
+      "title": "Android update workflow must be one-command after downloading a ZIP.",
+      "shortTitle": "One-command Android update",
+      "area": "Android Workflow",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-ANDROID-002",
+      "title": "App must run locally in Android browser through Termux.",
+      "shortTitle": "Run locally through Termux",
+      "area": "Android Workflow",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-TEST-001",
+      "title": "Tests must run in Android browser without Node/npm.",
+      "shortTitle": "Browser tests without Node/npm",
+      "area": "Testing",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-TEST-002",
+      "title": "Test runner must show pass/fail status.",
+      "shortTitle": "Pass/fail browser test runner",
+      "area": "Testing",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-TEST-003",
+      "title": "Test runner must show requirement coverage.",
+      "shortTitle": "Requirement coverage view",
+      "area": "Testing",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    }
+  ]
+}
