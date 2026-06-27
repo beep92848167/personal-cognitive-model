@@ -1,5 +1,7 @@
 const Core = window.OpenPCMCore;
 const Validation = window.OpenPCMValidation;
+const Detail = window.OpenPCMDetail;
+const Portable = window.OpenPCMPortable;
 
 let selectedTags = new Set();
 let activeFilter = "All";
@@ -72,20 +74,7 @@ function renderDetail() {
     return;
   }
 
-  $("detail-card").innerHTML = `
-    <p class="eyebrow">${escapeHtml(entry.medium)}</p>
-    <h2>${escapeHtml(entry.title)}</h2>
-    <p><strong>${escapeHtml(entry.reaction)}</strong></p>
-    <p>${escapeHtml(entry.cognitive_state || "No cognitive state")}</p>
-    ${entry.tags?.length ? `<div class="tags">${entry.tags.map(escapeHtml).join(", ")}</div>` : ""}
-    ${entry.note ? `<div class="note">${escapeHtml(entry.note)}</div>` : ""}
-    <p class="meta">Created: ${escapeHtml(new Date(entry.timestamp_utc).toLocaleString())}</p>
-    ${entry.updated_utc ? `<p class="meta">Updated: ${escapeHtml(new Date(entry.updated_utc).toLocaleString())}</p>` : ""}
-    <div class="detail-actions">
-      <button class="primary" id="edit-entry">Edit</button>
-      <button class="danger" id="delete-entry">Delete</button>
-      <button class="secondary" data-nav="library">Back to Library</button>
-    </div>`;
+  $("detail-card").innerHTML = Detail.renderDetailHtml(entry);
 
   $("edit-entry").addEventListener("click", () => startEdit(entry.id));
   $("delete-entry").addEventListener("click", () => deleteEntry(entry.id));
@@ -248,11 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   $("export").addEventListener("click", () => {
-    const payload = {
-      schema_version: "openpcm_mobile_export_v4",
-      exported_utc: new Date().toISOString(),
-      evidence: loadEntries()
-    };
+    const payload = Portable.buildExportPayload(loadEntries());
     const blob = new Blob([JSON.stringify(payload, null, 2)], {type: "application/json"});
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -266,10 +251,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const file = event.target.files[0];
     if (!file) return;
     const data = JSON.parse(await file.text());
-    if (Array.isArray(data)) saveEntries(data);
-    else if (Array.isArray(data.evidence)) saveEntries(data.evidence);
-    else {
-      alert("No evidence array found.");
+    try {
+      saveEntries(Portable.extractEvidence(data));
+    } catch (err) {
+      alert(err.message || "No evidence array found.");
       return;
     }
     renderAll();

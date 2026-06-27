@@ -126,9 +126,11 @@ const scripts = [
   "src/core/portable.js",
   "src/core/evidence.js",
   "src/core/validation.js",
+  "src/core/detail.js",
   "tests/evidence-tests.js",
   "tests/validation-tests.js",
-  "tests/portable-tests.js"
+  "tests/portable-tests.js",
+  "tests/detail-tests.js"
 ];
 
 for (const script of scripts) {

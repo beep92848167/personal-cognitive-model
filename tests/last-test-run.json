@@ -1,24 +1,17 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T09:16:29.116Z",
+  "timestamp": "2026-06-27T09:19:47.318Z",
   "status": "PASS",
-  "passed": 31,
+  "passed": 34,
   "failed": 0,
-  "total": 31,
-  "durationMs": 8,
+  "total": 34,
+  "durationMs": 5,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
     "total": 20,
-    "covered": 14,
+    "covered": 15,
     "uncovered": [
-      {
-        "id": "REQ-LIBRARY-004",
-        "title": "Open detail view",
-        "area": "Library",
-        "priority": "High",
-        "status": "Active"
-      },
       {
         "id": "REQ-ANDROID-001",
         "title": "One-command Android update",
@@ -278,6 +271,27 @@
       "status": "PASS",
       "requirements": [
         "REQ-PORTABLE-002"
+      ]
+    },
+    {
+      "name": "buildDetailViewModel maps evidence into detail view data",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LIBRARY-004"
+      ]
+    },
+    {
+      "name": "renderDetailHtml includes detail content and actions",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LIBRARY-004"
+      ]
+    },
+    {
+      "name": "renderDetailHtml escapes unsafe detail content",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LIBRARY-004"
       ]
     }
   ]
