@@ -21,3 +21,8 @@ Build OpenPCM as a maintainable, evidence-driven cognitive modelling platform.
 - Quality dashboard
 - Definition of Done
 - Engineering documentation kept current.
+
+
+## AI Collaboration Protocol
+
+See `docs/AI_COLLABORATION_PROTOCOL.md` for the canonical `SYNC` and `.` workflow.
