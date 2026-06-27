@@ -1,31 +1,17 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T10:16:46.073Z",
+  "timestamp": "2026-06-27T10:31:30.216Z",
   "status": "PASS",
-  "passed": 49,
+  "passed": 53,
   "failed": 0,
-  "total": 49,
-  "durationMs": 11,
+  "total": 53,
+  "durationMs": 12,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
     "total": 24,
-    "covered": 19,
+    "covered": 21,
     "uncovered": [
-      {
-        "id": "REQ-ANDROID-001",
-        "title": "One-command Android update",
-        "area": "Android Workflow",
-        "priority": "High",
-        "status": "Active"
-      },
-      {
-        "id": "REQ-ANDROID-002",
-        "title": "Run locally through Termux",
-        "area": "Android Workflow",
-        "priority": "High",
-        "status": "Active"
-      },
       {
         "id": "REQ-TEST-001",
         "title": "Browser tests without Node/npm",
@@ -402,6 +388,35 @@
       "status": "PASS",
       "requirements": [
         "REQ-DISCOVER-002"
+      ]
+    },
+    {
+      "name": "workflowSteps describes one-command sync workflow",
+      "status": "PASS",
+      "requirements": [
+        "REQ-ANDROID-001"
+      ]
+    },
+    {
+      "name": "workflowSteps describes local run workflow",
+      "status": "PASS",
+      "requirements": [
+        "REQ-ANDROID-002"
+      ]
+    },
+    {
+      "name": "commandHelp documents Termux shortcuts",
+      "status": "PASS",
+      "requirements": [
+        "REQ-ANDROID-001",
+        "REQ-ANDROID-002"
+      ]
+    },
+    {
+      "name": "environmentChecks returns actionable Termux fixes",
+      "status": "PASS",
+      "requirements": [
+        "REQ-ANDROID-002"
       ]
     }
   ]

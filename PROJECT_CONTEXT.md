@@ -36,3 +36,8 @@ Machine-readable requirements live in `requirements/requirements.json` and are u
 ## Personal Cognitive Model Source
 
 The browser app includes `src/data/pcm-seed.js`, generated from the latest Personal Cognitive Model ZIP provided by Mark. `src/core/profile.js` adapts that profile into recommendation evidence and candidates for Discover.
+
+
+## Android Workflow
+
+The canonical Termux/Android workflow is documented in `docs/ANDROID_WORKFLOW.md` and represented in `src/core/android-workflow.js`.

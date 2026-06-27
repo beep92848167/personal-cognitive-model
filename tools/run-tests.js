@@ -88,13 +88,15 @@ const scripts = [
   "src/core/profile.js",
   "src/core/calibration.js",
   "src/core/discover.js",
+  "src/core/android-workflow.js",
   "tests/evidence-tests.js",
   "tests/validation-tests.js",
   "tests/portable-tests.js",
   "tests/detail-tests.js",
   "tests/profile-tests.js",
   "tests/calibration-tests.js",
-  "tests/discover-tests.js"
+  "tests/discover-tests.js",
+  "tests/android-workflow-tests.js"
 ];
 
 for (const script of scripts) {

@@ -14,3 +14,5 @@ UI code may display validation results, but validation rules and normalization r
 - `profile.js` adapts the Personal Cognitive Model profile into evidence and recommendation candidates.
 
 - `calibration.js` owns recommendation feedback storage and score adjustment for Discover calibration.
+
+- `android-workflow.js` documents and validates the Android/Termux workflow model used by the app and handoff process.

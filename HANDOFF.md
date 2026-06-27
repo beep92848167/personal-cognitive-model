@@ -2,20 +2,16 @@
 
 ## Engineering Increment
 
-Improved Discover recommendation explanations and source transparency.
+Documented and tested the Android/Termux workflow.
 
 ## Changes
 
-- Added structured recommendation explanations:
-  - headline
-  - reason signals
-  - watch-outs
-  - confidence
-  - source labels
-- Discover UI now displays explanation details instead of only raw tags.
-- Added source labelling for Personal Cognitive Model recommendation/media lists.
-- Added `REQ-DISCOVER-002`.
-- Expanded Discover tests.
+- Added `docs/ANDROID_WORKFLOW.md`.
+- Added `src/core/android-workflow.js`.
+- Added `tests/android-workflow-tests.js`.
+- Updated `tools/install-shortcuts.sh` help text.
+- Loaded Android workflow module in CLI/browser test runners.
+- Updated core and project documentation.
 
 ## Verification
 
@@ -27,10 +23,14 @@ node tools/run-tests.js
 
 Expected result in this package:
 
-- 49 passed
+- 53 passed
 - 0 failed
-- New Discover explanation requirement covered.
+- Android workflow requirements covered.
 
 ## Suggested Commit
 
-feat(discover): improve recommendation explanations
+feat(android): document and test Termux workflow
+
+## Risk
+
+Low. This is documentation plus testable workflow modelling; it does not change update execution semantics.
