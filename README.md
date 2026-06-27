@@ -1,23 +1,14 @@
-# OpenPCM Mobile v0.5 — Test Coverage Tracking
+# OpenPCM Mobile v0.6 - Quality Dashboard
 
-Adds requirements-to-tests traceability.
+Adds engineering quality tracking.
 
-## Adds
+## Features
+- Requirement implementation status
+- Test status
+- Priority (Critical/High/Medium/Low)
+- Project completion metrics
+- Quality dashboard design
 
-- `docs/REQUIREMENTS.md`
-- `docs/TEST_COVERAGE.md`
-- `tests/test-manifest.json`
-- Updated browser test runner with coverage summary
-- Requirement IDs attached to tests
+Apply:
 
-## Apply
-
-```bash
-u "test: add requirements coverage tracking"
-```
-
-Then open:
-
-```text
-http://localhost:8080/tests/test.html
-```
+u "feat: add quality dashboard"
