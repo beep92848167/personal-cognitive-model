@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T11:59:16.306Z",
+  "timestamp": "2026-06-27T12:05:44.158Z",
   "status": "PASS",
-  "passed": 77,
+  "passed": 80,
   "failed": 0,
-  "total": 77,
+  "total": 80,
   "durationMs": 16,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 29,
-    "covered": 29,
+    "total": 30,
+    "covered": 30,
     "uncovered": []
   },
   "failures": [],
@@ -394,6 +394,27 @@
       "status": "PASS",
       "requirements": [
         "REQ-PREFERENCES-001"
+      ]
+    },
+    {
+      "name": "buildRecommendationDetailModel extracts recommendation explanation fields",
+      "status": "PASS",
+      "requirements": [
+        "REQ-RECDETAIL-001"
+      ]
+    },
+    {
+      "name": "renderRecommendationDetailHtml renders score confidence sources and graph",
+      "status": "PASS",
+      "requirements": [
+        "REQ-RECDETAIL-001"
+      ]
+    },
+    {
+      "name": "renderRecommendationDetailHtml escapes unsafe text",
+      "status": "PASS",
+      "requirements": [
+        "REQ-RECDETAIL-001"
       ]
     },
     {

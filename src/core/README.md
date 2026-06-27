@@ -28,3 +28,5 @@ UI code may display validation results, but validation rules and normalization r
 - `learning.js` derives local recommendation learning signals from feedback without mutating the Personal Cognitive Model.
 
 - `explanation-graph.js` converts recommendation reasoning into structured graph nodes and edges.
+
+- `recommendation-detail.js` renders inspectable recommendation explanation detail models and HTML.

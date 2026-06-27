@@ -5,11 +5,14 @@ const Portable = window.OpenPCMPortable;
 const Discover = window.OpenPCMDiscover;
 const Calibration = window.OpenPCMCalibration;
 const Profile = window.OpenPCMProfile;
+const RecommendationDetail = window.OpenPCMRecommendationDetail;
 
 let selectedTags = new Set();
 let activeFilter = "All";
 let lastSaved = null;
 let selectedDetailId = null;
+let selectedRecommendationTitle = null;
+let lastRecommendations = [];
 
 const $ = (id) => document.getElementById(id);
 
@@ -99,6 +102,7 @@ function renderDiscover() {
   const feedback = loadRecommendationFeedback();
   const summary = Discover.buildDiscoverSummary(entries, [], { profileSource: window.OpenPCMProfileSeed, feedback });
   const recommendations = summary.recommendations.slice(0, 3);
+  lastRecommendations = recommendations;
 
   $("discover-content").innerHTML = entries.length ? `
     <p class="eyebrow">Explainable matches</p>
@@ -120,6 +124,7 @@ function renderDiscover() {
           ${rec.feedback ? `<div class="confirm">Your feedback: ${rec.feedback.value > 0 ? "good fit" : rec.feedback.value < 0 ? "not for me" : "neutral"}</div>` : ""}
           ${rec.note ? `<div class="note">${escapeHtml(rec.note)}</div>` : ""}
           <div class="detail-actions">
+            <button class="secondary" data-rec-detail="${escapeHtml(rec.title)}">Why this?</button>
             <button class="secondary" data-rec-feedback="positive" data-rec-title="${escapeHtml(rec.title)}">Good fit</button>
             <button class="secondary" data-rec-feedback="negative" data-rec-title="${escapeHtml(rec.title)}">Not for me</button>
           </div>
@@ -131,6 +136,29 @@ function renderDiscover() {
     <h2>Discover</h2>
     <p>Add evidence first. Recommendations are generated from your saved reactions and tags.</p>
   `;
+}
+
+
+function renderRecommendationDetail() {
+  if (!selectedRecommendationTitle) return;
+  const recommendation = lastRecommendations.find(rec => rec.title === selectedRecommendationTitle);
+  if (!recommendation) {
+    selectedRecommendationTitle = null;
+    setView("discover");
+    return;
+  }
+
+  $("recommendation-detail-card").innerHTML = RecommendationDetail.renderRecommendationDetailHtml(recommendation);
+  document.querySelector("#recommendation-detail-card [data-nav='discover']").addEventListener("click", () => setView("discover"));
+}
+
+function bindRecommendationDetails() {
+  document.querySelectorAll("[data-rec-detail]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      selectedRecommendationTitle = btn.dataset.recDetail;
+      setView("recommendation-detail");
+    });
+  });
 }
 
 function renderStats() {
@@ -149,9 +177,11 @@ function renderAll() {
   renderLibrary();
   renderStats();
   renderDiscover();
+  renderRecommendationDetail();
   renderDetail();
   bindEntryButtons();
   bindRecommendationFeedback();
+  bindRecommendationDetails();
 }
 
 

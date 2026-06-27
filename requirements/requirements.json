@@ -214,6 +214,16 @@
       "tests": []
     },
     {
+      "id": "REQ-RECDETAIL-001",
+      "title": "User must be able to inspect recommendation score, evidence, risks, sources, learning, and explanation graph details.",
+      "shortTitle": "Recommendation explanation detail view",
+      "area": "Recommendation Detail",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-EXPLANATION-GRAPH-001",
       "title": "OpenPCM must produce a structured explanation graph for recommendation reasoning.",
       "shortTitle": "Structured explanation graph",

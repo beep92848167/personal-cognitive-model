@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "3c34819",
-  "commitMessage": "feat(learning): introduce recommendation learning layer",
-  "timestamp": "2026-06-27T21:56:04+10:00",
+  "commit": "66ccac1",
+  "commitMessage": "feat(reasoning): add explanation graph",
+  "timestamp": "2026-06-27T22:03:03+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }
