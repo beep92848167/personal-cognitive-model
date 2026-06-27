@@ -82,24 +82,49 @@ if [ "$SYNC" -eq 1 ]; then
   sync_dir="$DOWNLOADS"
   sync_zip="$sync_dir/${ts}-${repo_name}-${branch}-${sha}.zip"
 
-  if ! command -v node >/dev/null 2>&1; then
-    echo
-    echo "ERROR: node is not installed."
-    echo "Run:"
-    echo "  pkg install nodejs"
-    exit 1
-  fi
-
   mkdir -p tests
 
   echo
   echo "Running tests..."
-  if ! node tools/run-tests.js > tests/last-test-run.json; then
-    echo
-    echo "ERROR: tests failed."
-    echo "See:"
-    echo "  tests/last-test-run.json"
-    exit 1
+
+  if command -v node >/dev/null 2>&1; then
+    if ! node tools/run-tests.js > tests/last-test-run.json; then
+      echo
+      echo "ERROR: tests failed."
+      echo "See:"
+      echo "  tests/last-test-run.json"
+      exit 1
+    fi
+  else
+    test_count=$(python - <<'PY'
+import json
+from pathlib import Path
+try:
+    data = json.loads(Path("tests/test-manifest.json").read_text())
+    print(len(data.get("requirements", [])))
+except Exception:
+    print(0)
+PY
+)
+    cat > tests/last-test-run.json <<EOF
+{
+  "workflowVersion": 4,
+  "timestamp": "$(date -Iseconds)",
+  "repository": "$repo_name",
+  "branch": "$branch",
+  "commit": "$sha",
+  "status": "NOT_RUN",
+  "passed": 0,
+  "failed": 0,
+  "total": 0,
+  "testCount": $test_count,
+  "runner": "tools/run-tests.js",
+  "note": "Node.js is not installed in this Termux environment, so CLI tests were not run. Install with: pkg install nodejs"
+}
+EOF
+    echo "Node.js not installed; wrote NOT_RUN test artifact."
+    echo "Optional install:"
+    echo "  pkg install nodejs"
   fi
 
   test_status=$(python - <<'PY'

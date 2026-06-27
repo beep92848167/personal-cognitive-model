@@ -2,21 +2,21 @@
 
 ## Engineering Increment
 
-Added a command-line test runner and wired it into sync exports.
+Made the CLI test runner optional during sync export.
 
 ## Changes
 
-- Added `tools/run-tests.js`.
-- `u -sync` now runs the CLI test suite before creating a sync ZIP.
-- `u -sync` writes real test results to `tests/last-test-run.json`.
-- Sync export fails if tests fail.
-- Sync export fails if Node.js is unavailable, with an install hint for Termux.
-- Browser test runner remains unchanged.
+- `u -sync` no longer fails just because Node.js is missing.
+- If Node.js is installed, `u -sync` runs `tools/run-tests.js`.
+- If tests fail, sync export still fails.
+- If Node.js is not installed, `u -sync` writes a `NOT_RUN` test artifact and continues.
+- The test artifact includes an install hint: `pkg install nodejs`.
+- This keeps the sync workflow usable on Termux while still recording test status honestly.
 
 ## Suggested Commit
 
-feat(test): run automated tests during sync export
+fix(tools): make node test runner optional during sync
 
 ## Risk
 
-Medium-low. The change affects tooling only, but `u -sync` now depends on Node.js.
+Low. This only changes sync-mode tooling behaviour.
