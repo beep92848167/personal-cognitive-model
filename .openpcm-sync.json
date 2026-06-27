@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "068dacd",
-  "commitMessage": "feat(test): show requirement coverage during sync",
-  "timestamp": "2026-06-27T18:28:35+10:00",
+  "commit": "99d34c8",
+  "commitMessage": "test(requirements): scaffold portability and detail-view coverage",
+  "timestamp": "2026-06-27T18:33:44+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

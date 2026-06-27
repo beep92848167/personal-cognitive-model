@@ -1,11 +1,5 @@
-# AI Handoff
+# Handoff
 
-## Engineering Increment
+Added `src/core/portable.js` with reusable import/export helpers.
 
-Started closing requirement coverage gap.
-
-### Added
-- Prioritized uncovered requirements.
-- Added placeholder test file for portability/detail-view coverage.
-
-Next objective is to replace placeholders with full executable tests.
+This is the first extraction step toward moving portability logic out of app.js.
