@@ -167,12 +167,12 @@ function checkDuplicateTitle() {
 function currentFormEntry(editingId, entries) {
   return {
     id: editingId || Core.createId(),
-    title: $("title").value.trim(),
+    title: $("title").value,
     medium: $("medium").value,
     reaction: $("reaction").value,
     cognitive_state: $("cognitive").value,
     tags: Array.from(selectedTags),
-    note: $("note").value.trim(),
+    note: $("note").value,
     timestamp_utc: editingId ? (entries.find(e => e.id === editingId)?.timestamp_utc || new Date().toISOString()) : new Date().toISOString(),
     updated_utc: editingId ? new Date().toISOString() : null
   };

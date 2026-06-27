@@ -2,20 +2,28 @@
 
 ## Engineering Increment
 
-Extracted entry validation into a dedicated core module.
+Strengthened the core validation layer.
 
 ## Changes
 
-- Added `src/core/validation.js`.
-- Updated `app.js` to use `OpenPCMValidation` for save validation and duplicate-title warnings.
-- Added `tests/validation-tests.js`.
-- Updated `tests/test.html` to load validation tests.
-- Updated `src/core/README.md` with core module responsibilities.
+- Added reusable validation helpers:
+  - `ERRORS`
+  - `textValue`
+  - `normalizeTags`
+  - `normalizeEntryInput`
+- Moved title and note trimming out of `app.js` and into `src/core/validation.js`.
+- Expanded validation test coverage for:
+  - entry normalization
+  - blank tag handling
+  - non-text tag handling
+  - blank title validation
+  - duplicate handling while editing
+- Updated core documentation to clarify validation ownership.
 
 ## Suggested Commit
 
-refactor(core): extract validation module
+test(core): strengthen validation coverage
 
 ## Risk
 
-Low. Existing duplicate-warning behaviour is preserved; title validation remains blocking as before.
+Low. Behaviour should remain unchanged, with validation and normalization more consistently centralized in the core layer.

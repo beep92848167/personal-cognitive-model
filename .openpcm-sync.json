@@ -3,8 +3,8 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "c914acf",
-  "commitMessage": "test(tools): verify workflow v4 sync export",
-  "timestamp": "2026-06-27T17:50:11+10:00",
+  "commit": "cffe707",
+  "commitMessage": "refactor(core): extract validation module",
+  "timestamp": "2026-06-27T17:53:53+10:00",
   "exportedBy": "tools/update.sh -sync"
 }
