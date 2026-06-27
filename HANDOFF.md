@@ -2,21 +2,24 @@
 
 ## Engineering Increment
 
-Updated the sync export workflow to improve Android file picker usability and handoff reliability.
+Implemented Workflow v4 for sync exports.
 
 ## Changes
 
-- Sync ZIP names now start with timestamp.
-- Sync ZIPs are written to `~/storage/downloads/OpenPCM/`.
-- Sync package metadata is written to `.openpcm-sync.json`.
+- Sync ZIPs are now written directly to Downloads.
+- Sync ZIP filenames remain timestamp-first:
+  `YYYYMMDD-HHMMSS-openpcm-<branch>-<sha>.zip`
+- `.openpcm-sync.json` now records `workflowVersion: 4`.
 - `HANDOFF.md` is generated into each sync ZIP.
-- Sync mode keeps only the newest 20 sync ZIPs.
+- Sync export now verifies the ZIP exists and is non-empty.
+- Sync output prints the ZIP size.
+- Retention only removes timestamped OpenPCM sync packages, avoiding patch ZIP confusion.
 - Sync mode exits after export and skips server restart.
 
 ## Suggested Commit
 
-feat(tools): improve sync package naming and handoff metadata
+fix(tools): write sync packages directly to downloads
 
 ## Risk
 
-Low. Changes are isolated to sync-mode workflow behaviour.
+Low. Changes are isolated to `tools/update.sh` sync-mode export behaviour.

@@ -76,14 +76,15 @@ if [ "$SYNC" -eq 1 ]; then
   branch=$(git branch --show-current)
   sha=$(git rev-parse --short HEAD)
   ts=$(date +%Y%m%d-%H%M%S)
-  sync_dir="$DOWNLOADS/OpenPCM"
-  sync_zip="$sync_dir/${ts}-${repo_name}-${branch}-${sha}.zip"
 
-  mkdir -p "$sync_dir"
+  # Write directly to Android Downloads. Subfolders can be hidden from some
+  # Android file pickers even when Termux can see them.
+  sync_dir="$DOWNLOADS"
+  sync_zip="$sync_dir/${ts}-${repo_name}-${branch}-${sha}.zip"
 
   cat > .openpcm-sync.json <<EOF
 {
-  "workflowVersion": 3,
+  "workflowVersion": 4,
   "repository": "$repo_name",
   "workingDirectory": "$(basename "$(git rev-parse --show-toplevel)")",
   "branch": "$branch",
@@ -99,6 +100,7 @@ EOF
 
 ## Sync Package
 
+- Workflow version: 4
 - Branch: $branch
 - Commit: $sha
 - Created: $(date -Iseconds)
@@ -121,14 +123,17 @@ EOF
     -x "__pycache__/*" \
     -x "*.pyc"
 
-  if [ ! -f "$sync_zip" ]; then
-    echo "ERROR: sync package was not created."
+  if [ ! -s "$sync_zip" ]; then
+    echo "ERROR: sync package missing or empty."
     exit 1
   fi
 
-  # Keep the newest sync packages only.
+  sync_size=$(ls -lh "$sync_zip" | awk '{print $5}')
+
+  # Keep the newest workflow sync packages only. Patch ZIPs such as
+  # openpcm-workflow-*.zip are intentionally ignored.
   keep_count=20
-  old_packages=$(ls -1t "$sync_dir"/*-openpcm-*.zip 2>/dev/null | tail -n +$((keep_count + 1)) || true)
+  old_packages=$(ls -1t "$sync_dir"/20??????-??????-openpcm-*.zip 2>/dev/null | tail -n +$((keep_count + 1)) || true)
   if [ -n "$old_packages" ]; then
     echo "$old_packages" | xargs -r rm -f
   fi
@@ -141,6 +146,7 @@ EOF
   echo "✓ Sync package"
   echo
   echo "$(basename "$sync_zip")"
+  echo "$sync_size"
   echo
   echo "Location"
   echo
@@ -155,7 +161,7 @@ EOF
   echo "Sync mode complete. Server restart skipped."
   exit 0
 fi
-echo
+
 echo "Stopping any old server on port 8080..."
 pkill -f "python -m http.server 8080" 2>/dev/null || true
 
