@@ -1,35 +1,21 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T09:06:00.024Z",
+  "timestamp": "2026-06-27T09:11:28.497Z",
   "status": "PASS",
-  "passed": 28,
+  "passed": 31,
   "failed": 0,
-  "total": 28,
-  "durationMs": 3,
+  "total": 31,
+  "durationMs": 5,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
     "total": 20,
-    "covered": 12,
+    "covered": 14,
     "uncovered": [
       {
         "id": "REQ-LIBRARY-004",
         "title": "Open detail view",
         "area": "Library",
-        "priority": "High",
-        "status": "Active"
-      },
-      {
-        "id": "REQ-PORTABLE-001",
-        "title": "Export JSON",
-        "area": "Import / Export",
-        "priority": "High",
-        "status": "Active"
-      },
-      {
-        "id": "REQ-PORTABLE-002",
-        "title": "Import JSON",
-        "area": "Import / Export",
         "priority": "High",
         "status": "Active"
       },
@@ -271,6 +257,27 @@
       "requirements": [
         "REQ-EVIDENCE-004",
         "REQ-EVIDENCE-005"
+      ]
+    },
+    {
+      "name": "buildExportPayload wraps evidence",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PORTABLE-001"
+      ]
+    },
+    {
+      "name": "extractEvidence accepts array",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PORTABLE-002"
+      ]
+    },
+    {
+      "name": "extractEvidence accepts export object",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PORTABLE-002"
       ]
     }
   ]

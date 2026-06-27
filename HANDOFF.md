@@ -1,35 +1,19 @@
 # OpenPCM AI Handoff
 
-## Engineering Increment
+## Sync Package
 
-Added the machine-readable requirement registry and connected the CLI test runner to it.
+- Workflow version: 4
+- Branch: main
+- Commit: 1c3c82d
+- Created: 2026-06-27T19:09:13+10:00
+- Commit message: feat(requirements): compute coverage from registry
+- Test artifact: tests/last-test-run.json
+- Test status: PASS
 
-## Changes
+## Next Step
 
-- Added `requirements/requirements.json` generated from `docs/REQUIREMENTS.md`.
-- Registry records requirement ID, title, area, priority, status, implementation flag, and test links.
-- Updated `tools/run-tests.js` to prefer `requirements/requirements.json` for requirement coverage.
-- Coverage output now records the requirement source and preserves area/priority/status metadata for uncovered requirements.
-- Updated `PROJECT_CONTEXT.md` with the registry location.
+Upload this ZIP to ChatGPT and type:
 
-## Verification
-
-Ran:
-
-```bash
-node tools/run-tests.js
 ```
-
-Result:
-
-- 28 passed
-- 0 failed
-- Requirement source: `requirements/requirements.json`
-
-## Suggested Commit
-
-feat(requirements): compute coverage from registry
-
-## Risk
-
-Low. Test reporting now uses the registry when present, with fallback to `tests/test-manifest.json`.
+SYNC
+```
