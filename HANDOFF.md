@@ -2,20 +2,21 @@
 
 ## Engineering Increment
 
-Added a sync-time test result artifact to repository handoff packages.
+Added a command-line test runner and wired it into sync exports.
 
 ## Changes
 
-- `u -sync` now writes `tests/last-test-run.json` before creating the sync ZIP.
-- `.openpcm-sync.json` now references the test result artifact.
-- `HANDOFF.md` now records the test artifact path and status.
-- Sync output now prints the test artifact status.
-- Current status is `NOT_RUN` because the existing tests are browser-based and not yet executable by the Termux sync script.
+- Added `tools/run-tests.js`.
+- `u -sync` now runs the CLI test suite before creating a sync ZIP.
+- `u -sync` writes real test results to `tests/last-test-run.json`.
+- Sync export fails if tests fail.
+- Sync export fails if Node.js is unavailable, with an install hint for Termux.
+- Browser test runner remains unchanged.
 
 ## Suggested Commit
 
-feat(tools): include test result artifact in sync packages
+feat(test): run automated tests during sync export
 
 ## Risk
 
-Low. Changes are isolated to `tools/update.sh` sync-mode handoff metadata.
+Medium-low. The change affects tooling only, but `u -sync` now depends on Node.js.

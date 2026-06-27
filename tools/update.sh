@@ -82,43 +82,47 @@ if [ "$SYNC" -eq 1 ]; then
   sync_dir="$DOWNLOADS"
   sync_zip="$sync_dir/${ts}-${repo_name}-${branch}-${sha}.zip"
 
-  test_status="NOT_RUN"
-  test_passed=0
-  test_failed=0
-  test_count=0
+  if ! command -v node >/dev/null 2>&1; then
+    echo
+    echo "ERROR: node is not installed."
+    echo "Run:"
+    echo "  pkg install nodejs"
+    exit 1
+  fi
 
   mkdir -p tests
 
-  if [ -f "tests/test-manifest.json" ]; then
-    test_count=$(python - <<'PY'
-import json
-from pathlib import Path
-
-manifest = Path("tests/test-manifest.json")
-try:
-    data = json.loads(manifest.read_text())
-    print(len(data.get("requirements", [])))
-except Exception:
-    print(0)
-PY
-)
+  echo
+  echo "Running tests..."
+  if ! node tools/run-tests.js > tests/last-test-run.json; then
+    echo
+    echo "ERROR: tests failed."
+    echo "See:"
+    echo "  tests/last-test-run.json"
+    exit 1
   fi
 
-  cat > tests/last-test-run.json <<EOF
-{
-  "workflowVersion": 4,
-  "timestamp": "$(date -Iseconds)",
-  "repository": "$repo_name",
-  "branch": "$branch",
-  "commit": "$sha",
-  "status": "$test_status",
-  "passed": $test_passed,
-  "failed": $test_failed,
-  "testCount": $test_count,
-  "runner": "tests/test.html",
-  "note": "Browser tests are not automatically executable from Termux sync yet. This artifact records the latest sync test context and should be replaced by automated results when a CLI runner is added."
-}
-EOF
+  test_status=$(python - <<'PY'
+import json
+from pathlib import Path
+data = json.loads(Path("tests/last-test-run.json").read_text())
+print(data.get("status", "UNKNOWN"))
+PY
+)
+  test_passed=$(python - <<'PY'
+import json
+from pathlib import Path
+data = json.loads(Path("tests/last-test-run.json").read_text())
+print(data.get("passed", 0))
+PY
+)
+  test_failed=$(python - <<'PY'
+import json
+from pathlib import Path
+data = json.loads(Path("tests/last-test-run.json").read_text())
+print(data.get("failed", 0))
+PY
+)
 
   cat > .openpcm-sync.json <<EOF
 {
@@ -187,7 +191,7 @@ EOF
   echo "✓ Test artifact"
   echo
   echo "tests/last-test-run.json"
-  echo "Status: $test_status"
+  echo "Status: $test_status ($test_passed passed, $test_failed failed)"
   echo
   echo "✓ Sync package"
   echo

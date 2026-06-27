@@ -3,8 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "9e2f9eb",
-  "commitMessage": "test(core): strengthen validation coverage",
-  "timestamp": "2026-06-27T17:58:09+10:00",
-  "exportedBy": "tools/update.sh -sync"
+  "commit": "0aed6a9",
+  "commitMessage": "feat(tools): include test result artifact in sync packages",
+  "timestamp": "2026-06-27T18:10:45+10:00",
+  "exportedBy": "tools/update.sh -sync",
+  "testResults": "tests/last-test-run.json"
 }
