@@ -46,6 +46,7 @@
 | ID | Requirement | Priority | Status |
 |---|---|---:|---|
 | REQ-PROFILE-001 | Discover must use the Personal Cognitive Model profile as an explicit recommendation source. | High | Active |
+| REQ-PROFILE-002 | Personal Cognitive Model must record the user's AI pair-programming / vibe-coding development preferences. | High | Active |
 
 ## Preferences
 

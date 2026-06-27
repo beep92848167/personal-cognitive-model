@@ -98,6 +98,71 @@ window.OpenPCMProfileSeed = {
           "Best studied in the morning during high-capacity window."
         ]
       }
+    },
+    "development_preferences": {
+      "module": "development_preferences",
+      "summary": "Enjoys collaborative AI pair programming / vibe coding with a proactive engineering partner, using small verified increments, frequent sync checkpoints, tests, documentation, and architecture-first reasoning.",
+      "preferred_workflow": {
+        "style": "Collaborative AI pair programming",
+        "nickname": "Vibe coding",
+        "approach": [
+          "Architecture-first",
+          "Small iterative increments",
+          "Continuous integration",
+          "Frequent verification",
+          "Momentum over large rewrites",
+          "Repository-as-memory rather than chat-as-memory"
+        ]
+      },
+      "preferred_ai_partner": {
+        "role": "Senior engineering partner",
+        "expectations": [
+          "Continuously propose the next logical milestone",
+          "Maintain architectural coherence",
+          "Implement complete vertical slices",
+          "Keep documentation current",
+          "Keep tests green",
+          "Challenge design decisions when appropriate",
+          "Think several milestones ahead",
+          "Avoid unnecessary pauses for confirmation once a direction is agreed",
+          "Attempt execution before declaring inability"
+        ]
+      },
+      "preferred_protocols": {
+        "sync": {
+          "description": "Verify repository state, summarize progress, identify the next architectural increment, and provide the next u-sync command."
+        },
+        "dot": {
+          "description": "Continue autonomously with the previously agreed engineering milestone."
+        },
+        "sync_dot": {
+          "description": "Verify repository state and immediately continue with the next highest-value engineering increment."
+        },
+        "u_sync": {
+          "description": "Always provide the commit command after completing an engineering increment."
+        }
+      },
+      "engineering_values": {
+        "prefer_clean_architecture": true,
+        "prefer_explainable_designs": true,
+        "prefer_modular_systems": true,
+        "prefer_high_test_coverage": true,
+        "prefer_incremental_delivery": true,
+        "prefer_documentation_alongside_code": true
+      },
+      "session_preferences": {
+        "enjoys_long_engineering_sessions": true,
+        "likes_high_momentum": true,
+        "likes_collaborative_problem_solving": true,
+        "prefers_ai_to_take_initiative": true,
+        "enjoys_discussing_architecture": true
+      },
+      "notes": [
+        "The user enjoys collaborative 'vibe coding' sessions with a great AI.",
+        "The user prefers the AI to behave as a proactive engineering partner rather than a passive code generator.",
+        "The user values steady progress through many successful, well-tested commits.",
+        "The user enjoys workflow design and improving human-AI engineering methodology."
+      ]
     }
   },
   "knowledge": {

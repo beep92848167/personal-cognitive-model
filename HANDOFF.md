@@ -2,18 +2,17 @@
 
 ## Engineering Increment
 
-Added recommendation explanation detail view.
+Added Mark's AI pair-programming / vibe-coding development preferences to the Personal Cognitive Model seed.
 
 ## Changes
 
-- Added `src/core/recommendation-detail.js`.
-- Added `tests/recommendation-detail-tests.js`.
-- Discover recommendations now include a `Why this?` action.
-- Added `view-recommendation-detail`.
-- Detail view shows score, confidence, supporting signals, risks, sources, feedback, learning adjustment, and explanation graph summary.
-- Added `REQ-RECDETAIL-001`.
-- Added `docs/RECOMMENDATION_DETAIL_VIEW.md`.
-- Updated CLI/browser runners and script loading.
+- Updated `src/data/pcm-seed.js` with `profile.development_preferences`.
+- Added `OpenPCMProfile.developmentPreferencesSummary()`.
+- Added `tests/profile-devprefs-tests.js`.
+- Added `REQ-PROFILE-002`.
+- Added `docs/DEVELOPMENT_PREFERENCES.md`.
+- Updated project/core documentation.
+- Updated CLI/browser test loading.
 
 ## Verification
 
@@ -25,14 +24,10 @@ node tools/run-tests.js
 
 Expected result:
 
-- 80 passed
+- 83 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(ui): add recommendation explanation detail view
-
-## Risk
-
-Medium. Adds a new UI route and detail state, but recommendation generation remains unchanged.
+feat(profile): record vibe-coding development preferences

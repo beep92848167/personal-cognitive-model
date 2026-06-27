@@ -81,6 +81,7 @@ function loadManifest() {
 }
 
 const scripts = [
+  "src/data/pcm-seed.js",
   "src/core/portable.js",
   "src/core/evidence.js",
   "src/core/validation.js",
@@ -102,6 +103,7 @@ const scripts = [
   "tests/detail-tests.js",
   "tests/catalogue-tests.js",
   "tests/profile-tests.js",
+  "tests/profile-devprefs-tests.js",
   "tests/calibration-tests.js",
   "tests/learning-tests.js",
   "tests/preferences-tests.js",

@@ -54,3 +54,8 @@ See:
 - `docs/ARCHITECTURE_V2.md`
 
 V2 work should focus on catalogue ingestion, preference modelling, reasoning, learning, and only then cognitive-state recommendations.
+
+
+## Development Preferences
+
+The PCM seed includes `profile.development_preferences`, recording Mark's preference for collaborative AI pair-programming / vibe coding with small verified increments, frequent syncs, tests, and proactive architectural partnership.

@@ -118,11 +118,30 @@
     return evidence;
   }
 
+
+  function developmentPreferencesSummary(source = {}) {
+    const prefs = source.profile?.development_preferences || {};
+    return {
+      summary: prefs.summary || "",
+      workflowStyle: prefs.preferred_workflow?.style || "",
+      nickname: prefs.preferred_workflow?.nickname || "",
+      aiPartnerRole: prefs.preferred_ai_partner?.role || "",
+      protocols: Object.keys(prefs.preferred_protocols || {}),
+      engineeringValues: Object.entries(prefs.engineering_values || {})
+        .filter(([, enabled]) => !!enabled)
+        .map(([key]) => humanizeKey(key.replace(/^prefer_/, ""))),
+      sessionPreferences: Object.entries(prefs.session_preferences || {})
+        .filter(([, enabled]) => !!enabled)
+        .map(([key]) => humanizeKey(key))
+    };
+  }
+
   global.OpenPCMProfile = {
     humanizeKey,
     positiveFeatureSignals,
     negativeFeatureSignals,
     profileSummary,
+    developmentPreferencesSummary,
     buildCandidateCatalogue,
     buildEvidenceFromProfile
   };

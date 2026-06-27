@@ -30,3 +30,5 @@ UI code may display validation results, but validation rules and normalization r
 - `explanation-graph.js` converts recommendation reasoning into structured graph nodes and edges.
 
 - `recommendation-detail.js` renders inspectable recommendation explanation detail models and HTML.
+
+- `profile.js` also exposes `developmentPreferencesSummary()` for AI pair-programming / vibe-coding workflow preferences in the PCM seed.

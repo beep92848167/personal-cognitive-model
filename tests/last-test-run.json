@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T12:05:44.158Z",
+  "timestamp": "2026-06-27T12:36:43.551Z",
   "status": "PASS",
-  "passed": 80,
+  "passed": 83,
   "failed": 0,
-  "total": 80,
-  "durationMs": 16,
+  "total": 83,
+  "durationMs": 17,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 30,
-    "covered": 30,
+    "total": 31,
+    "covered": 31,
     "uncovered": []
   },
   "failures": [],
@@ -308,6 +308,27 @@
       "requirements": [
         "REQ-PROFILE-001",
         "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "developmentPreferencesSummary exposes vibe coding workflow preferences",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-002"
+      ]
+    },
+    {
+      "name": "developmentPreferencesSummary lists enabled engineering and session preferences",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-002"
+      ]
+    },
+    {
+      "name": "PCM seed includes development preferences",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-002"
       ]
     },
     {
