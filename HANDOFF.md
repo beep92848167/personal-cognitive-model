@@ -2,17 +2,22 @@
 
 ## Engineering Increment
 
-Added the first deterministic Discover recommendation engine.
+Integrated the uploaded Personal Cognitive Model as an explicit Discover data source.
 
 ## Changes
 
-- Added `src/core/discover.js`.
-- Added `tests/discover-tests.js`.
-- Added `REQ-DISCOVER-001` to `docs/REQUIREMENTS.md`.
-- Added `REQ-DISCOVER-001` to `requirements/requirements.json`.
-- Wired the Discover page to show explainable recommendations from saved evidence.
-- Updated CLI and browser test runners.
-- Updated `src/core/README.md`.
+- Added `src/data/pcm-seed.js` generated from `personal-cognitive-model.zip`.
+- Added `src/core/profile.js`.
+- Discover now combines:
+  - explicit OpenPCM evidence,
+  - PCM-derived profile evidence,
+  - PCM recommendation/media candidates.
+- Discover UI now shows the profile source summary.
+- Added `REQ-PROFILE-001`.
+- Added `tests/profile-tests.js`.
+- Expanded Discover tests for profile-source integration.
+- Updated CLI and browser runners.
+- Updated core and project documentation.
 
 ## Verification
 
@@ -24,14 +29,14 @@ node tools/run-tests.js
 
 Expected result in this package:
 
-- 39 passed
+- 43 passed
 - 0 failed
-- Requirement coverage remains high with new Discover requirement covered.
+- Coverage includes new profile-source requirement.
 
 ## Suggested Commit
 
-feat(discover): add explainable recommendation engine
+feat(profile): use personal cognitive model in discover
 
 ## Risk
 
-Medium. This introduces user-visible Discover behaviour, but the recommendation engine is deterministic and covered by unit tests.
+Medium. This embeds a generated profile seed into the browser app and starts using it for recommendations. The logic is deterministic and covered by tests.

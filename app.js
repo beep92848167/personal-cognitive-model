@@ -3,6 +3,7 @@ const Validation = window.OpenPCMValidation;
 const Detail = window.OpenPCMDetail;
 const Portable = window.OpenPCMPortable;
 const Discover = window.OpenPCMDiscover;
+const Profile = window.OpenPCMProfile;
 
 let selectedTags = new Set();
 let activeFilter = "All";
@@ -10,13 +11,6 @@ let lastSaved = null;
 let selectedDetailId = null;
 
 const $ = (id) => document.getElementById(id);
-
-const DISCOVER_CANDIDATES = [
-  { title: "Babylon 5", medium: "TV", tags: ["institutions", "political systems", "ensemble cast", "world-building"], note: "Long-form institutional consequences and diplomacy." },
-  { title: "The Expanse", medium: "TV", tags: ["complex systems", "institutions", "competence", "world-building"], note: "Systems pressure, faction politics, and competence under constraint." },
-  { title: "The Wire", medium: "TV", tags: ["institutions", "complex systems", "ensemble cast"], note: "Institutional failure and incentives made visible." },
-  { title: "Project Hail Mary", medium: "Book", tags: ["competence", "science", "low cognitive load"], note: "Problem-solving and cooperative competence." }
-];
 
 
 function nowGreeting() {
@@ -93,12 +87,13 @@ function renderDetail() {
 
 function renderDiscover() {
   const entries = loadEntries();
-  const summary = Discover.buildDiscoverSummary(entries, DISCOVER_CANDIDATES);
+  const summary = Discover.buildDiscoverSummary(entries, [], { profileSource: window.OpenPCMProfileSeed });
   const recommendations = summary.recommendations.slice(0, 3);
 
   $("discover-content").innerHTML = entries.length ? `
     <p class="eyebrow">Explainable matches</p>
     <h2>Discover</h2>
+    ${summary.profileSourceSummary?.cognition ? `<p class="meta">Profile source: ${escapeHtml(summary.profileSourceSummary.cognition)}</p>` : ""}
     ${summary.topTags.length ? `<p class="meta">Current preference signals: ${summary.topTags.map(escapeHtml).join(", ")}</p>` : ""}
     <div class="list">
       ${recommendations.length ? recommendations.map(rec => `

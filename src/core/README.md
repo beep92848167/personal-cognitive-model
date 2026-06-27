@@ -10,3 +10,5 @@ UI code may display validation results, but validation rules and normalization r
 - `detail.js` owns pure detail-view model and HTML rendering helpers for saved evidence.
 
 - `discover.js` owns deterministic, explainable recommendation scoring from saved evidence.
+
+- `profile.js` adapts the Personal Cognitive Model profile into evidence and recommendation candidates.

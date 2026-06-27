@@ -52,4 +52,23 @@
     assertEqual(summary.topTags.includes("institutions"), true);
     assertEqual(summary.recommendations[0].title, "Strong Match");
   });
+
+  test("buildDiscoverSummary combines explicit evidence with profile source", ["REQ-PROFILE-001", "REQ-DISCOVER-001"], () => {
+    const source = {
+      profile: { cognition: { summary: "Systems thinker." } },
+      knowledge: {
+        features: {
+          positive: { institutional_conflict: { weight: 10, confidence: 10 } },
+          negative: {}
+        },
+        recommendations: { current: { tv: ["Counterpart"] } }
+      },
+      media: { television: { loved: ["Andor"] } }
+    };
+
+    const summary = Discover.buildDiscoverSummary([], [], { profileSource: source });
+    assertEqual(summary.profileSourceSummary.cognition, "Systems thinker.");
+    assertEqual(summary.recommendations[0].title, "Counterpart");
+  });
+
 })();

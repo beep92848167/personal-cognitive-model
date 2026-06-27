@@ -124,8 +124,17 @@
   }
 
   function buildDiscoverSummary(evidence = [], candidates = [], options = {}) {
-    const profile = buildPreferenceProfile(evidence);
-    const recommendations = rankCandidates(candidates, evidence, { ...options, profile });
+    const profileSource = options.profileSource || null;
+    const profileEvidence = profileSource && global.OpenPCMProfile
+      ? global.OpenPCMProfile.buildEvidenceFromProfile(profileSource)
+      : [];
+    const combinedEvidence = [...profileEvidence, ...(evidence || [])];
+    const candidateSource = candidates && candidates.length
+      ? candidates
+      : (profileSource && global.OpenPCMProfile ? global.OpenPCMProfile.buildCandidateCatalogue(profileSource) : []);
+
+    const profile = buildPreferenceProfile(combinedEvidence);
+    const recommendations = rankCandidates(candidateSource, combinedEvidence, { ...options, profile });
     const topTags = Object.entries(profile.tags)
       .filter(([, value]) => value > 0)
       .slice(0, 5)
@@ -133,6 +142,7 @@
 
     return {
       profile,
+      profileSourceSummary: profileSource && global.OpenPCMProfile ? global.OpenPCMProfile.profileSummary(profileSource) : null,
       topTags,
       recommendations
     };

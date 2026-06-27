@@ -31,3 +31,8 @@ See `docs/AI_COLLABORATION_PROTOCOL.md` for the canonical `SYNC` and `.` workflo
 ## Requirement Registry
 
 Machine-readable requirements live in `requirements/requirements.json` and are used by `tools/run-tests.js` for coverage reporting.
+
+
+## Personal Cognitive Model Source
+
+The browser app includes `src/data/pcm-seed.js`, generated from the latest Personal Cognitive Model ZIP provided by Mark. `src/core/profile.js` adapts that profile into recommendation evidence and candidates for Discover.

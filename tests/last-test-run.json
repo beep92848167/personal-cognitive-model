@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T09:50:10.713Z",
+  "timestamp": "2026-06-27T09:59:01.505Z",
   "status": "PASS",
-  "passed": 39,
+  "passed": 43,
   "failed": 0,
-  "total": 39,
+  "total": 43,
   "durationMs": 11,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 21,
-    "covered": 16,
+    "total": 22,
+    "covered": 17,
     "uncovered": [
       {
         "id": "REQ-ANDROID-001",
@@ -295,6 +295,29 @@
       ]
     },
     {
+      "name": "profileSummary extracts cognitive and feature signals",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-001"
+      ]
+    },
+    {
+      "name": "buildCandidateCatalogue creates recommendation candidates from PCM data",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-001",
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "buildEvidenceFromProfile turns loved and disliked media into evidence",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-001",
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
       "name": "buildPreferenceProfile weights positive and negative evidence",
       "status": "PASS",
       "requirements": [
@@ -326,6 +349,14 @@
       "name": "buildDiscoverSummary returns top tags and recommendations",
       "status": "PASS",
       "requirements": [
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "buildDiscoverSummary combines explicit evidence with profile source",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-001",
         "REQ-DISCOVER-001"
       ]
     }

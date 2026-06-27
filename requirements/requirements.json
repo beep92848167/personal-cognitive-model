@@ -154,6 +154,16 @@
       "tests": []
     },
     {
+      "id": "REQ-PROFILE-001",
+      "title": "Discover must use the Personal Cognitive Model profile as an explicit recommendation source.",
+      "shortTitle": "Use PCM profile as recommendation source",
+      "area": "Profile Source",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-DISCOVER-001",
       "title": "Discover must generate explainable recommendations from saved evidence.",
       "shortTitle": "Explainable evidence-based recommendations",

@@ -35,6 +35,12 @@
 | REQ-PORTABLE-001 | User must be able to export evidence as JSON. | High | Active |
 | REQ-PORTABLE-002 | User must be able to import evidence from JSON. | High | Active |
 
+## Profile Source
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-PROFILE-001 | Discover must use the Personal Cognitive Model profile as an explicit recommendation source. | High | Active |
+
 ## Discover
 
 | ID | Requirement | Priority | Status |
