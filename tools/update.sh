@@ -82,6 +82,44 @@ if [ "$SYNC" -eq 1 ]; then
   sync_dir="$DOWNLOADS"
   sync_zip="$sync_dir/${ts}-${repo_name}-${branch}-${sha}.zip"
 
+  test_status="NOT_RUN"
+  test_passed=0
+  test_failed=0
+  test_count=0
+
+  mkdir -p tests
+
+  if [ -f "tests/test-manifest.json" ]; then
+    test_count=$(python - <<'PY'
+import json
+from pathlib import Path
+
+manifest = Path("tests/test-manifest.json")
+try:
+    data = json.loads(manifest.read_text())
+    print(len(data.get("requirements", [])))
+except Exception:
+    print(0)
+PY
+)
+  fi
+
+  cat > tests/last-test-run.json <<EOF
+{
+  "workflowVersion": 4,
+  "timestamp": "$(date -Iseconds)",
+  "repository": "$repo_name",
+  "branch": "$branch",
+  "commit": "$sha",
+  "status": "$test_status",
+  "passed": $test_passed,
+  "failed": $test_failed,
+  "testCount": $test_count,
+  "runner": "tests/test.html",
+  "note": "Browser tests are not automatically executable from Termux sync yet. This artifact records the latest sync test context and should be replaced by automated results when a CLI runner is added."
+}
+EOF
+
   cat > .openpcm-sync.json <<EOF
 {
   "workflowVersion": 4,
@@ -91,7 +129,8 @@ if [ "$SYNC" -eq 1 ]; then
   "commit": "$sha",
   "commitMessage": "$MSG",
   "timestamp": "$(date -Iseconds)",
-  "exportedBy": "tools/update.sh -sync"
+  "exportedBy": "tools/update.sh -sync",
+  "testResults": "tests/last-test-run.json"
 }
 EOF
 
@@ -105,6 +144,8 @@ EOF
 - Commit: $sha
 - Created: $(date -Iseconds)
 - Commit message: $MSG
+- Test artifact: tests/last-test-run.json
+- Test status: $test_status
 
 ## Next Step
 
@@ -142,6 +183,11 @@ EOF
   echo "──────────────────────────────────────"
   echo "✓ Commit: $sha"
   echo "✓ Pushed: origin/$branch"
+  echo
+  echo "✓ Test artifact"
+  echo
+  echo "tests/last-test-run.json"
+  echo "Status: $test_status"
   echo
   echo "✓ Sync package"
   echo
