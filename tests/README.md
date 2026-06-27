@@ -54,3 +54,15 @@ pkg install nodejs
 
 
 Next planned suite: `portable-detail-tests.js` covering export/import/detail view.
+
+
+## Shared test harness
+
+`tests/test-harness.js` owns shared assertion, test registration, result reporting, and requirement coverage logic.
+
+Both runners use it:
+
+- Browser: `tests/test.html`
+- CLI: `node tools/run-tests.js`
+
+This keeps browser and CLI test results structurally aligned.

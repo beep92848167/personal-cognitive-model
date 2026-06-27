@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "3f1900e",
-  "commitMessage": "test(library): implement detail view coverage",
-  "timestamp": "2026-06-27T19:17:47+10:00",
+  "commit": "ae4e527",
+  "commitMessage": "test(library): add executable detail view coverage",
+  "timestamp": "2026-06-27T19:29:17+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

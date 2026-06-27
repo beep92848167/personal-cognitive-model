@@ -2,51 +2,10 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const { createHarness, normalizeRequirements } = require("../tests/test-harness.js");
 
 const repoRoot = path.resolve(__dirname, "..");
-const started = Date.now();
-
-const results = [];
-const covered = new Set();
-
-function assert(condition, message = "Assertion failed") {
-  if (!condition) throw new Error(message);
-}
-
-function assertEqual(actual, expected, message = "Values are not equal") {
-  if (actual !== expected) {
-    throw new Error(`${message}. Expected ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
-  }
-}
-
-function assertDeepEqual(actual, expected, message = "Objects are not equal") {
-  const a = JSON.stringify(actual);
-  const e = JSON.stringify(expected);
-  if (a !== e) {
-    throw new Error(`${message}. Expected ${e}, got ${a}`);
-  }
-}
-
-function test(name, requirements, fn) {
-  if (typeof requirements === "function") {
-    fn = requirements;
-    requirements = [];
-  }
-
-  try {
-    fn();
-    for (const req of requirements || []) covered.add(req);
-    results.push({ name, status: "PASS", requirements: requirements || [] });
-  } catch (err) {
-    results.push({
-      name,
-      status: "FAIL",
-      requirements: requirements || [],
-      message: err.message || String(err),
-      stack: err.stack || ""
-    });
-  }
-}
+const harness = createHarness({ runner: "tools/run-tests.js" });
 
 function makeStorage() {
   return {
@@ -83,7 +42,12 @@ const sandbox = {
 sandbox.window = sandbox;
 sandbox.global = sandbox;
 sandbox.localStorage = makeStorage();
-sandbox.OpenPCMTest = { test, assert, assertEqual, assertDeepEqual };
+sandbox.OpenPCMTest = {
+  test: harness.test,
+  assert: harness.assert,
+  assertEqual: harness.assertEqual,
+  assertDeepEqual: harness.assertDeepEqual
+};
 
 vm.createContext(sandbox);
 
@@ -101,13 +65,7 @@ function loadManifest() {
     const registry = JSON.parse(fs.readFileSync(registryPath, "utf8"));
     return {
       source: "requirements/requirements.json",
-      requirements: (registry.requirements || []).map(req => ({
-        id: req.id,
-        title: req.shortTitle || req.title || "",
-        area: req.area || "",
-        priority: req.priority || "",
-        status: req.status || ""
-      }))
+      requirements: normalizeRequirements(registry.requirements || [])
     };
   } catch {}
 
@@ -115,7 +73,7 @@ function loadManifest() {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
     return {
       source: "tests/test-manifest.json",
-      requirements: manifest.requirements || []
+      requirements: normalizeRequirements(manifest.requirements || [])
     };
   } catch {
     return { source: "none", requirements: [] };
@@ -137,43 +95,10 @@ for (const script of scripts) {
   runScript(script);
 }
 
-const manifest = loadManifest();
-const requirements = manifest.requirements || [];
-const uncovered = requirements.filter(req => !covered.has(req.id));
-const failed = results.filter(result => result.status === "FAIL");
-const passed = results.length - failed.length;
-
-const report = {
-  workflowVersion: 4,
-  timestamp: new Date().toISOString(),
-  status: failed.length ? "FAIL" : "PASS",
-  passed,
-  failed: failed.length,
-  total: results.length,
-  durationMs: Date.now() - started,
-  runner: "tools/run-tests.js",
-  requirements: {
-    source: manifest.source || "unknown",
-    total: requirements.length,
-    covered: covered.size,
-    uncovered: uncovered.map(req => ({
-      id: req.id,
-      title: req.title || "",
-      area: req.area || "",
-      priority: req.priority || "",
-      status: req.status || ""
-    }))
-  },
-  failures: failed.map(result => ({
-    test: result.name,
-    message: result.message,
-    stack: result.stack
-  })),
-  results
-};
-
-console.log(JSON.stringify(report, null, 2));
-
-if (failed.length) {
+harness.runAll(loadManifest()).then(report => {
+  console.log(JSON.stringify(report, null, 2));
+  if (report.failed) process.exit(1);
+}).catch(err => {
+  console.error(err.stack || err.message || String(err));
   process.exit(1);
-}
+});
