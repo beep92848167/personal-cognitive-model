@@ -154,6 +154,16 @@
       "tests": []
     },
     {
+      "id": "REQ-DISCOVER-001",
+      "title": "Discover must generate explainable recommendations from saved evidence.",
+      "shortTitle": "Explainable evidence-based recommendations",
+      "area": "Discover",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-ANDROID-001",
       "title": "Android update workflow must be one-command after downloading a ZIP.",
       "shortTitle": "One-command Android update",

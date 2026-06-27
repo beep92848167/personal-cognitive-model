@@ -35,6 +35,12 @@
 | REQ-PORTABLE-001 | User must be able to export evidence as JSON. | High | Active |
 | REQ-PORTABLE-002 | User must be able to import evidence from JSON. | High | Active |
 
+## Discover
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
+
 ## Android Workflow
 
 | ID | Requirement | Priority | Status |

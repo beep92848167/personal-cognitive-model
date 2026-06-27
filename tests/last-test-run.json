@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T09:35:45.084Z",
+  "timestamp": "2026-06-27T09:50:10.713Z",
   "status": "PASS",
-  "passed": 34,
+  "passed": 39,
   "failed": 0,
-  "total": 34,
-  "durationMs": 8,
+  "total": 39,
+  "durationMs": 11,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 20,
-    "covered": 15,
+    "total": 21,
+    "covered": 16,
     "uncovered": [
       {
         "id": "REQ-ANDROID-001",
@@ -292,6 +292,41 @@
       "status": "PASS",
       "requirements": [
         "REQ-LIBRARY-004"
+      ]
+    },
+    {
+      "name": "buildPreferenceProfile weights positive and negative evidence",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "scoreCandidate rewards matched positive preference tags",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "scoreCandidate records risk signals",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "rankCandidates excludes already captured titles and sorts by score",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "buildDiscoverSummary returns top tags and recommendations",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DISCOVER-001"
       ]
     }
   ]

@@ -2,6 +2,7 @@ const Core = window.OpenPCMCore;
 const Validation = window.OpenPCMValidation;
 const Detail = window.OpenPCMDetail;
 const Portable = window.OpenPCMPortable;
+const Discover = window.OpenPCMDiscover;
 
 let selectedTags = new Set();
 let activeFilter = "All";
@@ -9,6 +10,14 @@ let lastSaved = null;
 let selectedDetailId = null;
 
 const $ = (id) => document.getElementById(id);
+
+const DISCOVER_CANDIDATES = [
+  { title: "Babylon 5", medium: "TV", tags: ["institutions", "political systems", "ensemble cast", "world-building"], note: "Long-form institutional consequences and diplomacy." },
+  { title: "The Expanse", medium: "TV", tags: ["complex systems", "institutions", "competence", "world-building"], note: "Systems pressure, faction politics, and competence under constraint." },
+  { title: "The Wire", medium: "TV", tags: ["institutions", "complex systems", "ensemble cast"], note: "Institutional failure and incentives made visible." },
+  { title: "Project Hail Mary", medium: "Book", tags: ["competence", "science", "low cognitive load"], note: "Problem-solving and cooperative competence." }
+];
+
 
 function nowGreeting() {
   const hour = new Date().getHours();
@@ -81,6 +90,34 @@ function renderDetail() {
   document.querySelector("#detail-card [data-nav='library']").addEventListener("click", () => setView("library"));
 }
 
+
+function renderDiscover() {
+  const entries = loadEntries();
+  const summary = Discover.buildDiscoverSummary(entries, DISCOVER_CANDIDATES);
+  const recommendations = summary.recommendations.slice(0, 3);
+
+  $("discover-content").innerHTML = entries.length ? `
+    <p class="eyebrow">Explainable matches</p>
+    <h2>Discover</h2>
+    ${summary.topTags.length ? `<p class="meta">Current preference signals: ${summary.topTags.map(escapeHtml).join(", ")}</p>` : ""}
+    <div class="list">
+      ${recommendations.length ? recommendations.map(rec => `
+        <article class="entry">
+          <div class="entry-title">${escapeHtml(rec.title)} <span class="badge">${rec.score}%</span></div>
+          <div class="meta">${escapeHtml(rec.medium)}</div>
+          ${rec.reasons.length ? `<div class="tags">Reasons: ${rec.reasons.map(escapeHtml).join(", ")}</div>` : ""}
+          ${rec.risks.length ? `<div class="warning-text">Risks: ${rec.risks.map(escapeHtml).join(", ")}</div>` : ""}
+          ${rec.note ? `<div class="note">${escapeHtml(rec.note)}</div>` : ""}
+        </article>
+      `).join("") : `<div class="empty">No recommendations yet. Add more liked evidence.</div>`}
+    </div>
+  ` : `
+    <p class="eyebrow">Explainable matches</p>
+    <h2>Discover</h2>
+    <p>Add evidence first. Recommendations are generated from your saved reactions and tags.</p>
+  `;
+}
+
 function renderStats() {
   const stats = Core.buildStats(loadEntries());
   $("stats").innerHTML = `
@@ -96,6 +133,7 @@ function renderAll() {
   renderRecent();
   renderLibrary();
   renderStats();
+  renderDiscover();
   renderDetail();
   bindEntryButtons();
 }

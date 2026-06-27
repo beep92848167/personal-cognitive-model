@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "f9109fb",
-  "commitMessage": "refactor(test): unify browser and CLI test runners",
-  "timestamp": "2026-06-27T19:35:45+10:00",
+  "commit": "f8d4953",
+  "commitMessage": "docs(engineering): add prioritised backlog",
+  "timestamp": "2026-06-27T19:37:11+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

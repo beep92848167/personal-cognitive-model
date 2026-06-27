@@ -8,3 +8,5 @@ Core modules contain business logic that should remain independent of the UI.
 UI code may display validation results, but validation rules and normalization rules should live here.
 
 - `detail.js` owns pure detail-view model and HTML rendering helpers for saved evidence.
+
+- `discover.js` owns deterministic, explainable recommendation scoring from saved evidence.
