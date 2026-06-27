@@ -98,6 +98,9 @@ if [ "$SYNC" -eq 1 ]; then
   echo "Next:"
   echo "  1. Upload this ZIP to ChatGPT"
   echo "  2. Type: SYNC"
+  echo
+  echo "Sync mode complete. Server restart skipped."
+  exit 0
 fi
 
 echo
