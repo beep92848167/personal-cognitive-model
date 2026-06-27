@@ -63,6 +63,57 @@
     return (evidence || []).some(entry => normalizeText(entry.title) === title);
   }
 
+  function reasonLabel(reason = {}) {
+    return String(reason.tag || "")
+      .replaceAll("_", " ")
+      .replace(/\b\w/g, letter => letter.toUpperCase());
+  }
+
+  function sourceLabel(source = "") {
+    const value = String(source || "");
+    if (value.startsWith("pcm:recommendations.current.tv")) return "Personal Cognitive Model: current TV recommendations";
+    if (value.startsWith("pcm:recommendations.current.books_low_load")) return "Personal Cognitive Model: low-load book recommendations";
+    if (value.startsWith("pcm:recommendations.current.games_ps5")) return "Personal Cognitive Model: PS5 game recommendations";
+    if (value.startsWith("pcm:media.movies.recommended_unwatched_or_unknown")) return "Personal Cognitive Model: movie recommendation list";
+    if (value.startsWith("pcm:media.television.comfort_rewatches")) return "Personal Cognitive Model: comfort rewatches";
+    if (value.startsWith("profile")) return "Personal Cognitive Model profile";
+    return value || "OpenPCM evidence";
+  }
+
+  function buildExplanation(candidate = {}, scored = {}, options = {}) {
+    const reasons = (scored.matchedReasons || []).slice(0, 5).map(reason => ({
+      label: reasonLabel(reason),
+      signal: reason.tag,
+      weight: reason.weight,
+      detail: reason.type === "medium"
+        ? "Preferred medium based on saved evidence."
+        : "Matches a positive preference signal."
+    }));
+
+    const risks = (scored.risks || []).slice(0, 4).map(risk => ({
+      label: reasonLabel(risk),
+      signal: risk.tag,
+      weight: risk.weight,
+      detail: risk.reason || "Potential mismatch based on prior evidence."
+    }));
+
+    const sources = [
+      sourceLabel(candidate.source),
+      options.profileSource ? "Personal Cognitive Model profile seed" : "",
+      options.feedback ? "Recommendation feedback calibration" : ""
+    ].filter(Boolean);
+
+    return {
+      headline: reasons.length
+        ? `Recommended because it matches ${reasons.slice(0, 3).map(reason => reason.label).join(", ")}.`
+        : "Recommended from available catalogue evidence.",
+      reasons,
+      risks,
+      sources: [...new Set(sources)],
+      confidence: reasons.length >= 3 ? "High" : reasons.length >= 1 ? "Medium" : "Low"
+    };
+  }
+
   function scoreCandidate(candidate = {}, evidence = [], options = {}) {
     const profile = options.profile || buildPreferenceProfile(evidence);
     const tags = candidateTags(candidate);
@@ -104,13 +155,16 @@
 
   function buildRecommendation(candidate = {}, evidence = [], options = {}) {
     const scored = scoreCandidate(candidate, evidence, options);
+    const explanation = buildExplanation(candidate, scored, options);
     return {
       title: candidateTitle(candidate),
       medium: candidate.medium || candidate.type || "Other",
       score: scored.score,
       reasons: scored.matchedReasons.map(reason => reason.tag),
       risks: scored.risks.map(risk => risk.tag),
+      explanation,
       note: candidate.note || candidate.description || "",
+      source: candidate.source || "",
       candidate
     };
   }
@@ -155,6 +209,8 @@
     buildPreferenceProfile,
     scoreCandidate,
     buildRecommendation,
+    buildExplanation,
+    sourceLabel,
     rankCandidates,
     buildDiscoverSummary,
     alreadyInEvidence

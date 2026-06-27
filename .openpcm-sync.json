@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "1475083",
-  "commitMessage": "feat(profile): use personal cognitive model in discover",
-  "timestamp": "2026-06-27T20:06:14+10:00",
+  "commit": "f94400a",
+  "commitMessage": "feat(discover): calibrate recommendations from feedback",
+  "timestamp": "2026-06-27T20:12:28+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

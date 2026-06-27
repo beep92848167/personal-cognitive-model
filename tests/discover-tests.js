@@ -71,4 +71,24 @@
     assertEqual(summary.recommendations[0].title, "Counterpart");
   });
 
+  test("buildRecommendation returns explanation sources and confidence", ["REQ-DISCOVER-002", "REQ-DISCOVER-001"], () => {
+    const recommendation = Discover.buildRecommendation(
+      { title: "Counterpart", medium: "TV", tags: ["institutions", "competence"], source: "pcm:recommendations.current.tv" },
+      evidence,
+      { profileSource: { profile: {} } }
+    );
+
+    assertEqual(recommendation.explanation.confidence, "High");
+    assertEqual(recommendation.explanation.sources.includes("Personal Cognitive Model: current TV recommendations"), true);
+    assertEqual(recommendation.explanation.sources.includes("Personal Cognitive Model profile seed"), true);
+    assertEqual(recommendation.explanation.reasons.length >= 2, true);
+  });
+
+  test("sourceLabel explains known PCM sources", ["REQ-DISCOVER-002"], () => {
+    assertEqual(
+      Discover.sourceLabel("pcm:media.movies.recommended_unwatched_or_unknown"),
+      "Personal Cognitive Model: movie recommendation list"
+    );
+  });
+
 })();

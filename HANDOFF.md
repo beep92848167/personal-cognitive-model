@@ -2,18 +2,20 @@
 
 ## Engineering Increment
 
-Added recommendation feedback calibration to Discover.
+Improved Discover recommendation explanations and source transparency.
 
 ## Changes
 
-- Added `src/core/calibration.js`.
-- Added `tests/calibration-tests.js`.
-- Discover can now apply recommendation feedback to adjust and re-rank scores.
-- Discover UI now includes `Good fit` and `Not for me` feedback buttons.
-- Feedback is stored locally in `localStorage`.
-- Added `REQ-CALIBRATION-001`.
-- Updated CLI and browser runners.
-- Updated core documentation.
+- Added structured recommendation explanations:
+  - headline
+  - reason signals
+  - watch-outs
+  - confidence
+  - source labels
+- Discover UI now displays explanation details instead of only raw tags.
+- Added source labelling for Personal Cognitive Model recommendation/media lists.
+- Added `REQ-DISCOVER-002`.
+- Expanded Discover tests.
 
 ## Verification
 
@@ -25,14 +27,10 @@ node tools/run-tests.js
 
 Expected result in this package:
 
-- 47 passed
+- 49 passed
 - 0 failed
-- New calibration requirement covered.
+- New Discover explanation requirement covered.
 
 ## Suggested Commit
 
-feat(discover): calibrate recommendations from feedback
-
-## Risk
-
-Medium. Adds local state for recommendation feedback and changes Discover ranking when feedback exists.
+feat(discover): improve recommendation explanations

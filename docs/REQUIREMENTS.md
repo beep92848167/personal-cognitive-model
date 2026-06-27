@@ -46,6 +46,7 @@
 | ID | Requirement | Priority | Status |
 |---|---|---:|---|
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
+| REQ-DISCOVER-002 | Discover recommendation explanations must show reasons, risks, confidence, and sources. | High | Active |
 
 ## Calibration
 

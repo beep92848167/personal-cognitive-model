@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T10:08:51.574Z",
+  "timestamp": "2026-06-27T10:16:46.073Z",
   "status": "PASS",
-  "passed": 47,
+  "passed": 49,
   "failed": 0,
-  "total": 47,
+  "total": 49,
   "durationMs": 11,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 23,
-    "covered": 18,
+    "total": 24,
+    "covered": 19,
     "uncovered": [
       {
         "id": "REQ-ANDROID-001",
@@ -387,6 +387,21 @@
       "requirements": [
         "REQ-PROFILE-001",
         "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "buildRecommendation returns explanation sources and confidence",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DISCOVER-002",
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "sourceLabel explains known PCM sources",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DISCOVER-002"
       ]
     }
   ]
