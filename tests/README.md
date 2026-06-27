@@ -51,3 +51,6 @@ Install Node.js in Termux when you want verified CLI test results:
 ```bash
 pkg install nodejs
 ```
+
+
+Next planned suite: `portable-detail-tests.js` covering export/import/detail view.
