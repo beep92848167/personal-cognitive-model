@@ -4,9 +4,9 @@
 
 - Workflow version: 4
 - Branch: main
-- Commit: 5fbdf22
-- Created: 2026-06-27T19:11:52+10:00
-- Commit message: test(portable): add executable import/export coverage
+- Commit: 22c601f
+- Created: 2026-06-27T19:16:29+10:00
+- Commit message: test(library): prepare detail view coverage
 - Test artifact: tests/last-test-run.json
 - Test status: PASS
 
@@ -19,5 +19,4 @@ SYNC
 ```
 
 
-## Next increment executed
-Scaffold for detail-view testing planned.
+Next target: REQ-LIBRARY-004 detail view.
