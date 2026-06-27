@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "0c94212",
-  "commitMessage": "feat(android): document and test Termux workflow",
-  "timestamp": "2026-06-27T20:33:57+10:00",
+  "commit": "f5f82a2",
+  "commitMessage": "feat(test): complete browser test runner and coverage dashboard",
+  "timestamp": "2026-06-27T20:41:27+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

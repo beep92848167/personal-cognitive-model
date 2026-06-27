@@ -41,3 +41,16 @@ The browser app includes `src/data/pcm-seed.js`, generated from the latest Perso
 ## Android Workflow
 
 The canonical Termux/Android workflow is documented in `docs/ANDROID_WORKFLOW.md` and represented in `src/core/android-workflow.js`.
+
+
+## V1 Baseline and V2 Roadmap
+
+OpenPCM V1 is frozen at commit `f5f82a2`.
+
+See:
+
+- `docs/V1_BASELINE.md`
+- `docs/V2_ROADMAP.md`
+- `docs/ARCHITECTURE_V2.md`
+
+V2 work should focus on catalogue ingestion, preference modelling, reasoning, learning, and only then cognitive-state recommendations.
