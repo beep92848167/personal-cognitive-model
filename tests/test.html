@@ -22,6 +22,7 @@
       padding: 18px;
     }
     h1 { color: var(--gold); }
+    h3 { color: var(--gold); }
     .summary, .test {
       background: var(--surface);
       border: 1px solid rgba(215,164,73,.3);
@@ -31,6 +32,12 @@
     }
     .pass { color: var(--green); }
     .fail { color: var(--red); }
+    .reqs { margin-top: 8px; color: var(--muted); font-size: .9rem; }
+    code {
+      background: rgba(0,0,0,.25);
+      border-radius: 6px;
+      padding: 2px 5px;
+    }
     pre {
       white-space: pre-wrap;
       color: var(--muted);
@@ -46,6 +53,7 @@
       font-size: 1rem;
       margin: 8px 0 16px;
     }
+    summary { cursor: pointer; color: var(--gold); font-weight: 700; }
   </style>
 </head>
 <body>

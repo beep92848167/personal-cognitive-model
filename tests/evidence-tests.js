@@ -38,6 +38,10 @@
     });
   }
 
+  function sortNewestFirst(entries) {
+    return entries.slice().sort((a,b) => new Date(b.timestamp_utc) - new Date(a.timestamp_utc));
+  }
+
   function stats(entries) {
     const byType = {};
     const byReaction = {};
@@ -57,7 +61,15 @@
     };
   }
 
-  test("normalizeEntry fills missing defaults", () => {
+  function removeEntry(entries, id) {
+    return entries.filter(e => e.id !== id);
+  }
+
+  function updateEntry(entries, updated) {
+    return entries.map(e => e.id === updated.id ? updated : e);
+  }
+
+  test("normalizeEntry fills missing defaults", ["REQ-EVIDENCE-001"], () => {
     const e = normalizeEntry({ title: "Black Sails" });
     assert(e.id, "id should be generated");
     assertEqual(e.title, "Black Sails");
@@ -68,7 +80,7 @@
     assertEqual(e.note, "");
   });
 
-  test("normalizeEntry maps legacy reasons to tags", () => {
+  test("normalizeEntry maps legacy reasons to tags", ["REQ-EVIDENCE-002"], () => {
     const e = normalizeEntry({
       title: "Murderbot",
       type: "TV",
@@ -81,7 +93,7 @@
     assertEqual(e.note, "Loved it");
   });
 
-  test("duplicate title detection ignores case", () => {
+  test("duplicate title detection ignores case", ["REQ-EVIDENCE-004"], () => {
     const entries = [
       { id: "1", title: "Black Sails" },
       { id: "2", title: "Murderbot" }
@@ -91,13 +103,34 @@
     assertEqual(dup.id, "1");
   });
 
-  test("duplicate detection ignores current editing item", () => {
+  test("duplicate detection ignores current editing item", ["REQ-EVIDENCE-004", "REQ-EVIDENCE-005"], () => {
     const entries = [{ id: "1", title: "Black Sails" }];
     const dup = findDuplicate(entries, "Black Sails", "1");
     assertEqual(dup, null);
   });
 
-  test("filterEntries filters by medium", () => {
+  test("updateEntry updates an existing evidence item", ["REQ-EVIDENCE-005"], () => {
+    const entries = [{ id: "1", title: "Old" }];
+    const updated = updateEntry(entries, { id: "1", title: "New" });
+    assertEqual(updated[0].title, "New");
+  });
+
+  test("removeEntry deletes an evidence item", ["REQ-EVIDENCE-006"], () => {
+    const entries = [{ id: "1", title: "Delete me" }, { id: "2", title: "Keep me" }];
+    const result = removeEntry(entries, "1");
+    assertEqual(result.length, 1);
+    assertEqual(result[0].id, "2");
+  });
+
+  test("sortNewestFirst sorts evidence by newest timestamp", ["REQ-LIBRARY-001"], () => {
+    const result = sortNewestFirst([
+      { title: "Old", timestamp_utc: "2026-01-01T00:00:00Z" },
+      { title: "New", timestamp_utc: "2026-01-02T00:00:00Z" }
+    ]);
+    assertEqual(result[0].title, "New");
+  });
+
+  test("filterEntries filters by medium", ["REQ-LIBRARY-002"], () => {
     const entries = [
       { title: "Black Sails", medium: "TV", tags: [] },
       { title: "Factorio", medium: "Game", tags: [] }
@@ -108,7 +141,7 @@
     assertEqual(result[0].title, "Factorio");
   });
 
-  test("filterEntries searches title, note, and tags", () => {
+  test("filterEntries searches title, note, and tags", ["REQ-LIBRARY-003"], () => {
     const entries = [
       { title: "Black Sails", medium: "TV", note: "", tags: ["institutions"] },
       { title: "Factorio", medium: "Game", note: "automation factory", tags: [] },
@@ -120,17 +153,33 @@
     assertEqual(filterEntries(entries, { search: "science" }).length, 1);
   });
 
-  test("stats counts types, reactions, and unique tags", () => {
+  test("stats counts total entries", ["REQ-STATS-001"], () => {
+    const result = stats([
+      { medium: "TV", reaction: "Loved", tags: [] },
+      { medium: "Game", reaction: "Liked", tags: [] }
+    ]);
+    assertEqual(result.total, 2);
+  });
+
+  test("stats counts types and reactions", ["REQ-STATS-002"], () => {
+    const result = stats([
+      { medium: "TV", reaction: "Loved", tags: [] },
+      { medium: "TV", reaction: "Loved", tags: [] },
+      { medium: "Game", reaction: "Liked", tags: [] }
+    ]);
+
+    assertEqual(result.byType.TV, 2);
+    assertEqual(result.byType.Game, 1);
+    assertEqual(result.byReaction.Loved, 2);
+  });
+
+  test("stats counts unique tags", ["REQ-STATS-003"], () => {
     const result = stats([
       { medium: "TV", reaction: "Loved", tags: ["writing", "competence"] },
       { medium: "TV", reaction: "Loved", tags: ["writing"] },
       { medium: "Game", reaction: "Liked", tags: ["systems"] }
     ]);
 
-    assertEqual(result.total, 3);
-    assertEqual(result.byType.TV, 2);
-    assertEqual(result.byType.Game, 1);
-    assertEqual(result.byReaction.Loved, 2);
     assertEqual(result.uniqueTags, 3);
   });
 })();

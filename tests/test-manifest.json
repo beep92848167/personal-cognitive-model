@@ -1,0 +1,85 @@
+{
+  "schema_version": "openpcm_test_manifest_v1",
+  "requirements": [
+    {
+      "id": "REQ-EVIDENCE-001",
+      "title": "Evidence item has stable required fields"
+    },
+    {
+      "id": "REQ-EVIDENCE-002",
+      "title": "Normalize legacy evidence fields"
+    },
+    {
+      "id": "REQ-EVIDENCE-003",
+      "title": "Persist evidence locally"
+    },
+    {
+      "id": "REQ-EVIDENCE-004",
+      "title": "Warn on duplicate title"
+    },
+    {
+      "id": "REQ-EVIDENCE-005",
+      "title": "Edit existing evidence"
+    },
+    {
+      "id": "REQ-EVIDENCE-006",
+      "title": "Delete evidence"
+    },
+    {
+      "id": "REQ-LIBRARY-001",
+      "title": "List evidence newest-first"
+    },
+    {
+      "id": "REQ-LIBRARY-002",
+      "title": "Filter by type"
+    },
+    {
+      "id": "REQ-LIBRARY-003",
+      "title": "Search title, note, and tags"
+    },
+    {
+      "id": "REQ-LIBRARY-004",
+      "title": "Open detail view"
+    },
+    {
+      "id": "REQ-STATS-001",
+      "title": "Count total evidence"
+    },
+    {
+      "id": "REQ-STATS-002",
+      "title": "Count by type and reaction"
+    },
+    {
+      "id": "REQ-STATS-003",
+      "title": "Count unique tags"
+    },
+    {
+      "id": "REQ-PORTABLE-001",
+      "title": "Export JSON"
+    },
+    {
+      "id": "REQ-PORTABLE-002",
+      "title": "Import JSON"
+    },
+    {
+      "id": "REQ-ANDROID-001",
+      "title": "One-command Android update"
+    },
+    {
+      "id": "REQ-ANDROID-002",
+      "title": "Run locally through Termux"
+    },
+    {
+      "id": "REQ-TEST-001",
+      "title": "Browser tests without Node/npm"
+    },
+    {
+      "id": "REQ-TEST-002",
+      "title": "Pass/fail browser test runner"
+    },
+    {
+      "id": "REQ-TEST-003",
+      "title": "Requirement coverage view"
+    }
+  ]
+}

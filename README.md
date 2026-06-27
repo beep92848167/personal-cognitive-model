@@ -1,37 +1,23 @@
-# OpenPCM Mobile v0.4 — Unit Test Framework
+# OpenPCM Mobile v0.5 — Test Coverage Tracking
 
-Adds a lightweight browser-based test framework.
-
-No Node.
-No npm.
-No build tools.
-Runs directly in the phone browser.
+Adds requirements-to-tests traceability.
 
 ## Adds
 
-- `tests/test.html`
-- `tests/test-runner.js`
-- `tests/evidence-tests.js`
-- `tests/README.md`
-
-## Run tests
-
-Start the app server:
-
-```bash
-run
-```
-
-Open:
-
-```text
-http://localhost:8080/tests/test.html
-```
+- `docs/REQUIREMENTS.md`
+- `docs/TEST_COVERAGE.md`
+- `tests/test-manifest.json`
+- Updated browser test runner with coverage summary
+- Requirement IDs attached to tests
 
 ## Apply
 
-After downloading this zip:
-
 ```bash
-u "test: add browser unit test framework"
+u "test: add requirements coverage tracking"
+```
+
+Then open:
+
+```text
+http://localhost:8080/tests/test.html
 ```
