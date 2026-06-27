@@ -1,10 +1,10 @@
 {
-  "workflowVersion": 3,
+  "workflowVersion": 4,
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "1d5c241",
-  "commitMessage": "test(tools): verify workflow v3 sync export",
-  "timestamp": "2026-06-27T17:39:38+10:00",
+  "commit": "c914acf",
+  "commitMessage": "test(tools): verify workflow v4 sync export",
+  "timestamp": "2026-06-27T17:50:11+10:00",
   "exportedBy": "tools/update.sh -sync"
 }

@@ -2,24 +2,20 @@
 
 ## Engineering Increment
 
-Implemented Workflow v4 for sync exports.
+Extracted entry validation into a dedicated core module.
 
 ## Changes
 
-- Sync ZIPs are now written directly to Downloads.
-- Sync ZIP filenames remain timestamp-first:
-  `YYYYMMDD-HHMMSS-openpcm-<branch>-<sha>.zip`
-- `.openpcm-sync.json` now records `workflowVersion: 4`.
-- `HANDOFF.md` is generated into each sync ZIP.
-- Sync export now verifies the ZIP exists and is non-empty.
-- Sync output prints the ZIP size.
-- Retention only removes timestamped OpenPCM sync packages, avoiding patch ZIP confusion.
-- Sync mode exits after export and skips server restart.
+- Added `src/core/validation.js`.
+- Updated `app.js` to use `OpenPCMValidation` for save validation and duplicate-title warnings.
+- Added `tests/validation-tests.js`.
+- Updated `tests/test.html` to load validation tests.
+- Updated `src/core/README.md` with core module responsibilities.
 
 ## Suggested Commit
 
-fix(tools): write sync packages directly to downloads
+refactor(core): extract validation module
 
 ## Risk
 
-Low. Changes are isolated to `tools/update.sh` sync-mode export behaviour.
+Low. Existing duplicate-warning behaviour is preserved; title validation remains blocking as before.

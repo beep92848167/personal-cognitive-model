@@ -1,4 +1,5 @@
 const Core = window.OpenPCMCore;
+const Validation = window.OpenPCMValidation;
 
 let selectedTags = new Set();
 let activeFilter = "All";
@@ -160,8 +161,7 @@ function deleteEntry(id) {
 }
 
 function checkDuplicateTitle() {
-  const duplicate = Core.findDuplicateTitle(loadEntries(), $("title").value, $("editing-id").value);
-  $("duplicate-warning").textContent = duplicate ? `Existing entry found: ${duplicate.title}. You may want to edit it instead.` : "";
+  $("duplicate-warning").textContent = Validation.duplicateTitleWarning(loadEntries(), $("title").value, $("editing-id").value);
 }
 
 function currentFormEntry(editingId, entries) {
@@ -209,18 +209,18 @@ document.addEventListener("DOMContentLoaded", () => {
   $("title").addEventListener("input", checkDuplicateTitle);
 
   $("save").addEventListener("click", () => {
-    const title = $("title").value.trim();
-    if (!title) {
-      $("save-confirm").textContent = "Please enter a title.";
-      return;
-    }
-
     const editingId = $("editing-id").value;
     const entries = loadEntries();
     const entry = currentFormEntry(editingId, entries);
+    const validation = Validation.validateEntry(entry, entries, { editingId });
 
-    saveEntries(Core.upsertEntry(entries, entry));
-    lastSaved = editingId ? null : entry.id;
+    if (!validation.valid) {
+      $("save-confirm").textContent = validation.errors[0];
+      return;
+    }
+
+    saveEntries(Core.upsertEntry(entries, validation.value));
+    lastSaved = editingId ? null : validation.value.id;
 
     $("undo").disabled = Boolean(editingId);
     $("save-confirm").textContent = editingId ? "Updated." : "Saved.";
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderAll();
 
     if (editingId) {
-      selectedDetailId = entry.id;
+      selectedDetailId = validation.value.id;
       setView("detail");
     }
   });

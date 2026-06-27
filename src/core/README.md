@@ -1,7 +1,8 @@
 # OpenPCM Core
 
-Shared domain logic for OpenPCM.
+Core modules contain business logic that should remain independent of the UI.
 
-The UI should call this module instead of duplicating business logic.
+- `evidence.js` owns evidence normalization, storage helpers, sorting, filtering, duplicate lookup, and statistics.
+- `validation.js` owns form/domain validation and duplicate-title warning messages.
 
-Current public API is exposed as `window.OpenPCMCore`.
+UI code may display validation results, but validation rules should live here.
