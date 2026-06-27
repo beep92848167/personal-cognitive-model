@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T11:48:15.118Z",
+  "timestamp": "2026-06-27T11:59:16.306Z",
   "status": "PASS",
-  "passed": 73,
+  "passed": 77,
   "failed": 0,
-  "total": 73,
-  "durationMs": 17,
+  "total": 77,
+  "durationMs": 16,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 28,
-    "covered": 28,
+    "total": 29,
+    "covered": 29,
     "uncovered": []
   },
   "failures": [],
@@ -394,6 +394,34 @@
       "status": "PASS",
       "requirements": [
         "REQ-PREFERENCES-001"
+      ]
+    },
+    {
+      "name": "buildExplanationGraph creates candidate score and signal nodes",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPLANATION-GRAPH-001"
+      ]
+    },
+    {
+      "name": "buildExplanationGraph links sources feedback and learning",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPLANATION-GRAPH-001"
+      ]
+    },
+    {
+      "name": "graphSummary counts nodes by type",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPLANATION-GRAPH-001"
+      ]
+    },
+    {
+      "name": "safeId creates stable graph ids",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPLANATION-GRAPH-001"
       ]
     },
     {

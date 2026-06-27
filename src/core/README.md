@@ -26,3 +26,5 @@ UI code may display validation results, but validation rules and normalization r
 - `reasoning.js` produces structured recommendation reasoning from catalogue candidates and the preference model.
 
 - `learning.js` derives local recommendation learning signals from feedback without mutating the Personal Cognitive Model.
+
+- `explanation-graph.js` converts recommendation reasoning into structured graph nodes and edges.

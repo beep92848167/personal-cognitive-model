@@ -85,7 +85,7 @@
   function buildRecommendationFromReasoning(item = {}) {
     const candidate = item.candidate || {};
     const reasoning = item.reasoning || {};
-    return {
+    const recommendation = {
       title: candidate.title || reasoning.title || "Untitled",
       medium: candidate.medium || "Other",
       score: reasoning.score || 0,
@@ -106,6 +106,12 @@
         sources: reasoning.sources || []
       }
     };
+
+    recommendation.explanationGraph = global.OpenPCMExplanationGraph
+      ? global.OpenPCMExplanationGraph.buildExplanationGraph(recommendation)
+      : null;
+
+    return recommendation;
   }
 
   global.OpenPCMReasoning = {

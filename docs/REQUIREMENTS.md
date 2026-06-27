@@ -66,6 +66,12 @@
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
 | REQ-DISCOVER-002 | Discover recommendation explanations must show reasons, risks, confidence, and sources. | High | Active |
 
+## Explanation Graph
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-EXPLANATION-GRAPH-001 | OpenPCM must produce a structured explanation graph for recommendation reasoning. | High | Active |
+
 ## Learning
 
 | ID | Requirement | Priority | Status |

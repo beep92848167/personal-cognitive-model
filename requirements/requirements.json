@@ -214,6 +214,16 @@
       "tests": []
     },
     {
+      "id": "REQ-EXPLANATION-GRAPH-001",
+      "title": "OpenPCM must produce a structured explanation graph for recommendation reasoning.",
+      "shortTitle": "Structured explanation graph",
+      "area": "Explanation Graph",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-LEARNING-001",
       "title": "OpenPCM must derive learning signals from recommendation feedback without mutating the Personal Cognitive Model.",
       "shortTitle": "Learning from recommendation feedback",

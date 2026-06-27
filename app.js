@@ -115,6 +115,7 @@ function renderDiscover() {
           ${rec.explanation?.reasons?.length ? `<div class="tags">Signals: ${rec.explanation.reasons.map(reason => escapeHtml(reason.label)).join(", ")}</div>` : ""}
           ${rec.explanation?.sources?.length ? `<div class="meta">Sources: ${rec.explanation.sources.map(escapeHtml).join(" · ")}</div>` : ""}
           ${rec.explanation?.confidence ? `<div class="meta">Confidence: ${escapeHtml(rec.explanation.confidence)}</div>` : ""}
+          ${rec.explanationGraph && window.OpenPCMExplanationGraph ? `<div class="meta">Explanation graph: ${escapeHtml(String(window.OpenPCMExplanationGraph.graphSummary(rec.explanationGraph).nodes))} nodes · ${escapeHtml(String(window.OpenPCMExplanationGraph.graphSummary(rec.explanationGraph).edges))} links</div>` : ""}
           ${rec.explanation?.risks?.length ? `<div class="warning-text">Watch-outs: ${rec.explanation.risks.map(risk => escapeHtml(risk.label)).join(", ")}</div>` : ""}
           ${rec.feedback ? `<div class="confirm">Your feedback: ${rec.feedback.value > 0 ? "good fit" : rec.feedback.value < 0 ? "not for me" : "neutral"}</div>` : ""}
           ${rec.note ? `<div class="note">${escapeHtml(rec.note)}</div>` : ""}
