@@ -67,6 +67,12 @@
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
 | REQ-DISCOVER-002 | Discover recommendation explanations must show reasons, risks, confidence, and sources. | High | Active |
 
+## Recommendation Timeline
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-TIMELINE-001 | OpenPCM must render a recommendation timeline showing score, confidence, feedback, learning, evidence, source, and graph changes over time. | High | Active |
+
 ## Decision History
 
 | ID | Requirement | Priority | Status |

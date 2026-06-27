@@ -2,16 +2,15 @@
 
 ## Engineering Increment
 
-Added recommendation decision history.
+Added recommendation timelines.
 
 ## Changes
 
-- Added `src/core/decision-history.js`.
-- Added `tests/decision-history-tests.js`.
-- Discover records recommendation decisions locally.
-- Recommendation detail view shows recorded decision count for that title.
-- Added `REQ-DECISION-001`.
-- Added `docs/DECISION_HISTORY.md`.
+- Added `src/core/recommendation-timeline.js`.
+- Added `tests/recommendation-timeline-tests.js`.
+- Recommendation detail now renders a timeline from decision history.
+- Added `REQ-TIMELINE-001`.
+- Added `docs/RECOMMENDATION_TIMELINE.md`.
 - Updated CLI/browser runners and script loading.
 
 ## Verification
@@ -24,14 +23,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- 91 passed
+- 94 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(reasoning): add decision history
+feat(ui): add recommendation timeline
 
 ## Risk
 
-Medium. Adds local history state when Discover renders recommendations. Core logic is deterministic and covered by tests.
+Medium-low. Timeline is derived from existing decision history and is additive.

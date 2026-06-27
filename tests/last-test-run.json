@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T22:26:10.038Z",
+  "timestamp": "2026-06-27T23:03:07.483Z",
   "status": "PASS",
-  "passed": 91,
+  "passed": 94,
   "failed": 0,
-  "total": 91,
-  "durationMs": 19,
+  "total": 94,
+  "durationMs": 16,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 33,
-    "covered": 33,
+    "total": 34,
+    "covered": 34,
     "uncovered": []
   },
   "failures": [],
@@ -415,6 +415,27 @@
       "status": "PASS",
       "requirements": [
         "REQ-PREFERENCES-001"
+      ]
+    },
+    {
+      "name": "buildTimeline filters title and sorts chronologically",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TIMELINE-001"
+      ]
+    },
+    {
+      "name": "timelineSummary calculates score and confidence changes",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TIMELINE-001"
+      ]
+    },
+    {
+      "name": "renderTimelineHtml shows timeline metrics",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TIMELINE-001"
       ]
     },
     {

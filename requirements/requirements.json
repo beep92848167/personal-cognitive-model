@@ -224,6 +224,16 @@
       "tests": []
     },
     {
+      "id": "REQ-TIMELINE-001",
+      "title": "OpenPCM must render a recommendation timeline showing score, confidence, feedback, learning, evidence, source, and graph changes over time.",
+      "shortTitle": "Recommendation timeline",
+      "area": "Recommendation Timeline",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-DECISION-001",
       "title": "OpenPCM must record recommendation decisions so score, confidence, evidence, graph, feedback, and learning changes can be audited over time.",
       "shortTitle": "Recommendation decision history",

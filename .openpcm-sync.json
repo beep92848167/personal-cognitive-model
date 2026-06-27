@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "e271c56",
-  "commitMessage": "feat(ui): add interactive explanation graph viewer",
-  "timestamp": "2026-06-28T05:50:29+10:00",
+  "commit": "25a4fef",
+  "commitMessage": "feat(reasoning): add decision history",
+  "timestamp": "2026-06-28T09:01:19+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

@@ -7,6 +7,7 @@ const Calibration = window.OpenPCMCalibration;
 const Profile = window.OpenPCMProfile;
 const RecommendationDetail = window.OpenPCMRecommendationDetail;
 const DecisionHistory = window.OpenPCMDecisionHistory;
+const RecommendationTimeline = window.OpenPCMRecommendationTimeline;
 
 let selectedTags = new Set();
 let activeFilter = "All";
@@ -165,8 +166,13 @@ function renderRecommendationDetail() {
 
   $("recommendation-detail-card").innerHTML = RecommendationDetail.renderRecommendationDetailHtml(recommendation);
   if (DecisionHistory) {
-    const trend = DecisionHistory.scoreTrend(loadDecisionHistory(), recommendation.title);
+    const history = loadDecisionHistory();
+    const trend = DecisionHistory.scoreTrend(history, recommendation.title);
     $("recommendation-detail-card").insertAdjacentHTML("beforeend", `<div class="note"><strong>Decision history</strong><p class="meta">${trend.length} recorded decisions for this recommendation.</p></div>`);
+    if (RecommendationTimeline) {
+      const timeline = RecommendationTimeline.buildTimeline(history, recommendation.title);
+      $("recommendation-detail-card").insertAdjacentHTML("beforeend", RecommendationTimeline.renderTimelineHtml(timeline));
+    }
   }
   document.querySelector("#recommendation-detail-card [data-nav='discover']").addEventListener("click", () => setView("discover"));
   bindGraphViewerNodes();
