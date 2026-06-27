@@ -6,6 +6,7 @@ const Discover = window.OpenPCMDiscover;
 const Calibration = window.OpenPCMCalibration;
 const Profile = window.OpenPCMProfile;
 const RecommendationDetail = window.OpenPCMRecommendationDetail;
+const DecisionHistory = window.OpenPCMDecisionHistory;
 
 let selectedTags = new Set();
 let activeFilter = "All";
@@ -39,6 +40,14 @@ function loadRecommendationFeedback() {
 
 function saveRecommendationFeedback(items) {
   Calibration.saveFeedback(items);
+}
+
+function loadDecisionHistory() {
+  return DecisionHistory ? DecisionHistory.loadHistory() : [];
+}
+
+function saveDecisionHistory(items) {
+  if (DecisionHistory) DecisionHistory.saveHistory(items);
 }
 
 function escapeHtml(s) {
@@ -104,6 +113,11 @@ function renderDiscover() {
   const summary = Discover.buildDiscoverSummary(entries, [], { profileSource: window.OpenPCMProfileSeed, feedback });
   const recommendations = summary.recommendations.slice(0, 3);
   lastRecommendations = recommendations;
+  if (DecisionHistory && recommendations.length) {
+    const decisions = DecisionHistory.recordDecisions(recommendations);
+    const history = DecisionHistory.appendDecisions(loadDecisionHistory(), decisions);
+    saveDecisionHistory(history);
+  }
 
   $("discover-content").innerHTML = entries.length ? `
     <p class="eyebrow">Explainable matches</p>
@@ -150,6 +164,10 @@ function renderRecommendationDetail() {
   }
 
   $("recommendation-detail-card").innerHTML = RecommendationDetail.renderRecommendationDetailHtml(recommendation);
+  if (DecisionHistory) {
+    const trend = DecisionHistory.scoreTrend(loadDecisionHistory(), recommendation.title);
+    $("recommendation-detail-card").insertAdjacentHTML("beforeend", `<div class="note"><strong>Decision history</strong><p class="meta">${trend.length} recorded decisions for this recommendation.</p></div>`);
+  }
   document.querySelector("#recommendation-detail-card [data-nav='discover']").addEventListener("click", () => setView("discover"));
   bindGraphViewerNodes();
 }

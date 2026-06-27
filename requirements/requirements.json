@@ -224,6 +224,16 @@
       "tests": []
     },
     {
+      "id": "REQ-DECISION-001",
+      "title": "OpenPCM must record recommendation decisions so score, confidence, evidence, graph, feedback, and learning changes can be audited over time.",
+      "shortTitle": "Recommendation decision history",
+      "area": "Decision History",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-GRAPHVIEWER-001",
       "title": "User must be able to inspect recommendation explanation graph nodes and links interactively.",
       "shortTitle": "Interactive explanation graph viewer",

@@ -2,18 +2,17 @@
 
 ## Engineering Increment
 
-Added an interactive explanation graph viewer.
+Added recommendation decision history.
 
 ## Changes
 
-- Added `src/core/graph-viewer.js`.
-- Added `tests/graph-viewer-tests.js`.
-- Recommendation detail view now embeds graph nodes, links, and selected node details.
-- Added interactive node selection binding in `app.js`.
-- Added `REQ-GRAPHVIEWER-001`.
-- Added `docs/GRAPH_VIEWER.md`.
+- Added `src/core/decision-history.js`.
+- Added `tests/decision-history-tests.js`.
+- Discover records recommendation decisions locally.
+- Recommendation detail view shows recorded decision count for that title.
+- Added `REQ-DECISION-001`.
+- Added `docs/DECISION_HISTORY.md`.
 - Updated CLI/browser runners and script loading.
-- Added the modular PCM task to the engineering backlog if the backlog file is present.
 
 ## Verification
 
@@ -25,10 +24,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- 86 passed
+- 91 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(ui): add interactive explanation graph viewer
+feat(reasoning): add decision history
+
+## Risk
+
+Medium. Adds local history state when Discover renders recommendations. Core logic is deterministic and covered by tests.
