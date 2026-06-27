@@ -2,17 +2,18 @@
 
 ## Engineering Increment
 
-Added Mark's AI pair-programming / vibe-coding development preferences to the Personal Cognitive Model seed.
+Added an interactive explanation graph viewer.
 
 ## Changes
 
-- Updated `src/data/pcm-seed.js` with `profile.development_preferences`.
-- Added `OpenPCMProfile.developmentPreferencesSummary()`.
-- Added `tests/profile-devprefs-tests.js`.
-- Added `REQ-PROFILE-002`.
-- Added `docs/DEVELOPMENT_PREFERENCES.md`.
-- Updated project/core documentation.
-- Updated CLI/browser test loading.
+- Added `src/core/graph-viewer.js`.
+- Added `tests/graph-viewer-tests.js`.
+- Recommendation detail view now embeds graph nodes, links, and selected node details.
+- Added interactive node selection binding in `app.js`.
+- Added `REQ-GRAPHVIEWER-001`.
+- Added `docs/GRAPH_VIEWER.md`.
+- Updated CLI/browser runners and script loading.
+- Added the modular PCM task to the engineering backlog if the backlog file is present.
 
 ## Verification
 
@@ -24,10 +25,10 @@ node tools/run-tests.js
 
 Expected result:
 
-- 83 passed
+- 86 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(profile): record vibe-coding development preferences
+feat(ui): add interactive explanation graph viewer

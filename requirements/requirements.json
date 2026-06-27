@@ -224,6 +224,16 @@
       "tests": []
     },
     {
+      "id": "REQ-GRAPHVIEWER-001",
+      "title": "User must be able to inspect recommendation explanation graph nodes and links interactively.",
+      "shortTitle": "Interactive explanation graph viewer",
+      "area": "Graph Viewer",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-RECDETAIL-001",
       "title": "User must be able to inspect recommendation score, evidence, risks, sources, learning, and explanation graph details.",
       "shortTitle": "Recommendation explanation detail view",

@@ -67,6 +67,12 @@
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
 | REQ-DISCOVER-002 | Discover recommendation explanations must show reasons, risks, confidence, and sources. | High | Active |
 
+## Graph Viewer
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-GRAPHVIEWER-001 | User must be able to inspect recommendation explanation graph nodes and links interactively. | High | Active |
+
 ## Recommendation Detail
 
 | ID | Requirement | Priority | Status |

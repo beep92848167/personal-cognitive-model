@@ -12,6 +12,7 @@ let activeFilter = "All";
 let lastSaved = null;
 let selectedDetailId = null;
 let selectedRecommendationTitle = null;
+let selectedGraphNodeId = null;
 let lastRecommendations = [];
 
 const $ = (id) => document.getElementById(id);
@@ -150,12 +151,33 @@ function renderRecommendationDetail() {
 
   $("recommendation-detail-card").innerHTML = RecommendationDetail.renderRecommendationDetailHtml(recommendation);
   document.querySelector("#recommendation-detail-card [data-nav='discover']").addEventListener("click", () => setView("discover"));
+  bindGraphViewerNodes();
+}
+
+
+function bindGraphViewerNodes() {
+  document.querySelectorAll("[data-graph-node]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      selectedGraphNodeId = btn.dataset.graphNode;
+      const recommendation = lastRecommendations.find(rec => rec.title === selectedRecommendationTitle);
+      if (!recommendation?.explanationGraph || !window.OpenPCMGraphViewer) return;
+      $("recommendation-detail-card").innerHTML = RecommendationDetail.renderRecommendationDetailHtml(recommendation);
+      const graphContainer = document.querySelector("#recommendation-detail-card .graph-viewer");
+      if (graphContainer) {
+        graphContainer.outerHTML = window.OpenPCMGraphViewer.renderGraphHtml(recommendation.explanationGraph, selectedGraphNodeId);
+      }
+      document.querySelector("#recommendation-detail-card [data-nav='discover']").addEventListener("click", () => setView("discover"));
+  bindGraphViewerNodes();
+      bindGraphViewerNodes();
+    });
+  });
 }
 
 function bindRecommendationDetails() {
   document.querySelectorAll("[data-rec-detail]").forEach(btn => {
     btn.addEventListener("click", () => {
       selectedRecommendationTitle = btn.dataset.recDetail;
+      selectedGraphNodeId = null;
       setView("recommendation-detail");
     });
   });

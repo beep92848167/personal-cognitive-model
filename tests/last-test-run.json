@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T12:36:43.551Z",
+  "timestamp": "2026-06-27T19:40:01.988Z",
   "status": "PASS",
-  "passed": 83,
+  "passed": 86,
   "failed": 0,
-  "total": 83,
-  "durationMs": 17,
+  "total": 86,
+  "durationMs": 19,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 31,
-    "covered": 31,
+    "total": 32,
+    "covered": 32,
     "uncovered": []
   },
   "failures": [],
@@ -415,6 +415,27 @@
       "status": "PASS",
       "requirements": [
         "REQ-PREFERENCES-001"
+      ]
+    },
+    {
+      "name": "buildViewerModel selects graph node and connected edges",
+      "status": "PASS",
+      "requirements": [
+        "REQ-GRAPHVIEWER-001"
+      ]
+    },
+    {
+      "name": "renderGraphHtml renders nodes links and selected data",
+      "status": "PASS",
+      "requirements": [
+        "REQ-GRAPHVIEWER-001"
+      ]
+    },
+    {
+      "name": "renderGraphHtml escapes unsafe node labels",
+      "status": "PASS",
+      "requirements": [
+        "REQ-GRAPHVIEWER-001"
       ]
     },
     {

@@ -32,3 +32,5 @@ UI code may display validation results, but validation rules and normalization r
 - `recommendation-detail.js` renders inspectable recommendation explanation detail models and HTML.
 
 - `profile.js` also exposes `developmentPreferencesSummary()` for AI pair-programming / vibe-coding workflow preferences in the PCM seed.
+
+- `graph-viewer.js` renders interactive explanation graph nodes, links, and selected node details.

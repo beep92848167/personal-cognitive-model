@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "363a39e",
-  "commitMessage": "feat(ui): add recommendation explanation detail view",
-  "timestamp": "2026-06-27T22:12:05+10:00",
+  "commit": "2d5b5b9",
+  "commitMessage": "feat(profile): record vibe-coding development preferences",
+  "timestamp": "2026-06-27T22:38:39+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

@@ -52,6 +52,7 @@
       ${model.feedback ? `<p class="confirm">Feedback: ${model.feedback.value > 0 ? "Good fit" : model.feedback.value < 0 ? "Not for me" : "Neutral"}</p>` : ""}
       ${model.learningAdjustment ? `<p class="meta">Learning adjustment: ${model.learningAdjustment > 0 ? "+" : ""}${escapeHtml(String(model.learningAdjustment))}</p>` : ""}
       ${model.graphSummary ? `<p class="meta">Explanation graph: ${model.graphSummary.nodes} nodes · ${model.graphSummary.edges} links</p>` : ""}
+      ${recommendation.explanationGraph && global.OpenPCMGraphViewer ? global.OpenPCMGraphViewer.renderGraphHtml(recommendation.explanationGraph) : ""}
       ${model.note ? `<div class="note">${escapeHtml(model.note)}</div>` : ""}
       <div class="detail-actions">
         <button class="secondary" data-nav="discover">Back to Discover</button>

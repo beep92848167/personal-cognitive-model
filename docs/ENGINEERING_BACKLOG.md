@@ -8,3 +8,24 @@ Priority order:
 5. REQ-ANDROID-002 Termux local workflow
 
 Rule: choose highest-value uncovered requirement first.
+
+
+## Medium Priority
+
+### Modularize Personal Cognitive Model
+
+Split the monolithic PCM seed into modular profile files while preserving a single runtime PCM.
+
+Proposed structure:
+
+```text
+src/data/profile/
+    identity.json
+    entertainment.json
+    learning.json
+    development.json
+    cognition.json
+    preferences.json
+```
+
+A build/load step should compose these into the existing runtime profile object so the rest of OpenPCM remains unchanged.
