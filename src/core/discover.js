@@ -134,7 +134,10 @@
       : (profileSource && global.OpenPCMProfile ? global.OpenPCMProfile.buildCandidateCatalogue(profileSource) : []);
 
     const profile = buildPreferenceProfile(combinedEvidence);
-    const recommendations = rankCandidates(candidateSource, combinedEvidence, { ...options, profile });
+    const ranked = rankCandidates(candidateSource, combinedEvidence, { ...options, profile });
+    const recommendations = global.OpenPCMCalibration && options.feedback
+      ? global.OpenPCMCalibration.applyFeedback(ranked, options.feedback)
+      : ranked;
     const topTags = Object.entries(profile.tags)
       .filter(([, value]) => value > 0)
       .slice(0, 5)

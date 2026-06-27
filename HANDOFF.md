@@ -2,22 +2,18 @@
 
 ## Engineering Increment
 
-Integrated the uploaded Personal Cognitive Model as an explicit Discover data source.
+Added recommendation feedback calibration to Discover.
 
 ## Changes
 
-- Added `src/data/pcm-seed.js` generated from `personal-cognitive-model.zip`.
-- Added `src/core/profile.js`.
-- Discover now combines:
-  - explicit OpenPCM evidence,
-  - PCM-derived profile evidence,
-  - PCM recommendation/media candidates.
-- Discover UI now shows the profile source summary.
-- Added `REQ-PROFILE-001`.
-- Added `tests/profile-tests.js`.
-- Expanded Discover tests for profile-source integration.
+- Added `src/core/calibration.js`.
+- Added `tests/calibration-tests.js`.
+- Discover can now apply recommendation feedback to adjust and re-rank scores.
+- Discover UI now includes `Good fit` and `Not for me` feedback buttons.
+- Feedback is stored locally in `localStorage`.
+- Added `REQ-CALIBRATION-001`.
 - Updated CLI and browser runners.
-- Updated core and project documentation.
+- Updated core documentation.
 
 ## Verification
 
@@ -29,14 +25,14 @@ node tools/run-tests.js
 
 Expected result in this package:
 
-- 43 passed
+- 47 passed
 - 0 failed
-- Coverage includes new profile-source requirement.
+- New calibration requirement covered.
 
 ## Suggested Commit
 
-feat(profile): use personal cognitive model in discover
+feat(discover): calibrate recommendations from feedback
 
 ## Risk
 
-Medium. This embeds a generated profile seed into the browser app and starts using it for recommendations. The logic is deterministic and covered by tests.
+Medium. Adds local state for recommendation feedback and changes Discover ranking when feedback exists.

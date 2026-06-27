@@ -3,6 +3,7 @@ const Validation = window.OpenPCMValidation;
 const Detail = window.OpenPCMDetail;
 const Portable = window.OpenPCMPortable;
 const Discover = window.OpenPCMDiscover;
+const Calibration = window.OpenPCMCalibration;
 const Profile = window.OpenPCMProfile;
 
 let selectedTags = new Set();
@@ -26,6 +27,14 @@ function loadEntries() {
 
 function saveEntries(entries) {
   Core.saveEntriesToStorage(entries);
+}
+
+function loadRecommendationFeedback() {
+  return Calibration.loadFeedback();
+}
+
+function saveRecommendationFeedback(items) {
+  Calibration.saveFeedback(items);
 }
 
 function escapeHtml(s) {
@@ -87,7 +96,8 @@ function renderDetail() {
 
 function renderDiscover() {
   const entries = loadEntries();
-  const summary = Discover.buildDiscoverSummary(entries, [], { profileSource: window.OpenPCMProfileSeed });
+  const feedback = loadRecommendationFeedback();
+  const summary = Discover.buildDiscoverSummary(entries, [], { profileSource: window.OpenPCMProfileSeed, feedback });
   const recommendations = summary.recommendations.slice(0, 3);
 
   $("discover-content").innerHTML = entries.length ? `
@@ -99,10 +109,15 @@ function renderDiscover() {
       ${recommendations.length ? recommendations.map(rec => `
         <article class="entry">
           <div class="entry-title">${escapeHtml(rec.title)} <span class="badge">${rec.score}%</span></div>
-          <div class="meta">${escapeHtml(rec.medium)}</div>
+          <div class="meta">${escapeHtml(rec.medium)}${rec.feedback ? ` • calibrated from ${escapeHtml(String(rec.originalScore))}%` : ""}</div>
           ${rec.reasons.length ? `<div class="tags">Reasons: ${rec.reasons.map(escapeHtml).join(", ")}</div>` : ""}
           ${rec.risks.length ? `<div class="warning-text">Risks: ${rec.risks.map(escapeHtml).join(", ")}</div>` : ""}
+          ${rec.feedback ? `<div class="confirm">Your feedback: ${rec.feedback.value > 0 ? "good fit" : rec.feedback.value < 0 ? "not for me" : "neutral"}</div>` : ""}
           ${rec.note ? `<div class="note">${escapeHtml(rec.note)}</div>` : ""}
+          <div class="detail-actions">
+            <button class="secondary" data-rec-feedback="positive" data-rec-title="${escapeHtml(rec.title)}">Good fit</button>
+            <button class="secondary" data-rec-feedback="negative" data-rec-title="${escapeHtml(rec.title)}">Not for me</button>
+          </div>
         </article>
       `).join("") : `<div class="empty">No recommendations yet. Add more liked evidence.</div>`}
     </div>
@@ -131,6 +146,22 @@ function renderAll() {
   renderDiscover();
   renderDetail();
   bindEntryButtons();
+  bindRecommendationFeedback();
+}
+
+
+function bindRecommendationFeedback() {
+  document.querySelectorAll("[data-rec-feedback]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const existing = loadRecommendationFeedback();
+      const updated = Calibration.upsertFeedback(existing, {
+        title: btn.dataset.recTitle,
+        value: btn.dataset.recFeedback === "positive" ? 1 : -1
+      });
+      saveRecommendationFeedback(updated);
+      renderDiscover();
+    });
+  });
 }
 
 function bindEntryButtons() {

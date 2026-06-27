@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "f8d4953",
-  "commitMessage": "docs(engineering): add prioritised backlog",
-  "timestamp": "2026-06-27T19:37:11+10:00",
+  "commit": "1475083",
+  "commitMessage": "feat(profile): use personal cognitive model in discover",
+  "timestamp": "2026-06-27T20:06:14+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

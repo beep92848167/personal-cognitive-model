@@ -86,12 +86,14 @@ const scripts = [
   "src/core/validation.js",
   "src/core/detail.js",
   "src/core/profile.js",
+  "src/core/calibration.js",
   "src/core/discover.js",
   "tests/evidence-tests.js",
   "tests/validation-tests.js",
   "tests/portable-tests.js",
   "tests/detail-tests.js",
   "tests/profile-tests.js",
+  "tests/calibration-tests.js",
   "tests/discover-tests.js"
 ];
 

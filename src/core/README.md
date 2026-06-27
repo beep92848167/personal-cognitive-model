@@ -12,3 +12,5 @@ UI code may display validation results, but validation rules and normalization r
 - `discover.js` owns deterministic, explainable recommendation scoring from saved evidence.
 
 - `profile.js` adapts the Personal Cognitive Model profile into evidence and recommendation candidates.
+
+- `calibration.js` owns recommendation feedback storage and score adjustment for Discover calibration.

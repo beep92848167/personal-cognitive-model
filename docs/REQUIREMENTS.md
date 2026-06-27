@@ -47,6 +47,12 @@
 |---|---|---:|---|
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
 
+## Calibration
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-CALIBRATION-001 | User feedback on recommendations must calibrate future Discover scoring. | High | Active |
+
 ## Android Workflow
 
 | ID | Requirement | Priority | Status |

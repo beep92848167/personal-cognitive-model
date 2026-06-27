@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T09:59:01.505Z",
+  "timestamp": "2026-06-27T10:08:51.574Z",
   "status": "PASS",
-  "passed": 43,
+  "passed": 47,
   "failed": 0,
-  "total": 43,
+  "total": 47,
   "durationMs": 11,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 22,
-    "covered": 17,
+    "total": 23,
+    "covered": 18,
     "uncovered": [
       {
         "id": "REQ-ANDROID-001",
@@ -315,6 +315,35 @@
       "requirements": [
         "REQ-PROFILE-001",
         "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "normalizeFeedback creates stable title key and bounded value",
+      "status": "PASS",
+      "requirements": [
+        "REQ-CALIBRATION-001"
+      ]
+    },
+    {
+      "name": "upsertFeedback replaces feedback for same title",
+      "status": "PASS",
+      "requirements": [
+        "REQ-CALIBRATION-001"
+      ]
+    },
+    {
+      "name": "applyFeedback adjusts and resorts recommendations",
+      "status": "PASS",
+      "requirements": [
+        "REQ-CALIBRATION-001",
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "saveFeedback and loadFeedback round-trip through storage",
+      "status": "PASS",
+      "requirements": [
+        "REQ-CALIBRATION-001"
       ]
     },
     {
