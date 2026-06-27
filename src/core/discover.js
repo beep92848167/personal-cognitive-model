@@ -195,9 +195,15 @@
       ? global.OpenPCMReasoning.reasonAboutCatalogue(candidateSource, preferenceModel, options)
           .map(item => global.OpenPCMReasoning.buildRecommendationFromReasoning(item))
       : rankCandidates(candidateSource, combinedEvidence, { ...options, profile });
-    const recommendations = global.OpenPCMCalibration && options.feedback
+    const calibrated = global.OpenPCMCalibration && options.feedback
       ? global.OpenPCMCalibration.applyFeedback(ranked, options.feedback)
       : ranked;
+    const learningProfile = global.OpenPCMLearning && options.feedback
+      ? global.OpenPCMLearning.buildLearningProfile(options.feedback, calibrated)
+      : null;
+    const recommendations = global.OpenPCMLearning && learningProfile
+      ? global.OpenPCMLearning.applyLearningAdjustments(calibrated, learningProfile)
+      : calibrated;
     const topTags = preferenceModel
       ? global.OpenPCMPreferences.topPreferenceTags(preferenceModel, 5)
       : Object.entries(profile.tags)
@@ -210,6 +216,7 @@
       preferenceModel,
       profileSourceSummary: profileSource && global.OpenPCMProfile ? global.OpenPCMProfile.profileSummary(profileSource) : null,
       topTags,
+      learningProfile,
       recommendations
     };
   }

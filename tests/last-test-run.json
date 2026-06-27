@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T11:06:10.409Z",
+  "timestamp": "2026-06-27T11:48:15.118Z",
   "status": "PASS",
-  "passed": 69,
+  "passed": 73,
   "failed": 0,
-  "total": 69,
-  "durationMs": 13,
+  "total": 73,
+  "durationMs": 17,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 27,
-    "covered": 27,
+    "total": 28,
+    "covered": 28,
     "uncovered": []
   },
   "failures": [],
@@ -337,6 +337,35 @@
       "status": "PASS",
       "requirements": [
         "REQ-CALIBRATION-001"
+      ]
+    },
+    {
+      "name": "classifyFeedback classifies positive neutral and negative",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-001"
+      ]
+    },
+    {
+      "name": "buildLearningProfile identifies confirmed matches and false positives",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-001"
+      ]
+    },
+    {
+      "name": "applyLearningAdjustments changes recommendation scores from learned signals",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-001",
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "learningSummaryText summarizes feedback",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-001"
       ]
     },
     {

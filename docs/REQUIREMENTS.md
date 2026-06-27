@@ -66,6 +66,12 @@
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
 | REQ-DISCOVER-002 | Discover recommendation explanations must show reasons, risks, confidence, and sources. | High | Active |
 
+## Learning
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-LEARNING-001 | OpenPCM must derive learning signals from recommendation feedback without mutating the Personal Cognitive Model. | High | Active |
+
 ## Calibration
 
 | ID | Requirement | Priority | Status |

@@ -214,6 +214,16 @@
       "tests": []
     },
     {
+      "id": "REQ-LEARNING-001",
+      "title": "OpenPCM must derive learning signals from recommendation feedback without mutating the Personal Cognitive Model.",
+      "shortTitle": "Learning from recommendation feedback",
+      "area": "Learning",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-CALIBRATION-001",
       "title": "User feedback on recommendations must calibrate future Discover scoring.",
       "shortTitle": "Recommendation feedback calibrates Discover",

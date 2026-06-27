@@ -2,15 +2,16 @@
 
 ## Engineering Increment
 
-Introduced the V2 reasoning engine.
+Introduced the V2 recommendation learning layer.
 
 ## Changes
 
-- Added `src/core/reasoning.js`.
-- Added `tests/reasoning-tests.js`.
-- Discover now uses the reasoning engine when a preference model is available.
-- Added `REQ-REASONING-001`.
-- Added `docs/REASONING_ENGINE.md`.
+- Added `src/core/learning.js`.
+- Added `tests/learning-tests.js`.
+- Discover now derives a local learning profile from recommendation feedback.
+- Discover can apply signal-level learning adjustments after calibration.
+- Added `REQ-LEARNING-001`.
+- Added `docs/LEARNING_LAYER.md`.
 - Updated CLI/browser runners and script loading.
 
 ## Verification
@@ -23,14 +24,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- 69 passed
+- 73 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(reasoning): introduce reasoning engine
+feat(learning): introduce recommendation learning layer
 
 ## Risk
 
-Medium. Discover recommendations now pass through the reasoning engine when available, but outputs remain deterministic and covered by tests.
+Medium. Recommendation scores can now be adjusted by local learning signals, but PCM profile data is not mutated.

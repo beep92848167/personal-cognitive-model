@@ -24,3 +24,5 @@ UI code may display validation results, but validation rules and normalization r
 - `preferences.js` derives an inspectable preference model from PCM profile signals and local OpenPCM evidence.
 
 - `reasoning.js` produces structured recommendation reasoning from catalogue candidates and the preference model.
+
+- `learning.js` derives local recommendation learning signals from feedback without mutating the Personal Cognitive Model.

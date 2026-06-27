@@ -105,11 +105,12 @@ function renderDiscover() {
     <h2>Discover</h2>
     ${summary.profileSourceSummary?.cognition ? `<p class="meta">Profile source: ${escapeHtml(summary.profileSourceSummary.cognition)}</p>` : ""}
     ${summary.topTags.length ? `<p class="meta">Current preference signals: ${summary.topTags.map(escapeHtml).join(", ")}</p>` : ""}
+    ${summary.learningProfile && window.OpenPCMLearning ? `<p class="meta">Learning: ${escapeHtml(window.OpenPCMLearning.learningSummaryText(summary.learningProfile))}</p>` : ""}
     <div class="list">
       ${recommendations.length ? recommendations.map(rec => `
         <article class="entry">
           <div class="entry-title">${escapeHtml(rec.title)} <span class="badge">${rec.score}%</span></div>
-          <div class="meta">${escapeHtml(rec.medium)}${rec.feedback ? ` • calibrated from ${escapeHtml(String(rec.originalScore))}%` : ""}</div>
+          <div class="meta">${escapeHtml(rec.medium)}${rec.feedback ? ` • calibrated from ${escapeHtml(String(rec.originalScore))}%` : ""}${rec.learningAdjustment ? ` • learned ${rec.learningAdjustment > 0 ? "+" : ""}${escapeHtml(String(rec.learningAdjustment))}` : ""}</div>
           ${rec.explanation?.headline ? `<div class="note"><strong>Why:</strong> ${escapeHtml(rec.explanation.headline)}</div>` : ""}
           ${rec.explanation?.reasons?.length ? `<div class="tags">Signals: ${rec.explanation.reasons.map(reason => escapeHtml(reason.label)).join(", ")}</div>` : ""}
           ${rec.explanation?.sources?.length ? `<div class="meta">Sources: ${rec.explanation.sources.map(escapeHtml).join(" · ")}</div>` : ""}
