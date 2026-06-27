@@ -16,3 +16,5 @@ UI code may display validation results, but validation rules and normalization r
 - `calibration.js` owns recommendation feedback storage and score adjustment for Discover calibration.
 
 - `android-workflow.js` documents and validates the Android/Termux workflow model used by the app and handoff process.
+
+- `browser-testing.js` models browser test runner capabilities, summaries, and coverage percentages.

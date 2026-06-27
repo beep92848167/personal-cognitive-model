@@ -2,16 +2,21 @@
 
 ## Engineering Increment
 
-Documented and tested the Android/Termux workflow.
+Completed browser test runner and coverage dashboard requirements.
 
 ## Changes
 
-- Added `docs/ANDROID_WORKFLOW.md`.
-- Added `src/core/android-workflow.js`.
-- Added `tests/android-workflow-tests.js`.
-- Updated `tools/install-shortcuts.sh` help text.
-- Loaded Android workflow module in CLI/browser test runners.
-- Updated core and project documentation.
+- Added `src/core/browser-testing.js`.
+- Added `tests/browser-testing-tests.js`.
+- Enhanced `tests/test-runner.js` with:
+  - explicit pass/fail dashboard,
+  - requirement coverage percentage,
+  - requirement source display,
+  - runner capability display,
+  - uncovered requirement list.
+- Added `docs/BROWSER_TEST_RUNNER.md`.
+- Updated browser and CLI test loading.
+- Updated test and core documentation.
 
 ## Verification
 
@@ -23,14 +28,14 @@ node tools/run-tests.js
 
 Expected result in this package:
 
-- 53 passed
+- 57 passed
 - 0 failed
-- Android workflow requirements covered.
+- Requirement coverage: 24/24.
 
 ## Suggested Commit
 
-feat(android): document and test Termux workflow
+feat(test): complete browser test runner and coverage dashboard
 
 ## Risk
 
-Low. This is documentation plus testable workflow modelling; it does not change update execution semantics.
+Low. Browser test display changed, but shared harness and CLI verification passed.

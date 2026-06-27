@@ -66,3 +66,8 @@ Both runners use it:
 - CLI: `node tools/run-tests.js`
 
 This keeps browser and CLI test results structurally aligned.
+
+
+## Browser runner
+
+See `docs/BROWSER_TEST_RUNNER.md` for the browser-native no-Node test dashboard.

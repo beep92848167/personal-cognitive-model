@@ -1,39 +1,17 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T10:31:30.216Z",
+  "timestamp": "2026-06-27T10:37:17.650Z",
   "status": "PASS",
-  "passed": 53,
+  "passed": 57,
   "failed": 0,
-  "total": 53,
-  "durationMs": 12,
+  "total": 57,
+  "durationMs": 11,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
     "total": 24,
-    "covered": 21,
-    "uncovered": [
-      {
-        "id": "REQ-TEST-001",
-        "title": "Browser tests without Node/npm",
-        "area": "Testing",
-        "priority": "High",
-        "status": "Active"
-      },
-      {
-        "id": "REQ-TEST-002",
-        "title": "Pass/fail browser test runner",
-        "area": "Testing",
-        "priority": "High",
-        "status": "Active"
-      },
-      {
-        "id": "REQ-TEST-003",
-        "title": "Requirement coverage view",
-        "area": "Testing",
-        "priority": "High",
-        "status": "Active"
-      }
-    ]
+    "covered": 24,
+    "uncovered": []
   },
   "failures": [],
   "results": [
@@ -417,6 +395,34 @@
       "status": "PASS",
       "requirements": [
         "REQ-ANDROID-002"
+      ]
+    },
+    {
+      "name": "browserRunnerCapabilities documents no-Node browser testing",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TEST-001"
+      ]
+    },
+    {
+      "name": "summaryText reports pass/fail browser status",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TEST-002"
+      ]
+    },
+    {
+      "name": "coveragePercent calculates browser requirement coverage",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TEST-003"
+      ]
+    },
+    {
+      "name": "statusClass marks failing browser reports",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TEST-002"
       ]
     }
   ]
