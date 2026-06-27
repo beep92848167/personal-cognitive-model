@@ -2,16 +2,15 @@
 
 ## Engineering Increment
 
-Introduced the V2 preference model.
+Introduced the V2 reasoning engine.
 
 ## Changes
 
-- Added `src/core/preferences.js`.
-- Added `tests/preferences-tests.js`.
-- Discover summary now includes `preferenceModel`.
-- Discover top preference tags now come from the preference model when available.
-- Added `REQ-PREFERENCES-001`.
-- Added `docs/PREFERENCE_MODEL.md`.
+- Added `src/core/reasoning.js`.
+- Added `tests/reasoning-tests.js`.
+- Discover now uses the reasoning engine when a preference model is available.
+- Added `REQ-REASONING-001`.
+- Added `docs/REASONING_ENGINE.md`.
 - Updated CLI/browser runners and script loading.
 
 ## Verification
@@ -24,14 +23,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- 65 passed
+- 69 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(preferences): introduce preference model
+feat(reasoning): introduce reasoning engine
 
 ## Risk
 
-Medium-low. Discover still uses the existing scoring profile, but now exposes and uses a dedicated preference model for top signals.
+Medium. Discover recommendations now pass through the reasoning engine when available, but outputs remain deterministic and covered by tests.

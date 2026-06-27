@@ -53,6 +53,12 @@
 |---|---|---:|---|
 | REQ-PREFERENCES-001 | OpenPCM must derive an inspectable preference model from PCM profile signals and local evidence. | High | Active |
 
+## Reasoning
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-REASONING-001 | OpenPCM must produce structured reasoning for recommendations using the preference model and catalogue. | High | Active |
+
 ## Discover
 
 | ID | Requirement | Priority | Status |

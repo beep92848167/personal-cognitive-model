@@ -22,3 +22,5 @@ UI code may display validation results, but validation rules and normalization r
 - `catalogue.js` ingests the full Personal Cognitive Model media catalogue with source provenance.
 
 - `preferences.js` derives an inspectable preference model from PCM profile signals and local OpenPCM evidence.
+
+- `reasoning.js` produces structured recommendation reasoning from catalogue candidates and the preference model.

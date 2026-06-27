@@ -89,6 +89,7 @@ const scripts = [
   "src/core/profile.js",
   "src/core/calibration.js",
   "src/core/preferences.js",
+  "src/core/reasoning.js",
   "src/core/discover.js",
   "src/core/android-workflow.js",
   "src/core/browser-testing.js",
@@ -100,6 +101,7 @@ const scripts = [
   "tests/profile-tests.js",
   "tests/calibration-tests.js",
   "tests/preferences-tests.js",
+  "tests/reasoning-tests.js",
   "tests/discover-tests.js",
   "tests/android-workflow-tests.js",
   "tests/browser-testing-tests.js"

@@ -184,6 +184,16 @@
       "tests": []
     },
     {
+      "id": "REQ-REASONING-001",
+      "title": "OpenPCM must produce structured reasoning for recommendations using the preference model and catalogue.",
+      "shortTitle": "Structured recommendation reasoning",
+      "area": "Reasoning",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-DISCOVER-001",
       "title": "Discover must generate explainable recommendations from saved evidence.",
       "shortTitle": "Explainable evidence-based recommendations",

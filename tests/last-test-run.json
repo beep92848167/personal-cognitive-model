@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T11:02:18.179Z",
+  "timestamp": "2026-06-27T11:06:10.409Z",
   "status": "PASS",
-  "passed": 65,
+  "passed": 69,
   "failed": 0,
-  "total": 65,
-  "durationMs": 14,
+  "total": 69,
+  "durationMs": 13,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 26,
-    "covered": 26,
+    "total": 27,
+    "covered": 27,
     "uncovered": []
   },
   "failures": [],
@@ -365,6 +365,35 @@
       "status": "PASS",
       "requirements": [
         "REQ-PREFERENCES-001"
+      ]
+    },
+    {
+      "name": "evaluateCandidate produces supporting evidence and confidence",
+      "status": "PASS",
+      "requirements": [
+        "REQ-REASONING-001"
+      ]
+    },
+    {
+      "name": "evaluateCandidate records conflicting evidence",
+      "status": "PASS",
+      "requirements": [
+        "REQ-REASONING-001"
+      ]
+    },
+    {
+      "name": "reasonAboutCatalogue sorts candidates by reasoning score",
+      "status": "PASS",
+      "requirements": [
+        "REQ-REASONING-001"
+      ]
+    },
+    {
+      "name": "buildRecommendationFromReasoning creates Discover-compatible recommendation",
+      "status": "PASS",
+      "requirements": [
+        "REQ-REASONING-001",
+        "REQ-DISCOVER-001"
       ]
     },
     {

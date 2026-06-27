@@ -191,7 +191,10 @@
       ? global.OpenPCMPreferences.buildPreferenceModel(profileSource || {}, evidence || [])
       : null;
     const profile = buildPreferenceProfile(combinedEvidence);
-    const ranked = rankCandidates(candidateSource, combinedEvidence, { ...options, profile });
+    const ranked = global.OpenPCMReasoning && preferenceModel
+      ? global.OpenPCMReasoning.reasonAboutCatalogue(candidateSource, preferenceModel, options)
+          .map(item => global.OpenPCMReasoning.buildRecommendationFromReasoning(item))
+      : rankCandidates(candidateSource, combinedEvidence, { ...options, profile });
     const recommendations = global.OpenPCMCalibration && options.feedback
       ? global.OpenPCMCalibration.applyFeedback(ranked, options.feedback)
       : ranked;
