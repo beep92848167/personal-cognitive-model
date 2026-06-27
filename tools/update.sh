@@ -217,6 +217,21 @@ EOF
   echo
   echo "tests/last-test-run.json"
   echo "Status: $test_status ($test_passed passed, $test_failed failed)"
+if [ -f tests/last-test-run.json ]; then
+  python - <<'PY'
+import json
+from pathlib import Path
+d=json.loads(Path("tests/last-test-run.json").read_text())
+r=d.get("requirements",{})
+tot=r.get("total",0); cov=r.get("covered",0)
+print(f"Coverage: {cov}/{tot} requirements")
+unc=r.get("uncovered",[])
+if unc:
+    print("Uncovered:")
+    for u in unc:
+        print("  -",u.get("id","?"))
+PY
+fi
   echo
   echo "✓ Sync package"
   echo

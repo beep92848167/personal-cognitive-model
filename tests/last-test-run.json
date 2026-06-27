@@ -1,11 +1,11 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T08:24:25.009Z",
+  "timestamp": "2026-06-27T08:25:36.710Z",
   "status": "PASS",
   "passed": 28,
   "failed": 0,
   "total": 28,
-  "durationMs": 4,
+  "durationMs": 13,
   "runner": "tools/run-tests.js",
   "requirements": {
     "total": 20,
