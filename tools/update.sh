@@ -72,11 +72,46 @@ if [ "$SYNC" -eq 1 ]; then
     exit 1
   fi
 
-  repo=$(basename "$(git rev-parse --show-toplevel)")
+  repo_name="openpcm"
   branch=$(git branch --show-current)
   sha=$(git rev-parse --short HEAD)
   ts=$(date +%Y%m%d-%H%M%S)
-  sync_zip="$DOWNLOADS/${repo}-${branch}-${sha}-${ts}.zip"
+  sync_dir="$DOWNLOADS/OpenPCM"
+  sync_zip="$sync_dir/${ts}-${repo_name}-${branch}-${sha}.zip"
+
+  mkdir -p "$sync_dir"
+
+  cat > .openpcm-sync.json <<EOF
+{
+  "workflowVersion": 3,
+  "repository": "$repo_name",
+  "workingDirectory": "$(basename "$(git rev-parse --show-toplevel)")",
+  "branch": "$branch",
+  "commit": "$sha",
+  "commitMessage": "$MSG",
+  "timestamp": "$(date -Iseconds)",
+  "exportedBy": "tools/update.sh -sync"
+}
+EOF
+
+  cat > HANDOFF.md <<EOF
+# OpenPCM AI Handoff
+
+## Sync Package
+
+- Branch: $branch
+- Commit: $sha
+- Created: $(date -Iseconds)
+- Commit message: $MSG
+
+## Next Step
+
+Upload this ZIP to ChatGPT and type:
+
+\`\`\`
+SYNC
+\`\`\`
+EOF
 
   echo
   echo "Creating sync package..."
@@ -91,18 +126,35 @@ if [ "$SYNC" -eq 1 ]; then
     exit 1
   fi
 
+  # Keep the newest sync packages only.
+  keep_count=20
+  old_packages=$(ls -1t "$sync_dir"/*-openpcm-*.zip 2>/dev/null | tail -n +$((keep_count + 1)) || true)
+  if [ -n "$old_packages" ]; then
+    echo "$old_packages" | xargs -r rm -f
+  fi
+
   echo
-  echo "✓ Sync package created:"
-  echo "  $sync_zip"
+  echo "──────────────────────────────────────"
+  echo "✓ Commit: $sha"
+  echo "✓ Pushed: origin/$branch"
   echo
-  echo "Next:"
-  echo "  1. Upload this ZIP to ChatGPT"
-  echo "  2. Type: SYNC"
+  echo "✓ Sync package"
+  echo
+  echo "$(basename "$sync_zip")"
+  echo
+  echo "Location"
+  echo
+  echo "$sync_dir"
+  echo
+  echo "Next"
+  echo
+  echo "1. Upload ZIP to ChatGPT"
+  echo "2. Type: SYNC"
+  echo "──────────────────────────────────────"
   echo
   echo "Sync mode complete. Server restart skipped."
   exit 0
 fi
-
 echo
 echo "Stopping any old server on port 8080..."
 pkill -f "python -m http.server 8080" 2>/dev/null || true
