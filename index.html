@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OpenPCM Mobile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>OpenPCM</h1>
+        <p id="greeting">Personal Cognitive Model</p>
+      </div>
+      <div class="mark">◎</div>
+    </header>
+
+    <section id="view-home" class="view active">
+      <div class="hero card">
+        <p class="eyebrow">Evidence first</p>
+        <h2>Capture what matters.</h2>
+        <p>Store observations about what you watch, read, play, learn, and notice.</p>
+        <button class="primary big" data-nav="add">＋ Add Evidence</button>
+      </div>
+
+      <div class="grid">
+        <button class="tile" data-nav="library">Library</button>
+        <button class="tile" data-nav="discover">Discover</button>
+        <button class="tile" data-nav="stats">Statistics</button>
+        <button class="tile" data-nav="settings">Settings</button>
+      </div>
+
+      <section class="card">
+        <div class="section-title">
+          <h3>Recent Activity</h3>
+          <button class="ghost" data-nav="library">View all</button>
+        </div>
+        <div id="recent-list" class="list muted-list"></div>
+      </section>
+    </section>
+
+    <section id="view-add" class="view">
+      <section class="card">
+        <h2>Add Evidence</h2>
+
+        <label>Title</label>
+        <input id="title" placeholder="e.g. Black Sails">
+
+        <label>Type</label>
+        <select id="medium">
+          <option>TV</option>
+          <option>Movie</option>
+          <option>Book</option>
+          <option>Game</option>
+          <option>Documentary</option>
+          <option>Comedy</option>
+          <option>M/M Story</option>
+          <option>Mandarin Learning</option>
+          <option>Health / Cognitive Context</option>
+          <option>Other</option>
+        </select>
+
+        <label>Reaction</label>
+        <select id="reaction">
+          <option>Loved</option>
+          <option>Liked</option>
+          <option>Mixed</option>
+          <option>Bounced</option>
+          <option>Disliked</option>
+          <option>Not sure yet</option>
+        </select>
+
+        <label>Cognitive state</label>
+        <select id="cognitive">
+          <option>Not recorded</option>
+          <option>High capacity</option>
+          <option>Medium capacity</option>
+          <option>Low capacity</option>
+          <option>Symptom flare</option>
+        </select>
+
+        <label>Reasons</label>
+        <div class="chips" id="chips">
+          <button data-tag="exceptional writing">Exceptional writing</button>
+          <button data-tag="complex systems">Complex systems</button>
+          <button data-tag="institutions">Institutions</button>
+          <button data-tag="strong dialogue">Strong dialogue</button>
+          <button data-tag="competence">Competence</button>
+          <button data-tag="world-building">World-building</button>
+          <button data-tag="stewardship">Stewardship</button>
+          <button data-tag="ensemble cast">Ensemble cast</button>
+          <button data-tag="low cognitive load">Low cognitive load</button>
+          <button data-tag="too slow">Too slow</button>
+          <button data-tag="weak plotting">Weak plotting</button>
+          <button data-tag="too bleak">Too bleak</button>
+        </div>
+
+        <label>Note</label>
+        <textarea id="note" placeholder="Optional details..."></textarea>
+
+        <button class="primary" id="save">Save Evidence</button>
+        <button class="secondary" id="undo" disabled>Undo last save</button>
+        <p id="save-confirm" class="confirm"></p>
+      </section>
+    </section>
+
+    <section id="view-library" class="view">
+      <section class="card">
+        <div class="section-title">
+          <h2>Library</h2>
+          <span id="library-count" class="badge">0</span>
+        </div>
+
+        <input id="search" placeholder="Search evidence...">
+
+        <div class="filter-row">
+          <button class="filter active" data-filter="All">All</button>
+          <button class="filter" data-filter="TV">TV</button>
+          <button class="filter" data-filter="Book">Books</button>
+          <button class="filter" data-filter="Movie">Movies</button>
+          <button class="filter" data-filter="Game">Games</button>
+        </div>
+
+        <div id="entries" class="list"></div>
+      </section>
+    </section>
+
+    <section id="view-discover" class="view">
+      <section class="card">
+        <p class="eyebrow">Coming soon</p>
+        <h2>Discover</h2>
+        <p>Future recommendations will explain why something matches your evidence, current cognitive fit, and calibration history.</p>
+      </section>
+    </section>
+
+    <section id="view-stats" class="view">
+      <section class="card">
+        <h2>Statistics</h2>
+        <div id="stats"></div>
+      </section>
+    </section>
+
+    <section id="view-settings" class="view">
+      <section class="card">
+        <h2>Settings</h2>
+        <button id="export">Export JSON</button>
+        <label class="file">
+          Import JSON
+          <input type="file" id="import" accept="application/json">
+        </label>
+        <button id="clear" class="danger">Clear local data</button>
+      </section>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button data-nav="home" class="active">Home</button>
+    <button data-nav="add">Add</button>
+    <button data-nav="library">Library</button>
+    <button data-nav="discover">Discover</button>
+    <button data-nav="settings">Settings</button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

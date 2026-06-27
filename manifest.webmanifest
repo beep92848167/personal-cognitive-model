@@ -1,0 +1,9 @@
+{
+  "name": "OpenPCM Mobile",
+  "short_name": "OpenPCM",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "description": "A low-friction personal evidence capture app for portable AI context."
+}
