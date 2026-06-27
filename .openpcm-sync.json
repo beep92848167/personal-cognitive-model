@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "4cccdff",
-  "commitMessage": "docs(roadmap): freeze v1 and define v2 roadmap",
-  "timestamp": "2026-06-27T20:51:55+10:00",
+  "commit": "91da9d7",
+  "commitMessage": "feat(catalogue): ingest full PCM media catalogue",
+  "timestamp": "2026-06-27T20:59:17+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

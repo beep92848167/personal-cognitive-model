@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T10:54:49.253Z",
+  "timestamp": "2026-06-27T11:02:18.179Z",
   "status": "PASS",
-  "passed": 61,
+  "passed": 65,
   "failed": 0,
-  "total": 61,
-  "durationMs": 13,
+  "total": 65,
+  "durationMs": 14,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 25,
-    "covered": 25,
+    "total": 26,
+    "covered": 26,
     "uncovered": []
   },
   "failures": [],
@@ -337,6 +337,34 @@
       "status": "PASS",
       "requirements": [
         "REQ-CALIBRATION-001"
+      ]
+    },
+    {
+      "name": "buildPreferenceModel merges PCM profile and OpenPCM evidence",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREFERENCES-001"
+      ]
+    },
+    {
+      "name": "buildPreferenceModel records negative signals",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREFERENCES-001"
+      ]
+    },
+    {
+      "name": "topPreferenceTags returns strongest positive preferences",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREFERENCES-001"
+      ]
+    },
+    {
+      "name": "signalWeight returns merged signal weight",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREFERENCES-001"
       ]
     },
     {

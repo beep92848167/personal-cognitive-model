@@ -187,18 +187,24 @@
       ? candidates
       : (profileSource && global.OpenPCMProfile ? global.OpenPCMProfile.buildCandidateCatalogue(profileSource) : []);
 
+    const preferenceModel = global.OpenPCMPreferences
+      ? global.OpenPCMPreferences.buildPreferenceModel(profileSource || {}, evidence || [])
+      : null;
     const profile = buildPreferenceProfile(combinedEvidence);
     const ranked = rankCandidates(candidateSource, combinedEvidence, { ...options, profile });
     const recommendations = global.OpenPCMCalibration && options.feedback
       ? global.OpenPCMCalibration.applyFeedback(ranked, options.feedback)
       : ranked;
-    const topTags = Object.entries(profile.tags)
-      .filter(([, value]) => value > 0)
-      .slice(0, 5)
-      .map(([tag]) => tag);
+    const topTags = preferenceModel
+      ? global.OpenPCMPreferences.topPreferenceTags(preferenceModel, 5)
+      : Object.entries(profile.tags)
+        .filter(([, value]) => value > 0)
+        .slice(0, 5)
+        .map(([tag]) => tag);
 
     return {
       profile,
+      preferenceModel,
       profileSourceSummary: profileSource && global.OpenPCMProfile ? global.OpenPCMProfile.profileSummary(profileSource) : null,
       topTags,
       recommendations

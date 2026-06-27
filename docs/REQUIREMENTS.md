@@ -47,6 +47,12 @@
 |---|---|---:|---|
 | REQ-PROFILE-001 | Discover must use the Personal Cognitive Model profile as an explicit recommendation source. | High | Active |
 
+## Preferences
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-PREFERENCES-001 | OpenPCM must derive an inspectable preference model from PCM profile signals and local evidence. | High | Active |
+
 ## Discover
 
 | ID | Requirement | Priority | Status |

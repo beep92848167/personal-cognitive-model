@@ -20,3 +20,5 @@ UI code may display validation results, but validation rules and normalization r
 - `browser-testing.js` models browser test runner capabilities, summaries, and coverage percentages.
 
 - `catalogue.js` ingests the full Personal Cognitive Model media catalogue with source provenance.
+
+- `preferences.js` derives an inspectable preference model from PCM profile signals and local OpenPCM evidence.

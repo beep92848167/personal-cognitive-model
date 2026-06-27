@@ -2,16 +2,17 @@
 
 ## Engineering Increment
 
-Started V2 Milestone 1 by adding full PCM media catalogue ingestion.
+Introduced the V2 preference model.
 
 ## Changes
 
-- Added `src/core/catalogue.js`.
-- Added `tests/catalogue-tests.js`.
-- Discover candidate generation now uses the full catalogue through `OpenPCMProfile.buildCandidateCatalogue`.
-- Added `REQ-CATALOGUE-001`.
-- Added `docs/CATALOGUE_INGESTION.md`.
-- Updated CLI/browser test runners and script loading.
+- Added `src/core/preferences.js`.
+- Added `tests/preferences-tests.js`.
+- Discover summary now includes `preferenceModel`.
+- Discover top preference tags now come from the preference model when available.
+- Added `REQ-PREFERENCES-001`.
+- Added `docs/PREFERENCE_MODEL.md`.
+- Updated CLI/browser runners and script loading.
 
 ## Verification
 
@@ -23,14 +24,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- 61 passed
+- 65 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(catalogue): ingest full PCM media catalogue
+feat(preferences): introduce preference model
 
 ## Risk
 
-Medium. Candidate generation now uses a broader PCM catalogue, but known negative items are excluded from Discover candidates and source provenance is preserved.
+Medium-low. Discover still uses the existing scoring profile, but now exposes and uses a dedicated preference model for top signals.
