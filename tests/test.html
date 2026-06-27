@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OpenPCM Tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #07111f;
+      --surface: #102033;
+      --text: #f4efe6;
+      --muted: #b8c1cc;
+      --gold: #d7a449;
+      --green: #4caf50;
+      --red: #c94b4b;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      padding: 18px;
+    }
+    h1 { color: var(--gold); }
+    .summary, .test {
+      background: var(--surface);
+      border: 1px solid rgba(215,164,73,.3);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+    .pass { color: var(--green); }
+    .fail { color: var(--red); }
+    pre {
+      white-space: pre-wrap;
+      color: var(--muted);
+    }
+    button {
+      width: 100%;
+      min-height: 52px;
+      border-radius: 14px;
+      border: none;
+      background: var(--gold);
+      color: #07111f;
+      font-weight: 800;
+      font-size: 1rem;
+      margin: 8px 0 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>OpenPCM Tests</h1>
+  <button id="run">Run tests</button>
+  <div id="results"></div>
+
+  <script src="test-runner.js"></script>
+  <script src="evidence-tests.js"></script>
+</body>
+</html>

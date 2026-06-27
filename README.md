@@ -1,19 +1,37 @@
-# OpenPCM Mobile v0.3 — Evidence Library
+# OpenPCM Mobile v0.4 — Unit Test Framework
+
+Adds a lightweight browser-based test framework.
+
+No Node.
+No npm.
+No build tools.
+Runs directly in the phone browser.
 
 ## Adds
 
-- Tap evidence item to view details
-- Edit existing evidence
-- Delete evidence
-- Duplicate title warning
-- Better saved confirmation
-- Library item detail view
-- More complete local storage workflow
+- `tests/test.html`
+- `tests/test-runner.js`
+- `tests/evidence-tests.js`
+- `tests/README.md`
+
+## Run tests
+
+Start the app server:
+
+```bash
+run
+```
+
+Open:
+
+```text
+http://localhost:8080/tests/test.html
+```
 
 ## Apply
 
-After downloading this zip, run:
+After downloading this zip:
 
 ```bash
-u "feat: add editable evidence library"
+u "test: add browser unit test framework"
 ```
