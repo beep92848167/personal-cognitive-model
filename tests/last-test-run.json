@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T10:45:16.292Z",
+  "timestamp": "2026-06-27T10:54:49.253Z",
   "status": "PASS",
-  "passed": 57,
+  "passed": 61,
   "failed": 0,
-  "total": 57,
-  "durationMs": 10,
+  "total": 61,
+  "durationMs": 13,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 24,
-    "covered": 24,
+    "total": 25,
+    "covered": 25,
     "uncovered": []
   },
   "failures": [],
@@ -256,6 +256,35 @@
       "status": "PASS",
       "requirements": [
         "REQ-LIBRARY-004"
+      ]
+    },
+    {
+      "name": "buildCatalogue ingests all PCM media modules",
+      "status": "PASS",
+      "requirements": [
+        "REQ-CATALOGUE-001"
+      ]
+    },
+    {
+      "name": "buildCatalogue deduplicates titles and preserves sources",
+      "status": "PASS",
+      "requirements": [
+        "REQ-CATALOGUE-001"
+      ]
+    },
+    {
+      "name": "catalogueSummary counts media and statuses",
+      "status": "PASS",
+      "requirements": [
+        "REQ-CATALOGUE-001"
+      ]
+    },
+    {
+      "name": "profile candidate catalogue uses full catalogue and excludes known negatives",
+      "status": "PASS",
+      "requirements": [
+        "REQ-CATALOGUE-001",
+        "REQ-PROFILE-001"
       ]
     },
     {

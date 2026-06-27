@@ -154,6 +154,16 @@
       "tests": []
     },
     {
+      "id": "REQ-CATALOGUE-001",
+      "title": "Discover must ingest the full Personal Cognitive Model media catalogue with source provenance.",
+      "shortTitle": "Full PCM catalogue ingestion",
+      "area": "Catalogue",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-PROFILE-001",
       "title": "Discover must use the Personal Cognitive Model profile as an explicit recommendation source.",
       "shortTitle": "Use PCM profile as recommendation source",

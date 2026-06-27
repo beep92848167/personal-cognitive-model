@@ -2,18 +2,18 @@
 
 ## Engineering Increment
 
-Declared OpenPCM V1 frozen and added the V2 roadmap.
+Started V2 Milestone 1 by adding full PCM media catalogue ingestion.
 
 ## Changes
 
-- Added `docs/V1_BASELINE.md`.
-- Added `docs/V2_ROADMAP.md`.
-- Added `docs/ARCHITECTURE_V2.md`.
-- Updated `PROJECT_CONTEXT.md` with V1/V2 references.
+- Added `src/core/catalogue.js`.
+- Added `tests/catalogue-tests.js`.
+- Discover candidate generation now uses the full catalogue through `OpenPCMProfile.buildCandidateCatalogue`.
+- Added `REQ-CATALOGUE-001`.
+- Added `docs/CATALOGUE_INGESTION.md`.
+- Updated CLI/browser test runners and script loading.
 
 ## Verification
-
-Documentation-only change.
 
 Ran:
 
@@ -23,14 +23,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- 57 passed
+- 61 passed
 - 0 failed
-- Requirement coverage remains 24/24.
+- Requirement coverage remains complete.
 
 ## Suggested Commit
 
-docs(roadmap): freeze v1 and define v2 roadmap
+feat(catalogue): ingest full PCM media catalogue
 
 ## Risk
 
-Low. Documentation-only roadmap increment.
+Medium. Candidate generation now uses a broader PCM catalogue, but known negative items are excluded from Discover candidates and source provenance is preserved.

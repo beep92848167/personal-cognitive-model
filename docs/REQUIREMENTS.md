@@ -35,6 +35,12 @@
 | REQ-PORTABLE-001 | User must be able to export evidence as JSON. | High | Active |
 | REQ-PORTABLE-002 | User must be able to import evidence from JSON. | High | Active |
 
+## Catalogue
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-CATALOGUE-001 | Discover must ingest the full Personal Cognitive Model media catalogue with source provenance. | High | Active |
+
 ## Profile Source
 
 | ID | Requirement | Priority | Status |

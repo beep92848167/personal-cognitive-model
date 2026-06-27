@@ -18,3 +18,5 @@ UI code may display validation results, but validation rules and normalization r
 - `android-workflow.js` documents and validates the Android/Termux workflow model used by the app and handoff process.
 
 - `browser-testing.js` models browser test runner capabilities, summaries, and coverage percentages.
+
+- `catalogue.js` ingests the full Personal Cognitive Model media catalogue with source provenance.

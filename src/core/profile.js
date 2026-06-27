@@ -63,6 +63,11 @@
   }
 
   function buildCandidateCatalogue(source = {}) {
+    if (global.OpenPCMCatalogue) {
+      return global.OpenPCMCatalogue.buildCatalogue(source)
+        .filter(candidate => candidate.catalogueStatus !== "known-negative");
+    }
+
     const candidates = [];
     const seen = new Set();
     const signals = positiveFeatureSignals(source, 6).map(signal => signal.tag);
