@@ -43,10 +43,12 @@
 
     <section id="view-add" class="view">
       <section class="card">
-        <h2>Add Evidence</h2>
+        <h2 id="form-title">Add Evidence</h2>
+        <input id="editing-id" type="hidden">
 
         <label>Title</label>
         <input id="title" placeholder="e.g. Black Sails">
+        <p id="duplicate-warning" class="warning-text"></p>
 
         <label>Type</label>
         <select id="medium">
@@ -101,6 +103,7 @@
         <textarea id="note" placeholder="Optional details..."></textarea>
 
         <button class="primary" id="save">Save Evidence</button>
+        <button class="secondary" id="cancel-edit" hidden>Cancel edit</button>
         <button class="secondary" id="undo" disabled>Undo last save</button>
         <p id="save-confirm" class="confirm"></p>
       </section>
@@ -125,6 +128,10 @@
 
         <div id="entries" class="list"></div>
       </section>
+    </section>
+
+    <section id="view-detail" class="view">
+      <section class="card" id="detail-card"></section>
     </section>
 
     <section id="view-discover" class="view">

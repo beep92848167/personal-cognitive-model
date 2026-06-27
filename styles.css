@@ -8,6 +8,7 @@
   --gold: #d7a449;
   --blue: #5fb3ff;
   --danger: #c94b4b;
+  --warning: #d97706;
 }
 
 * { box-sizing: border-box; }
@@ -35,7 +36,6 @@ body {
 }
 
 h1, h2, h3 { margin: 0; }
-
 h1 { color: var(--gold); font-size: 2rem; letter-spacing: .3px; }
 h2 { color: var(--text); margin-bottom: 8px; }
 h3 { color: var(--gold); }
@@ -179,6 +179,7 @@ textarea { min-height: 90px; }
   border: 1px solid #253c56;
   border-radius: 16px;
   padding: 14px;
+  text-align: left;
 }
 
 .entry-title {
@@ -193,6 +194,7 @@ textarea { min-height: 90px; }
 .empty { color: var(--muted); padding: 10px 0; }
 
 .confirm { color: var(--gold) !important; min-height: 22px; }
+.warning-text { color: #f3c27a !important; min-height: 20px; font-size: .92rem; margin: 6px 0 0; }
 
 .file {
   display: block;
@@ -212,6 +214,12 @@ textarea { min-height: 90px; }
   padding: 14px;
 }
 .stat strong { color: var(--gold); font-size: 1.5rem; display: block; }
+
+.detail-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
 
 .bottom-nav {
   position: fixed;

@@ -1,7 +1,9 @@
-const STORAGE_KEY = "openpcm_evidence_v2";
+const STORAGE_KEY = "openpcm_evidence_v3";
+const LEGACY_KEYS = ["openpcm_evidence_v2", "pcm_mobile_entries_v1"];
 let selectedTags = new Set();
 let activeFilter = "All";
 let lastSaved = null;
+let selectedDetailId = null;
 
 const $ = (id) => document.getElementById(id);
 
@@ -19,14 +21,39 @@ function uuid() {
 
 function loadEntries() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-  } catch {
-    return [];
+    const current = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    if (Array.isArray(current)) return current;
+  } catch {}
+
+  for (const key of LEGACY_KEYS) {
+    try {
+      const legacy = JSON.parse(localStorage.getItem(key));
+      if (Array.isArray(legacy) && legacy.length) {
+        saveEntries(legacy.map(normalizeEntry));
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      }
+    } catch {}
   }
+
+  return [];
+}
+
+function normalizeEntry(e) {
+  return {
+    id: e.id || uuid(),
+    title: e.title || "Untitled",
+    medium: e.medium || e.type || "Other",
+    reaction: e.reaction || "Not sure yet",
+    cognitive_state: e.cognitive_state || e.cognitive || "Not recorded",
+    tags: Array.isArray(e.tags) ? e.tags : (Array.isArray(e.reasons) ? e.reasons : []),
+    note: e.note || e.notes || "",
+    timestamp_utc: e.timestamp_utc || e.created_utc || new Date().toISOString(),
+    updated_utc: e.updated_utc || null
+  };
 }
 
 function saveEntries(entries) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries.map(normalizeEntry)));
 }
 
 function escapeHtml(s) {
@@ -50,13 +77,13 @@ function setView(name) {
 
 function entryHtml(e) {
   return `
-    <div class="entry">
+    <button class="entry" data-entry-id="${escapeHtml(e.id)}">
       <div class="entry-title">${escapeHtml(e.title)}</div>
       <div class="meta">${escapeHtml(e.medium)} • ${escapeHtml(e.reaction)} • ${escapeHtml(e.cognitive_state || "No cognitive state")}</div>
       ${e.tags?.length ? `<div class="tags">${e.tags.map(escapeHtml).join(", ")}</div>` : ""}
       ${e.note ? `<div class="note">${escapeHtml(e.note)}</div>` : ""}
       <div class="meta">${escapeHtml(new Date(e.timestamp_utc).toLocaleString())}</div>
-    </div>
+    </button>
   `;
 }
 
@@ -67,13 +94,11 @@ function renderRecent() {
     : `<div class="empty">No evidence yet. Add your first entry.</div>`;
 }
 
-function renderLibrary() {
+function filteredEntries() {
   const search = $("search")?.value?.toLowerCase() || "";
-  let entries = loadEntries().slice().reverse();
+  let entries = loadEntries().slice().sort((a,b) => new Date(b.timestamp_utc) - new Date(a.timestamp_utc));
 
-  if (activeFilter !== "All") {
-    entries = entries.filter(e => e.medium === activeFilter);
-  }
+  if (activeFilter !== "All") entries = entries.filter(e => e.medium === activeFilter);
 
   if (search) {
     entries = entries.filter(e =>
@@ -83,10 +108,44 @@ function renderLibrary() {
     );
   }
 
+  return entries;
+}
+
+function renderLibrary() {
+  const entries = filteredEntries();
   $("library-count").textContent = String(entries.length);
   $("entries").innerHTML = entries.length
     ? entries.map(entryHtml).join("")
     : `<div class="empty">No matching evidence.</div>`;
+}
+
+function renderDetail() {
+  if (!selectedDetailId) return;
+  const entry = loadEntries().find(e => e.id === selectedDetailId);
+  if (!entry) {
+    setView("library");
+    return;
+  }
+
+  $("detail-card").innerHTML = `
+    <p class="eyebrow">${escapeHtml(entry.medium)}</p>
+    <h2>${escapeHtml(entry.title)}</h2>
+    <p><strong>${escapeHtml(entry.reaction)}</strong></p>
+    <p>${escapeHtml(entry.cognitive_state || "No cognitive state")}</p>
+    ${entry.tags?.length ? `<div class="tags">${entry.tags.map(escapeHtml).join(", ")}</div>` : ""}
+    ${entry.note ? `<div class="note">${escapeHtml(entry.note)}</div>` : ""}
+    <p class="meta">Created: ${escapeHtml(new Date(entry.timestamp_utc).toLocaleString())}</p>
+    ${entry.updated_utc ? `<p class="meta">Updated: ${escapeHtml(new Date(entry.updated_utc).toLocaleString())}</p>` : ""}
+    <div class="detail-actions">
+      <button class="primary" id="edit-entry">Edit</button>
+      <button class="danger" id="delete-entry">Delete</button>
+      <button class="secondary" data-nav="library">Back to Library</button>
+    </div>
+  `;
+
+  $("edit-entry").addEventListener("click", () => startEdit(entry.id));
+  $("delete-entry").addEventListener("click", () => deleteEntry(entry.id));
+  document.querySelector("#detail-card [data-nav='library']").addEventListener("click", () => setView("library"));
 }
 
 function renderStats() {
@@ -115,13 +174,77 @@ function renderAll() {
   renderRecent();
   renderLibrary();
   renderStats();
+  renderDetail();
+  bindEntryButtons();
+}
+
+function bindEntryButtons() {
+  document.querySelectorAll("[data-entry-id]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      selectedDetailId = btn.dataset.entryId;
+      setView("detail");
+    });
+  });
 }
 
 function clearForm() {
+  $("editing-id").value = "";
+  $("form-title").textContent = "Add Evidence";
   $("title").value = "";
   $("note").value = "";
+  $("duplicate-warning").textContent = "";
+  $("cancel-edit").hidden = true;
   selectedTags.clear();
   document.querySelectorAll("#chips button").forEach(b => b.classList.remove("selected"));
+}
+
+function startEdit(id) {
+  const entry = loadEntries().find(e => e.id === id);
+  if (!entry) return;
+
+  $("editing-id").value = entry.id;
+  $("form-title").textContent = "Edit Evidence";
+  $("title").value = entry.title;
+  $("medium").value = entry.medium;
+  $("reaction").value = entry.reaction;
+  $("cognitive").value = entry.cognitive_state || "Not recorded";
+  $("note").value = entry.note || "";
+  $("cancel-edit").hidden = false;
+
+  selectedTags = new Set(entry.tags || []);
+  document.querySelectorAll("#chips button").forEach(b => {
+    b.classList.toggle("selected", selectedTags.has(b.dataset.tag));
+  });
+
+  $("save-confirm").textContent = "";
+  setView("add");
+}
+
+function deleteEntry(id) {
+  const entry = loadEntries().find(e => e.id === id);
+  if (!entry) return;
+  if (!confirm(`Delete "${entry.title}"?`)) return;
+
+  saveEntries(loadEntries().filter(e => e.id !== id));
+  selectedDetailId = null;
+  setView("library");
+}
+
+function checkDuplicateTitle() {
+  const title = $("title").value.trim().toLowerCase();
+  const editingId = $("editing-id").value;
+  if (!title) {
+    $("duplicate-warning").textContent = "";
+    return;
+  }
+
+  const duplicate = loadEntries().find(e =>
+    e.title.toLowerCase() === title && e.id !== editingId
+  );
+
+  $("duplicate-warning").textContent = duplicate
+    ? `Existing entry found: ${duplicate.title}. You may want to edit it instead.`
+    : "";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -154,6 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   $("search").addEventListener("input", renderLibrary);
+  $("title").addEventListener("input", checkDuplicateTitle);
 
   $("save").addEventListener("click", () => {
     const title = $("title").value.trim();
@@ -162,26 +286,44 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const editingId = $("editing-id").value;
+    const entries = loadEntries();
+
     const entry = {
-      id: uuid(),
+      id: editingId || uuid(),
       title,
       medium: $("medium").value,
       reaction: $("reaction").value,
       cognitive_state: $("cognitive").value,
       tags: Array.from(selectedTags),
       note: $("note").value.trim(),
-      timestamp_utc: new Date().toISOString()
+      timestamp_utc: editingId
+        ? (entries.find(e => e.id === editingId)?.timestamp_utc || new Date().toISOString())
+        : new Date().toISOString(),
+      updated_utc: editingId ? new Date().toISOString() : null
     };
 
-    const entries = loadEntries();
-    entries.push(entry);
-    saveEntries(entries);
-    lastSaved = entry.id;
+    const next = editingId
+      ? entries.map(e => e.id === editingId ? entry : e)
+      : [...entries, entry];
 
-    $("undo").disabled = false;
-    $("save-confirm").textContent = "Saved.";
+    saveEntries(next);
+    lastSaved = editingId ? null : entry.id;
+
+    $("undo").disabled = Boolean(editingId);
+    $("save-confirm").textContent = editingId ? "Updated." : "Saved.";
     clearForm();
     renderAll();
+
+    if (editingId) {
+      selectedDetailId = entry.id;
+      setView("detail");
+    }
+  });
+
+  $("cancel-edit").addEventListener("click", () => {
+    clearForm();
+    setView("library");
   });
 
   $("undo").addEventListener("click", () => {
@@ -196,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $("export").addEventListener("click", () => {
     const payload = {
-      schema_version: "openpcm_mobile_export_v2",
+      schema_version: "openpcm_mobile_export_v3",
       exported_utc: new Date().toISOString(),
       evidence: loadEntries()
     };
