@@ -4,6 +4,12 @@ set -e
 REPO="$HOME/storage/downloads/pcm-git"
 DOWNLOADS="$HOME/storage/downloads"
 TMP="$HOME/.openpcm-update"
+SYNC=0
+
+if [ "${1:-}" = "-sync" ]; then
+  SYNC=1
+  shift
+fi
 
 cd "$DOWNLOADS"
 
@@ -35,7 +41,7 @@ echo "Unzipping..."
 unzip -oq "$DOWNLOADS/$ZIP" -d "$TMP"
 
 echo "Applying files..."
-cp -r "$TMP"/* "$REPO"/
+cp -a "$TMP"/. "$REPO"/
 
 cd "$REPO"
 
@@ -55,6 +61,43 @@ else
   echo
   echo "Pushing..."
   git push
+fi
+
+if [ "$SYNC" -eq 1 ]; then
+  if ! command -v zip >/dev/null 2>&1; then
+    echo
+    echo "ERROR: zip is not installed."
+    echo "Run:"
+    echo "  pkg install zip"
+    exit 1
+  fi
+
+  repo=$(basename "$(git rev-parse --show-toplevel)")
+  branch=$(git branch --show-current)
+  sha=$(git rev-parse --short HEAD)
+  ts=$(date +%Y%m%d-%H%M%S)
+  sync_zip="$DOWNLOADS/${repo}-${branch}-${sha}-${ts}.zip"
+
+  echo
+  echo "Creating sync package..."
+  zip -qr "$sync_zip" . \
+    -x ".git/*" \
+    -x ".DS_Store" \
+    -x "__pycache__/*" \
+    -x "*.pyc"
+
+  if [ ! -f "$sync_zip" ]; then
+    echo "ERROR: sync package was not created."
+    exit 1
+  fi
+
+  echo
+  echo "✓ Sync package created:"
+  echo "  $sync_zip"
+  echo
+  echo "Next:"
+  echo "  1. Upload this ZIP to ChatGPT"
+  echo "  2. Type: SYNC"
 fi
 
 echo
