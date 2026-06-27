@@ -1,0 +1,11 @@
+{
+  "name": "OpenPCM Mobile",
+  "version": "0.7.0",
+  "schema_version": 4,
+  "release_channel": "alpha",
+  "modules": {
+    "core": "src/core/evidence.js",
+    "ui": "app.js",
+    "tests": "tests/"
+  }
+}

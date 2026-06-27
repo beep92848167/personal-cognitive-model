@@ -1,14 +1,26 @@
-# OpenPCM Mobile v0.6 - Quality Dashboard
+# OpenPCM Mobile v0.7.0 — Core Engine Refactor
 
-Adds engineering quality tracking.
+## What's new
 
-## Features
-- Requirement implementation status
-- Test status
-- Priority (Critical/High/Medium/Low)
-- Project completion metrics
-- Quality dashboard design
+- Shared evidence Core module
+- UI now calls `OpenPCMCore`
+- Tests now exercise shared production logic
+- Storage helpers covered by tests
+- `project.json` introduced
+- Release notes added
 
-Apply:
+## Apply
 
-u "feat: add quality dashboard"
+```bash
+u "refactor(core): introduce evidence core module"
+```
+
+## Verify
+
+Open:
+
+```text
+http://localhost:8080/tests/test.html
+```
+
+Expected: all tests pass.

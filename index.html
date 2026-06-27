@@ -10,10 +10,7 @@
 <body>
   <main class="app">
     <header class="topbar">
-      <div>
-        <h1>OpenPCM</h1>
-        <p id="greeting">Personal Cognitive Model</p>
-      </div>
+      <div><h1>OpenPCM</h1><p id="greeting">Personal Cognitive Model</p></div>
       <div class="mark">◎</div>
     </header>
 
@@ -24,19 +21,14 @@
         <p>Store observations about what you watch, read, play, learn, and notice.</p>
         <button class="primary big" data-nav="add">＋ Add Evidence</button>
       </div>
-
       <div class="grid">
         <button class="tile" data-nav="library">Library</button>
         <button class="tile" data-nav="discover">Discover</button>
         <button class="tile" data-nav="stats">Statistics</button>
         <button class="tile" data-nav="settings">Settings</button>
       </div>
-
       <section class="card">
-        <div class="section-title">
-          <h3>Recent Activity</h3>
-          <button class="ghost" data-nav="library">View all</button>
-        </div>
+        <div class="section-title"><h3>Recent Activity</h3><button class="ghost" data-nav="library">View all</button></div>
         <div id="recent-list" class="list muted-list"></div>
       </section>
     </section>
@@ -45,42 +37,27 @@
       <section class="card">
         <h2 id="form-title">Add Evidence</h2>
         <input id="editing-id" type="hidden">
-
         <label>Title</label>
         <input id="title" placeholder="e.g. Black Sails">
         <p id="duplicate-warning" class="warning-text"></p>
 
         <label>Type</label>
         <select id="medium">
-          <option>TV</option>
-          <option>Movie</option>
-          <option>Book</option>
-          <option>Game</option>
-          <option>Documentary</option>
-          <option>Comedy</option>
-          <option>M/M Story</option>
-          <option>Mandarin Learning</option>
-          <option>Health / Cognitive Context</option>
-          <option>Other</option>
+          <option>TV</option><option>Movie</option><option>Book</option><option>Game</option>
+          <option>Documentary</option><option>Comedy</option><option>M/M Story</option>
+          <option>Mandarin Learning</option><option>Health / Cognitive Context</option><option>Other</option>
         </select>
 
         <label>Reaction</label>
         <select id="reaction">
-          <option>Loved</option>
-          <option>Liked</option>
-          <option>Mixed</option>
-          <option>Bounced</option>
-          <option>Disliked</option>
-          <option>Not sure yet</option>
+          <option>Loved</option><option>Liked</option><option>Mixed</option><option>Bounced</option>
+          <option>Disliked</option><option>Not sure yet</option>
         </select>
 
         <label>Cognitive state</label>
         <select id="cognitive">
-          <option>Not recorded</option>
-          <option>High capacity</option>
-          <option>Medium capacity</option>
-          <option>Low capacity</option>
-          <option>Symptom flare</option>
+          <option>Not recorded</option><option>High capacity</option><option>Medium capacity</option>
+          <option>Low capacity</option><option>Symptom flare</option>
         </select>
 
         <label>Reasons</label>
@@ -101,7 +78,6 @@
 
         <label>Note</label>
         <textarea id="note" placeholder="Optional details..."></textarea>
-
         <button class="primary" id="save">Save Evidence</button>
         <button class="secondary" id="cancel-edit" hidden>Cancel edit</button>
         <button class="secondary" id="undo" disabled>Undo last save</button>
@@ -111,13 +87,8 @@
 
     <section id="view-library" class="view">
       <section class="card">
-        <div class="section-title">
-          <h2>Library</h2>
-          <span id="library-count" class="badge">0</span>
-        </div>
-
+        <div class="section-title"><h2>Library</h2><span id="library-count" class="badge">0</span></div>
         <input id="search" placeholder="Search evidence...">
-
         <div class="filter-row">
           <button class="filter active" data-filter="All">All</button>
           <button class="filter" data-filter="TV">TV</button>
@@ -125,38 +96,18 @@
           <button class="filter" data-filter="Movie">Movies</button>
           <button class="filter" data-filter="Game">Games</button>
         </div>
-
         <div id="entries" class="list"></div>
       </section>
     </section>
 
-    <section id="view-detail" class="view">
-      <section class="card" id="detail-card"></section>
-    </section>
-
-    <section id="view-discover" class="view">
-      <section class="card">
-        <p class="eyebrow">Coming soon</p>
-        <h2>Discover</h2>
-        <p>Future recommendations will explain why something matches your evidence, current cognitive fit, and calibration history.</p>
-      </section>
-    </section>
-
-    <section id="view-stats" class="view">
-      <section class="card">
-        <h2>Statistics</h2>
-        <div id="stats"></div>
-      </section>
-    </section>
-
+    <section id="view-detail" class="view"><section class="card" id="detail-card"></section></section>
+    <section id="view-discover" class="view"><section class="card"><p class="eyebrow">Coming soon</p><h2>Discover</h2><p>Future recommendations will explain why something matches your evidence, current cognitive fit, and calibration history.</p></section></section>
+    <section id="view-stats" class="view"><section class="card"><h2>Statistics</h2><div id="stats"></div></section></section>
     <section id="view-settings" class="view">
       <section class="card">
         <h2>Settings</h2>
         <button id="export">Export JSON</button>
-        <label class="file">
-          Import JSON
-          <input type="file" id="import" accept="application/json">
-        </label>
+        <label class="file">Import JSON<input type="file" id="import" accept="application/json"></label>
         <button id="clear" class="danger">Clear local data</button>
       </section>
     </section>
@@ -170,6 +121,7 @@
     <button data-nav="settings">Settings</button>
   </nav>
 
+  <script src="src/core/evidence.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
