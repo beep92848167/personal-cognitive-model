@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "87caae9",
-  "commitMessage": "feat(workspace): add recommendation workspace",
-  "timestamp": "2026-06-28T13:54:40+10:00",
+  "commit": "8db3d28",
+  "commitMessage": "docs: add PCM Runner automation design",
+  "timestamp": "2026-06-28T14:09:34+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

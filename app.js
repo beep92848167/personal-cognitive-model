@@ -9,6 +9,7 @@ const RecommendationDetail = window.OpenPCMRecommendationDetail;
 const DecisionHistory = window.OpenPCMDecisionHistory;
 const RecommendationTimeline = window.OpenPCMRecommendationTimeline;
 const Workspace = window.OpenPCMWorkspace;
+const ProfileTransfer = window.OpenPCMProfileTransfer;
 
 let selectedTags = new Set();
 let activeFilter = "All";
@@ -257,6 +258,33 @@ function bindRecommendationDetails() {
 }
 
 
+
+function renderProfileTransfer() {
+  const exported = ProfileTransfer ? ProfileTransfer.exportProfile(window.OpenPCMProfileSeed || {}) : null;
+  const summary = exported && ProfileTransfer ? ProfileTransfer.profileTransferSummary(exported) : null;
+  $("profile-transfer-content").innerHTML = `
+    <p class="eyebrow">Portable PCM</p>
+    <h2>Profile Import / Export</h2>
+    ${summary ? `<p class="meta">${summary.profileSections} profile sections · ${summary.knowledgeSections} knowledge sections · ${summary.mediaSections} media sections</p>` : ""}
+    <div class="detail-actions">
+      <button class="secondary" id="copy-profile-export">Copy export JSON</button>
+    </div>
+    <textarea id="profile-export-text" rows="12" readonly>${escapeHtml(ProfileTransfer ? ProfileTransfer.exportProfileText(window.OpenPCMProfileSeed || {}) : "")}</textarea>
+    <p class="meta">Import support is implemented in core. UI import will be enabled after file-picker workflow hardening.</p>`;
+  const copyButton = document.getElementById("copy-profile-export");
+  if (copyButton) {
+    copyButton.addEventListener("click", async () => {
+      const text = document.getElementById("profile-export-text").value;
+      try {
+        await navigator.clipboard.writeText(text);
+        copyButton.textContent = "Copied";
+      } catch {
+        copyButton.textContent = "Select text manually";
+      }
+    });
+  }
+}
+
 function renderWorkspace() {
   const items = Workspace ? Workspace.compareWorkspaceItems(loadWorkspaceItems()) : [];
   const summary = Workspace ? Workspace.workspaceSummary(items) : { total: 0, pinned: 0, byStatus: {} };
@@ -299,6 +327,7 @@ function renderAll() {
   renderDiscover();
   renderRecommendationDetail();
   renderWorkspace();
+  renderProfileTransfer();
   renderDetail();
   bindEntryButtons();
   bindRecommendationFeedback();

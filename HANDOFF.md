@@ -1,19 +1,36 @@
 # OpenPCM AI Handoff
 
-## Sync Package
+## Engineering Increment
 
-- Workflow version: 4
-- Branch: main
-- Commit: 87caae9
-- Created: 2026-06-28T13:54:40+10:00
-- Commit message: feat(workspace): add recommendation workspace
-- Test artifact: tests/last-test-run.json
-- Test status: PASS
+Added portable PCM import/export.
 
-## Next Step
+## Changes
 
-Upload this ZIP to ChatGPT and type:
+- Added `src/core/profile-transfer.js`.
+- Added `tests/profile-transfer-tests.js`.
+- Added profile transfer/export UI view.
+- Added `REQ-PROFILE-TRANSFER-001`.
+- Added `docs/PROFILE_TRANSFER.md`.
+- Updated CLI/browser runners and script loading.
 
+## Verification
+
+Ran:
+
+```bash
+node tools/run-tests.js
 ```
-SYNC
-```
+
+Expected result:
+
+- 111 passed
+- 0 failed
+- Requirement coverage remains complete.
+
+## Suggested Commit
+
+feat(profile): add portable PCM import/export
+
+## Risk
+
+Medium. Core import/export is implemented and tested; UI currently exposes export/copy and leaves full import UI for a hardened file-picker workflow.

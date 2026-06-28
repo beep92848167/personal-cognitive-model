@@ -67,6 +67,12 @@
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
 | REQ-DISCOVER-002 | Discover recommendation explanations must show reasons, risks, confidence, and sources. | High | Active |
 
+## Profile Transfer
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-PROFILE-TRANSFER-001 | User must be able to export and import the Personal Cognitive Model as validated portable JSON with merge or replace semantics. | High | Active |
+
 ## Workspace
 
 | ID | Requirement | Priority | Status |

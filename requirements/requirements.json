@@ -224,6 +224,16 @@
       "tests": []
     },
     {
+      "id": "REQ-PROFILE-TRANSFER-001",
+      "title": "User must be able to export and import the Personal Cognitive Model as validated portable JSON with merge or replace semantics.",
+      "shortTitle": "Portable PCM import/export",
+      "area": "Profile Transfer",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-WORKSPACE-001",
       "title": "User must be able to save, pin, compare, status-track, and remove recommendation workspace items.",
       "shortTitle": "Recommendation workspace",

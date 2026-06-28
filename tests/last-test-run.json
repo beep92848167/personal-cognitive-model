@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-28T03:54:40.784Z",
+  "timestamp": "2026-06-28T04:20:10.626Z",
   "status": "PASS",
-  "passed": 105,
+  "passed": 111,
   "failed": 0,
-  "total": 105,
-  "durationMs": 37,
+  "total": 111,
+  "durationMs": 20,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 36,
-    "covered": 36,
+    "total": 37,
+    "covered": 37,
     "uncovered": []
   },
   "failures": [],
@@ -514,6 +514,48 @@
       "status": "PASS",
       "requirements": [
         "REQ-WORKSPACE-001"
+      ]
+    },
+    {
+      "name": "exportProfile creates portable PCM export",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-TRANSFER-001"
+      ]
+    },
+    {
+      "name": "validateProfileExport accepts valid export and rejects bad schema",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-TRANSFER-001"
+      ]
+    },
+    {
+      "name": "importProfile replace mode replaces current source",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-TRANSFER-001"
+      ]
+    },
+    {
+      "name": "importProfile merge mode preserves current and adds incoming",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-TRANSFER-001"
+      ]
+    },
+    {
+      "name": "exportProfileText and parseProfileText round-trip",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-TRANSFER-001"
+      ]
+    },
+    {
+      "name": "profileTransferSummary counts sections",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PROFILE-TRANSFER-001"
       ]
     },
     {
