@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T23:22:13.298Z",
+  "timestamp": "2026-06-28T03:36:00.850Z",
   "status": "PASS",
-  "passed": 99,
+  "passed": 105,
   "failed": 0,
-  "total": 99,
-  "durationMs": 16,
+  "total": 105,
+  "durationMs": 30,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 35,
-    "covered": 35,
+    "total": 36,
+    "covered": 36,
     "uncovered": []
   },
   "failures": [],
@@ -472,6 +472,48 @@
       "status": "PASS",
       "requirements": [
         "REQ-EXPERIMENTS-001"
+      ]
+    },
+    {
+      "name": "addToWorkspace adds recommendation once",
+      "status": "PASS",
+      "requirements": [
+        "REQ-WORKSPACE-001"
+      ]
+    },
+    {
+      "name": "updateWorkspaceItem changes status pin and note",
+      "status": "PASS",
+      "requirements": [
+        "REQ-WORKSPACE-001"
+      ]
+    },
+    {
+      "name": "removeWorkspaceItem removes by id",
+      "status": "PASS",
+      "requirements": [
+        "REQ-WORKSPACE-001"
+      ]
+    },
+    {
+      "name": "workspaceSummary counts statuses and pins",
+      "status": "PASS",
+      "requirements": [
+        "REQ-WORKSPACE-001"
+      ]
+    },
+    {
+      "name": "compareWorkspaceItems sorts pinned then score",
+      "status": "PASS",
+      "requirements": [
+        "REQ-WORKSPACE-001"
+      ]
+    },
+    {
+      "name": "saveWorkspace and loadWorkspace round-trip through storage",
+      "status": "PASS",
+      "requirements": [
+        "REQ-WORKSPACE-001"
       ]
     },
     {

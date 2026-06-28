@@ -2,16 +2,17 @@
 
 ## Engineering Increment
 
-Added recommendation experiment framework.
+Added recommendation workspace.
 
 ## Changes
 
-- Added `src/core/experiments.js`.
-- Added `tests/experiments-tests.js`.
-- Discover now runs recommendations through a deterministic experiment framework when available.
-- Discover UI shows active experiment and variant.
-- Added `REQ-EXPERIMENTS-001`.
-- Added `docs/EXPERIMENTS.md`.
+- Added `src/core/workspace.js`.
+- Added `tests/workspace-tests.js`.
+- Added Workspace view.
+- Discover recommendations can now be saved to workspace.
+- Workspace items can be pinned, marked completed, and removed.
+- Added `REQ-WORKSPACE-001`.
+- Added `docs/WORKSPACE.md`.
 - Updated CLI/browser runners and script loading.
 
 ## Verification
@@ -24,14 +25,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- 99 passed
+- 105 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(reasoning): add recommendation experiment framework
+feat(workspace): add recommendation workspace
 
 ## Risk
 
-Medium. Discover ranking now includes deterministic experiment metadata and may slightly alter ordering based on selected variant.
+Medium. Adds local workspace state and a new UI view, but core logic is tested and existing recommendation flow remains intact.

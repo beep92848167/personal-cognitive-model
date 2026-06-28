@@ -224,6 +224,16 @@
       "tests": []
     },
     {
+      "id": "REQ-WORKSPACE-001",
+      "title": "User must be able to save, pin, compare, status-track, and remove recommendation workspace items.",
+      "shortTitle": "Recommendation workspace",
+      "area": "Workspace",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-EXPERIMENTS-001",
       "title": "OpenPCM must support deterministic recommendation experiments for comparing ranking strategies and measuring feedback performance.",
       "shortTitle": "Recommendation experiment framework",

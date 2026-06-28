@@ -8,6 +8,7 @@ const Profile = window.OpenPCMProfile;
 const RecommendationDetail = window.OpenPCMRecommendationDetail;
 const DecisionHistory = window.OpenPCMDecisionHistory;
 const RecommendationTimeline = window.OpenPCMRecommendationTimeline;
+const Workspace = window.OpenPCMWorkspace;
 
 let selectedTags = new Set();
 let activeFilter = "All";
@@ -49,6 +50,14 @@ function loadDecisionHistory() {
 
 function saveDecisionHistory(items) {
   if (DecisionHistory) DecisionHistory.saveHistory(items);
+}
+
+function loadWorkspaceItems() {
+  return Workspace ? Workspace.loadWorkspace() : [];
+}
+
+function saveWorkspaceItems(items) {
+  if (Workspace) Workspace.saveWorkspace(items);
 }
 
 function escapeHtml(s) {
@@ -142,6 +151,7 @@ function renderDiscover() {
           ${rec.note ? `<div class="note">${escapeHtml(rec.note)}</div>` : ""}
           <div class="detail-actions">
             <button class="secondary" data-rec-detail="${escapeHtml(rec.title)}">Why this?</button>
+            <button class="secondary" data-rec-workspace="${escapeHtml(rec.title)}">Save</button>
             <button class="secondary" data-rec-feedback="positive" data-rec-title="${escapeHtml(rec.title)}">Good fit</button>
             <button class="secondary" data-rec-feedback="negative" data-rec-title="${escapeHtml(rec.title)}">Not for me</button>
           </div>
@@ -198,6 +208,44 @@ function bindGraphViewerNodes() {
   });
 }
 
+
+function bindWorkspaceRecommendationSaves() {
+  document.querySelectorAll("[data-rec-workspace]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const recommendation = lastRecommendations.find(rec => rec.title === btn.dataset.recWorkspace);
+      if (!recommendation || !Workspace) return;
+      saveWorkspaceItems(Workspace.addToWorkspace(loadWorkspaceItems(), recommendation));
+      renderWorkspace();
+      btn.textContent = "Saved";
+    });
+  });
+}
+
+function bindWorkspaceActions() {
+  document.querySelectorAll("[data-workspace-pin]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const items = loadWorkspaceItems();
+      const item = items.find(i => i.id === btn.dataset.workspacePin);
+      saveWorkspaceItems(Workspace.updateWorkspaceItem(items, btn.dataset.workspacePin, { pinned: !item?.pinned }));
+      renderAll();
+    });
+  });
+
+  document.querySelectorAll("[data-workspace-status]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      saveWorkspaceItems(Workspace.updateWorkspaceItem(loadWorkspaceItems(), btn.dataset.workspaceStatus, { status: btn.dataset.status }));
+      renderAll();
+    });
+  });
+
+  document.querySelectorAll("[data-workspace-remove]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      saveWorkspaceItems(Workspace.removeWorkspaceItem(loadWorkspaceItems(), btn.dataset.workspaceRemove));
+      renderAll();
+    });
+  });
+}
+
 function bindRecommendationDetails() {
   document.querySelectorAll("[data-rec-detail]").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -206,6 +254,31 @@ function bindRecommendationDetails() {
       setView("recommendation-detail");
     });
   });
+}
+
+
+function renderWorkspace() {
+  const items = Workspace ? Workspace.compareWorkspaceItems(loadWorkspaceItems()) : [];
+  const summary = Workspace ? Workspace.workspaceSummary(items) : { total: 0, pinned: 0, byStatus: {} };
+
+  $("workspace-content").innerHTML = `
+    <p class="eyebrow">Recommendation workspace</p>
+    <h2>Workspace</h2>
+    <p class="meta">${summary.total} saved · ${summary.pinned} pinned · ${summary.byStatus.watch_next || 0} watch next · ${summary.byStatus.completed || 0} completed</p>
+    <div class="list">
+      ${items.length ? items.map(item => `
+        <article class="entry">
+          <div class="entry-title">${escapeHtml(item.title)} ${item.pinned ? `<span class="badge">Pinned</span>` : ""}</div>
+          <div class="meta">${escapeHtml(item.medium)} · ${escapeHtml(item.status)} · ${escapeHtml(String(item.score))}% · ${escapeHtml(item.confidence)}</div>
+          ${item.note ? `<div class="note">${escapeHtml(item.note)}</div>` : ""}
+          <div class="detail-actions">
+            <button class="secondary" data-workspace-pin="${escapeHtml(item.id)}">${item.pinned ? "Unpin" : "Pin"}</button>
+            <button class="secondary" data-workspace-status="${escapeHtml(item.id)}" data-status="completed">Completed</button>
+            <button class="secondary" data-workspace-remove="${escapeHtml(item.id)}">Remove</button>
+          </div>
+        </article>
+      `).join("") : `<div class="empty">No saved recommendations yet. Add one from Discover.</div>`}
+    </div>`;
 }
 
 function renderStats() {
@@ -225,10 +298,13 @@ function renderAll() {
   renderStats();
   renderDiscover();
   renderRecommendationDetail();
+  renderWorkspace();
   renderDetail();
   bindEntryButtons();
   bindRecommendationFeedback();
   bindRecommendationDetails();
+  bindWorkspaceRecommendationSaves();
+  bindWorkspaceActions();
 }
 
 

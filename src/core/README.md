@@ -40,3 +40,5 @@ UI code may display validation results, but validation rules and normalization r
 - `recommendation-timeline.js` turns decision history into inspectable recommendation timelines.
 
 - `experiments.js` supports deterministic recommendation experiments and feedback performance summaries.
+
+- `workspace.js` manages saved recommendation workspace items, statuses, pins, and comparison sorting.

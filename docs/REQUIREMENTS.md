@@ -67,6 +67,12 @@
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
 | REQ-DISCOVER-002 | Discover recommendation explanations must show reasons, risks, confidence, and sources. | High | Active |
 
+## Workspace
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-WORKSPACE-001 | User must be able to save, pin, compare, status-track, and remove recommendation workspace items. | High | Active |
+
 ## Experiments
 
 | ID | Requirement | Priority | Status |
