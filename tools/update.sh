@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_DIR="${REPO_DIR:-$HOME/storage/downloads/pcm-git}"
+REPO_DIR="${REPO_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 DOWNLOADS_DIR="${DOWNLOADS_DIR:-$HOME/storage/downloads}"
 PORT="${PORT:-8080}"
 
