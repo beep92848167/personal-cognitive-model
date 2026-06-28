@@ -39,6 +39,48 @@ newest_zip() {
   ls -t "${zips[@]}" | head -n 1
 }
 
+write_sync_metadata() {
+  local commit branch timestamp
+  commit="$(git rev-parse --short HEAD)"
+  branch="$(git rev-parse --abbrev-ref HEAD)"
+  timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+  node - "$commit" "$branch" "$timestamp" <<'NODE'
+const fs = require("fs");
+
+const [commit, branch, timestamp] = process.argv.slice(2);
+let tests = {
+  status: "UNKNOWN",
+  passed: "",
+  failed: "",
+  requirements: { covered: "", total: "" }
+};
+
+try {
+  tests = JSON.parse(fs.readFileSync("tests/last-test-run.json", "utf8"));
+} catch {}
+
+const sync = {
+  workflowVersion: 5,
+  timestamp,
+  branch,
+  commit,
+  status: tests.status || "UNKNOWN",
+  tests: {
+    passed: String(tests.passed ?? ""),
+    failed: String(tests.failed ?? "")
+  },
+  requirements: {
+    covered: String(tests.requirements?.covered ?? ""),
+    total: String(tests.requirements?.total ?? "")
+  }
+};
+
+fs.writeFileSync(".openpcm-sync.json", JSON.stringify(sync, null, 2) + "\n");
+NODE
+}
+
+
 run_tests_if_available() {
   mkdir -p tests
 
@@ -73,6 +115,10 @@ create_sync_package() {
   timestamp="$(date +%Y%m%d-%H%M%S)"
   package_name="${timestamp}-openpcm-${branch}-${commit}.zip"
   package_path="$DOWNLOADS_DIR/$package_name"
+
+  echo
+  echo "Updating sync metadata..."
+  write_sync_metadata
 
   echo
   echo "Creating sync package..."

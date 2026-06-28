@@ -132,6 +132,7 @@
 | ID | Requirement | Priority | Status |
 |---|---|---:|---|
 | REQ-SYNC-001 | The update script must run tests before commit and create a verified sync ZIP after a successful `u -sync` push. | High | Active |
+| REQ-SYNC-002 | The update script must refresh `.openpcm-sync.json` before creating a sync ZIP. | High | Active |
 
 ## Android Workflow
 
