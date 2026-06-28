@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "d960507",
-  "commitMessage": "feat(reasoning): add recommendation experiment framework",
-  "timestamp": "2026-06-28T13:31:52+10:00",
+  "commit": "87caae9",
+  "commitMessage": "feat(workspace): add recommendation workspace",
+  "timestamp": "2026-06-28T13:54:40+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }

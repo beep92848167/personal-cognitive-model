@@ -1,38 +1,19 @@
 # OpenPCM AI Handoff
 
-## Engineering Increment
+## Sync Package
 
-Added recommendation workspace.
+- Workflow version: 4
+- Branch: main
+- Commit: 87caae9
+- Created: 2026-06-28T13:54:40+10:00
+- Commit message: feat(workspace): add recommendation workspace
+- Test artifact: tests/last-test-run.json
+- Test status: PASS
 
-## Changes
+## Next Step
 
-- Added `src/core/workspace.js`.
-- Added `tests/workspace-tests.js`.
-- Added Workspace view.
-- Discover recommendations can now be saved to workspace.
-- Workspace items can be pinned, marked completed, and removed.
-- Added `REQ-WORKSPACE-001`.
-- Added `docs/WORKSPACE.md`.
-- Updated CLI/browser runners and script loading.
+Upload this ZIP to ChatGPT and type:
 
-## Verification
-
-Ran:
-
-```bash
-node tools/run-tests.js
 ```
-
-Expected result:
-
-- 105 passed
-- 0 failed
-- Requirement coverage remains complete.
-
-## Suggested Commit
-
-feat(workspace): add recommendation workspace
-
-## Risk
-
-Medium. Adds local workspace state and a new UI view, but core logic is tested and existing recommendation flow remains intact.
+SYNC
+```
