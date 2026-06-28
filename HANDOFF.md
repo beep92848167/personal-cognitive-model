@@ -2,16 +2,16 @@
 
 ## Engineering Increment
 
-Added portable PCM import/export.
+Fixed Termux ZIP discovery in the `u` sync workflow.
 
 ## Changes
 
-- Added `src/core/profile-transfer.js`.
-- Added `tests/profile-transfer-tests.js`.
-- Added profile transfer/export UI view.
-- Added `REQ-PROFILE-TRANSFER-001`.
-- Added `docs/PROFILE_TRANSFER.md`.
-- Updated CLI/browser runners and script loading.
+- Updated `tools/update.sh`.
+- Replaced GNU `find -printf` ZIP discovery with Termux-friendly Bash globbing.
+- Preserved test-before-commit workflow.
+- Preserved verified sync ZIP creation after push.
+- Expanded update workflow tests.
+- Updated `docs/SYNC_WORKFLOW.md`.
 
 ## Verification
 
@@ -23,14 +23,10 @@ node tools/run-tests.js
 
 Expected result:
 
-- 111 passed
+- 114 passed
 - 0 failed
-- Requirement coverage remains complete.
+- Requirement coverage complete.
 
 ## Suggested Commit
 
-feat(profile): add portable PCM import/export
-
-## Risk
-
-Medium. Core import/export is implemented and tested; UI currently exposes export/copy and leaves full import UI for a hardened file-picker workflow.
+fix(sync): make ZIP discovery portable on Termux

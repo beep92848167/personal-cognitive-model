@@ -324,6 +324,16 @@
       "tests": []
     },
     {
+      "id": "REQ-SYNC-001",
+      "title": "The update script must run tests before commit and create a verified sync ZIP after a successful u -sync push.",
+      "shortTitle": "Test-before-commit and verified sync package",
+      "area": "Sync Workflow",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-ANDROID-001",
       "title": "Android update workflow must be one-command after downloading a ZIP.",
       "shortTitle": "One-command Android update",

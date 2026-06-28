@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-28T04:20:10.626Z",
+  "timestamp": "2026-06-28T05:14:39.420Z",
   "status": "PASS",
-  "passed": 111,
+  "passed": 114,
   "failed": 0,
-  "total": 111,
-  "durationMs": 20,
+  "total": 114,
+  "durationMs": 37,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 37,
-    "covered": 37,
+    "total": 38,
+    "covered": 38,
     "uncovered": []
   },
   "failures": [],
@@ -777,6 +777,29 @@
       "status": "PASS",
       "requirements": [
         "REQ-ANDROID-002"
+      ]
+    },
+    {
+      "name": "update script covers verified sync package creation",
+      "status": "PASS",
+      "requirements": [
+        "REQ-SYNC-001",
+        "REQ-ANDROID-001"
+      ]
+    },
+    {
+      "name": "update script covers test-before-commit workflow",
+      "status": "PASS",
+      "requirements": [
+        "REQ-SYNC-001"
+      ]
+    },
+    {
+      "name": "update script uses Termux-friendly zip discovery",
+      "status": "PASS",
+      "requirements": [
+        "REQ-SYNC-001",
+        "REQ-ANDROID-001"
       ]
     },
     {

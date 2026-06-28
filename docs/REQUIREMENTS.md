@@ -127,6 +127,12 @@
 |---|---|---:|---|
 | REQ-CALIBRATION-001 | User feedback on recommendations must calibrate future Discover scoring. | High | Active |
 
+## Sync Workflow
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-SYNC-001 | The update script must run tests before commit and create a verified sync ZIP after a successful `u -sync` push. | High | Active |
+
 ## Android Workflow
 
 | ID | Requirement | Priority | Status |

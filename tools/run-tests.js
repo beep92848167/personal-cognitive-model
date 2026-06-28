@@ -124,6 +124,7 @@ const scripts = [
   "tests/reasoning-tests.js",
   "tests/discover-tests.js",
   "tests/android-workflow-tests.js",
+  "tests/update-script-tests.js",
   "tests/browser-testing-tests.js"
 ];
 
