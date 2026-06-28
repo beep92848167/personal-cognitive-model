@@ -8,6 +8,22 @@ Git/GitHub is the primary sync mechanism. The historical ZIP handoff workflow ex
 
 Android remains the final runtime/deployment target. Validate on Android at meaningful milestones, but optimise the day-to-day engineering loop for Windows, local tests, and normal git commits.
 
+## Windows preflight
+
+Use this before autonomous agent batches or when the local environment changes:
+
+```powershell
+.\tools\doctor.ps1
+```
+
+Use this when Node.js is available and a full local verification pass is needed:
+
+```powershell
+.\tools\doctor.ps1 -RunTests
+```
+
+The doctor script reports Git, branch, remote, working-tree, Node.js, and test-runner readiness. Missing Node.js is a warning because Android/browser fallback testing still exists, but it blocks local automated test execution from VS Code.
+
 ## Commands
 
 ### Propose next
