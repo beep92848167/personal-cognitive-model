@@ -126,6 +126,7 @@ function renderDiscover() {
     ${summary.profileSourceSummary?.cognition ? `<p class="meta">Profile source: ${escapeHtml(summary.profileSourceSummary.cognition)}</p>` : ""}
     ${summary.topTags.length ? `<p class="meta">Current preference signals: ${summary.topTags.map(escapeHtml).join(", ")}</p>` : ""}
     ${summary.learningProfile && window.OpenPCMLearning ? `<p class="meta">Learning: ${escapeHtml(window.OpenPCMLearning.learningSummaryText(summary.learningProfile))}</p>` : ""}
+    ${summary.experimentResult?.variant ? `<p class="meta">Experiment: ${escapeHtml(summary.experimentResult.experiment.name)} · ${escapeHtml(summary.experimentResult.variant.name)}</p>` : ""}
     <div class="list">
       ${recommendations.length ? recommendations.map(rec => `
         <article class="entry">

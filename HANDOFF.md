@@ -2,15 +2,16 @@
 
 ## Engineering Increment
 
-Added recommendation timelines.
+Added recommendation experiment framework.
 
 ## Changes
 
-- Added `src/core/recommendation-timeline.js`.
-- Added `tests/recommendation-timeline-tests.js`.
-- Recommendation detail now renders a timeline from decision history.
-- Added `REQ-TIMELINE-001`.
-- Added `docs/RECOMMENDATION_TIMELINE.md`.
+- Added `src/core/experiments.js`.
+- Added `tests/experiments-tests.js`.
+- Discover now runs recommendations through a deterministic experiment framework when available.
+- Discover UI shows active experiment and variant.
+- Added `REQ-EXPERIMENTS-001`.
+- Added `docs/EXPERIMENTS.md`.
 - Updated CLI/browser runners and script loading.
 
 ## Verification
@@ -23,14 +24,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- 94 passed
+- 99 passed
 - 0 failed
 - Requirement coverage remains complete.
 
 ## Suggested Commit
 
-feat(ui): add recommendation timeline
+feat(reasoning): add recommendation experiment framework
 
 ## Risk
 
-Medium-low. Timeline is derived from existing decision history and is additive.
+Medium. Discover ranking now includes deterministic experiment metadata and may slightly alter ordering based on selected variant.

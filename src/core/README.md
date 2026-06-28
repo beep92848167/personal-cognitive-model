@@ -38,3 +38,5 @@ UI code may display validation results, but validation rules and normalization r
 - `decision-history.js` records recommendation decisions for auditability and score-change analysis over time.
 
 - `recommendation-timeline.js` turns decision history into inspectable recommendation timelines.
+
+- `experiments.js` supports deterministic recommendation experiments and feedback performance summaries.

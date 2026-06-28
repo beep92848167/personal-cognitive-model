@@ -224,6 +224,16 @@
       "tests": []
     },
     {
+      "id": "REQ-EXPERIMENTS-001",
+      "title": "OpenPCM must support deterministic recommendation experiments for comparing ranking strategies and measuring feedback performance.",
+      "shortTitle": "Recommendation experiment framework",
+      "area": "Experiments",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-TIMELINE-001",
       "title": "OpenPCM must render a recommendation timeline showing score, confidence, feedback, learning, evidence, source, and graph changes over time.",
       "shortTitle": "Recommendation timeline",

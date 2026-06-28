@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-27T23:03:07.483Z",
+  "timestamp": "2026-06-27T23:22:13.298Z",
   "status": "PASS",
-  "passed": 94,
+  "passed": 99,
   "failed": 0,
-  "total": 94,
+  "total": 99,
   "durationMs": 16,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 34,
-    "covered": 34,
+    "total": 35,
+    "covered": 35,
     "uncovered": []
   },
   "failures": [],
@@ -436,6 +436,42 @@
       "status": "PASS",
       "requirements": [
         "REQ-TIMELINE-001"
+      ]
+    },
+    {
+      "name": "defineExperiment normalizes experiment variants",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPERIMENTS-001"
+      ]
+    },
+    {
+      "name": "chooseVariant deterministically selects a variant",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPERIMENTS-001"
+      ]
+    },
+    {
+      "name": "applyVariant adjusts scores by strategy",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPERIMENTS-001"
+      ]
+    },
+    {
+      "name": "runExperiment returns selected variant and ranked recommendations",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPERIMENTS-001",
+        "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "summarizeExperimentResult calculates feedback performance",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EXPERIMENTS-001"
       ]
     },
     {

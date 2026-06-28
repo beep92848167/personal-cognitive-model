@@ -67,6 +67,12 @@
 | REQ-DISCOVER-001 | Discover must generate explainable recommendations from saved evidence. | High | Active |
 | REQ-DISCOVER-002 | Discover recommendation explanations must show reasons, risks, confidence, and sources. | High | Active |
 
+## Experiments
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-EXPERIMENTS-001 | OpenPCM must support deterministic recommendation experiments for comparing ranking strategies and measuring feedback performance. | High | Active |
+
 ## Recommendation Timeline
 
 | ID | Requirement | Priority | Status |

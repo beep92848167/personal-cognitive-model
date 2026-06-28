@@ -201,9 +201,22 @@
     const learningProfile = global.OpenPCMLearning && options.feedback
       ? global.OpenPCMLearning.buildLearningProfile(options.feedback, calibrated)
       : null;
-    const recommendations = global.OpenPCMLearning && learningProfile
+    const learned = global.OpenPCMLearning && learningProfile
       ? global.OpenPCMLearning.applyLearningAdjustments(calibrated, learningProfile)
       : calibrated;
+    const experiment = options.experiment || (global.OpenPCMExperiments ? global.OpenPCMExperiments.defineExperiment({
+      id: "discover-ranking-v1",
+      name: "Discover Ranking V1",
+      variants: [
+        { id: "baseline", name: "Baseline", strategy: "baseline" },
+        { id: "confidence", name: "Confidence weighted", strategy: "confidence-weighted" },
+        { id: "source-rich", name: "Source rich", strategy: "source-rich" }
+      ]
+    }) : null);
+    const experimentResult = global.OpenPCMExperiments && experiment
+      ? global.OpenPCMExperiments.runExperiment(experiment, learned, String((evidence || []).length))
+      : null;
+    const recommendations = experimentResult ? experimentResult.recommendations : learned;
     const topTags = preferenceModel
       ? global.OpenPCMPreferences.topPreferenceTags(preferenceModel, 5)
       : Object.entries(profile.tags)
@@ -217,6 +230,7 @@
       profileSourceSummary: profileSource && global.OpenPCMProfile ? global.OpenPCMProfile.profileSummary(profileSource) : null,
       topTags,
       learningProfile,
+      experimentResult,
       recommendations
     };
   }

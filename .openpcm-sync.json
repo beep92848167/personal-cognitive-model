@@ -3,9 +3,9 @@
   "repository": "openpcm",
   "workingDirectory": "pcm-git",
   "branch": "main",
-  "commit": "25a4fef",
-  "commitMessage": "feat(reasoning): add decision history",
-  "timestamp": "2026-06-28T09:01:19+10:00",
+  "commit": "c21fd1d",
+  "commitMessage": "feat(ui): add recommendation timeline",
+  "timestamp": "2026-06-28T09:19:12+10:00",
   "exportedBy": "tools/update.sh -sync",
   "testResults": "tests/last-test-run.json"
 }
