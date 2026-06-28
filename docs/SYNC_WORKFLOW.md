@@ -8,6 +8,12 @@
 u "commit message"
 ```
 
+For Windows PowerShell:
+
+```powershell
+.\tools\update.ps1 -message "commit message"
+```
+
 The script:
 
 1. applies the newest `openpcm-*.zip`;
@@ -20,6 +26,12 @@ The script:
 
 ```bash
 u -sync "commit message"
+```
+
+For Windows PowerShell:
+
+```powershell
+.\tools\update.ps1 -sync -message "commit message"
 ```
 
 The script:
