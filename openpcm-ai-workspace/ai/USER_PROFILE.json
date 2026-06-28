@@ -1,0 +1,4 @@
+{ "engineering_style": { "incremental": true, "prefer_small_changes":
+true, "require_testing_before_commit": true, "prefer_modularity": true,
+"android_is_primary_target": true }, "workflow": { "vibe_coding": true,
+"trust_ai_for_backlog": true, "human_review_gates": true } }

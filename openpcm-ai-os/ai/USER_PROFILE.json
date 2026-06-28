@@ -1,0 +1,4 @@
+{
+  "engineering_style":{"incremental":true,"android_first":true,"test_before_commit":true},
+  "workflow":{"vibe_coding":true,"human_review":true}
+}
