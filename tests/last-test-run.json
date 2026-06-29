@@ -1,11 +1,11 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T05:20:57.447Z",
+  "timestamp": "2026-06-29T05:21:13.340Z",
   "status": "PASS",
-  "passed": 114,
+  "passed": 113,
   "failed": 0,
-  "total": 114,
-  "durationMs": 19,
+  "total": 113,
+  "durationMs": 20,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
@@ -792,14 +792,6 @@
       "status": "PASS",
       "requirements": [
         "REQ-SYNC-001"
-      ]
-    },
-    {
-      "name": "update script uses Termux-friendly zip discovery",
-      "status": "PASS",
-      "requirements": [
-        "REQ-SYNC-001",
-        "REQ-ANDROID-001"
       ]
     },
     {

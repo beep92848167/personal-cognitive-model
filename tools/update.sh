@@ -25,18 +25,9 @@ fi
 cd "$REPO_DIR"
 
 newest_zip() {
-  # Portable Termux-friendly implementation.
-  # Avoid GNU find -printf because it is not always available on Android.
-  local zips=()
-  shopt -s nullglob
-  zips=("$DOWNLOADS_DIR"/openpcm-*.zip)
-  shopt -u nullglob
-
-  if (( ${#zips[@]} == 0 )); then
-    return 1
-  fi
-
-  ls -t "${zips[@]}" | head -n 1
+  find "$DOWNLOADS_DIR" -maxdepth 1 -type f -name "openpcm-*.zip" -printf "%T@ %p\n" \
+    | sort -nr \
+    | awk 'NR==1 { $1=""; sub(/^ /,""); print }'
 }
 
 run_tests_if_available() {

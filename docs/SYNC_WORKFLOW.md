@@ -38,10 +38,3 @@ The script:
 Never push untested code when the test runner is available.
 
 Never report sync success unless a non-empty sync ZIP was created.
-
-
-## Termux portability
-
-ZIP discovery uses Bash globbing plus `ls -t` rather than GNU-specific `find -printf`.
-
-This matters because Android/Termux environments can differ in which `find` implementation is available.
