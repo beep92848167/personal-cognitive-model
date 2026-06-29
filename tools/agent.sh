@@ -6,15 +6,6 @@ REPO_DIR="${REPO_DIR:-$DOWNLOADS_DIR/pcm-git}"
 COMMIT_MSG="${1:-chore: apply OpenPCM patch}"
 POLL_SECONDS="${POLL_SECONDS:-5}"
 AGENT_LOG="${AGENT_LOG:-$REPO_DIR/agent.log}"
-MODE="${OPENPCM_AGENT_MODE:-watch}"
-
-if [[ "${1:-}" == "--once" ]]; then
-  MODE="once"
-  shift
-  COMMIT_MSG="${1:-chore: apply OpenPCM patch}"
-elif [[ "${1:-}" == "--status" ]]; then
-  MODE="status"
-fi
 
 log() {
   local stamp
@@ -44,28 +35,6 @@ newest_patch_zip() {
   ls -t "${filtered[@]}" | head -n 1
 }
 
-agent_status() {
-  echo "OpenPCM Agent status"
-  echo "Downloads: $DOWNLOADS_DIR"
-  echo "Repo:      $REPO_DIR"
-  echo "Log:       $AGENT_LOG"
-  echo
-
-  if [[ -d "$REPO_DIR/.git" ]]; then
-    cd "$REPO_DIR"
-    echo "Git branch: $(git rev-parse --abbrev-ref HEAD)"
-    echo "Git commit: $(git rev-parse --short HEAD)"
-    echo "Dirty state:"
-    git status --short || true
-  else
-    echo "Repo is missing or is not a Git repository."
-  fi
-
-  echo
-  echo "Pending patch ZIP:"
-  newest_patch_zip || echo "none"
-}
-
 wait_until_stable() {
   local file="$1"
   local last_size="-1"
@@ -91,12 +60,7 @@ ensure_repo_ready() {
   [[ ! -d .git ]] && { log "ERROR: $REPO_DIR is not a Git repository."; return 1; }
 
   local dirty
-  dirty="$(git status --porcelain \
-    | grep -v '^ M tests/last-test-run.json$' \
-    | grep -v '^?? agent.log$' \
-    | grep -v '^?? .openpcm-watch-seen$' \
-    || true)"
-
+  dirty="$(git status --porcelain | grep -v '^ M tests/last-test-run.json$' | grep -v '^?? agent.log$' || true)"
   if [[ -n "$dirty" ]]; then
     log "ERROR: Working tree has unexpected local changes before agent run:"
     echo "$dirty"
@@ -173,7 +137,7 @@ const [commit, branch, timestamp] = process.argv.slice(2);
 let tests = { status: "UNKNOWN", passed: "", failed: "", requirements: { covered: "", total: "" } };
 try { tests = JSON.parse(fs.readFileSync("tests/last-test-run.json", "utf8")); } catch {}
 const sync = {
-  workflowVersion: 9,
+  workflowVersion: 8,
   timestamp,
   branch,
   commit,
@@ -253,18 +217,12 @@ process_patch() {
   log "Patch processing complete."
 }
 
-if [[ "$MODE" == "status" ]]; then
-  agent_status
-  exit 0
-fi
-
 log "========================="
 log "OpenPCM Agent"
 log "========================="
 log "Watching: $DOWNLOADS_DIR"
 log "Repo: $REPO_DIR"
 log "Commit message: $COMMIT_MSG"
-log "Mode: $MODE"
 log "Press Ctrl+C to stop."
 
 while true; do
@@ -272,14 +230,10 @@ while true; do
   if [[ -n "${patch:-}" ]]; then
     if process_patch "$patch"; then
       log "Waiting for next patch..."
-      [[ "$MODE" == "once" ]] && exit 0
     else
       log "Patch failed and was left in Downloads: $patch"
       exit 1
     fi
-  elif [[ "$MODE" == "once" ]]; then
-    log "No pending patch ZIP found."
-    exit 1
   fi
   sleep "$POLL_SECONDS"
 done

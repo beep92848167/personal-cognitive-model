@@ -412,16 +412,6 @@
       "status": "Active",
       "implemented": true,
       "tests": []
-    },
-    {
-      "id": "REQ-AGENT-003",
-      "title": "The phone agent must support status and one-shot modes for safer operation.",
-      "shortTitle": "Agent status and one-shot modes",
-      "area": "OpenPCM Agent",
-      "priority": "Medium",
-      "status": "Active",
-      "implemented": true,
-      "tests": []
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T05:19:09.843Z",
+  "timestamp": "2026-06-29T05:19:25.339Z",
   "status": "PASS",
-  "passed": 118,
+  "passed": 117,
   "failed": 0,
-  "total": 118,
-  "durationMs": 34,
+  "total": 117,
+  "durationMs": 36,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 42,
-    "covered": 42,
+    "total": 41,
+    "covered": 41,
     "uncovered": []
   },
   "failures": [],
@@ -821,13 +821,6 @@
       "status": "PASS",
       "requirements": [
         "REQ-AGENT-002"
-      ]
-    },
-    {
-      "name": "agent supports status and one-shot modes",
-      "status": "PASS",
-      "requirements": [
-        "REQ-AGENT-003"
       ]
     },
     {

@@ -8,9 +8,4 @@
   test("agent archives successfully processed patch zips", ["REQ-AGENT-002"], () => {
     assert(true, "tools/agent.sh moves processed patch zips into archive_YYYYMMDD");
   });
-
-  test("agent supports status and one-shot modes", ["REQ-AGENT-003"], () => {
-    assert(true, "tools/agent.sh supports --status and --once modes");
-  });
 })();
-
