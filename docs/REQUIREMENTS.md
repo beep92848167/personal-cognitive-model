@@ -134,6 +134,13 @@
 |---|---|---:|---|
 | REQ-CALIBRATION-001 | User feedback on recommendations must calibrate future Discover scoring. | High | Active |
 
+## First Intelligence
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-FIRST-INTELLIGENCE-001 | OpenPCM must provide a reusable first-intelligence scoring engine with evidence weighting, confidence scoring, matches, and risks. | High | Active |
+| REQ-FIRST-INTELLIGENCE-002 | OpenPCM must rank candidate recommendations with inspectable explanations derived from local evidence. | High | Active |
+
 ## Android Workflow
 
 | ID | Requirement | Priority | Status |

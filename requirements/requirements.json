@@ -492,6 +492,30 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-FIRST-INTELLIGENCE-001",
+      "title": "OpenPCM must provide a reusable first-intelligence scoring engine with evidence weighting, confidence scoring, matches, and risks.",
+      "shortTitle": "First intelligence scoring engine",
+      "area": "First Intelligence",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "first-intelligence-tests.js"
+      ]
+    },
+    {
+      "id": "REQ-FIRST-INTELLIGENCE-002",
+      "title": "OpenPCM must rank candidate recommendations with inspectable explanations derived from local evidence.",
+      "shortTitle": "Explainable recommendation ranking",
+      "area": "First Intelligence",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "first-intelligence-tests.js"
+      ]
     }
   ]
 }

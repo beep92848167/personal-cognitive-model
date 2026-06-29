@@ -1,17 +1,32 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T12:25:27.923Z",
+  "timestamp": "2026-06-29T12:45:43.778Z",
   "status": "PASS",
   "passed": 126,
   "failed": 0,
   "total": 126,
-  "durationMs": 42,
+  "durationMs": 52,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 49,
+    "total": 51,
     "covered": 49,
-    "uncovered": []
+    "uncovered": [
+      {
+        "id": "REQ-FIRST-INTELLIGENCE-001",
+        "title": "First intelligence scoring engine",
+        "area": "First Intelligence",
+        "priority": "High",
+        "status": "Active"
+      },
+      {
+        "id": "REQ-FIRST-INTELLIGENCE-002",
+        "title": "Explainable recommendation ranking",
+        "area": "First Intelligence",
+        "priority": "High",
+        "status": "Active"
+      }
+    ]
   },
   "failures": [],
   "results": [

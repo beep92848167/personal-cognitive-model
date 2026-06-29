@@ -44,3 +44,8 @@ UI code may display validation results, but validation rules and normalization r
 - `workspace.js` manages saved recommendation workspace items, statuses, pins, and comparison sorting.
 
 - `profile-transfer.js` exports, validates, parses, and imports portable Personal Cognitive Model JSON.
+
+
+## First intelligence
+
+`first-intelligence.js` provides the first reusable recommendation-scoring API. It turns local evidence into weighted preference signals, scores candidate items, assigns confidence, and returns inspectable explanations with matches and risks.

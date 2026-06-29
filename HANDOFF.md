@@ -48,3 +48,20 @@ Requirement coverage: 49/49
 ## Suggested Commit
 
 feat(mobile): add daily driver home actions
+
+
+## Latest increment: Batch B First Intelligence foundation
+
+Suggested commit: `feat(recommendations): add first intelligence scoring engine`
+
+Implemented:
+- Added `src/core/first-intelligence.js` as a reusable recommendation scoring API.
+- Added evidence weighting from reaction strength, recency, medium, tags, and explicit notes.
+- Added confidence percentage / High-Medium-Low confidence labels.
+- Added inspectable recommendation explanations with matched evidence and risks.
+- Added ranked recommendation output for candidate catalogues.
+- Added regression tests and requirements coverage for First Intelligence.
+
+Verification target after applying patch:
+- Browser test runner should report all tests passing.
+- Requirement coverage should include `REQ-FIRST-INTELLIGENCE-001` and `REQ-FIRST-INTELLIGENCE-002`.

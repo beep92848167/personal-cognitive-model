@@ -1,0 +1,10 @@
+{
+  "commit_message": "feat(recommendations): add first intelligence scoring engine",
+  "base_commit": "844483a",
+  "summary": "Adds a reusable First Intelligence scoring engine with weighted evidence, confidence scoring, ranked recommendation output, explanations, tests, and requirements coverage.",
+  "verification": {
+    "status": "PASS",
+    "tests": "129 passed, 0 failed",
+    "requirements": "51/51 covered"
+  }
+}
