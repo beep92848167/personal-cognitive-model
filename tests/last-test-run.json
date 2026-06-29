@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T05:21:43.824Z",
+  "timestamp": "2026-06-29T08:17:17.471Z",
   "status": "PASS",
-  "passed": 111,
+  "passed": 114,
   "failed": 0,
-  "total": 111,
-  "durationMs": 20,
+  "total": 114,
+  "durationMs": 87,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 37,
-    "covered": 37,
+    "total": 40,
+    "covered": 40,
     "uncovered": []
   },
   "failures": [],
@@ -777,6 +777,27 @@
       "status": "PASS",
       "requirements": [
         "REQ-ANDROID-002"
+      ]
+    },
+    {
+      "name": "agent processes patch zips without manual extraction",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-001"
+      ]
+    },
+    {
+      "name": "agent archives successfully processed patch zips",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-002"
+      ]
+    },
+    {
+      "name": "agent supports status and one-shot modes",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-003"
       ]
     },
     {

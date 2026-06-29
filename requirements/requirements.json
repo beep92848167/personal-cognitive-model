@@ -372,6 +372,36 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-AGENT-001",
+      "title": "The phone agent must detect new OpenPCM patch ZIPs and process them without manual extraction.",
+      "shortTitle": "Agent patch processing",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-AGENT-002",
+      "title": "The phone agent must archive successfully processed patch ZIPs to avoid reprocessing historical downloads.",
+      "shortTitle": "Agent patch archiving",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-AGENT-003",
+      "title": "The phone agent must support status and one-shot modes for safer operation.",
+      "shortTitle": "Agent status and one-shot modes",
+      "area": "OpenPCM Agent",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }
