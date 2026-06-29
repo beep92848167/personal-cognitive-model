@@ -15,31 +15,6 @@ The key principle is:
 
 ---
 
-## Current Windows / VS Code workflow
-
-The primary workflow is now direct repository access on Mark's Windows laptop:
-
-1. The assistant inspects the local Git working copy.
-2. The assistant proposes the single highest-value next increment.
-3. Mark approves with `.`.
-4. The assistant implements, runs available verification, commits, pushes, and reports concisely.
-
-Before autonomous batches or after environment changes, run:
-
-```powershell
-.\tools\doctor.ps1
-```
-
-Run the full local Node test suite when available with:
-
-```powershell
-.\tools\doctor.ps1 -RunTests
-```
-
-The ZIP workflow below remains available as a legacy Android-only fallback.
-
----
-
 ## Commands
 
 ### `SYNC`
@@ -76,17 +51,15 @@ Meaning:
 
 When Mark sends `.`, the AI assistant should:
 
-1. Use the current local repository working copy as the source of truth.
+1. Use the current uploaded repository ZIP as the working copy.
 2. Modify the repository.
 3. Run available verification where possible.
-4. Commit and push if verification does not reveal a blocker.
+4. Return an updated repository ZIP.
 5. Provide:
    - concise change summary
    - verification performed
-   - commit pushed
-   - next recommended increment, when useful
-
-In the legacy ZIP fallback, return an updated repository ZIP instead of committing directly.
+   - suggested `u -sync` command
+   - execution score
 
 A `.` response should not merely restate the plan.
 
@@ -226,11 +199,9 @@ If verification was not run, say so explicitly.
 
 ## Current working agreement
 
-- Direct Git/GitHub on Windows is the primary workflow.
-- `SYNC` loads and evaluates repository state when using the legacy ZIP fallback.
+- `SYNC` loads and evaluates repository state.
 - `.` executes the approved next increment.
 - Planning is acceptable during `SYNC`.
 - Delivery is expected during `.`.
 - The repository is the durable memory.
 - Chat context is useful but not canonical.
-

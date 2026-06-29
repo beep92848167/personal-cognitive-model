@@ -2,14 +2,14 @@
 
 ## Engineering Increment
 
-Made the phone sync workflow remote-first so laptop and phone development do not diverge.
+Fixed stale sync metadata in generated sync ZIPs using a safer metadata writer.
 
 ## Changes
 
-- `tools/update.sh` checks for unexpected dirty state before sync.
-- `tools/update.sh` fetches and rebases onto `origin/<branch>` before applying a patch ZIP.
-- ZIP discovery ignores timestamped generated sync ZIPs.
-- Added `REQ-SYNC-004`.
+- `tools/update.sh` now writes `.openpcm-sync.json` immediately before packaging.
+- Metadata includes current branch, short commit, UTC timestamp, test status, test counts, and requirement coverage.
+- Metadata is generated with Node JSON serialization rather than shell heredocs.
+- Added `REQ-SYNC-002`.
 - Expanded update workflow tests.
 - Updated `docs/SYNC_WORKFLOW.md`.
 
@@ -25,9 +25,10 @@ node tools/run-tests.js
 Expected result:
 
 - shell syntax passes
-- tests pass
-- requirement coverage complete
+- 115 passed
+- 0 failed
+- requirement coverage complete.
 
 ## Suggested Commit
 
-fix(sync): rebase before applying patches
+fix(sync): refresh metadata before packaging

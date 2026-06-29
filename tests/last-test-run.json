@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T05:20:11.379Z",
+  "timestamp": "2026-06-29T05:20:26.437Z",
   "status": "PASS",
-  "passed": 117,
+  "passed": 115,
   "failed": 0,
-  "total": 117,
+  "total": 115,
   "durationMs": 20,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 40,
-    "covered": 41,
+    "total": 39,
+    "covered": 39,
     "uncovered": []
   },
   "failures": [],
@@ -807,20 +807,6 @@
       "status": "PASS",
       "requirements": [
         "REQ-SYNC-002"
-      ]
-    },
-    {
-      "name": "update script is safe to update while running",
-      "status": "PASS",
-      "requirements": [
-        "REQ-SYNC-003"
-      ]
-    },
-    {
-      "name": "update script rebases before applying patches",
-      "status": "PASS",
-      "requirements": [
-        "REQ-SYNC-004"
       ]
     },
     {

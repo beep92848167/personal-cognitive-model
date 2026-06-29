@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_DIR="${REPO_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+REPO_DIR="${REPO_DIR:-$HOME/storage/downloads/pcm-git}"
 DOWNLOADS_DIR="${DOWNLOADS_DIR:-$HOME/storage/downloads}"
 PORT="${PORT:-8080}"
 
@@ -24,66 +24,20 @@ fi
 
 cd "$REPO_DIR"
 
-ensure_clean_enough_to_sync
-sync_remote_before_apply
-
 newest_zip() {
+  # Portable Termux-friendly implementation.
+  # Avoid GNU find -printf because it is not always available on Android.
   local zips=()
-  local filtered=()
-  local file base
-
   shopt -s nullglob
   zips=("$DOWNLOADS_DIR"/openpcm-*.zip)
   shopt -u nullglob
 
-  for file in "${zips[@]}"; do
-    base="$(basename "$file")"
-
-    # Generated sync zips are named YYYYMMDD-HHMMSS-openpcm-...
-    # ChatGPT patch zips are named openpcm-...
-    if [[ "$base" =~ ^[0-9]{8}-[0-9]{6}-openpcm- ]]; then
-      continue
-    fi
-
-    filtered+=("$file")
-  done
-
-  if (( ${#filtered[@]} == 0 )); then
+  if (( ${#zips[@]} == 0 )); then
     return 1
   fi
 
-  ls -t "${filtered[@]}" | head -n 1
+  ls -t "${zips[@]}" | head -n 1
 }
-
-sync_remote_before_apply() {
-  echo
-  echo "Syncing with remote before applying patch..."
-  git fetch origin
-
-  local branch
-  branch="$(git rev-parse --abbrev-ref HEAD)"
-
-  if ! git rebase "origin/$branch"; then
-    echo "ERROR: Could not rebase onto origin/$branch." >&2
-    echo "Resolve conflicts, then run:" >&2
-    echo "  git rebase --continue" >&2
-    echo "or abort with:" >&2
-    echo "  git rebase --abort" >&2
-    return 1
-  fi
-}
-
-ensure_clean_enough_to_sync() {
-  local dirty
-  dirty="$(git status --porcelain | grep -v '^ M tests/last-test-run.json$' || true)"
-  if [[ -n "$dirty" ]]; then
-    echo "ERROR: Working tree has unexpected local changes before sync." >&2
-    echo "$dirty" >&2
-    echo "Commit, stash, or reset these changes before running u -sync." >&2
-    return 1
-  fi
-}
-
 
 write_sync_metadata() {
   local commit branch timestamp

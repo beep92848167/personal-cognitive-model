@@ -392,16 +392,6 @@
       "status": "Active",
       "implemented": true,
       "tests": []
-    },
-    {
-      "id": "REQ-SYNC-004",
-      "title": "The update script must fetch and rebase before applying a patch so phone and laptop workflows do not diverge.",
-      "shortTitle": "Pull before patch sync",
-      "area": "Sync Workflow",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": []
     }
   ]
 }
