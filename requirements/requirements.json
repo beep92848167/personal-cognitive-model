@@ -402,6 +402,16 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-AGENT-004",
+      "title": "The phone agent must generate a machine-readable sync summary for each successful sync package.",
+      "shortTitle": "Machine-readable sync summary",
+      "area": "OpenPCM Agent",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

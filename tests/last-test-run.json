@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T09:50:14.835Z",
+  "timestamp": "2026-06-29T10:07:37.165Z",
   "status": "PASS",
-  "passed": 114,
+  "passed": 115,
   "failed": 0,
-  "total": 114,
-  "durationMs": 64,
+  "total": 115,
+  "durationMs": 84,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 40,
-    "covered": 40,
+    "total": 41,
+    "covered": 41,
     "uncovered": []
   },
   "failures": [],
@@ -798,6 +798,13 @@
       "status": "PASS",
       "requirements": [
         "REQ-AGENT-003"
+      ]
+    },
+    {
+      "name": "agent writes machine-readable sync summary",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-004"
       ]
     },
     {
