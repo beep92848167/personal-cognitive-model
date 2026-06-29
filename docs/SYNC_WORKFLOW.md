@@ -64,3 +64,17 @@ This matters because Android/Termux environments can differ in which `find` impl
 Before creating a sync ZIP, `tools/update.sh` rewrites `.openpcm-sync.json` with the current branch, short commit, UTC timestamp, test status, passed/failed counts, and requirement coverage.
 
 The metadata writer uses Node to generate JSON, avoiding fragile shell heredocs and quoting issues.
+
+
+## Remote-first sync
+
+Phone and laptop can both push to `main`.
+
+Before applying a downloaded patch ZIP, `tools/update.sh` now:
+
+1. verifies there is no unexpected dirty state;
+2. fetches `origin`;
+3. rebases the local branch onto `origin/<branch>`;
+4. only then applies the patch.
+
+This prevents the phone from creating commits on stale history after the laptop has pushed newer work.

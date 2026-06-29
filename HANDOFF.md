@@ -2,16 +2,17 @@
 
 ## Engineering Increment
 
-Fixed stale sync metadata in generated sync ZIPs using a safer metadata writer.
+Fully replaced `tools/update.sh` with a known-good self-safe remote-first implementation.
 
 ## Changes
 
-- `tools/update.sh` now writes `.openpcm-sync.json` immediately before packaging.
-- Metadata includes current branch, short commit, UTC timestamp, test status, test counts, and requirement coverage.
-- Metadata is generated with Node JSON serialization rather than shell heredocs.
-- Added `REQ-SYNC-002`.
-- Expanded update workflow tests.
-- Updated `docs/SYNC_WORKFLOW.md`.
+- Replaced malformed update script.
+- Preserved self-safe execution.
+- Preserved Termux-friendly ZIP discovery.
+- Added fetch/rebase before applying patches.
+- Preserved test-before-commit.
+- Preserved sync metadata refresh and sync ZIP creation.
+- Added `REQ-SYNC-004`.
 
 ## Verification
 
@@ -25,10 +26,8 @@ node tools/run-tests.js
 Expected result:
 
 - shell syntax passes
-- 115 passed
-- 0 failed
-- requirement coverage complete.
+- tests pass
 
 ## Suggested Commit
 
-fix(sync): refresh metadata before packaging
+fix(sync): replace update script with remote-first version
