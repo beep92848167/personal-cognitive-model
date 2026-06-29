@@ -1,15 +1,15 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-28T22:41:31.074Z",
+  "timestamp": "2026-06-29T00:35:32.325Z",
   "status": "PASS",
   "passed": 117,
   "failed": 0,
   "total": 117,
-  "durationMs": 18,
+  "durationMs": 19,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 40,
+    "total": 41,
     "covered": 41,
     "uncovered": []
   },
@@ -810,17 +810,17 @@
       ]
     },
     {
-      "name": "update script is safe to update while running",
+      "name": "agent processes patch zips without manual extraction",
       "status": "PASS",
       "requirements": [
-        "REQ-SYNC-003"
+        "REQ-AGENT-001"
       ]
     },
     {
-      "name": "update script rebases before applying patches",
+      "name": "agent archives successfully processed patch zips",
       "status": "PASS",
       "requirements": [
-        "REQ-SYNC-004"
+        "REQ-AGENT-002"
       ]
     },
     {

@@ -148,3 +148,11 @@
 | REQ-TEST-001 | Tests must run in Android browser without Node/npm. | High | Active |
 | REQ-TEST-002 | Test runner must show pass/fail status. | High | Active |
 | REQ-TEST-003 | Test runner must show requirement coverage. | High | Active |
+
+
+## OpenPCM Agent
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-AGENT-001 | The phone agent must detect new OpenPCM patch ZIPs and process them without manual extraction. | High | Active |
+| REQ-AGENT-002 | The phone agent must archive successfully processed patch ZIPs to avoid reprocessing historical downloads. | High | Active |

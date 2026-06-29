@@ -394,10 +394,20 @@
       "tests": []
     },
     {
-      "id": "REQ-SYNC-004",
-      "title": "The update script must fetch and rebase before applying a patch so phone and laptop workflows do not diverge.",
-      "shortTitle": "Pull before patch sync",
-      "area": "Sync Workflow",
+      "id": "REQ-AGENT-001",
+      "title": "The phone agent must detect new OpenPCM patch ZIPs and process them without manual extraction.",
+      "shortTitle": "Agent patch processing",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-AGENT-002",
+      "title": "The phone agent must archive successfully processed patch ZIPs to avoid reprocessing historical downloads.",
+      "shortTitle": "Agent patch archiving",
+      "area": "OpenPCM Agent",
       "priority": "High",
       "status": "Active",
       "implemented": true,
