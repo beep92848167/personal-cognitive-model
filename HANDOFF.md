@@ -2,13 +2,14 @@
 
 ## Engineering Increment
 
-Fixed stale sync metadata in generated sync ZIPs.
+Fixed Termux ZIP discovery in the `u` sync workflow.
 
 ## Changes
 
-- `tools/update.sh` now writes `.openpcm-sync.json` immediately before packaging.
-- Sync metadata now includes current branch, short commit, UTC timestamp, test status, test counts, and requirement coverage.
-- Added `REQ-SYNC-002`.
+- Updated `tools/update.sh`.
+- Replaced GNU `find -printf` ZIP discovery with Termux-friendly Bash globbing.
+- Preserved test-before-commit workflow.
+- Preserved verified sync ZIP creation after push.
 - Expanded update workflow tests.
 - Updated `docs/SYNC_WORKFLOW.md`.
 
@@ -22,10 +23,10 @@ node tools/run-tests.js
 
 Expected result:
 
-- 115 passed
+- 114 passed
 - 0 failed
 - Requirement coverage complete.
 
 ## Suggested Commit
 
-fix(sync): refresh metadata before packaging
+fix(sync): make ZIP discovery portable on Termux

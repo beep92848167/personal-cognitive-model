@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T05:20:41.688Z",
+  "timestamp": "2026-06-29T05:20:57.447Z",
   "status": "PASS",
-  "passed": 115,
+  "passed": 114,
   "failed": 0,
-  "total": 115,
-  "durationMs": 20,
+  "total": 114,
+  "durationMs": 19,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 39,
-    "covered": 39,
+    "total": 38,
+    "covered": 38,
     "uncovered": []
   },
   "failures": [],
@@ -800,13 +800,6 @@
       "requirements": [
         "REQ-SYNC-001",
         "REQ-ANDROID-001"
-      ]
-    },
-    {
-      "name": "update script writes fresh sync metadata before packaging",
-      "status": "PASS",
-      "requirements": [
-        "REQ-SYNC-002"
       ]
     },
     {

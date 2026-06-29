@@ -66,45 +66,6 @@ run_tests_if_available() {
   return 0
 }
 
-write_sync_metadata() {
-  local commit branch timestamp status passed failed covered total
-  commit="$(git rev-parse --short HEAD)"
-  branch="$(git rev-parse --abbrev-ref HEAD)"
-  timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-
-  status="UNKNOWN"
-  passed=""
-  failed=""
-  covered=""
-  total=""
-
-  if [[ -f tests/last-test-run.json ]] && command -v node >/dev/null 2>&1; then
-    status="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync("tests/last-test-run.json","utf8")); process.stdout.write(String(r.status || "UNKNOWN"));')"
-    passed="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync("tests/last-test-run.json","utf8")); process.stdout.write(String(r.passed ?? ""));')"
-    failed="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync("tests/last-test-run.json","utf8")); process.stdout.write(String(r.failed ?? ""));')"
-    covered="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync("tests/last-test-run.json","utf8")); process.stdout.write(String(r.requirements?.covered ?? ""));')"
-    total="$(node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync("tests/last-test-run.json","utf8")); process.stdout.write(String(r.requirements?.total ?? ""));')"
-  fi
-
-  cat > .openpcm-sync.json <<EOF
-{
-  "workflowVersion": 5,
-  "timestamp": "$timestamp",
-  "branch": "$branch",
-  "commit": "$commit",
-  "status": "$status",
-  "tests": {
-    "passed": "$passed",
-    "failed": "$failed"
-  },
-  "requirements": {
-    "covered": "$covered",
-    "total": "$total"
-  }
-}
-EOF
-}
-
 create_sync_package() {
   local commit branch timestamp package_name package_path
   commit="$(git rev-parse --short HEAD)"
@@ -112,10 +73,6 @@ create_sync_package() {
   timestamp="$(date +%Y%m%d-%H%M%S)"
   package_name="${timestamp}-openpcm-${branch}-${commit}.zip"
   package_path="$DOWNLOADS_DIR/$package_name"
-
-  echo
-  echo "Updating sync metadata..."
-  write_sync_metadata
 
   echo
   echo "Creating sync package..."

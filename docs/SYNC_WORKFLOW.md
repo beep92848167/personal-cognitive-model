@@ -45,17 +45,3 @@ Never report sync success unless a non-empty sync ZIP was created.
 ZIP discovery uses Bash globbing plus `ls -t` rather than GNU-specific `find -printf`.
 
 This matters because Android/Termux environments can differ in which `find` implementation is available.
-
-
-## Sync metadata
-
-Before creating a sync ZIP, `tools/update.sh` rewrites `.openpcm-sync.json` with:
-
-- current branch;
-- current short commit;
-- UTC timestamp;
-- test status;
-- passed/failed test counts;
-- requirement coverage.
-
-This prevents stale sync ZIP metadata after successful commits.

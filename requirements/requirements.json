@@ -334,16 +334,6 @@
       "tests": []
     },
     {
-      "id": "REQ-SYNC-002",
-      "title": "The update script must refresh .openpcm-sync.json before creating a sync ZIP.",
-      "shortTitle": "Fresh sync metadata",
-      "area": "Sync Workflow",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": []
-    },
-    {
       "id": "REQ-ANDROID-001",
       "title": "Android update workflow must be one-command after downloading a ZIP.",
       "shortTitle": "One-command Android update",

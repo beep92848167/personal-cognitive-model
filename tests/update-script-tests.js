@@ -12,8 +12,4 @@
   test("update script uses Termux-friendly zip discovery", ["REQ-SYNC-001", "REQ-ANDROID-001"], () => {
     assert(true, "tools/update.sh avoids GNU find -printf for finding openpcm ZIP files");
   });
-
-  test("update script writes fresh sync metadata before packaging", ["REQ-SYNC-002"], () => {
-    assert(true, "tools/update.sh updates .openpcm-sync.json with the current branch, commit, test status, and requirement coverage before creating the sync ZIP");
-  });
 })();
