@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T12:11:26.204Z",
+  "timestamp": "2026-06-29T12:25:27.923Z",
   "status": "PASS",
-  "passed": 124,
+  "passed": 126,
   "failed": 0,
-  "total": 124,
-  "durationMs": 88,
+  "total": 126,
+  "durationMs": 42,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 48,
-    "covered": 48,
+    "total": 49,
+    "covered": 49,
     "uncovered": []
   },
   "failures": [],
@@ -148,6 +148,20 @@
       "status": "PASS",
       "requirements": [
         "REQ-DASHBOARD-001"
+      ]
+    },
+    {
+      "name": "buildNextActions prioritizes continue and one-tap capture",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DAILY-DRIVER-001"
+      ]
+    },
+    {
+      "name": "buildDashboardSummary includes Daily Driver actions and timeline",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DAILY-DRIVER-001"
       ]
     },
     {

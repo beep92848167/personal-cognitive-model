@@ -182,6 +182,86 @@
     return `Export reminder: back up after ${remaining} more ${remaining === 1 ? "entry" : "entries"}.`;
   }
 
+
+  function describeRelativeTime(timestampUtc, options = {}) {
+    if (!timestampUtc) return "No timestamp";
+    const nowMs = options.now ? new Date(options.now).getTime() : Date.now();
+    const thenMs = new Date(timestampUtc).getTime();
+    if (!Number.isFinite(thenMs)) return "Unknown time";
+    const minutes = Math.max(0, Math.round((nowMs - thenMs) / 60000));
+    if (minutes < 1) return "just now";
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.round(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.round(hours / 24);
+    return `${days}d ago`;
+  }
+
+  function lastActivity(entries = []) {
+    return sortNewestFirst(normalizeEntries(entries))[0] || null;
+  }
+
+  function buildRecentTimeline(entries = [], options = {}) {
+    return sortNewestFirst(normalizeEntries(entries))
+      .slice(0, options.limit || 5)
+      .map(entry => ({
+        id: entry.id,
+        title: entry.title,
+        medium: entry.medium,
+        reaction: entry.reaction,
+        cognitive_state: entry.cognitive_state,
+        timestamp_utc: entry.timestamp_utc,
+        relativeTime: describeRelativeTime(entry.timestamp_utc, options)
+      }));
+  }
+
+  function buildNextActions(entries = [], options = {}) {
+    const normalized = normalizeEntries(entries);
+    const actions = [];
+    const recent = lastActivity(normalized);
+
+    if (recent) {
+      actions.push({
+        id: "continue_last",
+        label: `Continue: ${recent.title}`,
+        kind: "continue",
+        entryId: recent.id,
+        note: `${recent.medium} · ${describeRelativeTime(recent.timestamp_utc, options)}`
+      });
+    } else {
+      actions.push({
+        id: "first_capture",
+        label: "Add first evidence",
+        kind: "nav",
+        target: "add",
+        note: "Start your portable PCM dataset."
+      });
+    }
+
+    const presets = presetList().slice(0, options.presetLimit || 3);
+    for (const preset of presets) {
+      actions.push({
+        id: `preset_${preset.id}`,
+        label: preset.label,
+        kind: "preset",
+        presetId: preset.id,
+        note: preset.medium
+      });
+    }
+
+    if (normalized.length >= (options.exportThreshold || 5)) {
+      actions.push({
+        id: "export_backup",
+        label: "Export backup",
+        kind: "nav",
+        target: "settings",
+        note: "Protect local-only evidence."
+      });
+    }
+
+    return actions.slice(0, options.limit || 5);
+  }
+
   function buildDashboardSummary(entries = [], options = {}) {
     const sorted = sortNewestFirst(normalizeEntries(entries));
     return {
@@ -189,7 +269,10 @@
       recentEntries: sorted.slice(0, options.recentLimit || 3),
       topTags: topTagCounts(sorted, options.tagLimit || 5),
       currentMode: mostRecentCognitiveState(sorted),
-      exportReminder: exportReminder(sorted, options)
+      exportReminder: exportReminder(sorted, options),
+      continueEntry: lastActivity(sorted),
+      nextActions: buildNextActions(sorted, options),
+      recentTimeline: buildRecentTimeline(sorted, { ...options, limit: options.timelineLimit || 5 })
     };
   }
 
@@ -236,6 +319,10 @@
     topTagCounts,
     mostRecentCognitiveState,
     exportReminder,
+    describeRelativeTime,
+    lastActivity,
+    buildRecentTimeline,
+    buildNextActions,
     buildDashboardSummary,
     loadEntriesFromStorage,
     saveEntriesToStorage

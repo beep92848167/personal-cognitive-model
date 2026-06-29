@@ -165,5 +165,25 @@
     assert(result.exportReminder.includes("Back up soon"), "dashboard should include an export reminder");
   });
 
+  test("buildNextActions prioritizes continue and one-tap capture", ["REQ-DAILY-DRIVER-001"], () => {
+    const result = Core.buildNextActions([
+      { id: "old", title: "Old", medium: "TV", reaction: "Liked", tags: [], timestamp_utc: "2026-01-01T00:00:00Z" },
+      { id: "new", title: "New", medium: "Book", reaction: "Loved", tags: [], timestamp_utc: "2026-01-02T00:00:00Z" }
+    ], { now: "2026-01-02T01:00:00Z" });
+    assertEqual(result[0].kind, "continue");
+    assertEqual(result[0].entryId, "new");
+    assert(result.some(action => action.kind === "preset" && action.presetId === "tv_watched"), "home actions should include one-tap presets");
+  });
+
+  test("buildDashboardSummary includes Daily Driver actions and timeline", ["REQ-DAILY-DRIVER-001"], () => {
+    const result = Core.buildDashboardSummary([
+      { id: "1", title: "Evidence", medium: "TV", reaction: "Liked", cognitive_state: "Medium capacity", tags: [], timestamp_utc: "2026-01-02T00:00:00Z" }
+    ], { now: "2026-01-02T01:00:00Z" });
+    assertEqual(result.continueEntry.title, "Evidence");
+    assertEqual(result.recentTimeline.length, 1);
+    assertEqual(result.recentTimeline[0].relativeTime, "1h ago");
+    assert(result.nextActions.length >= 2, "dashboard should expose actionable next steps");
+  });
+
 
 })();

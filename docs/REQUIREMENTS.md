@@ -168,3 +168,11 @@
 | REQ-AGENT-008 | The phone agent must prefer the patch metadata commit message over the default fallback message. | High | Active |
 
 | REQ-AGENT-009 | The phone agent must preserve both patch metadata reading and fresh sync summary generation in the same workflow. | High | Active |
+
+### REQ-DAILY-DRIVER-001 — Daily Driver home actions
+
+Home must provide actionable Daily Driver shortcuts including continue-last-entry, one-tap presets, and a recent activity timeline.
+
+Status: Implemented
+Priority: High
+Area: Dashboard

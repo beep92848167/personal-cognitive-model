@@ -154,6 +154,16 @@
       "tests": []
     },
     {
+      "id": "REQ-DAILY-DRIVER-001",
+      "title": "Home must provide actionable Daily Driver shortcuts including continue-last-entry, one-tap presets, and a recent activity timeline.",
+      "shortTitle": "Daily Driver home actions",
+      "area": "Dashboard",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-PORTABLE-001",
       "title": "User must be able to export evidence as JSON.",
       "shortTitle": "Export JSON",

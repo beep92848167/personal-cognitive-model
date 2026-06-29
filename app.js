@@ -88,14 +88,29 @@ function entryHtml(e) {
 
 function renderHomeDashboard() {
   const summary = Core.buildDashboardSummary(loadEntries());
+  $("home-actions").innerHTML = summary.nextActions.map(action => {
+    const attrs = action.kind === "preset"
+      ? `data-home-preset="${escapeHtml(action.presetId)}"`
+      : action.kind === "continue"
+        ? `data-continue-entry="${escapeHtml(action.entryId)}"`
+        : `data-nav="${escapeHtml(action.target || "add")}"`;
+    return `<button class="quick-action" ${attrs}><span>${escapeHtml(action.label)}</span><small>${escapeHtml(action.note || "")}</small></button>`;
+  }).join("");
+
   $("home-dashboard").innerHTML = `
     <div class="stat-grid">
       <div class="stat"><strong>${summary.totalEntries}</strong>Total entries</div>
       <div class="stat"><strong>${escapeHtml(summary.currentMode)}</strong>Current mode</div>
     </div>
+    ${summary.continueEntry ? `<div class="note"><strong>Continue where you left off</strong><br><button class="inline-action" data-continue-entry="${escapeHtml(summary.continueEntry.id)}">${escapeHtml(summary.continueEntry.title)}</button></div>` : ""}
     <div class="note"><strong>Top tags</strong><br>${summary.topTags.length ? summary.topTags.map(item => `${escapeHtml(item.tag)} (${escapeHtml(String(item.count))})`).join(", ") : "No tags yet"}</div>
     <p class="meta">${escapeHtml(summary.exportReminder)}</p>`;
-  $("recent-list").innerHTML = summary.recentEntries.length ? summary.recentEntries.map(entryHtml).join("") : `<div class="empty">No evidence yet. Add your first entry.</div>`;
+  $("recent-list").innerHTML = summary.recentTimeline.length ? summary.recentTimeline.map(item => `
+    <button class="entry timeline-entry" data-entry-id="${escapeHtml(item.id)}">
+      <div class="entry-title">${escapeHtml(item.title)}</div>
+      <div class="meta">${escapeHtml(item.relativeTime)} · ${escapeHtml(item.medium)} · ${escapeHtml(item.reaction)}</div>
+      <div class="meta">Mode: ${escapeHtml(item.cognitive_state || "Not recorded")}</div>
+    </button>`).join("") : `<div class="empty">No evidence yet. Add your first entry.</div>`;
 }
 
 function filteredEntries() {
@@ -337,6 +352,7 @@ function renderAll() {
   renderProfileTransfer();
   renderDetail();
   bindEntryButtons();
+  bindHomeActions();
   bindRecommendationFeedback();
   bindRecommendationDetails();
   bindWorkspaceRecommendationSaves();
@@ -364,6 +380,15 @@ function bindEntryButtons() {
       selectedDetailId = btn.dataset.entryId;
       setView("detail");
     });
+  });
+}
+
+function bindHomeActions() {
+  document.querySelectorAll("[data-home-preset]").forEach(btn => {
+    btn.addEventListener("click", () => startAddWithPreset(btn.dataset.homePreset));
+  });
+  document.querySelectorAll("[data-continue-entry]").forEach(btn => {
+    btn.addEventListener("click", () => continueEntry(btn.dataset.continueEntry));
   });
 }
 
@@ -430,6 +455,20 @@ function deleteEntry(id) {
 
 function checkDuplicateTitle() {
   $("duplicate-warning").textContent = Validation.duplicateTitleWarning(loadEntries(), $("title").value, $("editing-id").value);
+}
+
+function startAddWithPreset(presetId) {
+  clearForm();
+  const draft = Core.applyQuickEntryPreset(currentDraftFromForm(), presetId);
+  applyDraftToForm(draft);
+  document.querySelectorAll("#quick-presets button").forEach(b => b.classList.toggle("selected", b.dataset.preset === presetId));
+  $("save-confirm").textContent = "Preset applied. Add a title, then save.";
+  setView("add");
+}
+
+function continueEntry(id) {
+  const entry = loadEntries().find(e => e.id === id);
+  if (entry) startEdit(entry.id);
 }
 
 function currentFormEntry(editingId, entries) {

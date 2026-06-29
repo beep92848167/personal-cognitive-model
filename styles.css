@@ -248,3 +248,46 @@ textarea { min-height: 90px; }
   color: var(--gold);
   border-color: var(--border);
 }
+
+.action-row {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.quick-action {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  background: #142941;
+  border-color: var(--border);
+}
+
+.quick-action small {
+  color: var(--muted);
+  font-weight: 650;
+  text-align: right;
+}
+
+.inline-action {
+  min-height: 42px;
+  width: 100%;
+  margin-top: 8px;
+  text-align: left;
+  color: var(--gold);
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.timeline-entry {
+  border-left: 4px solid var(--gold);
+}
+
+@media (min-width: 620px) {
+  .action-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

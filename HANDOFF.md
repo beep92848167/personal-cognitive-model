@@ -1,28 +1,32 @@
 # OpenPCM AI Handoff
 
-## Engineering Increment
+## Engineering Batch
 
-Added the Phase 1.3 local home dashboard summary.
+Delivered Daily Driver Batch A: action-oriented home capture and resume flow.
 
 ## Why
 
-The roadmap calls for the app home screen to provide a useful day-to-day summary immediately on launch, reducing navigation and RSI cost.
+The mobile app should reduce the effort required to capture evidence from the phone home screen. The previous dashboard was informative; this batch makes it actionable.
 
 ## Changes
 
-- Added dashboard summary support in `src/core/evidence.js`:
-  - `topTagCounts()`
-  - `mostRecentCognitiveState()`
-  - `exportReminder()`
-  - `buildDashboardSummary()`
-- Added a Home `Today` dashboard card showing:
-  - Total entries
-  - Current cognitive mode
-  - Top tags
-  - Export reminder
-- Reused the dashboard summary for recent activity so the Home view is driven by one core summary object.
-- Added `REQ-DASHBOARD-001` to docs and the requirements registry.
-- Added regression tests for top tag counts and dashboard summary behavior.
+- Added Daily Driver domain helpers in `src/core/evidence.js`:
+  - `describeRelativeTime()`
+  - `lastActivity()`
+  - `buildRecentTimeline()`
+  - `buildNextActions()`
+- Extended `buildDashboardSummary()` with:
+  - `continueEntry`
+  - `nextActions`
+  - `recentTimeline`
+- Updated Home UI:
+  - action chips in the hero card
+  - one-tap preset launch from Home
+  - continue-last-entry affordance
+  - richer recent activity timeline with relative time and cognitive mode
+- Added mobile CSS for action buttons and timeline cards.
+- Added `REQ-DAILY-DRIVER-001` to docs and the requirements registry.
+- Added regression tests for Daily Driver next actions and timeline summary behavior.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -37,10 +41,10 @@ node tools/run-tests.js
 Result:
 
 ```text
-PASS — 124 passed, 0 failed
-Requirement coverage: 48/48
+PASS — 126 passed, 0 failed
+Requirement coverage: 49/49
 ```
 
 ## Suggested Commit
 
-feat(mobile): add home dashboard summary
+feat(mobile): add daily driver home actions

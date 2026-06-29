@@ -1,4 +1,4 @@
 {
-  "schemaVersion": "openpcm_patch_v1",
-  "commitMessage": "feat(mobile): add home dashboard summary"
+  "commit_message": "feat(mobile): add daily driver home actions",
+  "base_commit": "cc7e8d0"
 }
