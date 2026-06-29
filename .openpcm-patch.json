@@ -1,5 +1,6 @@
 {
-  "commitMessage": "feat(recommendations): add prediction ledger calibration loop",
-  "batch": "Batch D — Prediction Ledger",
-  "baseCommit": "8c059a7"
+  "commit_message": "feat(recommendations): add cognitive fit ranking",
+  "batch": "Batch E — Cognitive Fit",
+  "tests": "148 passed, 0 failed",
+  "requirements": "57/57 covered"
 }

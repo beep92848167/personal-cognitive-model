@@ -55,3 +55,7 @@ Examples:
 - black-box scoring;
 - recommendation explanations without source traceability;
 - cognitive-state recommendations before the reasoning model is mature.
+
+## Cognitive fit boundary
+
+`cognitive-fit.js` is an OpenPCM reasoning output, not a durable identity mutation. It combines the current cognitive state with candidate load signals to decide whether a recommendation is suitable *right now*. It may change ranking and explanation output, but it does not rewrite the Personal Cognitive Model.

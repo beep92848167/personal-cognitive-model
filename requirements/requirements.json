@@ -552,6 +552,42 @@
       "tests": [
         "prediction-ledger-tests.js"
       ]
+    },
+    {
+      "id": "REQ-COGNITIVE-FIT-001",
+      "title": "OpenPCM must normalize cognitive state labels and score candidate cognitive load against current capacity.",
+      "shortTitle": "Cognitive fit scoring",
+      "area": "Cognitive Fit",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "cognitive-fit-tests.js"
+      ]
+    },
+    {
+      "id": "REQ-COGNITIVE-FIT-002",
+      "title": "OpenPCM must apply cognitive-fit adjustments to recommendation rankings with inspectable explanations.",
+      "shortTitle": "Capacity-aware recommendation ranking",
+      "area": "Cognitive Fit",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "cognitive-fit-tests.js"
+      ]
+    },
+    {
+      "id": "REQ-COGNITIVE-FIT-003",
+      "title": "OpenPCM must surface cognitive-fit insight cards showing good-now and save-for-later recommendations.",
+      "shortTitle": "Cognitive fit insight cards",
+      "area": "Cognitive Fit",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "cognitive-fit-tests.js"
+      ]
     }
   ]
 }

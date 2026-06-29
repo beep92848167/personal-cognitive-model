@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T22:00:40.814Z",
+  "timestamp": "2026-06-29T22:04:53.940Z",
   "status": "PASS",
-  "passed": 143,
+  "passed": 148,
   "failed": 0,
-  "total": 143,
-  "durationMs": 54,
+  "total": 148,
+  "durationMs": 110,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 54,
-    "covered": 54,
+    "total": 57,
+    "covered": 57,
     "uncovered": []
   },
   "failures": [],
@@ -732,6 +732,43 @@
       "status": "PASS",
       "requirements": [
         "REQ-PREDICTION-LEDGER-001"
+      ]
+    },
+    {
+      "name": "normalizeState maps cognitive state labels",
+      "status": "PASS",
+      "requirements": [
+        "REQ-COGNITIVE-FIT-001"
+      ]
+    },
+    {
+      "name": "scoreCognitiveFit penalizes demanding candidates during flare",
+      "status": "PASS",
+      "requirements": [
+        "REQ-COGNITIVE-FIT-001",
+        "REQ-COGNITIVE-FIT-002"
+      ]
+    },
+    {
+      "name": "scoreCognitiveFit boosts comfort candidates during low capacity",
+      "status": "PASS",
+      "requirements": [
+        "REQ-COGNITIVE-FIT-001",
+        "REQ-COGNITIVE-FIT-002"
+      ]
+    },
+    {
+      "name": "applyCognitiveFit re-ranks recommendations by current capacity",
+      "status": "PASS",
+      "requirements": [
+        "REQ-COGNITIVE-FIT-002"
+      ]
+    },
+    {
+      "name": "cognitiveFitInsights surfaces good-now and save-later cards",
+      "status": "PASS",
+      "requirements": [
+        "REQ-COGNITIVE-FIT-003"
       ]
     },
     {

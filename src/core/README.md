@@ -51,3 +51,5 @@ UI code may display validation results, but validation rules and normalization r
 `first-intelligence.js` provides the first reusable recommendation-scoring API. It turns local evidence into weighted preference signals, scores candidate items, assigns confidence, and returns inspectable explanations with matches and risks.
 
 - `prediction-ledger.js` records predicted recommendation outcomes, actual feedback, prediction errors, calibration summaries, and insight cards.
+
+- `cognitive-fit.js` adjusts recommendation ranking against current cognitive capacity and produces good-now / save-for-later insight cards.

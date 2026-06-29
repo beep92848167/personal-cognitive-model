@@ -191,3 +191,12 @@ Area: Dashboard
 |---|---|---:|---|
 | REQ-PREDICTION-LEDGER-001 | OpenPCM must record recommendation predictions, actual reactions, prediction errors, mismatch reasons, and persistence without mutating the Personal Cognitive Model. | High | Active |
 | REQ-PREDICTION-LEDGER-002 | OpenPCM must summarize prediction accuracy, pending feedback, signal-level error patterns, and calibration insight cards. | High | Active |
+
+
+## Cognitive Fit
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-COGNITIVE-FIT-001 | OpenPCM must normalize cognitive state labels and score candidate cognitive load against current capacity. | High | Active |
+| REQ-COGNITIVE-FIT-002 | OpenPCM must apply cognitive-fit adjustments to recommendation rankings with inspectable explanations. | High | Active |
+| REQ-COGNITIVE-FIT-003 | OpenPCM must surface cognitive-fit insight cards showing good-now and save-for-later recommendations. | High | Active |
