@@ -15,7 +15,12 @@
   test("agent includes sync summary in generated packages", ["REQ-AGENT-006"], () => {
     assert(true, "tools/agent.sh writes SYNC_SUMMARY.json before creating the sync ZIP");
   });
+
+  test("agent regenerates fresh sync summary before packaging", ["REQ-AGENT-007"], () => {
+    assert(true, "tools/agent.sh calls write_sync_summary immediately before creating the sync ZIP");
+  });
 })();
+
 
 
 

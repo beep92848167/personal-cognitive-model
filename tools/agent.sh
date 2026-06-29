@@ -24,8 +24,40 @@ write_sync_metadata(){ cd "$REPO_DIR"; local c b t; c="$(git rev-parse --short H
 const fs=require('fs');const [commit,branch,timestamp]=process.argv.slice(2);let tests={status:'UNKNOWN',passed:'',failed:'',requirements:{covered:'',total:''}};try{tests=JSON.parse(fs.readFileSync('tests/last-test-run.json','utf8'))}catch{};const sync={workflowVersion:9,timestamp,branch,commit,status:tests.status||'UNKNOWN',tests:{passed:String(tests.passed??''),failed:String(tests.failed??'')},requirements:{covered:String(tests.requirements?.covered??''),total:String(tests.requirements?.total??'')}};fs.writeFileSync('.openpcm-sync.json',JSON.stringify(sync,null,2)+'\n');
 NODE
 }
+write_sync_summary(){ cd "$REPO_DIR"; local c b t pkg; c="$(git rev-parse --short HEAD)"; b="$(git rev-parse --abbrev-ref HEAD)"; t="$(date -u +%Y-%m-%dT%H:%M:%SZ)"; pkg="${1:-}"; PATCH_ID="${PATCH_ID:-}" PATCH_TARGET_COMMIT="${PATCH_TARGET_COMMIT:-}" PATCH_TARGET_BRANCH="${PATCH_TARGET_BRANCH:-}" node - "$c" "$b" "$t" "$pkg" <<'NODE'
+const fs=require('fs');
+const [commit,branch,timestamp,latestPackage]=process.argv.slice(2);
+let tests={status:'UNKNOWN',passed:0,failed:0,total:0,requirements:{covered:0,total:0,uncovered:[]}};
+try{tests=JSON.parse(fs.readFileSync('tests/last-test-run.json','utf8'))}catch{}
+const summary={
+  schemaVersion:'openpcm_sync_summary_v1',
+  timestamp,
+  branch,
+  commit,
+  latestPackage,
+  patch:{
+    patchId:process.env.PATCH_ID||'',
+    targetCommit:process.env.PATCH_TARGET_COMMIT||'',
+    targetBranch:process.env.PATCH_TARGET_BRANCH||''
+  },
+  status:tests.status||'UNKNOWN',
+  tests:{
+    passed:Number(tests.passed??0),
+    failed:Number(tests.failed??0),
+    total:Number(tests.total??0)
+  },
+  requirements:{
+    covered:Number(tests.requirements?.covered??0),
+    total:Number(tests.requirements?.total??0),
+    uncovered:tests.requirements?.uncovered??[]
+  },
+  nextInstruction:'Upload the timestamped sync ZIP to ChatGPT and type Sync.'
+};
+fs.writeFileSync('SYNC_SUMMARY.json',JSON.stringify(summary,null,2)+'\n');
+NODE
+}
 commit_and_push(){ cd "$REPO_DIR"; log "Git status:"; git status --short; git add -A; if git diff --cached --quiet; then log "No changes to commit."; else log "Committing: $COMMIT_MSG"; git commit -m "$COMMIT_MSG"; fi; log "Pushing..."; git push; }
-create_sync_package(){ cd "$REPO_DIR"; local c b t n p; c="$(git rev-parse --short HEAD)"; b="$(git rev-parse --abbrev-ref HEAD)"; t="$(date +%Y%m%d-%H%M%S)"; n="${t}-openpcm-${b}-${c}.zip"; p="$DOWNLOADS_DIR/$n"; log "Refreshing sync metadata..."; write_sync_metadata; log "Creating sync package: $n"; rm -f "$p"; zip -qr "$p" . -x ".git/*" "node_modules/*" "*.zip" "archive_*/*" "agent.log"; [[ ! -s "$p" ]] && { log "ERROR: Sync package was not created."; return 1; }; log "Sync package ready: $p"; }
+create_sync_package(){ cd "$REPO_DIR"; local c b t n p; c="$(git rev-parse --short HEAD)"; b="$(git rev-parse --abbrev-ref HEAD)"; t="$(date +%Y%m%d-%H%M%S)"; n="${t}-openpcm-${b}-${c}.zip"; p="$DOWNLOADS_DIR/$n"; log "Refreshing sync metadata..."; write_sync_metadata; log "Writing fresh sync summary..."; write_sync_summary "$n"; log "Creating sync package: $n"; rm -f "$p"; zip -qr "$p" . -x ".git/*" "node_modules/*" "*.zip" "archive_*/*" "agent.log"; [[ ! -s "$p" ]] && { log "ERROR: Sync package was not created."; return 1; }; log "Sync package ready: $p"; }
 archive_patch(){ local patch="$1" dir target base stem suffix; dir="$DOWNLOADS_DIR/archive_$(date +%Y%m%d)"; mkdir -p "$dir"; base="$(basename "$patch")"; target="$dir/$base"; if [[ -e "$target" ]]; then stem="${base%.zip}"; suffix="$(date +%H%M%S)"; target="$dir/${stem}-${suffix}.zip"; fi; mv "$patch" "$target"; log "Archived patch: $target"; }
 process_patch(){ local patch="$1"; log "Patch detected: $(basename "$patch")"; wait_until_stable "$patch"; ensure_repo_ready; sync_remote; apply_patch_from_temp "$patch"; run_tests; commit_and_push; create_sync_package; archive_patch "$patch"; log "Patch processing complete."; }
 if [[ "$MODE" == "status" ]]; then agent_status; exit 0; fi

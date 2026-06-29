@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T11:09:00.249Z",
+  "timestamp": "2026-06-29T11:28:15.309Z",
   "status": "PASS",
-  "passed": 117,
+  "passed": 118,
   "failed": 0,
-  "total": 117,
-  "durationMs": 47,
+  "total": 118,
+  "durationMs": 41,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 43,
-    "covered": 43,
+    "total": 44,
+    "covered": 44,
     "uncovered": []
   },
   "failures": [],
@@ -819,6 +819,13 @@
       "status": "PASS",
       "requirements": [
         "REQ-AGENT-006"
+      ]
+    },
+    {
+      "name": "agent regenerates fresh sync summary before packaging",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-007"
       ]
     },
     {

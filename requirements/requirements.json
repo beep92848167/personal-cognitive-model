@@ -432,6 +432,16 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-AGENT-007",
+      "title": "The phone agent must regenerate SYNC_SUMMARY.json immediately before packaging so it matches the generated sync ZIP.",
+      "shortTitle": "Fresh sync summary before packaging",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

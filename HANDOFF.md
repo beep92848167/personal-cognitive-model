@@ -2,15 +2,15 @@
 
 ## Engineering Increment
 
-Fixed the agent so generated sync packages include `SYNC_SUMMARY.json`.
+Fixed stale `SYNC_SUMMARY.json` by regenerating it immediately before packaging.
 
 ## Changes
 
-- `tools/agent.sh` now writes `SYNC_SUMMARY.json` before creating each sync ZIP.
-- Added/updated `tools/sync-summary.js`.
-- Added current `SYNC_SUMMARY.json` to the repository snapshot.
+- `tools/agent.sh` now writes a fresh `SYNC_SUMMARY.json` using live git state and latest test results.
+- The summary is generated immediately before the sync ZIP is created.
+- Updated `tools/sync-summary.js`.
 - Updated `docs/OPENPCM_AGENT.md`.
-- Added `REQ-AGENT-006`.
+- Added `REQ-AGENT-007`.
 - Expanded agent tests.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
@@ -26,4 +26,4 @@ node tools/sync-summary.js
 
 ## Suggested Commit
 
-fix(agent): include sync summary in sync packages
+fix(agent): regenerate sync summary before packaging

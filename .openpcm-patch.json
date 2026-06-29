@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260629-agent-sync-summary-in-package",
+  "patchId": "20260629-agent-fresh-sync-summary",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "3a8803b",
+  "targetCommit": "944330f",
   "minimumWorkflowVersion": 9,
-  "commitMessage": "fix(agent): include sync summary in sync packages"
+  "commitMessage": "fix(agent): regenerate sync summary before packaging"
 }

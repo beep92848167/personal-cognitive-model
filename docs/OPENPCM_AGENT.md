@@ -89,3 +89,10 @@ Inspect it with:
 ```bash
 node tools/sync-summary.js
 ```
+
+
+### Freshness guarantee
+
+`SYNC_SUMMARY.json` must be regenerated immediately before the sync ZIP is created.
+
+The summary is not an archival note. It is a machine-readable statement about the exact repository snapshot being packaged.

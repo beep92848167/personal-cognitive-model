@@ -155,3 +155,5 @@
 | REQ-AGENT-005 | The phone agent must read patch metadata and use the embedded commit message when present. | High | Active |
 
 | REQ-AGENT-006 | The phone agent must include SYNC_SUMMARY.json in generated sync packages. | High | Active |
+
+| REQ-AGENT-007 | The phone agent must regenerate SYNC_SUMMARY.json immediately before packaging so it matches the generated sync ZIP. | High | Active |
