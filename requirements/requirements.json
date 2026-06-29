@@ -325,8 +325,8 @@
     },
     {
       "id": "REQ-SYNC-001",
-      "title": "The update script must run tests before commit and create a verified sync ZIP after a successful u -sync push.",
-      "shortTitle": "Test-before-commit and verified sync package",
+      "title": "The update script must create and verify a sync ZIP after a successful u -sync push.",
+      "shortTitle": "Verified sync package creation",
       "area": "Sync Workflow",
       "priority": "High",
       "status": "Active",

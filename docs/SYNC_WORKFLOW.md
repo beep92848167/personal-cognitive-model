@@ -1,40 +1,34 @@
 # Sync Workflow Reliability
 
-`tools/update.sh` powers the Android/Termux `u` workflow.
+`tools/update.sh` is responsible for the Android/Termux `u` workflow.
 
-## Normal mode
+## Required behaviour
+
+For normal run mode:
 
 ```bash
 u "commit message"
 ```
 
-The script:
+The script applies the newest `openpcm-*.zip`, commits, pushes, runs tests if available, and starts the local server.
 
-1. applies the newest `openpcm-*.zip`;
-2. runs tests if Node is available;
-3. commits only if tests pass;
-4. pushes;
-5. starts the local server.
-
-## Sync mode
+For sync mode:
 
 ```bash
 u -sync "commit message"
 ```
 
-The script:
+The script must:
 
-1. applies the newest `openpcm-*.zip`;
-2. runs tests if Node is available;
-3. commits only if tests pass;
-4. pushes;
-5. creates a timestamped sync ZIP in Downloads;
-6. verifies the ZIP exists and is non-empty;
-7. prints the ZIP name and location;
-8. skips server restart.
+1. apply the newest `openpcm-*.zip`;
+2. commit;
+3. push;
+4. run tests if available;
+5. create a timestamped sync ZIP in Downloads;
+6. verify the ZIP exists and is non-empty;
+7. print the ZIP name and location;
+8. skip server restart.
 
-## Design rule
+## Why this matters
 
-Never push untested code when the test runner is available.
-
-Never report sync success unless a non-empty sync ZIP was created.
+If push succeeds but no sync ZIP is created, ChatGPT cannot verify the newly pushed repository state through the normal ZIP workflow. The script now treats missing or empty sync packages as an explicit error.

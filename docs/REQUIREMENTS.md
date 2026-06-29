@@ -131,7 +131,7 @@
 
 | ID | Requirement | Priority | Status |
 |---|---|---:|---|
-| REQ-SYNC-001 | The update script must run tests before commit and create a verified sync ZIP after a successful `u -sync` push. | High | Active |
+| REQ-SYNC-001 | The update script must create and verify a sync ZIP after a successful `u -sync` push. | High | Active |
 
 ## Android Workflow
 

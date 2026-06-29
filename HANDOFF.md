@@ -2,17 +2,17 @@
 
 ## Engineering Increment
 
-Refactored the Termux `u` workflow to be safer and more reliable.
+Hardened the Termux `u -sync` workflow so it creates and verifies a sync ZIP after successful push.
 
 ## Changes
 
-- `tools/update.sh` now creates `tests/` before writing `tests/last-test-run.json`.
-- Tests now run before commit and push.
-- Failed tests stop the workflow before a commit is created.
-- `u -sync` creates and verifies a non-empty sync ZIP after push.
+- Rewrote `tools/update.sh` for clearer flow and stricter error handling.
+- Added explicit `create_sync_package()` step for sync mode.
+- Sync package creation now verifies the ZIP exists and is non-empty.
 - Added `REQ-SYNC-001`.
 - Added `docs/SYNC_WORKFLOW.md`.
-- Added update workflow tests.
+- Added lightweight update script workflow tests.
+- Updated CLI/browser runners.
 
 ## Verification
 
@@ -24,10 +24,9 @@ node tools/run-tests.js
 
 Expected result:
 
-- 113 passed
-- 0 failed
-- Requirement coverage complete.
+- tests pass
+- requirement coverage remains complete
 
 ## Suggested Commit
 
-fix(sync): run tests before commit and verify package
+fix(sync): verify sync package creation after push

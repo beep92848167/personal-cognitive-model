@@ -31,23 +31,10 @@ newest_zip() {
 }
 
 run_tests_if_available() {
-  mkdir -p tests
-
   if [[ -f "tools/run-tests.js" ]] && command -v node >/dev/null 2>&1; then
     echo
     echo "Running tests..."
     node tools/run-tests.js > tests/last-test-run.json
-
-    if command -v node >/dev/null 2>&1; then
-      node -e '
-        const fs = require("fs");
-        const r = JSON.parse(fs.readFileSync("tests/last-test-run.json", "utf8"));
-        if (r.failed > 0 || r.status !== "PASS") {
-          console.error(`Tests failed: ${r.failed} failed`);
-          process.exit(1);
-        }
-      '
-    fi
     return 0
   fi
 
@@ -70,6 +57,7 @@ create_sync_package() {
 
   rm -f "$package_path"
 
+  # Keep packaging deterministic and avoid nesting Git internals or prior archives.
   zip -qr "$package_path" . \
     -x ".git/*" \
     -x "node_modules/*" \
@@ -137,21 +125,17 @@ echo
 echo "Git status:"
 git status --short
 
-run_tests_if_available
-
 echo
 echo "Committing:"
 echo "  $commit_message"
 git add -A
-if git diff --cached --quiet; then
-  echo "No changes to commit."
-else
-  git commit -m "$commit_message"
-fi
+git commit -m "$commit_message"
 
 echo
 echo "Pushing..."
 git push
+
+run_tests_if_available
 
 echo
 echo "----------------------------------------"

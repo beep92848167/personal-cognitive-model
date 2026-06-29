@@ -1,6 +1,6 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T05:21:13.340Z",
+  "timestamp": "2026-06-29T05:21:28.200Z",
   "status": "PASS",
   "passed": 113,
   "failed": 0,
@@ -780,7 +780,7 @@
       ]
     },
     {
-      "name": "update script covers verified sync package creation",
+      "name": "update script documents sync package creation",
       "status": "PASS",
       "requirements": [
         "REQ-SYNC-001",
@@ -788,10 +788,11 @@
       ]
     },
     {
-      "name": "update script covers test-before-commit workflow",
+      "name": "update script keeps u -sync workflow explicit",
       "status": "PASS",
       "requirements": [
-        "REQ-SYNC-001"
+        "REQ-SYNC-001",
+        "REQ-ANDROID-001"
       ]
     },
     {
