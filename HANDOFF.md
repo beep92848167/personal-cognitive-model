@@ -2,26 +2,30 @@
 
 ## Engineering Batch
 
-Delivered Batch E: cognitive-fit recommendation ranking.
+Delivered Batch F: unified recommendation sessions.
 
 ## Why
 
-Recommendation scoring, learning, and prediction calibration now exist. The next highest-value capability is making recommendations usable *right now* by accounting for current cognitive capacity. A technically strong recommendation can still be wrong during low capacity or symptom flare states.
+The project now has separate intelligence components: evidence-based scoring, adaptive learning, prediction ledger calibration, and cognitive-fit ranking. The next highest-value capability is orchestration: one deterministic recommendation session that future UI can render directly.
 
 ## Changes
 
-- Added `src/core/cognitive-fit.js` with:
-  - cognitive-state normalization;
-  - capacity profiles for high, medium, low, and symptom flare / recovery;
-  - candidate cognitive-load estimation from tags, reasons, matches, risks, and explicit load fields;
-  - cognitive-fit scoring and labels;
-  - capacity-aware recommendation score adjustments;
-  - inspectable explanation text;
-  - good-now and save-for-later insight cards.
-- Added `tests/cognitive-fit-tests.js`.
+- Added `src/core/recommendation-session.js` with:
+  - latest cognitive-state detection from evidence;
+  - recommendation session construction from candidates, evidence, feedback, outcomes, and cognitive state;
+  - First Intelligence ranking;
+  - adaptive learning adjustments;
+  - cognitive-fit ranking adjustments;
+  - final score calculation;
+  - decision labels (`try_now`, `consider`, `save_for_later`, `skip_for_now`);
+  - decision reasons and next actions;
+  - prediction-ledger entry generation;
+  - merged insight-card queue;
+  - readable session summary text.
+- Added `tests/recommendation-session-tests.js`.
 - Loaded the new module and tests in both Node and browser test runners.
-- Added `REQ-COGNITIVE-FIT-001`, `REQ-COGNITIVE-FIT-002`, and `REQ-COGNITIVE-FIT-003`.
-- Added `docs/COGNITIVE_FIT.md` and updated architecture/core docs.
+- Added `REQ-RECSESSION-001`, `REQ-RECSESSION-002`, and `REQ-RECSESSION-003`.
+- Added `docs/RECOMMENDATION_SESSION.md` and updated architecture/core/requirements docs.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -36,10 +40,10 @@ node tools/run-tests.js
 Result:
 
 ```text
-PASS — 148 passed, 0 failed
-Requirement coverage: 57/57
+PASS — 152 passed, 0 failed
+Requirement coverage: 60/60
 ```
 
 ## Suggested Commit
 
-feat(recommendations): add cognitive fit ranking
+feat(recommendations): add unified recommendation sessions

@@ -588,6 +588,42 @@
       "tests": [
         "cognitive-fit-tests.js"
       ]
+    },
+    {
+      "id": "REQ-RECSESSION-001",
+      "title": "OpenPCM must build a unified recommendation session from evidence, candidates, current cognitive state, feedback, learning, prediction ledger, and cognitive-fit modules.",
+      "shortTitle": "Unified recommendation session",
+      "area": "Recommendation Session",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "recommendation-session-tests.js"
+      ]
+    },
+    {
+      "id": "REQ-RECSESSION-002",
+      "title": "OpenPCM recommendation sessions must produce final ranked recommendations with decision labels, decision reasons, and next actions.",
+      "shortTitle": "Recommendation decision actions",
+      "area": "Recommendation Session",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "recommendation-session-tests.js"
+      ]
+    },
+    {
+      "id": "REQ-RECSESSION-003",
+      "title": "OpenPCM recommendation sessions must emit actionable insight cards and prediction ledger entries for pending feedback and calibration.",
+      "shortTitle": "Session insights and ledger",
+      "area": "Recommendation Session",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "recommendation-session-tests.js"
+      ]
     }
   ]
 }

@@ -200,3 +200,8 @@ Area: Dashboard
 | REQ-COGNITIVE-FIT-001 | OpenPCM must normalize cognitive state labels and score candidate cognitive load against current capacity. | High | Active |
 | REQ-COGNITIVE-FIT-002 | OpenPCM must apply cognitive-fit adjustments to recommendation rankings with inspectable explanations. | High | Active |
 | REQ-COGNITIVE-FIT-003 | OpenPCM must surface cognitive-fit insight cards showing good-now and save-for-later recommendations. | High | Active |
+
+## Recommendation Session
+
+The recommendation-session layer composes First Intelligence, adaptive learning, prediction ledger, and cognitive-fit ranking into one deterministic recommendation session with final scores, decision labels, next actions, insight cards, and pending ledger entries.
+
