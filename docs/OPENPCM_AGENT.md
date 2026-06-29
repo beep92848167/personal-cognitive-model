@@ -16,3 +16,33 @@ For each new `openpcm-*.zip` patch in Downloads, it:
 10. archives the processed patch into `archive_YYYYMMDD`.
 
 Do not manually unzip patch ZIPs into the repository.
+
+
+## Agent commands
+
+Start watch mode:
+
+```bash
+agent
+```
+
+Run exactly one pending patch:
+
+```bash
+tools/agent.sh --once "chore: apply OpenPCM patch"
+```
+
+Show current status:
+
+```bash
+tools/agent.sh --status
+```
+
+Recommended Termux alias:
+
+```bash
+agent() {
+    cd ~/storage/downloads/pcm-git
+    tools/agent.sh "chore: apply OpenPCM patch"
+}
+```

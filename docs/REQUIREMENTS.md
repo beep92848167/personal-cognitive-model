@@ -156,3 +156,5 @@
 |---|---|---:|---|
 | REQ-AGENT-001 | The phone agent must detect new OpenPCM patch ZIPs and process them without manual extraction. | High | Active |
 | REQ-AGENT-002 | The phone agent must archive successfully processed patch ZIPs to avoid reprocessing historical downloads. | High | Active |
+
+| REQ-AGENT-003 | The phone agent must support status and one-shot modes for safer operation. | Medium | Active |
