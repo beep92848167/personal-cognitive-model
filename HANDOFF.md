@@ -2,17 +2,16 @@
 
 ## Engineering Increment
 
-Fully replaced `tools/update.sh` with a known-good self-safe remote-first implementation.
+Made the phone sync workflow remote-first so laptop and phone development do not diverge.
 
 ## Changes
 
-- Replaced malformed update script.
-- Preserved self-safe execution.
-- Preserved Termux-friendly ZIP discovery.
-- Added fetch/rebase before applying patches.
-- Preserved test-before-commit.
-- Preserved sync metadata refresh and sync ZIP creation.
+- `tools/update.sh` checks for unexpected dirty state before sync.
+- `tools/update.sh` fetches and rebases onto `origin/<branch>` before applying a patch ZIP.
+- ZIP discovery ignores timestamped generated sync ZIPs.
 - Added `REQ-SYNC-004`.
+- Expanded update workflow tests.
+- Updated `docs/SYNC_WORKFLOW.md`.
 
 ## Verification
 
@@ -27,7 +26,8 @@ Expected result:
 
 - shell syntax passes
 - tests pass
+- requirement coverage complete
 
 ## Suggested Commit
 
-fix(sync): replace update script with remote-first version
+fix(sync): rebase before applying patches

@@ -148,3 +148,5 @@
 | REQ-TEST-001 | Tests must run in Android browser without Node/npm. | High | Active |
 | REQ-TEST-002 | Test runner must show pass/fail status. | High | Active |
 | REQ-TEST-003 | Test runner must show requirement coverage. | High | Active |
+
+| REQ-SYNC-004 | The update script must fetch and rebase before applying a patch so phone and laptop workflows do not diverge. | High | Active |

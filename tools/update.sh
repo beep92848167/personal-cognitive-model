@@ -1,18 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Self-safe execution:
-# This script may overwrite tools/update.sh while applying a patch.
-# Re-exec from a temp copy first so Bash does not keep reading a file that gets replaced.
-if [[ "${OPENPCM_UPDATE_SELF_COPY:-0}" != "1" ]]; then
-  self_copy="$(mktemp)"
-  cp "$0" "$self_copy"
-  chmod +x "$self_copy"
-  export OPENPCM_UPDATE_SELF_COPY=1
-  exec bash "$self_copy" "$@"
-fi
-
-REPO_DIR="${REPO_DIR:-$HOME/storage/downloads/pcm-git}"
+REPO_DIR="${REPO_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 DOWNLOADS_DIR="${DOWNLOADS_DIR:-$HOME/storage/downloads}"
 PORT="${PORT:-8080}"
 
@@ -34,6 +23,9 @@ if [[ -z "$commit_message" ]]; then
 fi
 
 cd "$REPO_DIR"
+
+ensure_clean_enough_to_sync
+sync_remote_before_apply
 
 newest_zip() {
   local zips=()
@@ -63,17 +55,6 @@ newest_zip() {
   ls -t "${filtered[@]}" | head -n 1
 }
 
-ensure_clean_enough_to_sync() {
-  local dirty
-  dirty="$(git status --porcelain | grep -v '^ M tests/last-test-run.json$' || true)"
-  if [[ -n "$dirty" ]]; then
-    echo "ERROR: Working tree has unexpected local changes before sync." >&2
-    echo "$dirty" >&2
-    echo "Commit, stash, or reset these changes before running u -sync." >&2
-    return 1
-  fi
-}
-
 sync_remote_before_apply() {
   echo
   echo "Syncing with remote before applying patch..."
@@ -92,30 +73,17 @@ sync_remote_before_apply() {
   fi
 }
 
-run_tests_if_available() {
-  mkdir -p tests
-
-  if [[ -f "tools/run-tests.js" ]] && command -v node >/dev/null 2>&1; then
-    echo
-    echo "Running tests..."
-    node tools/run-tests.js > tests/last-test-run.json
-
-    node -e '
-      const fs = require("fs");
-      const r = JSON.parse(fs.readFileSync("tests/last-test-run.json", "utf8"));
-      if (r.failed > 0 || r.status !== "PASS") {
-        console.error(`Tests failed: ${r.failed} failed`);
-        process.exit(1);
-      }
-    '
-    return 0
+ensure_clean_enough_to_sync() {
+  local dirty
+  dirty="$(git status --porcelain | grep -v '^ M tests/last-test-run.json$' || true)"
+  if [[ -n "$dirty" ]]; then
+    echo "ERROR: Working tree has unexpected local changes before sync." >&2
+    echo "$dirty" >&2
+    echo "Commit, stash, or reset these changes before running u -sync." >&2
+    return 1
   fi
-
-  echo
-  echo "Running tests..."
-  echo "Node test runner unavailable; preserving existing test artifact."
-  return 0
 }
+
 
 write_sync_metadata() {
   local commit branch timestamp
@@ -139,7 +107,7 @@ try {
 } catch {}
 
 const sync = {
-  workflowVersion: 7,
+  workflowVersion: 5,
   timestamp,
   branch,
   commit,
@@ -156,6 +124,34 @@ const sync = {
 
 fs.writeFileSync(".openpcm-sync.json", JSON.stringify(sync, null, 2) + "\n");
 NODE
+}
+
+
+run_tests_if_available() {
+  mkdir -p tests
+
+  if [[ -f "tools/run-tests.js" ]] && command -v node >/dev/null 2>&1; then
+    echo
+    echo "Running tests..."
+    node tools/run-tests.js > tests/last-test-run.json
+
+    if command -v node >/dev/null 2>&1; then
+      node -e '
+        const fs = require("fs");
+        const r = JSON.parse(fs.readFileSync("tests/last-test-run.json", "utf8"));
+        if (r.failed > 0 || r.status !== "PASS") {
+          console.error(`Tests failed: ${r.failed} failed`);
+          process.exit(1);
+        }
+      '
+    fi
+    return 0
+  fi
+
+  echo
+  echo "Running tests..."
+  echo "Node test runner unavailable; preserving existing test artifact."
+  return 0
 }
 
 create_sync_package() {
@@ -212,9 +208,6 @@ start_server() {
   echo "Press Ctrl+C to stop the server."
   python -m http.server "$PORT"
 }
-
-ensure_clean_enough_to_sync
-sync_remote_before_apply
 
 zip_file="$(newest_zip || true)"
 if [[ -z "$zip_file" ]]; then
