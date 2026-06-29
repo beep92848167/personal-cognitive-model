@@ -145,4 +145,25 @@
     assertEqual(result.note, "Played: ");
   });
 
+  test("topTagCounts returns the most frequent tags", ["REQ-DASHBOARD-001"], () => {
+    const result = Core.topTagCounts([
+      { tags: ["competence", "systems"] },
+      { tags: ["competence"] },
+      { tags: ["writing"] }
+    ], 2);
+    assertDeepEqual(result, [{ tag: "competence", count: 2 }, { tag: "systems", count: 1 }]);
+  });
+
+  test("buildDashboardSummary includes recent entries, current mode, and export reminder", ["REQ-DASHBOARD-001"], () => {
+    const result = Core.buildDashboardSummary([
+      { title: "Old", medium: "TV", reaction: "Liked", cognitive_state: "Low capacity", tags: ["slow"], timestamp_utc: "2026-01-01T00:00:00Z" },
+      { title: "New", medium: "Book", reaction: "Loved", cognitive_state: "High capacity", tags: ["writing"], timestamp_utc: "2026-01-02T00:00:00Z" }
+    ], { threshold: 2 });
+    assertEqual(result.totalEntries, 2);
+    assertEqual(result.recentEntries[0].title, "New");
+    assertEqual(result.currentMode, "High capacity");
+    assert(result.exportReminder.includes("Back up soon"), "dashboard should include an export reminder");
+  });
+
+
 })();

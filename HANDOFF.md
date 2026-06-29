@@ -2,28 +2,27 @@
 
 ## Engineering Increment
 
-Added low-RSI quick-entry presets for evidence capture.
+Added the Phase 1.3 local home dashboard summary.
 
 ## Why
 
-Phase 1.1 of the roadmap calls for quick-entry presets so common capture flows require fewer taps and less typing.
+The roadmap calls for the app home screen to provide a useful day-to-day summary immediately on launch, reducing navigation and RSI cost.
 
 ## Changes
 
-- Added core quick-entry preset support in `src/core/evidence.js`:
-  - `QUICK_ENTRY_PRESETS`
-  - `presetList()`
-  - `getQuickEntryPreset()`
-  - `applyQuickEntryPreset()`
-- Added Add Evidence UI preset buttons for:
-  - TV watched
-  - Book read
-  - Game played
-  - Recommendation feedback
-  - Health/cognitive context note
-- Presets fill medium, reaction, cognitive state where relevant, starter note text, and tags while preserving existing selected tags.
-- Added `REQ-EVIDENCE-007` to docs and registry.
-- Added regression tests covering preset availability and draft application.
+- Added dashboard summary support in `src/core/evidence.js`:
+  - `topTagCounts()`
+  - `mostRecentCognitiveState()`
+  - `exportReminder()`
+  - `buildDashboardSummary()`
+- Added a Home `Today` dashboard card showing:
+  - Total entries
+  - Current cognitive mode
+  - Top tags
+  - Export reminder
+- Reused the dashboard summary for recent activity so the Home view is driven by one core summary object.
+- Added `REQ-DASHBOARD-001` to docs and the requirements registry.
+- Added regression tests for top tag counts and dashboard summary behavior.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -38,10 +37,10 @@ node tools/run-tests.js
 Result:
 
 ```text
-PASS — 122 passed, 0 failed
-Requirement coverage: 47/47
+PASS — 124 passed, 0 failed
+Requirement coverage: 48/48
 ```
 
 ## Suggested Commit
 
-feat(evidence): add quick entry presets
+feat(mobile): add home dashboard summary

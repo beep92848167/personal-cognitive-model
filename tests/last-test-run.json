@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T11:55:57.681Z",
+  "timestamp": "2026-06-29T12:11:26.204Z",
   "status": "PASS",
-  "passed": 122,
+  "passed": 124,
   "failed": 0,
-  "total": 122,
-  "durationMs": 43,
+  "total": 124,
+  "durationMs": 88,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 47,
-    "covered": 47,
+    "total": 48,
+    "covered": 48,
     "uncovered": []
   },
   "failures": [],
@@ -134,6 +134,20 @@
       "status": "PASS",
       "requirements": [
         "REQ-EVIDENCE-007"
+      ]
+    },
+    {
+      "name": "topTagCounts returns the most frequent tags",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DASHBOARD-001"
+      ]
+    },
+    {
+      "name": "buildDashboardSummary includes recent entries, current mode, and export reminder",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DASHBOARD-001"
       ]
     },
     {

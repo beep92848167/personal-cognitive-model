@@ -29,6 +29,12 @@
 | REQ-STATS-002 | Statistics must count evidence by type and reaction. | Medium | Active |
 | REQ-STATS-003 | Statistics must count unique tags. | Medium | Active |
 
+## Dashboard
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-DASHBOARD-001 | Home dashboard must show total entries, recent entries, top tags, current mode, and an export reminder. | High | Active |
+
 ## Import / Export
 
 | ID | Requirement | Priority | Status |

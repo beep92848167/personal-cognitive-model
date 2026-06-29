@@ -1,3 +1,4 @@
 {
-  "commitMessage": "feat(evidence): add quick entry presets"
+  "schemaVersion": "openpcm_patch_v1",
+  "commitMessage": "feat(mobile): add home dashboard summary"
 }

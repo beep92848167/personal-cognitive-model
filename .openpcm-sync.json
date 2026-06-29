@@ -1,8 +1,8 @@
 {
   "workflowVersion": 10,
-  "timestamp": "2026-06-29T11:53:22Z",
+  "timestamp": "2026-06-29T11:56:01Z",
   "branch": "main",
-  "commit": "8d04198",
+  "commit": "62a6087",
   "status": "PASS",
   "tests": {
     "passed": "122",
@@ -11,8 +11,5 @@
   "requirements": {
     "covered": "47",
     "total": "47"
-  },
-  "patch": {
-    "commitMessage": "feat(evidence): add quick entry presets"
   }
 }

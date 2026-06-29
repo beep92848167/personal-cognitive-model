@@ -155,6 +155,44 @@
     return top ? `${top[0]}: ${top[1]}` : "None";
   }
 
+  function topTagCounts(entries = [], limit = 5) {
+    const counts = {};
+    for (const entry of entries) {
+      for (const tag of entry.tags || []) {
+        counts[tag] = (counts[tag] || 0) + 1;
+      }
+    }
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, limit)
+      .map(([tag, count]) => ({ tag, count }));
+  }
+
+  function mostRecentCognitiveState(entries = []) {
+    const recent = sortNewestFirst(entries).find(entry => entry.cognitive_state && entry.cognitive_state !== "Not recorded");
+    return recent ? recent.cognitive_state : "Not recorded";
+  }
+
+  function exportReminder(entries = [], options = {}) {
+    const threshold = Number.isFinite(options.threshold) ? options.threshold : 5;
+    const total = entries.length;
+    if (!total) return "Add evidence first, then export your PCM backup.";
+    if (total >= threshold) return `Export reminder: ${total} entries captured locally. Back up soon.`;
+    const remaining = threshold - total;
+    return `Export reminder: back up after ${remaining} more ${remaining === 1 ? "entry" : "entries"}.`;
+  }
+
+  function buildDashboardSummary(entries = [], options = {}) {
+    const sorted = sortNewestFirst(normalizeEntries(entries));
+    return {
+      totalEntries: sorted.length,
+      recentEntries: sorted.slice(0, options.recentLimit || 3),
+      topTags: topTagCounts(sorted, options.tagLimit || 5),
+      currentMode: mostRecentCognitiveState(sorted),
+      exportReminder: exportReminder(sorted, options)
+    };
+  }
+
   function loadEntriesFromStorage(storage = global.localStorage, storageKey = DEFAULT_STORAGE_KEY, legacyKeys = LEGACY_STORAGE_KEYS) {
     try {
       const current = JSON.parse(storage.getItem(storageKey));
@@ -195,6 +233,10 @@
     getQuickEntryPreset,
     applyQuickEntryPreset,
     buildStats,
+    topTagCounts,
+    mostRecentCognitiveState,
+    exportReminder,
+    buildDashboardSummary,
     loadEntriesFromStorage,
     saveEntriesToStorage
   };

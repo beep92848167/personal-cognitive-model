@@ -86,9 +86,16 @@ function entryHtml(e) {
     </button>`;
 }
 
-function renderRecent() {
-  const entries = Core.sortNewestFirst(loadEntries()).slice(0, 3);
-  $("recent-list").innerHTML = entries.length ? entries.map(entryHtml).join("") : `<div class="empty">No evidence yet. Add your first entry.</div>`;
+function renderHomeDashboard() {
+  const summary = Core.buildDashboardSummary(loadEntries());
+  $("home-dashboard").innerHTML = `
+    <div class="stat-grid">
+      <div class="stat"><strong>${summary.totalEntries}</strong>Total entries</div>
+      <div class="stat"><strong>${escapeHtml(summary.currentMode)}</strong>Current mode</div>
+    </div>
+    <div class="note"><strong>Top tags</strong><br>${summary.topTags.length ? summary.topTags.map(item => `${escapeHtml(item.tag)} (${escapeHtml(String(item.count))})`).join(", ") : "No tags yet"}</div>
+    <p class="meta">${escapeHtml(summary.exportReminder)}</p>`;
+  $("recent-list").innerHTML = summary.recentEntries.length ? summary.recentEntries.map(entryHtml).join("") : `<div class="empty">No evidence yet. Add your first entry.</div>`;
 }
 
 function filteredEntries() {
@@ -321,7 +328,7 @@ function renderStats() {
 }
 
 function renderAll() {
-  renderRecent();
+  renderHomeDashboard();
   renderLibrary();
   renderStats();
   renderDiscover();

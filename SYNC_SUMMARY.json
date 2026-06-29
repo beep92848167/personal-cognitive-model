@@ -1,18 +1,24 @@
 {
-  "workflowVersion": 10,
-  "timestamp": "2026-06-29T11:53:22Z",
+  "schemaVersion": "openpcm_sync_summary_v1",
+  "timestamp": "2026-06-29T11:56:01Z",
   "branch": "main",
-  "commit": "8d04198",
+  "commit": "62a6087",
+  "latestPackage": "20260629-215601-openpcm-main-62a6087.zip",
+  "patch": {
+    "patchId": "",
+    "targetCommit": "",
+    "targetBranch": ""
+  },
   "status": "PASS",
   "tests": {
-    "passed": "122",
-    "failed": "0"
+    "passed": 122,
+    "failed": 0,
+    "total": 122
   },
   "requirements": {
-    "covered": "47",
-    "total": "47"
+    "covered": 47,
+    "total": 47,
+    "uncovered": []
   },
-  "patch": {
-    "commitMessage": "feat(evidence): add quick entry presets"
-  }
+  "nextInstruction": "Upload the timestamped sync ZIP to ChatGPT and type Sync."
 }

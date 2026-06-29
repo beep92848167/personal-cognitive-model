@@ -144,6 +144,16 @@
       "tests": []
     },
     {
+      "id": "REQ-DASHBOARD-001",
+      "title": "Home dashboard must show total entries, recent entries, top tags, current mode, and an export reminder.",
+      "shortTitle": "Show home dashboard summary",
+      "area": "Dashboard",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-PORTABLE-001",
       "title": "User must be able to export evidence as JSON.",
       "shortTitle": "Export JSON",
