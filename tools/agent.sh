@@ -6,6 +6,11 @@ COMMIT_MSG="${1:-chore: apply OpenPCM patch}"
 POLL_SECONDS="${POLL_SECONDS:-5}"
 AGENT_LOG="${AGENT_LOG:-$REPO_DIR/agent.log}"
 MODE="${OPENPCM_AGENT_MODE:-watch}"
+PATCH_COMMIT_MSG=""
+PATCH_ID=""
+PATCH_TARGET_BRANCH=""
+PATCH_TARGET_COMMIT=""
+PATCH_MIN_WORKFLOW=""
 if [[ "${1:-}" == "--once" ]]; then MODE="once"; shift; COMMIT_MSG="${1:-chore: apply OpenPCM patch}"; elif [[ "${1:-}" == "--status" ]]; then MODE="status"; fi
 log(){ local s; s="$(date '+%Y-%m-%d %H:%M:%S')"; echo "[$s] $1"; mkdir -p "$(dirname "$AGENT_LOG")"; echo "[$s] $1" >> "$AGENT_LOG"; }
 newest_patch_zip(){ local zips=() filtered=() f b; shopt -s nullglob; zips=("$DOWNLOADS_DIR"/openpcm-*.zip); shopt -u nullglob; for f in "${zips[@]}"; do b="$(basename "$f")"; [[ "$b" =~ ^[0-9]{8}-[0-9]{6}-openpcm- ]] && continue; [[ "$b" == *.crdownload || "$b" == *.part ]] && continue; filtered+=("$f"); done; (( ${#filtered[@]} == 0 )) && return 1; ls -t "${filtered[@]}" | head -n 1; }

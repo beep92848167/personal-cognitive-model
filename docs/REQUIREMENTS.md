@@ -151,3 +151,5 @@
 | REQ-AGENT-003 | The phone agent must support status and one-shot modes for safer operation. | Medium | Active |
 
 | REQ-AGENT-004 | The phone agent must generate a machine-readable sync summary for each successful sync package. | Medium | Active |
+
+| REQ-AGENT-005 | The phone agent must read patch metadata and use the embedded commit message when present. | High | Active |

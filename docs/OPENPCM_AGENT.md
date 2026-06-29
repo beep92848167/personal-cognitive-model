@@ -41,3 +41,30 @@ Inspect it with:
 ```bash
 node tools/sync-summary.js
 ```
+
+
+## Patch metadata
+
+Patch ZIPs may include:
+
+```text
+.openpcm-patch.json
+```
+
+Example:
+
+```json
+{
+  "schemaVersion": 2,
+  "kind": "openpcm-patch",
+  "patchId": "20260629-agent-metadata",
+  "targetBranch": "main",
+  "targetCommit": "3d4b4fb",
+  "minimumWorkflowVersion": 9,
+  "commitMessage": "feat(agent): read commit message from patch metadata"
+}
+```
+
+When present, the agent reads this file after extracting the patch to a temporary directory.
+
+The agent uses `commitMessage` automatically, logs the patch ID, validates the target branch, and warns if the target commit differs from the current local commit.

@@ -2,16 +2,18 @@
 
 ## Engineering Increment
 
-Added machine-readable sync summaries to OpenPCM Agent.
+Agent now reads `.openpcm-patch.json` and automatically uses its embedded commit message.
 
 ## Changes
 
-- `tools/agent.sh` now writes `SYNC_SUMMARY.json` before creating each sync package.
-- Sync summary includes commit, branch, timestamp, package name, test results, and requirement coverage.
-- Added `tools/sync-summary.js` for quick CLI inspection.
-- Updated `docs/OPENPCM_AGENT.md`.
-- Added `REQ-AGENT-004`.
+- `tools/agent.sh` reads patch metadata from extracted patch payload.
+- Agent validates patch kind and target branch.
+- Agent logs patch ID, target commit, target branch, workflow version, and commit message.
+- Agent uses `commitMessage` automatically when present.
+- Added patch metadata documentation.
+- Added `REQ-AGENT-005`.
 - Expanded agent tests.
+- Added `.openpcm-patch.json` manifest for this patch.
 
 ## Verification
 
@@ -22,12 +24,6 @@ bash -n tools/agent.sh
 node tools/run-tests.js
 ```
 
-Expected result:
-
-- shell syntax passes
-- tests pass
-- requirement coverage complete
-
 ## Suggested Commit
 
-feat(agent): add machine-readable sync summary
+feat(agent): read commit message from patch metadata

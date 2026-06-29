@@ -1,7 +1,10 @@
 {
+  "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "schemaVersion": 1,
-  "commitMessage": "feat(agent): read commit message from patch metadata",
+  "patchId": "20260629-agent-commit-message-metadata",
   "createdBy": "ChatGPT",
-  "instructions": "OpenPCM Agent should prefer this commit message when present."
+  "targetBranch": "main",
+  "targetCommit": "3d4b4fb",
+  "minimumWorkflowVersion": 8,
+  "commitMessage": "feat(agent): read commit message from patch metadata"
 }

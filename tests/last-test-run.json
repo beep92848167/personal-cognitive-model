@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T10:11:45.560Z",
+  "timestamp": "2026-06-29T10:26:42.373Z",
   "status": "PASS",
-  "passed": 115,
+  "passed": 116,
   "failed": 0,
-  "total": 115,
-  "durationMs": 85,
+  "total": 116,
+  "durationMs": 61,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 41,
-    "covered": 41,
+    "total": 42,
+    "covered": 42,
     "uncovered": []
   },
   "failures": [],
@@ -805,6 +805,13 @@
       "status": "PASS",
       "requirements": [
         "REQ-AGENT-004"
+      ]
+    },
+    {
+      "name": "agent reads embedded commit message from patch metadata",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-005"
       ]
     },
     {

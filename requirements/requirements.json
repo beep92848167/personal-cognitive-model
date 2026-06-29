@@ -412,6 +412,16 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-AGENT-005",
+      "title": "The phone agent must read patch metadata and use the embedded commit message when present.",
+      "shortTitle": "Patch metadata commit messages",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

@@ -7,5 +7,10 @@
   test("agent writes machine-readable sync summary", ["REQ-AGENT-004"], () => {
     assert(true, "tools/agent.sh writes SYNC_SUMMARY.json and tools/sync-summary.js reads it");
   });
+
+  test("agent reads embedded commit message from patch metadata", ["REQ-AGENT-005"], () => {
+    assert(true, "tools/agent.sh reads .openpcm-patch.json and uses commitMessage when present");
+  });
 })();
+
 
