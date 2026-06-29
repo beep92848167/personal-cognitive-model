@@ -64,4 +64,4 @@ Implemented:
 
 Verification target after applying patch:
 - Browser test runner should report all tests passing.
-- Requirement coverage should include `REQ-FIRST-INTELLIGENCE-001` and `REQ-FIRST-INTELLIGENCE-002`.
+- Node test runner now loads `src/core/first-intelligence.js` and `tests/first-intelligence-tests.js`, so `REQ-FIRST-INTELLIGENCE-001` and `REQ-FIRST-INTELLIGENCE-002` are covered in CLI verification.

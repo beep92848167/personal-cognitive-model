@@ -1,32 +1,17 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T12:45:43.778Z",
+  "timestamp": "2026-06-29T12:54:22.441Z",
   "status": "PASS",
-  "passed": 126,
+  "passed": 129,
   "failed": 0,
-  "total": 126,
-  "durationMs": 52,
+  "total": 129,
+  "durationMs": 61,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
     "total": 51,
-    "covered": 49,
-    "uncovered": [
-      {
-        "id": "REQ-FIRST-INTELLIGENCE-001",
-        "title": "First intelligence scoring engine",
-        "area": "First Intelligence",
-        "priority": "High",
-        "status": "Active"
-      },
-      {
-        "id": "REQ-FIRST-INTELLIGENCE-002",
-        "title": "Explainable recommendation ranking",
-        "area": "First Intelligence",
-        "priority": "High",
-        "status": "Active"
-      }
-    ]
+    "covered": 51,
+    "uncovered": []
   },
   "failures": [],
   "results": [
@@ -747,6 +732,28 @@
       "requirements": [
         "REQ-REASONING-001",
         "REQ-DISCOVER-001"
+      ]
+    },
+    {
+      "name": "buildWeightedSignals applies reaction and recency weighting",
+      "status": "PASS",
+      "requirements": [
+        "REQ-FIRST-INTELLIGENCE-001"
+      ]
+    },
+    {
+      "name": "scoreCandidate returns score, confidence, matches, and risks",
+      "status": "PASS",
+      "requirements": [
+        "REQ-FIRST-INTELLIGENCE-001"
+      ]
+    },
+    {
+      "name": "rankRecommendations provides explainable ordered recommendations",
+      "status": "PASS",
+      "requirements": [
+        "REQ-FIRST-INTELLIGENCE-001",
+        "REQ-FIRST-INTELLIGENCE-002"
       ]
     },
     {

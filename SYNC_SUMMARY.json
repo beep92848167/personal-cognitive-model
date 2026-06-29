@@ -1,9 +1,9 @@
 {
   "schemaVersion": "openpcm_sync_summary_v1",
-  "timestamp": "2026-06-29T12:25:32Z",
+  "timestamp": "2026-06-29T12:45:48Z",
   "branch": "main",
-  "commit": "844483a",
-  "latestPackage": "20260629-222531-openpcm-main-844483a.zip",
+  "commit": "c8080c7",
+  "latestPackage": "20260629-224547-openpcm-main-c8080c7.zip",
   "patch": {
     "patchId": "",
     "targetCommit": "",
@@ -17,8 +17,23 @@
   },
   "requirements": {
     "covered": 49,
-    "total": 49,
-    "uncovered": []
+    "total": 51,
+    "uncovered": [
+      {
+        "id": "REQ-FIRST-INTELLIGENCE-001",
+        "title": "First intelligence scoring engine",
+        "area": "First Intelligence",
+        "priority": "High",
+        "status": "Active"
+      },
+      {
+        "id": "REQ-FIRST-INTELLIGENCE-002",
+        "title": "Explainable recommendation ranking",
+        "area": "First Intelligence",
+        "priority": "High",
+        "status": "Active"
+      }
+    ]
   },
   "nextInstruction": "Upload the timestamped sync ZIP to ChatGPT and type Sync."
 }
