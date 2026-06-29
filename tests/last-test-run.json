@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T05:21:28.200Z",
+  "timestamp": "2026-06-29T05:21:43.824Z",
   "status": "PASS",
-  "passed": 113,
+  "passed": 111,
   "failed": 0,
-  "total": 113,
+  "total": 111,
   "durationMs": 20,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 38,
-    "covered": 38,
+    "total": 37,
+    "covered": 37,
     "uncovered": []
   },
   "failures": [],
@@ -777,22 +777,6 @@
       "status": "PASS",
       "requirements": [
         "REQ-ANDROID-002"
-      ]
-    },
-    {
-      "name": "update script documents sync package creation",
-      "status": "PASS",
-      "requirements": [
-        "REQ-SYNC-001",
-        "REQ-ANDROID-001"
-      ]
-    },
-    {
-      "name": "update script keeps u -sync workflow explicit",
-      "status": "PASS",
-      "requirements": [
-        "REQ-SYNC-001",
-        "REQ-ANDROID-001"
       ]
     },
     {

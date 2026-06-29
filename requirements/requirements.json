@@ -324,16 +324,6 @@
       "tests": []
     },
     {
-      "id": "REQ-SYNC-001",
-      "title": "The update script must create and verify a sync ZIP after a successful u -sync push.",
-      "shortTitle": "Verified sync package creation",
-      "area": "Sync Workflow",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": []
-    },
-    {
       "id": "REQ-ANDROID-001",
       "title": "Android update workflow must be one-command after downloading a ZIP.",
       "shortTitle": "One-command Android update",

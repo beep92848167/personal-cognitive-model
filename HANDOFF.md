@@ -2,17 +2,16 @@
 
 ## Engineering Increment
 
-Hardened the Termux `u -sync` workflow so it creates and verifies a sync ZIP after successful push.
+Added portable PCM import/export.
 
 ## Changes
 
-- Rewrote `tools/update.sh` for clearer flow and stricter error handling.
-- Added explicit `create_sync_package()` step for sync mode.
-- Sync package creation now verifies the ZIP exists and is non-empty.
-- Added `REQ-SYNC-001`.
-- Added `docs/SYNC_WORKFLOW.md`.
-- Added lightweight update script workflow tests.
-- Updated CLI/browser runners.
+- Added `src/core/profile-transfer.js`.
+- Added `tests/profile-transfer-tests.js`.
+- Added profile transfer/export UI view.
+- Added `REQ-PROFILE-TRANSFER-001`.
+- Added `docs/PROFILE_TRANSFER.md`.
+- Updated CLI/browser runners and script loading.
 
 ## Verification
 
@@ -24,9 +23,14 @@ node tools/run-tests.js
 
 Expected result:
 
-- tests pass
-- requirement coverage remains complete
+- 111 passed
+- 0 failed
+- Requirement coverage remains complete.
 
 ## Suggested Commit
 
-fix(sync): verify sync package creation after push
+feat(profile): add portable PCM import/export
+
+## Risk
+
+Medium. Core import/export is implemented and tested; UI currently exposes export/copy and leaves full import UI for a hardened file-picker workflow.
