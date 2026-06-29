@@ -422,6 +422,16 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-AGENT-006",
+      "title": "The phone agent must include SYNC_SUMMARY.json in generated sync packages.",
+      "shortTitle": "Sync summary included in package",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

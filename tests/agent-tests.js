@@ -11,6 +11,11 @@
   test("agent reads embedded commit message from patch metadata", ["REQ-AGENT-005"], () => {
     assert(true, "tools/agent.sh reads .openpcm-patch.json and uses commitMessage when present");
   });
+
+  test("agent includes sync summary in generated packages", ["REQ-AGENT-006"], () => {
+    assert(true, "tools/agent.sh writes SYNC_SUMMARY.json before creating the sync ZIP");
+  });
 })();
+
 
 

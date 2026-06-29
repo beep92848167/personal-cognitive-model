@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260629-agent-commit-message-metadata",
+  "patchId": "20260629-agent-sync-summary-in-package",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "3d4b4fb",
-  "minimumWorkflowVersion": 8,
-  "commitMessage": "feat(agent): read commit message from patch metadata"
+  "targetCommit": "3a8803b",
+  "minimumWorkflowVersion": 9,
+  "commitMessage": "fix(agent): include sync summary in sync packages"
 }

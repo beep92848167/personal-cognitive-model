@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "openpcm_sync_summary_v1",
+  "timestamp": "2026-06-29T10:26:46Z",
+  "branch": "main",
+  "commit": "3a8803b",
+  "latestPackage": "",
+  "patch": {
+    "patchId": "",
+    "targetCommit": "",
+    "targetBranch": ""
+  },
+  "status": "PASS",
+  "tests": {
+    "passed": 116,
+    "failed": 0,
+    "total": 116
+  },
+  "requirements": {
+    "covered": 42,
+    "total": 42,
+    "uncovered": []
+  },
+  "nextInstruction": "Upload the timestamped sync ZIP to ChatGPT and type Sync."
+}

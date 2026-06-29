@@ -68,3 +68,24 @@ Example:
 When present, the agent reads this file after extracting the patch to a temporary directory.
 
 The agent uses `commitMessage` automatically, logs the patch ID, validates the target branch, and warns if the target commit differs from the current local commit.
+
+
+## Machine-readable sync summary
+
+After a successful patch run, the agent writes `SYNC_SUMMARY.json` before packaging the repository.
+
+This file is included in the generated timestamped sync ZIP and contains:
+
+- commit;
+- branch;
+- UTC timestamp;
+- generated package name;
+- patch ID and target information when available;
+- test status and counts;
+- requirement coverage.
+
+Inspect it with:
+
+```bash
+node tools/sync-summary.js
+```
