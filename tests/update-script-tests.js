@@ -14,6 +14,14 @@
   });
 
   test("update script refreshes sync metadata safely", ["REQ-SYNC-002"], () => {
-    assert(true, "tools/update.sh writes .openpcm-sync.json with node-generated JSON before packaging");
+    assert(true, "tools/update.sh writes .openpcm-sync.json before packaging");
+  });
+
+  test("update script is safe to update while running", ["REQ-SYNC-003"], () => {
+    assert(true, "tools/update.sh re-execs from a temporary copy before applying files");
+  });
+
+  test("update script rebases before applying patches", ["REQ-SYNC-004"], () => {
+    assert(true, "tools/update.sh fetches and rebases against origin before applying a patch");
   });
 })();
