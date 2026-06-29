@@ -37,6 +37,15 @@
       <section class="card">
         <h2 id="form-title">Add Evidence</h2>
         <input id="editing-id" type="hidden">
+        <label>Quick preset</label>
+        <div class="chips preset-chips" id="quick-presets">
+          <button data-preset="tv_watched">TV watched</button>
+          <button data-preset="book_read">Book read</button>
+          <button data-preset="game_played">Game played</button>
+          <button data-preset="recommendation_feedback">Recommendation feedback</button>
+          <button data-preset="cognitive_context_note">Health/context note</button>
+        </div>
+
         <label>Title</label>
         <input id="title" placeholder="e.g. Black Sails">
         <p id="duplicate-warning" class="warning-text"></p>

@@ -121,4 +121,28 @@
     assertEqual(loaded[0].medium, "Book");
     assert(fakeStorage.data.new_key, "legacy data should be written to new key");
   });
+
+  test("presetList exposes low-RSI quick entry presets", ["REQ-EVIDENCE-007"], () => {
+    const presets = Core.presetList();
+    assertEqual(presets.length, 5);
+    assert(presets.some(preset => preset.id === "tv_watched"), "TV watched preset should exist");
+    assert(presets.some(preset => preset.id === "cognitive_context_note"), "context note preset should exist");
+  });
+
+  test("applyQuickEntryPreset fills draft fields without deleting existing tags", ["REQ-EVIDENCE-007"], () => {
+    const draft = {
+      medium: "Other",
+      reaction: "Liked",
+      cognitive_state: "Medium capacity",
+      tags: ["competence"],
+      note: ""
+    };
+    const result = Core.applyQuickEntryPreset(draft, "game_played");
+    assertEqual(result.medium, "Game");
+    assertEqual(result.reaction, "Not sure yet");
+    assertEqual(result.cognitive_state, "Medium capacity");
+    assertDeepEqual(result.tags, ["competence", "played"]);
+    assertEqual(result.note, "Played: ");
+  });
+
 })();

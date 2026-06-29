@@ -10,6 +10,7 @@
 | REQ-EVIDENCE-004 | User must be warned when adding a duplicate title. | Medium | Active |
 | REQ-EVIDENCE-005 | User must be able to edit an existing evidence item. | High | Active |
 | REQ-EVIDENCE-006 | User must be able to delete an evidence item. | High | Active |
+| REQ-EVIDENCE-007 | User must be able to apply quick-entry presets for TV, books, games, recommendation feedback, and health/cognitive context notes. | High | Active |
 
 ## Library
 

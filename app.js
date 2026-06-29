@@ -360,6 +360,26 @@ function bindEntryButtons() {
   });
 }
 
+
+function currentDraftFromForm() {
+  return {
+    medium: $("medium").value,
+    reaction: $("reaction").value,
+    cognitive_state: $("cognitive").value,
+    tags: Array.from(selectedTags),
+    note: $("note").value
+  };
+}
+
+function applyDraftToForm(draft) {
+  if (draft.medium) $("medium").value = draft.medium;
+  if (draft.reaction) $("reaction").value = draft.reaction;
+  if (draft.cognitive_state) $("cognitive").value = draft.cognitive_state;
+  if (typeof draft.note === "string") $("note").value = draft.note;
+  selectedTags = new Set(draft.tags || []);
+  document.querySelectorAll("#chips button").forEach(b => b.classList.toggle("selected", selectedTags.has(b.dataset.tag)));
+}
+
 function clearForm() {
   $("editing-id").value = "";
   $("form-title").textContent = "Add Evidence";
@@ -369,6 +389,7 @@ function clearForm() {
   $("cancel-edit").hidden = true;
   selectedTags.clear();
   document.querySelectorAll("#chips button").forEach(b => b.classList.remove("selected"));
+  document.querySelectorAll("#quick-presets button").forEach(b => b.classList.remove("selected"));
 }
 
 function startEdit(id) {
@@ -433,6 +454,16 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedTags.add(tag);
         btn.classList.add("selected");
       }
+    });
+  });
+
+  document.querySelectorAll("#quick-presets button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const draft = Core.applyQuickEntryPreset(currentDraftFromForm(), btn.dataset.preset);
+      applyDraftToForm(draft);
+      document.querySelectorAll("#quick-presets button").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      $("save-confirm").textContent = `${btn.textContent} preset applied.`;
     });
   });
 

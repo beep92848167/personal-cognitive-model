@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T11:48:40.720Z",
+  "timestamp": "2026-06-29T11:55:57.681Z",
   "status": "PASS",
-  "passed": 120,
+  "passed": 122,
   "failed": 0,
-  "total": 120,
-  "durationMs": 41,
+  "total": 122,
+  "durationMs": 43,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 46,
-    "covered": 46,
+    "total": 47,
+    "covered": 47,
     "uncovered": []
   },
   "failures": [],
@@ -120,6 +120,20 @@
       "requirements": [
         "REQ-EVIDENCE-002",
         "REQ-EVIDENCE-003"
+      ]
+    },
+    {
+      "name": "presetList exposes low-RSI quick entry presets",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EVIDENCE-007"
+      ]
+    },
+    {
+      "name": "applyQuickEntryPreset fills draft fields without deleting existing tags",
+      "status": "PASS",
+      "requirements": [
+        "REQ-EVIDENCE-007"
       ]
     },
     {

@@ -1,6 +1,49 @@
 (function (global) {
   const DEFAULT_STORAGE_KEY = "openpcm_evidence_v4";
   const LEGACY_STORAGE_KEYS = ["openpcm_evidence_v3", "openpcm_evidence_v2", "pcm_mobile_entries_v1"];
+  const QUICK_ENTRY_PRESETS = {
+    tv_watched: {
+      id: "tv_watched",
+      label: "TV watched",
+      medium: "TV",
+      reaction: "Not sure yet",
+      tags: ["watched"],
+      note: "Watched: "
+    },
+    book_read: {
+      id: "book_read",
+      label: "Book read",
+      medium: "Book",
+      reaction: "Not sure yet",
+      tags: ["read"],
+      note: "Read: "
+    },
+    game_played: {
+      id: "game_played",
+      label: "Game played",
+      medium: "Game",
+      reaction: "Not sure yet",
+      tags: ["played"],
+      note: "Played: "
+    },
+    recommendation_feedback: {
+      id: "recommendation_feedback",
+      label: "Recommendation feedback",
+      medium: "Other",
+      reaction: "Mixed",
+      tags: ["recommendation feedback"],
+      note: "Recommendation feedback: "
+    },
+    cognitive_context_note: {
+      id: "cognitive_context_note",
+      label: "Health/cognitive context note",
+      medium: "Health / Cognitive Context",
+      reaction: "Not sure yet",
+      cognitive_state: "Low capacity",
+      tags: ["context note"],
+      note: "Context: "
+    }
+  };
 
   function createId(prefix = "ev") {
     if (global.crypto && typeof global.crypto.randomUUID === "function") return global.crypto.randomUUID();
@@ -62,6 +105,30 @@
     return entries.filter(entry => entry.id !== id);
   }
 
+  function presetList(presets = QUICK_ENTRY_PRESETS) {
+    return Object.values(presets).map(preset => ({ ...preset, tags: [...(preset.tags || [])] }));
+  }
+
+  function getQuickEntryPreset(id, presets = QUICK_ENTRY_PRESETS) {
+    const preset = presets[id] || null;
+    return preset ? { ...preset, tags: [...(preset.tags || [])] } : null;
+  }
+
+  function applyQuickEntryPreset(draft = {}, presetId, presets = QUICK_ENTRY_PRESETS) {
+    const preset = getQuickEntryPreset(presetId, presets);
+    if (!preset) return { ...draft, tags: Array.isArray(draft.tags) ? [...draft.tags] : [] };
+    const draftTags = Array.isArray(draft.tags) ? draft.tags : [];
+    const tags = Array.from(new Set([...draftTags, ...(preset.tags || [])]));
+    return {
+      ...draft,
+      medium: preset.medium || draft.medium,
+      reaction: preset.reaction || draft.reaction,
+      cognitive_state: preset.cognitive_state || draft.cognitive_state || "Not recorded",
+      tags,
+      note: draft.note ? draft.note : (preset.note || "")
+    };
+  }
+
   function buildStats(entries = []) {
     const byType = {};
     const byReaction = {};
@@ -115,6 +182,7 @@
   global.OpenPCMCore = {
     DEFAULT_STORAGE_KEY,
     LEGACY_STORAGE_KEYS,
+    QUICK_ENTRY_PRESETS,
     createId,
     normalizeEntry,
     normalizeEntries,
@@ -123,6 +191,9 @@
     findDuplicateTitle,
     upsertEntry,
     removeEntry,
+    presetList,
+    getQuickEntryPreset,
+    applyQuickEntryPreset,
     buildStats,
     loadEntriesFromStorage,
     saveEntriesToStorage

@@ -64,6 +64,16 @@
       "tests": []
     },
     {
+      "id": "REQ-EVIDENCE-007",
+      "title": "User must be able to apply quick-entry presets for TV, books, games, recommendation feedback, and health/cognitive context notes.",
+      "shortTitle": "Apply quick-entry presets",
+      "area": "Evidence",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
       "id": "REQ-LIBRARY-001",
       "title": "Library must list saved evidence newest-first.",
       "shortTitle": "List evidence newest-first",
