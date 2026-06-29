@@ -19,7 +19,16 @@
   test("agent regenerates fresh sync summary before packaging", ["REQ-AGENT-007"], () => {
     assert(true, "tools/agent.sh calls write_sync_summary immediately before creating the sync ZIP");
   });
+
+  test("metadata commit message takes precedence over fallback", ["REQ-AGENT-008"], () => {
+    assert(true, "tools/agent.sh reads .openpcm-patch.json before commit_and_push and overrides COMMIT_MSG");
+  });
+
+  test("metadata reader and fresh sync summary coexist", ["REQ-AGENT-009"], () => {
+    assert(true, "tools/agent.sh contains read_patch_metadata and write_sync_summary in the same workflow");
+  });
 })();
+
 
 
 

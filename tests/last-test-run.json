@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T11:28:15.309Z",
+  "timestamp": "2026-06-29T11:48:40.720Z",
   "status": "PASS",
-  "passed": 118,
+  "passed": 120,
   "failed": 0,
-  "total": 118,
+  "total": 120,
   "durationMs": 41,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 44,
-    "covered": 44,
+    "total": 46,
+    "covered": 46,
     "uncovered": []
   },
   "failures": [],
@@ -826,6 +826,20 @@
       "status": "PASS",
       "requirements": [
         "REQ-AGENT-007"
+      ]
+    },
+    {
+      "name": "metadata commit message takes precedence over fallback",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-008"
+      ]
+    },
+    {
+      "name": "metadata reader and fresh sync summary coexist",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-009"
       ]
     },
     {

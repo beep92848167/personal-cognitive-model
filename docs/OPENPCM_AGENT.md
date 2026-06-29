@@ -96,3 +96,14 @@ node tools/sync-summary.js
 `SYNC_SUMMARY.json` must be regenerated immediately before the sync ZIP is created.
 
 The summary is not an archival note. It is a machine-readable statement about the exact repository snapshot being packaged.
+
+
+## Commit message precedence
+
+The agent chooses the commit message in this order:
+
+1. `commitMessage` from `.openpcm-patch.json` inside the incoming patch ZIP.
+2. The command-line message passed to `tools/agent.sh`.
+3. The default fallback: `chore: apply OpenPCM patch`.
+
+This means ChatGPT-generated patches can carry their own commit messages and the phone workflow does not need manual commit-message entry.

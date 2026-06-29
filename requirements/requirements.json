@@ -442,6 +442,26 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-AGENT-008",
+      "title": "The phone agent must prefer the patch metadata commit message over the default fallback message.",
+      "shortTitle": "Patch metadata commit precedence",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-AGENT-009",
+      "title": "The phone agent must preserve both patch metadata reading and fresh sync summary generation in the same workflow.",
+      "shortTitle": "Metadata and fresh summary coexist",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

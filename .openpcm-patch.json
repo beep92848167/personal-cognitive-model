@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260629-agent-fresh-sync-summary",
+  "patchId": "20260629-agent-commit-message-regression-fix",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "944330f",
+  "targetCommit": "5558b34",
   "minimumWorkflowVersion": 9,
-  "commitMessage": "fix(agent): regenerate sync summary before packaging"
+  "commitMessage": "fix(agent): restore patch metadata commit messages"
 }

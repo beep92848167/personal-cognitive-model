@@ -157,3 +157,7 @@
 | REQ-AGENT-006 | The phone agent must include SYNC_SUMMARY.json in generated sync packages. | High | Active |
 
 | REQ-AGENT-007 | The phone agent must regenerate SYNC_SUMMARY.json immediately before packaging so it matches the generated sync ZIP. | High | Active |
+
+| REQ-AGENT-008 | The phone agent must prefer the patch metadata commit message over the default fallback message. | High | Active |
+
+| REQ-AGENT-009 | The phone agent must preserve both patch metadata reading and fresh sync summary generation in the same workflow. | High | Active |
