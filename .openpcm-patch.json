@@ -1,0 +1,7 @@
+{
+  "kind": "openpcm-patch",
+  "schemaVersion": 1,
+  "commitMessage": "feat(agent): read commit message from patch metadata",
+  "createdBy": "ChatGPT",
+  "instructions": "OpenPCM Agent should prefer this commit message when present."
+}
