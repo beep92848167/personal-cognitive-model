@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T12:54:22.441Z",
+  "timestamp": "2026-06-29T13:07:43.463Z",
   "status": "PASS",
-  "passed": 129,
+  "passed": 136,
   "failed": 0,
-  "total": 129,
-  "durationMs": 61,
+  "total": 136,
+  "durationMs": 70,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 51,
-    "covered": 51,
+    "total": 52,
+    "covered": 52,
     "uncovered": []
   },
   "failures": [],
@@ -429,6 +429,56 @@
       "status": "PASS",
       "requirements": [
         "REQ-LEARNING-001"
+      ]
+    },
+    {
+      "name": "feedbackRecencyMultiplier boosts recent feedback and decays old feedback",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-002"
+      ]
+    },
+    {
+      "name": "buildLearningProfile detects emerging interests and stale signals",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-002"
+      ]
+    },
+    {
+      "name": "applyLearningAdjustments returns inspectable learning explanations",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-002"
+      ]
+    },
+    {
+      "name": "feedbackWeight applies direction strength recency and explicit reason",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-002"
+      ]
+    },
+    {
+      "name": "buildLearningProfile surfaces weighted adjustments emerging interests and stale signals",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-002"
+      ]
+    },
+    {
+      "name": "applyLearningAdjustments can use weighted feedback and explain the adjustment",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-002",
+        "REQ-FIRST-INTELLIGENCE-002"
+      ]
+    },
+    {
+      "name": "learningInsightCards surfaces emerging stale and false-positive actions",
+      "status": "PASS",
+      "requirements": [
+        "REQ-LEARNING-002"
       ]
     },
     {

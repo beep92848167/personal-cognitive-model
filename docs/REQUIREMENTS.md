@@ -127,6 +127,7 @@
 | ID | Requirement | Priority | Status |
 |---|---|---:|---|
 | REQ-LEARNING-001 | OpenPCM must derive learning signals from recommendation feedback without mutating the Personal Cognitive Model. | High | Active |
+| REQ-LEARNING-002 | OpenPCM must adapt recommendation ranking from weighted feedback, recency, emerging interests, stale signals, and inspectable learning explanations. | High | Active |
 
 ## Calibration
 

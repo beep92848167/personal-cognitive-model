@@ -2,31 +2,26 @@
 
 ## Engineering Batch
 
-Delivered Daily Driver Batch A: action-oriented home capture and resume flow.
+Delivered Batch C: adaptive learning engine.
 
 ## Why
 
-The mobile app should reduce the effort required to capture evidence from the phone home screen. The previous dashboard was informative; this batch makes it actionable.
+First Intelligence can score candidates from evidence. The next step is for OpenPCM to learn from recommendation feedback so future rankings improve from what actually worked or failed for the user.
 
 ## Changes
 
-- Added Daily Driver domain helpers in `src/core/evidence.js`:
-  - `describeRelativeTime()`
-  - `lastActivity()`
-  - `buildRecentTimeline()`
-  - `buildNextActions()`
-- Extended `buildDashboardSummary()` with:
-  - `continueEntry`
-  - `nextActions`
-  - `recentTimeline`
-- Updated Home UI:
-  - action chips in the hero card
-  - one-tap preset launch from Home
-  - continue-last-entry affordance
-  - richer recent activity timeline with relative time and cognitive mode
-- Added mobile CSS for action buttons and timeline cards.
-- Added `REQ-DAILY-DRIVER-001` to docs and the requirements registry.
-- Added regression tests for Daily Driver next actions and timeline summary behavior.
+- Expanded `src/core/learning.js` from simple signal counters into an adaptive learning layer:
+  - feedback recency weighting;
+  - feedback strength weighting;
+  - weighted signal adjustments;
+  - emerging-interest detection;
+  - stale-signal detection;
+  - inspectable learning explanations;
+  - learning insight cards for future UI surfaces.
+- Preserved existing `REQ-LEARNING-001` behavior for confirmed matches, false positives, neutral feedback, and score adjustment.
+- Added `REQ-LEARNING-002` for adaptive learning behavior.
+- Updated Learning Layer documentation.
+- Added regression tests for recency weighting, emerging/stale detection, weighted adjustments, explanations, and insight cards.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -41,27 +36,10 @@ node tools/run-tests.js
 Result:
 
 ```text
-PASS — 126 passed, 0 failed
-Requirement coverage: 49/49
+PASS — 136 passed, 0 failed
+Requirement coverage: 52/52
 ```
 
 ## Suggested Commit
 
-feat(mobile): add daily driver home actions
-
-
-## Latest increment: Batch B First Intelligence foundation
-
-Suggested commit: `feat(recommendations): add first intelligence scoring engine`
-
-Implemented:
-- Added `src/core/first-intelligence.js` as a reusable recommendation scoring API.
-- Added evidence weighting from reaction strength, recency, medium, tags, and explicit notes.
-- Added confidence percentage / High-Medium-Low confidence labels.
-- Added inspectable recommendation explanations with matched evidence and risks.
-- Added ranked recommendation output for candidate catalogues.
-- Added regression tests and requirements coverage for First Intelligence.
-
-Verification target after applying patch:
-- Browser test runner should report all tests passing.
-- Node test runner now loads `src/core/first-intelligence.js` and `tests/first-intelligence-tests.js`, so `REQ-FIRST-INTELLIGENCE-001` and `REQ-FIRST-INTELLIGENCE-002` are covered in CLI verification.
+feat(learning): add adaptive feedback learning engine

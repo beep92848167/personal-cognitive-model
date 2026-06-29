@@ -516,6 +516,18 @@
       "tests": [
         "first-intelligence-tests.js"
       ]
+    },
+    {
+      "id": "REQ-LEARNING-002",
+      "title": "OpenPCM must adapt recommendation ranking from weighted feedback, recency, emerging interests, stale signals, and inspectable learning explanations.",
+      "shortTitle": "Adaptive learning engine",
+      "area": "Learning",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": [
+        "learning-tests.js"
+      ]
     }
   ]
 }
