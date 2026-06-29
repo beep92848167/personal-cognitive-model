@@ -184,3 +184,10 @@ Home must provide actionable Daily Driver shortcuts including continue-last-entr
 Status: Implemented
 Priority: High
 Area: Dashboard
+
+## Prediction Ledger
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-PREDICTION-LEDGER-001 | OpenPCM must record recommendation predictions, actual reactions, prediction errors, mismatch reasons, and persistence without mutating the Personal Cognitive Model. | High | Active |
+| REQ-PREDICTION-LEDGER-002 | OpenPCM must summarize prediction accuracy, pending feedback, signal-level error patterns, and calibration insight cards. | High | Active |

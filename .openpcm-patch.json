@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "openpcm_patch_metadata_v1",
-  "commitMessage": "feat(learning): add adaptive feedback learning engine",
-  "summary": "Adds adaptive feedback learning with recency weighting, emerging/stale signal detection, inspectable explanations, insight cards, tests, and requirement coverage."
+  "commitMessage": "feat(recommendations): add prediction ledger calibration loop",
+  "batch": "Batch D — Prediction Ledger",
+  "baseCommit": "8c059a7"
 }

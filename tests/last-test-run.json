@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T13:07:43.463Z",
+  "timestamp": "2026-06-29T22:00:40.814Z",
   "status": "PASS",
-  "passed": 136,
+  "passed": 143,
   "failed": 0,
-  "total": 136,
-  "durationMs": 70,
+  "total": 143,
+  "durationMs": 54,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 52,
-    "covered": 52,
+    "total": 54,
+    "covered": 54,
     "uncovered": []
   },
   "failures": [],
@@ -683,6 +683,55 @@
       "status": "PASS",
       "requirements": [
         "REQ-DECISION-001"
+      ]
+    },
+    {
+      "name": "normalizePrediction records predicted score confidence and signals",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREDICTION-LEDGER-001"
+      ]
+    },
+    {
+      "name": "attachOutcome stores actual reaction prediction error and mismatch reason",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREDICTION-LEDGER-001"
+      ]
+    },
+    {
+      "name": "buildPredictionLedger joins recommendations with feedback by title",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREDICTION-LEDGER-001"
+      ]
+    },
+    {
+      "name": "ledgerSummary reports calibration and pending feedback",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREDICTION-LEDGER-002"
+      ]
+    },
+    {
+      "name": "signalPredictionErrors groups average error by matched signals",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREDICTION-LEDGER-002"
+      ]
+    },
+    {
+      "name": "predictionLedgerInsights surfaces feedback and calibration actions",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREDICTION-LEDGER-002"
+      ]
+    },
+    {
+      "name": "saveLedger and loadLedger round-trip prediction outcomes",
+      "status": "PASS",
+      "requirements": [
+        "REQ-PREDICTION-LEDGER-001"
       ]
     },
     {
