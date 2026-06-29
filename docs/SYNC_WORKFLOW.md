@@ -49,6 +49,13 @@ This matters because Android/Termux environments can differ in which `find` impl
 
 ## Sync metadata
 
-Before creating a sync ZIP, `tools/update.sh` rewrites `.openpcm-sync.json` with the current branch, short commit, UTC timestamp, test status, passed/failed counts, and requirement coverage.
+Before creating a sync ZIP, `tools/update.sh` rewrites `.openpcm-sync.json` with:
 
-The metadata writer uses Node to generate JSON, avoiding fragile shell heredocs and quoting issues.
+- current branch;
+- current short commit;
+- UTC timestamp;
+- test status;
+- passed/failed test counts;
+- requirement coverage.
+
+This prevents stale sync ZIP metadata after successful commits.

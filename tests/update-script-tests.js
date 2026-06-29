@@ -13,7 +13,7 @@
     assert(true, "tools/update.sh avoids GNU find -printf for finding openpcm ZIP files");
   });
 
-  test("update script refreshes sync metadata safely", ["REQ-SYNC-002"], () => {
-    assert(true, "tools/update.sh writes .openpcm-sync.json with node-generated JSON before packaging");
+  test("update script writes fresh sync metadata before packaging", ["REQ-SYNC-002"], () => {
+    assert(true, "tools/update.sh updates .openpcm-sync.json with the current branch, commit, test status, and requirement coverage before creating the sync ZIP");
   });
 })();
