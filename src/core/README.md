@@ -44,17 +44,3 @@ UI code may display validation results, but validation rules and normalization r
 - `workspace.js` manages saved recommendation workspace items, statuses, pins, and comparison sorting.
 
 - `profile-transfer.js` exports, validates, parses, and imports portable Personal Cognitive Model JSON.
-
-
-## First intelligence
-
-`first-intelligence.js` provides the first reusable recommendation-scoring API. It turns local evidence into weighted preference signals, scores candidate items, assigns confidence, and returns inspectable explanations with matches and risks.
-
-- `prediction-ledger.js` records predicted recommendation outcomes, actual feedback, prediction errors, calibration summaries, and insight cards.
-
-- `cognitive-fit.js` adjusts recommendation ranking against current cognitive capacity and produces good-now / save-for-later insight cards.
-
-## Recommendation Session
-
-The recommendation-session layer composes First Intelligence, adaptive learning, prediction ledger, and cognitive-fit ranking into one deterministic recommendation session with final scores, decision labels, next actions, insight cards, and pending ledger entries.
-

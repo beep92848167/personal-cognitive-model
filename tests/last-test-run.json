@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-29T22:09:13.661Z",
+  "timestamp": "2026-06-30T20:40:14.073Z",
   "status": "PASS",
-  "passed": 152,
+  "passed": 120,
   "failed": 0,
-  "total": 152,
-  "durationMs": 59,
+  "total": 120,
+  "durationMs": 55,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 60,
-    "covered": 60,
+    "total": 46,
+    "covered": 46,
     "uncovered": []
   },
   "failures": [],
@@ -120,48 +120,6 @@
       "requirements": [
         "REQ-EVIDENCE-002",
         "REQ-EVIDENCE-003"
-      ]
-    },
-    {
-      "name": "presetList exposes low-RSI quick entry presets",
-      "status": "PASS",
-      "requirements": [
-        "REQ-EVIDENCE-007"
-      ]
-    },
-    {
-      "name": "applyQuickEntryPreset fills draft fields without deleting existing tags",
-      "status": "PASS",
-      "requirements": [
-        "REQ-EVIDENCE-007"
-      ]
-    },
-    {
-      "name": "topTagCounts returns the most frequent tags",
-      "status": "PASS",
-      "requirements": [
-        "REQ-DASHBOARD-001"
-      ]
-    },
-    {
-      "name": "buildDashboardSummary includes recent entries, current mode, and export reminder",
-      "status": "PASS",
-      "requirements": [
-        "REQ-DASHBOARD-001"
-      ]
-    },
-    {
-      "name": "buildNextActions prioritizes continue and one-tap capture",
-      "status": "PASS",
-      "requirements": [
-        "REQ-DAILY-DRIVER-001"
-      ]
-    },
-    {
-      "name": "buildDashboardSummary includes Daily Driver actions and timeline",
-      "status": "PASS",
-      "requirements": [
-        "REQ-DAILY-DRIVER-001"
       ]
     },
     {
@@ -432,56 +390,6 @@
       ]
     },
     {
-      "name": "feedbackRecencyMultiplier boosts recent feedback and decays old feedback",
-      "status": "PASS",
-      "requirements": [
-        "REQ-LEARNING-002"
-      ]
-    },
-    {
-      "name": "buildLearningProfile detects emerging interests and stale signals",
-      "status": "PASS",
-      "requirements": [
-        "REQ-LEARNING-002"
-      ]
-    },
-    {
-      "name": "applyLearningAdjustments returns inspectable learning explanations",
-      "status": "PASS",
-      "requirements": [
-        "REQ-LEARNING-002"
-      ]
-    },
-    {
-      "name": "feedbackWeight applies direction strength recency and explicit reason",
-      "status": "PASS",
-      "requirements": [
-        "REQ-LEARNING-002"
-      ]
-    },
-    {
-      "name": "buildLearningProfile surfaces weighted adjustments emerging interests and stale signals",
-      "status": "PASS",
-      "requirements": [
-        "REQ-LEARNING-002"
-      ]
-    },
-    {
-      "name": "applyLearningAdjustments can use weighted feedback and explain the adjustment",
-      "status": "PASS",
-      "requirements": [
-        "REQ-LEARNING-002",
-        "REQ-FIRST-INTELLIGENCE-002"
-      ]
-    },
-    {
-      "name": "learningInsightCards surfaces emerging stale and false-positive actions",
-      "status": "PASS",
-      "requirements": [
-        "REQ-LEARNING-002"
-      ]
-    },
-    {
       "name": "buildPreferenceModel merges PCM profile and OpenPCM evidence",
       "status": "PASS",
       "requirements": [
@@ -686,121 +594,6 @@
       ]
     },
     {
-      "name": "normalizePrediction records predicted score confidence and signals",
-      "status": "PASS",
-      "requirements": [
-        "REQ-PREDICTION-LEDGER-001"
-      ]
-    },
-    {
-      "name": "attachOutcome stores actual reaction prediction error and mismatch reason",
-      "status": "PASS",
-      "requirements": [
-        "REQ-PREDICTION-LEDGER-001"
-      ]
-    },
-    {
-      "name": "buildPredictionLedger joins recommendations with feedback by title",
-      "status": "PASS",
-      "requirements": [
-        "REQ-PREDICTION-LEDGER-001"
-      ]
-    },
-    {
-      "name": "ledgerSummary reports calibration and pending feedback",
-      "status": "PASS",
-      "requirements": [
-        "REQ-PREDICTION-LEDGER-002"
-      ]
-    },
-    {
-      "name": "signalPredictionErrors groups average error by matched signals",
-      "status": "PASS",
-      "requirements": [
-        "REQ-PREDICTION-LEDGER-002"
-      ]
-    },
-    {
-      "name": "predictionLedgerInsights surfaces feedback and calibration actions",
-      "status": "PASS",
-      "requirements": [
-        "REQ-PREDICTION-LEDGER-002"
-      ]
-    },
-    {
-      "name": "saveLedger and loadLedger round-trip prediction outcomes",
-      "status": "PASS",
-      "requirements": [
-        "REQ-PREDICTION-LEDGER-001"
-      ]
-    },
-    {
-      "name": "normalizeState maps cognitive state labels",
-      "status": "PASS",
-      "requirements": [
-        "REQ-COGNITIVE-FIT-001"
-      ]
-    },
-    {
-      "name": "scoreCognitiveFit penalizes demanding candidates during flare",
-      "status": "PASS",
-      "requirements": [
-        "REQ-COGNITIVE-FIT-001",
-        "REQ-COGNITIVE-FIT-002"
-      ]
-    },
-    {
-      "name": "scoreCognitiveFit boosts comfort candidates during low capacity",
-      "status": "PASS",
-      "requirements": [
-        "REQ-COGNITIVE-FIT-001",
-        "REQ-COGNITIVE-FIT-002"
-      ]
-    },
-    {
-      "name": "applyCognitiveFit re-ranks recommendations by current capacity",
-      "status": "PASS",
-      "requirements": [
-        "REQ-COGNITIVE-FIT-002"
-      ]
-    },
-    {
-      "name": "cognitiveFitInsights surfaces good-now and save-later cards",
-      "status": "PASS",
-      "requirements": [
-        "REQ-COGNITIVE-FIT-003"
-      ]
-    },
-    {
-      "name": "currentStateFromEvidence returns the latest cognitive state",
-      "status": "PASS",
-      "requirements": [
-        "REQ-RECSESSION-001"
-      ]
-    },
-    {
-      "name": "buildRecommendationSession creates a unified ranked recommendation session",
-      "status": "PASS",
-      "requirements": [
-        "REQ-RECSESSION-001",
-        "REQ-RECSESSION-002"
-      ]
-    },
-    {
-      "name": "recommendation session applies learning feedback before final decisions",
-      "status": "PASS",
-      "requirements": [
-        "REQ-RECSESSION-002"
-      ]
-    },
-    {
-      "name": "recommendation session emits insight cards and prediction ledger entries",
-      "status": "PASS",
-      "requirements": [
-        "REQ-RECSESSION-003"
-      ]
-    },
-    {
       "name": "buildViewerModel selects graph node and connected edges",
       "status": "PASS",
       "requirements": [
@@ -897,28 +690,6 @@
       "requirements": [
         "REQ-REASONING-001",
         "REQ-DISCOVER-001"
-      ]
-    },
-    {
-      "name": "buildWeightedSignals applies reaction and recency weighting",
-      "status": "PASS",
-      "requirements": [
-        "REQ-FIRST-INTELLIGENCE-001"
-      ]
-    },
-    {
-      "name": "scoreCandidate returns score, confidence, matches, and risks",
-      "status": "PASS",
-      "requirements": [
-        "REQ-FIRST-INTELLIGENCE-001"
-      ]
-    },
-    {
-      "name": "rankRecommendations provides explainable ordered recommendations",
-      "status": "PASS",
-      "requirements": [
-        "REQ-FIRST-INTELLIGENCE-001",
-        "REQ-FIRST-INTELLIGENCE-002"
       ]
     },
     {

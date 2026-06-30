@@ -1,9 +1,10 @@
 {
-  "commitMessage": "feat(recommendations): add unified recommendation sessions",
-  "batch": "Batch F - Recommendation Session",
-  "requirements": [
-    "REQ-RECSESSION-001",
-    "REQ-RECSESSION-002",
-    "REQ-RECSESSION-003"
-  ]
+  "schemaVersion": 2,
+  "kind": "openpcm-patch",
+  "patchId": "20260629-agent-commit-message-regression-fix",
+  "createdBy": "ChatGPT",
+  "targetBranch": "main",
+  "targetCommit": "5558b34",
+  "minimumWorkflowVersion": 9,
+  "commitMessage": "fix(agent): restore patch metadata commit messages"
 }

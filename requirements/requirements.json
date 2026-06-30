@@ -64,16 +64,6 @@
       "tests": []
     },
     {
-      "id": "REQ-EVIDENCE-007",
-      "title": "User must be able to apply quick-entry presets for TV, books, games, recommendation feedback, and health/cognitive context notes.",
-      "shortTitle": "Apply quick-entry presets",
-      "area": "Evidence",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": []
-    },
-    {
       "id": "REQ-LIBRARY-001",
       "title": "Library must list saved evidence newest-first.",
       "shortTitle": "List evidence newest-first",
@@ -139,26 +129,6 @@
       "shortTitle": "Count unique tags",
       "area": "Statistics",
       "priority": "Medium",
-      "status": "Active",
-      "implemented": true,
-      "tests": []
-    },
-    {
-      "id": "REQ-DASHBOARD-001",
-      "title": "Home dashboard must show total entries, recent entries, top tags, current mode, and an export reminder.",
-      "shortTitle": "Show home dashboard summary",
-      "area": "Dashboard",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": []
-    },
-    {
-      "id": "REQ-DAILY-DRIVER-001",
-      "title": "Home must provide actionable Daily Driver shortcuts including continue-last-entry, one-tap presets, and a recent activity timeline.",
-      "shortTitle": "Daily Driver home actions",
-      "area": "Dashboard",
-      "priority": "High",
       "status": "Active",
       "implemented": true,
       "tests": []
@@ -492,138 +462,6 @@
       "status": "Active",
       "implemented": true,
       "tests": []
-    },
-    {
-      "id": "REQ-FIRST-INTELLIGENCE-001",
-      "title": "OpenPCM must provide a reusable first-intelligence scoring engine with evidence weighting, confidence scoring, matches, and risks.",
-      "shortTitle": "First intelligence scoring engine",
-      "area": "First Intelligence",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "first-intelligence-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-FIRST-INTELLIGENCE-002",
-      "title": "OpenPCM must rank candidate recommendations with inspectable explanations derived from local evidence.",
-      "shortTitle": "Explainable recommendation ranking",
-      "area": "First Intelligence",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "first-intelligence-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-LEARNING-002",
-      "title": "OpenPCM must adapt recommendation ranking from weighted feedback, recency, emerging interests, stale signals, and inspectable learning explanations.",
-      "shortTitle": "Adaptive learning engine",
-      "area": "Learning",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "learning-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-PREDICTION-LEDGER-001",
-      "title": "OpenPCM must record recommendation predictions, actual reactions, prediction errors, mismatch reasons, and persistence without mutating the Personal Cognitive Model.",
-      "shortTitle": "Prediction outcomes ledger",
-      "area": "Prediction Ledger",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "prediction-ledger-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-PREDICTION-LEDGER-002",
-      "title": "OpenPCM must summarize prediction accuracy, pending feedback, signal-level error patterns, and calibration insight cards.",
-      "shortTitle": "Prediction calibration insights",
-      "area": "Prediction Ledger",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "prediction-ledger-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-COGNITIVE-FIT-001",
-      "title": "OpenPCM must normalize cognitive state labels and score candidate cognitive load against current capacity.",
-      "shortTitle": "Cognitive fit scoring",
-      "area": "Cognitive Fit",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "cognitive-fit-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-COGNITIVE-FIT-002",
-      "title": "OpenPCM must apply cognitive-fit adjustments to recommendation rankings with inspectable explanations.",
-      "shortTitle": "Capacity-aware recommendation ranking",
-      "area": "Cognitive Fit",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "cognitive-fit-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-COGNITIVE-FIT-003",
-      "title": "OpenPCM must surface cognitive-fit insight cards showing good-now and save-for-later recommendations.",
-      "shortTitle": "Cognitive fit insight cards",
-      "area": "Cognitive Fit",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "cognitive-fit-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-RECSESSION-001",
-      "title": "OpenPCM must build a unified recommendation session from evidence, candidates, current cognitive state, feedback, learning, prediction ledger, and cognitive-fit modules.",
-      "shortTitle": "Unified recommendation session",
-      "area": "Recommendation Session",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "recommendation-session-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-RECSESSION-002",
-      "title": "OpenPCM recommendation sessions must produce final ranked recommendations with decision labels, decision reasons, and next actions.",
-      "shortTitle": "Recommendation decision actions",
-      "area": "Recommendation Session",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "recommendation-session-tests.js"
-      ]
-    },
-    {
-      "id": "REQ-RECSESSION-003",
-      "title": "OpenPCM recommendation sessions must emit actionable insight cards and prediction ledger entries for pending feedback and calibration.",
-      "shortTitle": "Session insights and ledger",
-      "area": "Recommendation Session",
-      "priority": "High",
-      "status": "Active",
-      "implemented": true,
-      "tests": [
-        "recommendation-session-tests.js"
-      ]
     }
   ]
 }

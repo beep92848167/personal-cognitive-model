@@ -10,7 +10,6 @@
 | REQ-EVIDENCE-004 | User must be warned when adding a duplicate title. | Medium | Active |
 | REQ-EVIDENCE-005 | User must be able to edit an existing evidence item. | High | Active |
 | REQ-EVIDENCE-006 | User must be able to delete an evidence item. | High | Active |
-| REQ-EVIDENCE-007 | User must be able to apply quick-entry presets for TV, books, games, recommendation feedback, and health/cognitive context notes. | High | Active |
 
 ## Library
 
@@ -28,12 +27,6 @@
 | REQ-STATS-001 | Statistics must count total evidence items. | Medium | Active |
 | REQ-STATS-002 | Statistics must count evidence by type and reaction. | Medium | Active |
 | REQ-STATS-003 | Statistics must count unique tags. | Medium | Active |
-
-## Dashboard
-
-| ID | Requirement | Priority | Status |
-|---|---|---:|---|
-| REQ-DASHBOARD-001 | Home dashboard must show total entries, recent entries, top tags, current mode, and an export reminder. | High | Active |
 
 ## Import / Export
 
@@ -127,20 +120,12 @@
 | ID | Requirement | Priority | Status |
 |---|---|---:|---|
 | REQ-LEARNING-001 | OpenPCM must derive learning signals from recommendation feedback without mutating the Personal Cognitive Model. | High | Active |
-| REQ-LEARNING-002 | OpenPCM must adapt recommendation ranking from weighted feedback, recency, emerging interests, stale signals, and inspectable learning explanations. | High | Active |
 
 ## Calibration
 
 | ID | Requirement | Priority | Status |
 |---|---|---:|---|
 | REQ-CALIBRATION-001 | User feedback on recommendations must calibrate future Discover scoring. | High | Active |
-
-## First Intelligence
-
-| ID | Requirement | Priority | Status |
-|---|---|---:|---|
-| REQ-FIRST-INTELLIGENCE-001 | OpenPCM must provide a reusable first-intelligence scoring engine with evidence weighting, confidence scoring, matches, and risks. | High | Active |
-| REQ-FIRST-INTELLIGENCE-002 | OpenPCM must rank candidate recommendations with inspectable explanations derived from local evidence. | High | Active |
 
 ## Android Workflow
 
@@ -176,32 +161,3 @@
 | REQ-AGENT-008 | The phone agent must prefer the patch metadata commit message over the default fallback message. | High | Active |
 
 | REQ-AGENT-009 | The phone agent must preserve both patch metadata reading and fresh sync summary generation in the same workflow. | High | Active |
-
-### REQ-DAILY-DRIVER-001 — Daily Driver home actions
-
-Home must provide actionable Daily Driver shortcuts including continue-last-entry, one-tap presets, and a recent activity timeline.
-
-Status: Implemented
-Priority: High
-Area: Dashboard
-
-## Prediction Ledger
-
-| ID | Requirement | Priority | Status |
-|---|---|---:|---|
-| REQ-PREDICTION-LEDGER-001 | OpenPCM must record recommendation predictions, actual reactions, prediction errors, mismatch reasons, and persistence without mutating the Personal Cognitive Model. | High | Active |
-| REQ-PREDICTION-LEDGER-002 | OpenPCM must summarize prediction accuracy, pending feedback, signal-level error patterns, and calibration insight cards. | High | Active |
-
-
-## Cognitive Fit
-
-| ID | Requirement | Priority | Status |
-|---|---|---:|---|
-| REQ-COGNITIVE-FIT-001 | OpenPCM must normalize cognitive state labels and score candidate cognitive load against current capacity. | High | Active |
-| REQ-COGNITIVE-FIT-002 | OpenPCM must apply cognitive-fit adjustments to recommendation rankings with inspectable explanations. | High | Active |
-| REQ-COGNITIVE-FIT-003 | OpenPCM must surface cognitive-fit insight cards showing good-now and save-for-later recommendations. | High | Active |
-
-## Recommendation Session
-
-The recommendation-session layer composes First Intelligence, adaptive learning, prediction ledger, and cognitive-fit ranking into one deterministic recommendation session with final scores, decision labels, next actions, insight cards, and pending ledger entries.
-
