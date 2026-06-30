@@ -462,6 +462,26 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-ENG-001",
+      "title": "The project must generate a machine-readable engineering status report.",
+      "shortTitle": "Engineering status JSON",
+      "area": "Engineering Dashboard",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-ENG-002",
+      "title": "The project must generate a human-readable engineering dashboard.",
+      "shortTitle": "Engineering dashboard markdown",
+      "area": "Engineering Dashboard",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

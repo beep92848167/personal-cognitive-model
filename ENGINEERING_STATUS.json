@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "openpcm_engineering_status_v1",
+  "timestamp": "2026-06-30T22:37:35.823Z",
+  "branch": "main",
+  "commit": "d81a603",
+  "repository": {
+    "dirty": false,
+    "dirtyFiles": []
+  },
+  "tests": {
+    "status": "PASS",
+    "passed": 122,
+    "failed": 0,
+    "total": 122
+  },
+  "requirements": {
+    "total": 48,
+    "implemented": 48,
+    "covered": 48,
+    "coverageTotal": 48,
+    "uncovered": [],
+    "byArea": {
+      "Evidence": 6,
+      "Library": 4,
+      "Statistics": 3,
+      "Import / Export": 2,
+      "Catalogue": 1,
+      "Profile Source": 2,
+      "Preferences": 1,
+      "Reasoning": 1,
+      "Discover": 2,
+      "Profile Transfer": 1,
+      "Workspace": 1,
+      "Experiments": 1,
+      "Recommendation Timeline": 1,
+      "Decision History": 1,
+      "Graph Viewer": 1,
+      "Recommendation Detail": 1,
+      "Explanation Graph": 1,
+      "Learning": 1,
+      "Calibration": 1,
+      "Android Workflow": 2,
+      "Testing": 3,
+      "OpenPCM Agent": 9,
+      "Engineering Dashboard": 2
+    },
+    "byPriority": {
+      "High": 41,
+      "Medium": 7
+    },
+    "byStatus": {
+      "Active": 48
+    }
+  },
+  "sync": {
+    "workflowVersion": 10,
+    "syncCommit": "d81a603",
+    "syncStatus": "PASS"
+  },
+  "patch": {
+    "patchId": "20260701-engineering-dashboard",
+    "commitMessage": "feat(engineering): add project health dashboard",
+    "targetCommit": "d81a603",
+    "targetBranch": "main"
+  },
+  "health": {
+    "testsPassing": true,
+    "requirementsCovered": true,
+    "syncMatchesCommit": true,
+    "cleanWorkingTree": true,
+    "score": "4/4"
+  }
+}

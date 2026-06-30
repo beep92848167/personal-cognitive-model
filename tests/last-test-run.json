@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-30T20:40:14.073Z",
+  "timestamp": "2026-06-30T22:55:37.961Z",
   "status": "PASS",
-  "passed": 120,
+  "passed": 122,
   "failed": 0,
-  "total": 120,
-  "durationMs": 55,
+  "total": 122,
+  "durationMs": 75,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 46,
-    "covered": 46,
+    "total": 48,
+    "covered": 48,
     "uncovered": []
   },
   "failures": [],
@@ -840,6 +840,20 @@
       "status": "PASS",
       "requirements": [
         "REQ-AGENT-009"
+      ]
+    },
+    {
+      "name": "engineering dashboard generates machine-readable status",
+      "status": "PASS",
+      "requirements": [
+        "REQ-ENG-001"
+      ]
+    },
+    {
+      "name": "engineering dashboard generates human-readable markdown",
+      "status": "PASS",
+      "requirements": [
+        "REQ-ENG-002"
       ]
     },
     {

@@ -356,6 +356,15 @@ commit_and_push() {
   git push
 }
 
+write_engineering_status() {
+  cd "$REPO_DIR"
+
+  if [[ -f tools/engineering-dashboard.js ]] && command -v node >/dev/null 2>&1; then
+    log "Writing engineering status..."
+    node tools/engineering-dashboard.js >/dev/null
+  fi
+}
+
 create_sync_package() {
   cd "$REPO_DIR"
 
@@ -371,6 +380,8 @@ create_sync_package() {
 
   log "Writing fresh sync summary..."
   write_sync_summary "$package_name"
+
+  write_engineering_status
 
   log "Creating sync package: $package_name"
   rm -f "$package_path"

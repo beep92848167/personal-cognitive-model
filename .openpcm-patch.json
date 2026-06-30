@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260629-agent-commit-message-regression-fix",
+  "patchId": "20260701-engineering-dashboard",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "5558b34",
-  "minimumWorkflowVersion": 9,
-  "commitMessage": "fix(agent): restore patch metadata commit messages"
+  "targetCommit": "d81a603",
+  "minimumWorkflowVersion": 10,
+  "commitMessage": "feat(engineering): add project health dashboard"
 }

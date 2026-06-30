@@ -161,3 +161,11 @@
 | REQ-AGENT-008 | The phone agent must prefer the patch metadata commit message over the default fallback message. | High | Active |
 
 | REQ-AGENT-009 | The phone agent must preserve both patch metadata reading and fresh sync summary generation in the same workflow. | High | Active |
+
+
+## Engineering Dashboard
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-ENG-001 | The project must generate a machine-readable engineering status report. | High | Active |
+| REQ-ENG-002 | The project must generate a human-readable engineering dashboard. | Medium | Active |
