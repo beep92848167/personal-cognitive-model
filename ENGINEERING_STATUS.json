@@ -1,23 +1,23 @@
 {
   "schemaVersion": "openpcm_engineering_status_v1",
-  "timestamp": "2026-06-30T22:37:35.823Z",
+  "timestamp": "2026-06-30T23:20:29.792Z",
   "branch": "main",
-  "commit": "d81a603",
+  "commit": "7413d02",
   "repository": {
     "dirty": false,
     "dirtyFiles": []
   },
   "tests": {
     "status": "PASS",
-    "passed": 122,
+    "passed": 123,
     "failed": 0,
-    "total": 122
+    "total": 123
   },
   "requirements": {
-    "total": 48,
-    "implemented": 48,
-    "covered": 48,
-    "coverageTotal": 48,
+    "total": 49,
+    "implemented": 49,
+    "covered": 49,
+    "coverageTotal": 49,
     "uncovered": [],
     "byArea": {
       "Evidence": 6,
@@ -42,25 +42,25 @@
       "Android Workflow": 2,
       "Testing": 3,
       "OpenPCM Agent": 9,
-      "Engineering Dashboard": 2
+      "Engineering Dashboard": 3
     },
     "byPriority": {
-      "High": 41,
+      "High": 42,
       "Medium": 7
     },
     "byStatus": {
-      "Active": 48
+      "Active": 49
     }
   },
   "sync": {
     "workflowVersion": 10,
-    "syncCommit": "d81a603",
+    "syncCommit": "7413d02",
     "syncStatus": "PASS"
   },
   "patch": {
-    "patchId": "20260701-engineering-dashboard",
-    "commitMessage": "feat(engineering): add project health dashboard",
-    "targetCommit": "d81a603",
+    "patchId": "20260701-fresh-engineering-status",
+    "commitMessage": "fix(engineering): regenerate dashboard before packaging",
+    "targetCommit": "7413d02",
     "targetBranch": "main"
   },
   "health": {

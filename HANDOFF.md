@@ -2,17 +2,15 @@
 
 ## Engineering Increment
 
-Added an Engineering Dashboard for project health visibility.
+Fixed stale engineering dashboard artifacts by regenerating them immediately before packaging.
 
 ## Changes
 
-- Added `tools/engineering-dashboard.js`.
-- Generates `ENGINEERING_STATUS.json`.
-- Generates `ENGINEERING_DASHBOARD.md`.
-- Added `docs/ENGINEERING_DASHBOARD.md`.
-- Added `REQ-ENG-001` and `REQ-ENG-002`.
-- Added `tests/engineering-dashboard-tests.js`.
-- Agent attempts to regenerate engineering status before packaging when available.
+- `tools/agent.sh` now regenerates `ENGINEERING_STATUS.json` and `ENGINEERING_DASHBOARD.md` before creating the sync ZIP.
+- `tools/engineering-dashboard.js` now ignores generated files when assessing dirty working-tree health.
+- Updated `docs/ENGINEERING_DASHBOARD.md`.
+- Added `REQ-ENG-003`.
+- Expanded engineering dashboard tests.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -20,10 +18,11 @@ Added an Engineering Dashboard for project health visibility.
 Ran:
 
 ```bash
+bash -n tools/agent.sh
 node tools/run-tests.js
 node tools/engineering-dashboard.js
 ```
 
 ## Suggested Commit
 
-feat(engineering): add project health dashboard
+fix(engineering): regenerate dashboard before packaging

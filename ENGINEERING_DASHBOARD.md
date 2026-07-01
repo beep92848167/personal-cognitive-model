@@ -1,25 +1,25 @@
 # OpenPCM Engineering Dashboard
 
-Generated: 2026-06-30T22:37:35.823Z
+Generated: 2026-06-30T23:20:29.792Z
 
 ## Repository
 
 - Branch: `main`
-- Commit: `d81a603`
+- Commit: `7413d02`
 - Working tree: clean
 
 ## Tests
 
 - Status: PASS
-- Passed: 122
+- Passed: 123
 - Failed: 0
-- Total: 122
+- Total: 123
 
 ## Requirements
 
-- Registry total: 48
-- Implemented: 48
-- Covered by tests: 48/48
+- Registry total: 49
+- Implemented: 49
+- Covered by tests: 49/49
 - Uncovered: 0
 
 ### Requirements by area
@@ -29,7 +29,7 @@ Generated: 2026-06-30T22:37:35.823Z
 - Catalogue: 1
 - Decision History: 1
 - Discover: 2
-- Engineering Dashboard: 2
+- Engineering Dashboard: 3
 - Evidence: 6
 - Experiments: 1
 - Explanation Graph: 1
@@ -58,6 +58,6 @@ Generated: 2026-06-30T22:37:35.823Z
 
 ## Latest patch metadata
 
-- Patch ID: 20260701-engineering-dashboard
-- Commit message: `feat(engineering): add project health dashboard`
+- Patch ID: 20260701-fresh-engineering-status
+- Commit message: `fix(engineering): regenerate dashboard before packaging`
 

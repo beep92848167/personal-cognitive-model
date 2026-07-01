@@ -1,23 +1,23 @@
 {
   "schemaVersion": "openpcm_sync_summary_v1",
-  "timestamp": "2026-06-30T20:40:18Z",
+  "timestamp": "2026-06-30T22:55:41Z",
   "branch": "main",
-  "commit": "d81a603",
-  "latestPackage": "20260701-064018-openpcm-main-d81a603.zip",
+  "commit": "7413d02",
+  "latestPackage": "20260701-085541-openpcm-main-7413d02.zip",
   "patch": {
-    "patchId": "20260629-agent-commit-message-regression-fix",
-    "targetCommit": "5558b34",
+    "patchId": "20260701-engineering-dashboard",
+    "targetCommit": "d81a603",
     "targetBranch": "main"
   },
   "status": "PASS",
   "tests": {
-    "passed": 120,
+    "passed": 122,
     "failed": 0,
-    "total": 120
+    "total": 122
   },
   "requirements": {
-    "covered": 46,
-    "total": 46,
+    "covered": 48,
+    "total": 48,
     "uncovered": []
   },
   "nextInstruction": "Upload the timestamped sync ZIP to ChatGPT and type Sync."

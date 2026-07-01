@@ -482,6 +482,16 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-ENG-003",
+      "title": "The engineering dashboard must be regenerated immediately before packaging so it matches the generated sync ZIP.",
+      "shortTitle": "Fresh engineering dashboard before packaging",
+      "area": "Engineering Dashboard",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

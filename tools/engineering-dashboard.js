@@ -49,7 +49,22 @@ const byStatus = countBy(requirements, "status");
 const branch = git("rev-parse --abbrev-ref HEAD", sync.branch || "unknown");
 const commit = git("rev-parse --short HEAD", sync.commit || "unknown");
 const dirty = git("status --porcelain", "");
-const dirtyLines = dirty ? dirty.split(/\r?\n/).filter(Boolean) : [];
+const generatedPaths = new Set([
+  "ENGINEERING_STATUS.json",
+  "ENGINEERING_DASHBOARD.md",
+  "SYNC_SUMMARY.json",
+  "tests/last-test-run.json"
+]);
+
+const dirtyLines = dirty
+  ? dirty
+      .split(/\r?\n/)
+      .filter(Boolean)
+      .filter(line => {
+        const path = line.slice(3);
+        return !generatedPaths.has(path);
+      })
+  : [];
 
 const status = {
   schemaVersion: "openpcm_engineering_status_v1",

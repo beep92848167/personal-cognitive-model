@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-06-30T22:55:37.961Z",
+  "timestamp": "2026-07-01T01:29:15.169Z",
   "status": "PASS",
-  "passed": 122,
+  "passed": 123,
   "failed": 0,
-  "total": 122,
-  "durationMs": 75,
+  "total": 123,
+  "durationMs": 74,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 48,
-    "covered": 48,
+    "total": 49,
+    "covered": 49,
     "uncovered": []
   },
   "failures": [],
@@ -854,6 +854,13 @@
       "status": "PASS",
       "requirements": [
         "REQ-ENG-002"
+      ]
+    },
+    {
+      "name": "agent regenerates fresh engineering dashboard before packaging",
+      "status": "PASS",
+      "requirements": [
+        "REQ-ENG-003"
       ]
     },
     {

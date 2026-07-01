@@ -169,3 +169,5 @@
 |---|---|---:|---|
 | REQ-ENG-001 | The project must generate a machine-readable engineering status report. | High | Active |
 | REQ-ENG-002 | The project must generate a human-readable engineering dashboard. | Medium | Active |
+
+| REQ-ENG-003 | The engineering dashboard must be regenerated immediately before packaging so it matches the generated sync ZIP. | High | Active |

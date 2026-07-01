@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260701-engineering-dashboard",
+  "patchId": "20260701-fresh-engineering-status",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "d81a603",
+  "targetCommit": "7413d02",
   "minimumWorkflowVersion": 10,
-  "commitMessage": "feat(engineering): add project health dashboard"
+  "commitMessage": "fix(engineering): regenerate dashboard before packaging"
 }
