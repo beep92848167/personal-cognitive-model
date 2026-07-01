@@ -456,3 +456,9 @@ while true; do
 
   sleep "$POLL_SECONDS"
 done
+
+
+# Preferred Downloads workflow:
+# The agent should primarily watch for ~/storage/downloads/openpcm-current.zip.
+# After successful application it archives the processed ZIP into archive_YYYYMMDD/
+# and removes it from Downloads so only one active patch remains.

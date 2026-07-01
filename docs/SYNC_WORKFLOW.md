@@ -32,3 +32,23 @@ The script must:
 ## Why this matters
 
 If push succeeds but no sync ZIP is created, ChatGPT cannot verify the newly pushed repository state through the normal ZIP workflow. The script now treats missing or empty sync packages as an explicit error.
+
+
+## Preferred Downloads layout
+
+```
+Downloads/
+    openpcm-current.zip
+    pcm-git/
+    archive_YYYYMMDD/
+```
+
+The phone agent should use `openpcm-current.zip` as the single active inbox file.
+
+After a successful sync:
+
+1. Archive the processed ZIP into `archive_YYYYMMDD/`.
+2. Remove it from Downloads.
+3. Wait for the next `openpcm-current.zip`.
+
+This keeps Downloads essentially clutter-free.
