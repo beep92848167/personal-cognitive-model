@@ -17,3 +17,4 @@ console.log(`Patch: ${data.patch?.patchId || ""}`);
 console.log(`Tests: ${data.tests?.passed ?? ""} passed, ${data.tests?.failed ?? ""} failed`);
 console.log(`Requirements: ${data.requirements?.covered ?? ""}/${data.requirements?.total ?? ""}`);
 console.log(`Package: ${data.package?.zipName || ""}`);
+console.log(`Package size: ${data.package?.zipSizeBytes ?? ""}`);

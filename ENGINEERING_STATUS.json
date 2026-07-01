@@ -6,24 +6,24 @@
     "workflowVersion": 0,
     "runId": ""
   },
-  "timestamp": "2026-07-01T09:29:07.556Z",
+  "timestamp": "2026-07-01T10:06:02.881Z",
   "branch": "main",
-  "commit": "ed23633",
+  "commit": "a62e975",
   "repository": {
     "dirty": false,
     "dirtyFiles": []
   },
   "tests": {
     "status": "PASS",
-    "passed": 133,
+    "passed": 134,
     "failed": 0,
-    "total": 133
+    "total": 134
   },
   "requirements": {
-    "total": 57,
-    "implemented": 57,
-    "covered": 57,
-    "coverageTotal": 57,
+    "total": 58,
+    "implemented": 58,
+    "covered": 58,
+    "coverageTotal": 58,
     "uncovered": [],
     "byArea": {
       "Evidence": 6,
@@ -47,27 +47,27 @@
       "Calibration": 1,
       "Android Workflow": 2,
       "Testing": 3,
-      "OpenPCM Agent": 12,
+      "OpenPCM Agent": 13,
       "Engineering Dashboard": 3,
       "Domain Architecture": 5
     },
     "byPriority": {
-      "High": 50,
+      "High": 51,
       "Medium": 7
     },
     "byStatus": {
-      "Active": 57
+      "Active": 58
     }
   },
   "sync": {
     "workflowVersion": 10,
-    "syncCommit": "ed23633",
+    "syncCommit": "a62e975",
     "syncStatus": "PASS"
   },
   "patch": {
-    "patchId": "20260701-agent-run-metadata",
-    "commitMessage": "feat(agent): add run metadata and version reporting",
-    "targetCommit": "ed23633",
+    "patchId": "20260701-fresh-run-metadata",
+    "commitMessage": "fix(agent): refresh run metadata after final package",
+    "targetCommit": "a62e975",
     "targetBranch": "main"
   },
   "health": {

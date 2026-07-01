@@ -572,6 +572,16 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-AGENT-013",
+      "title": "The phone agent must refresh RUN_METADATA.json after package creation and include the final version in the generated sync ZIP.",
+      "shortTitle": "Fresh run metadata after packaging",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

@@ -33,3 +33,10 @@ node tools/run-metadata.js
 - `SYNC_SUMMARY.json` is the quick sync handoff.
 - `ENGINEERING_STATUS.json` is the project health snapshot.
 - `RUN_METADATA.json` is the detailed execution record.
+
+
+## Freshness guarantee
+
+`RUN_METADATA.json` must be refreshed after the sync ZIP is created so it can record the final package name and package size.
+
+After refreshing it, the agent replaces metadata files inside the generated ZIP so the uploaded package contains the final post-package execution record.

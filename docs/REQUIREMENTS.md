@@ -190,3 +190,5 @@
 | REQ-AGENT-011 | Generated workflow artifacts must include agent identity and run metadata. | High | Active |
 
 | REQ-AGENT-012 | The phone agent must write an authoritative RUN_METADATA.json file for each successful run. | High | Active |
+
+| REQ-AGENT-013 | The phone agent must refresh RUN_METADATA.json after package creation and include the final version in the generated sync ZIP. | High | Active |

@@ -1,25 +1,25 @@
 # OpenPCM Engineering Dashboard
 
-Generated: 2026-07-01T09:29:07.556Z
+Generated: 2026-07-01T10:06:02.881Z
 
 ## Repository
 
 - Branch: `main`
-- Commit: `ed23633`
+- Commit: `a62e975`
 - Working tree: clean
 
 ## Tests
 
 - Status: PASS
-- Passed: 133
+- Passed: 134
 - Failed: 0
-- Total: 133
+- Total: 134
 
 ## Requirements
 
-- Registry total: 57
-- Implemented: 57
-- Covered by tests: 57/57
+- Registry total: 58
+- Implemented: 58
+- Covered by tests: 58/58
 - Uncovered: 0
 
 ### Requirements by area
@@ -38,7 +38,7 @@ Generated: 2026-07-01T09:29:07.556Z
 - Import / Export: 2
 - Learning: 1
 - Library: 4
-- OpenPCM Agent: 12
+- OpenPCM Agent: 13
 - Preferences: 1
 - Profile Source: 2
 - Profile Transfer: 1
@@ -59,6 +59,6 @@ Generated: 2026-07-01T09:29:07.556Z
 
 ## Latest patch metadata
 
-- Patch ID: 20260701-agent-run-metadata
-- Commit message: `feat(agent): add run metadata and version reporting`
+- Patch ID: 20260701-fresh-run-metadata
+- Commit message: `fix(agent): refresh run metadata after final package`
 

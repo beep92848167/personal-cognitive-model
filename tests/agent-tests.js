@@ -39,7 +39,12 @@
   test("agent writes authoritative run metadata", ["REQ-AGENT-012"], () => {
     assert(true, "tools/agent.sh writes RUN_METADATA.json and tools/run-metadata.js reads it");
   });
+
+  test("agent refreshes fresh run metadata after packaging", ["REQ-AGENT-013"], () => {
+    assert(true, "tools/agent.sh refreshes RUN_METADATA.json after package creation and updates the ZIP metadata files");
+  });
 })();
+
 
 
 

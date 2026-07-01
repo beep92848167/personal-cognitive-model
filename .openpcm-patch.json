@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260701-agent-run-metadata",
+  "patchId": "20260701-fresh-run-metadata",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "ed23633",
-  "minimumWorkflowVersion": 10,
-  "commitMessage": "feat(agent): add run metadata and version reporting"
+  "targetCommit": "a62e975",
+  "minimumWorkflowVersion": 11,
+  "commitMessage": "fix(agent): refresh run metadata after final package"
 }

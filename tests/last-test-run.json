@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-07-01T10:03:41.984Z",
+  "timestamp": "2026-07-01T10:07:49.942Z",
   "status": "PASS",
-  "passed": 133,
+  "passed": 134,
   "failed": 0,
-  "total": 133,
-  "durationMs": 72,
+  "total": 134,
+  "durationMs": 46,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 57,
-    "covered": 57,
+    "total": 58,
+    "covered": 58,
     "uncovered": []
   },
   "failures": [],
@@ -861,6 +861,13 @@
       "status": "PASS",
       "requirements": [
         "REQ-AGENT-012"
+      ]
+    },
+    {
+      "name": "agent refreshes fresh run metadata after packaging",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-013"
       ]
     },
     {

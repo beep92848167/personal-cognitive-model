@@ -2,22 +2,19 @@
 
 ## Engineering Increment
 
-Added agent versioning and authoritative run metadata.
+Fixed stale `RUN_METADATA.json` by refreshing it after final package creation.
 
 ## Changes
 
-- Added `AGENT_VERSION=1.1.0`.
-- Added `WORKFLOW_VERSION=11`.
-- Added `tools/agent.sh --version`.
-- Added `RUN_METADATA.json` generation.
-- Added `tools/run-metadata.js`.
-- Added agent identity to `.openpcm-sync.json`.
-- Added agent identity to `SYNC_SUMMARY.json`.
-- Added agent identity support to `ENGINEERING_STATUS.json`.
-- Added `docs/RUN_METADATA.md`.
-- Updated `docs/OPENPCM_AGENT.md`.
-- Added `REQ-AGENT-010`, `REQ-AGENT-011`, and `REQ-AGENT-012`.
-- Added regression tests for version and metadata artifacts.
+- Bumped agent to `OpenPCM Agent 1.1.1`.
+- Bumped workflow version to `12`.
+- `tools/agent.sh` now refreshes `RUN_METADATA.json` after the sync ZIP exists so package size is known.
+- The agent updates metadata files inside the generated sync ZIP after the final metadata refresh.
+- `tools/run-metadata.js` now prints package size.
+- Updated `docs/RUN_METADATA.md`.
+- Added `REQ-AGENT-013`.
+- Added regression test coverage.
+- Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
 
@@ -26,10 +23,10 @@ Ran:
 ```bash
 bash -n tools/agent.sh
 bash tools/agent.sh --version
-node tools/run-metadata.js
 node tools/run-tests.js
+node tools/run-metadata.js
 ```
 
 ## Suggested Commit
 
-feat(agent): add run metadata and version reporting
+fix(agent): refresh run metadata after final package

@@ -2,8 +2,8 @@
 set -euo pipefail
 
 AGENT_NAME="OpenPCM Agent"
-AGENT_VERSION="1.1.0"
-WORKFLOW_VERSION="11"
+AGENT_VERSION="1.1.1"
+WORKFLOW_VERSION="12"
 
 DOWNLOADS_DIR="${DOWNLOADS_DIR:-$HOME/storage/downloads}"
 REPO_DIR="${REPO_DIR:-$DOWNLOADS_DIR/pcm-git}"
@@ -534,9 +534,17 @@ create_sync_package() {
 
   [[ ! -s "$package_path" ]] && { log "ERROR: Sync package was not created."; return 1; }
 
-  log "Refreshing run metadata with package size..."
+  log "Refreshing final metadata with package size..."
   write_run_metadata "$package_name" "$package_path"
-  zip -q "$package_path" RUN_METADATA.json
+
+  if [[ -f tools/engineering-dashboard.js ]] && command -v node >/dev/null 2>&1; then
+    AGENT_NAME="$AGENT_NAME" AGENT_VERSION="$AGENT_VERSION" WORKFLOW_VERSION="$WORKFLOW_VERSION" RUN_ID="$RUN_ID" \
+      node tools/engineering-dashboard.js >/dev/null
+  fi
+
+  # Replace metadata files in the already-created sync package so the ZIP
+  # contains the final post-package state, including package size.
+  zip -q "$package_path" RUN_METADATA.json SYNC_SUMMARY.json ENGINEERING_STATUS.json ENGINEERING_DASHBOARD.md .openpcm-sync.json
 
   log "Sync package ready: $package_path"
 }
