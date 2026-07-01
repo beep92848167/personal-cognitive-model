@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-07-01T10:19:23.591Z",
+  "timestamp": "2026-07-01T11:55:31.146Z",
   "status": "PASS",
-  "passed": 138,
+  "passed": 143,
   "failed": 0,
-  "total": 138,
-  "durationMs": 45,
+  "total": 143,
+  "durationMs": 51,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 62,
-    "covered": 62,
+    "total": 67,
+    "covered": 67,
     "uncovered": []
   },
   "failures": [],
@@ -966,6 +966,41 @@
       "status": "PASS",
       "requirements": [
         "REQ-TASKS-004"
+      ]
+    },
+    {
+      "name": "validation service reports missing strings and invalid enum values",
+      "status": "PASS",
+      "requirements": [
+        "REQ-SERVICE-001"
+      ]
+    },
+    {
+      "name": "import export service clones and normalizes lists",
+      "status": "PASS",
+      "requirements": [
+        "REQ-SERVICE-002"
+      ]
+    },
+    {
+      "name": "search service matches tokenized text across configured fields",
+      "status": "PASS",
+      "requirements": [
+        "REQ-SERVICE-003"
+      ]
+    },
+    {
+      "name": "storage service reads and writes JSON through an adapter",
+      "status": "PASS",
+      "requirements": [
+        "REQ-SERVICE-004"
+      ]
+    },
+    {
+      "name": "domains can use shared import/export services",
+      "status": "PASS",
+      "requirements": [
+        "REQ-SERVICE-005"
       ]
     },
     {

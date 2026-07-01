@@ -84,6 +84,10 @@ const scripts = [
   "src/data/pcm-seed.js",
   "src/core/portable.js",
   "src/core/domain-registry.js",
+  "src/services/validation.js",
+  "src/services/import-export.js",
+  "src/services/search.js",
+  "src/services/storage.js",
   "src/domains/evidence/evidence-domain.js",
   "src/domains/tasks/tasks-domain.js",
   "src/domains.js",
@@ -132,6 +136,7 @@ const scripts = [
   "tests/engineering-dashboard-tests.js",
   "tests/domain-registry-tests.js",
   "tests/tasks-domain-tests.js",
+  "tests/shared-services-tests.js",
   "tests/browser-testing-tests.js"
 ];
 

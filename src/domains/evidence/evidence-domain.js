@@ -5,6 +5,13 @@
     return global.OpenPCMEvidence || {};
   }
 
+  function services() {
+    return {
+      validation: global.OpenPCMValidationService || null,
+      importExport: global.OpenPCMImportExportService || null
+    };
+  }
+
   function normalizeEntries(data) {
     const entries = Array.isArray(data) ? data : [];
     const core = getEvidenceCore();
@@ -45,10 +52,14 @@
   }
 
   function importEvidenceData(data) {
+    const importExport = services().importExport;
+    if (importExport) return importExport.importList(data, entry => normalizeEntries([entry])[0]);
     return normalizeEntries(Array.isArray(data) ? data : []);
   }
 
   function exportEvidenceData(data) {
+    const importExport = services().importExport;
+    if (importExport) return importExport.exportList(data, entry => normalizeEntries([entry])[0]);
     return normalizeEntries(Array.isArray(data) ? data : []);
   }
 

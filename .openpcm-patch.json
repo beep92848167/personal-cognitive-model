@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260701-tasks-domain-foundation",
+  "patchId": "20260701-shared-domain-services",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "6785d05",
-  "minimumWorkflowVersion": 11,
-  "commitMessage": "feat(tasks): add tasks domain plugin"
+  "targetCommit": "018a386",
+  "minimumWorkflowVersion": 12,
+  "commitMessage": "feat(services): add shared domain services"
 }

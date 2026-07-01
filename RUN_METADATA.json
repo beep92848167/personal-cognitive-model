@@ -1,25 +1,25 @@
 {
   "schemaVersion": "openpcm_run_metadata_v1",
   "run": {
-    "id": "20260701-200800",
-    "startedAt": "2026-07-01T10:08:00Z",
-    "generatedAt": "2026-07-01T10:08:12Z"
+    "id": "20260701-201916",
+    "startedAt": "2026-07-01T10:19:16Z",
+    "generatedAt": "2026-07-01T10:19:28Z"
   },
   "agent": {
     "name": "OpenPCM Agent",
-    "version": "1.1.0",
-    "workflowVersion": 11
+    "version": "1.1.1",
+    "workflowVersion": 12
   },
   "repository": {
     "branch": "main",
-    "commit": "6785d05"
+    "commit": "018a386"
   },
   "patch": {
-    "patchId": "20260701-fresh-run-metadata",
-    "commitMessage": "fix(agent): refresh run metadata after final package",
-    "targetCommit": "a62e975",
+    "patchId": "20260701-tasks-domain-foundation",
+    "commitMessage": "feat(tasks): add tasks domain plugin",
+    "targetCommit": "6785d05",
     "targetBranch": "main",
-    "sourceFile": "openpcm-agent-fresh-run-metadata-1.zip"
+    "sourceFile": "openpcm-tasks-domain-foundation.zip"
   },
   "tools": {
     "git": "git version 2.54.0",
@@ -33,22 +33,22 @@
   },
   "tests": {
     "status": "PASS",
-    "passed": 134,
+    "passed": 138,
     "failed": 0,
-    "total": 134,
-    "durationMs": 60
+    "total": 138,
+    "durationMs": 45
   },
   "requirements": {
-    "covered": 58,
-    "total": 58,
+    "covered": 62,
+    "total": 62,
     "uncovered": []
   },
   "package": {
-    "zipName": "20260701-200811-openpcm-main-6785d05.zip",
-    "zipSizeBytes": 183298
+    "zipName": "20260701-201927-openpcm-main-018a386.zip",
+    "zipSizeBytes": 186688
   },
   "workflow": {
-    "version": 11,
+    "version": 12,
     "schemaVersions": {
       "runMetadata": 1,
       "syncSummary": 1,

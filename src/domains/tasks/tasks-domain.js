@@ -1,6 +1,13 @@
 (function (global) {
   "use strict";
 
+  function services() {
+    return {
+      validation: global.OpenPCMValidationService || null,
+      importExport: global.OpenPCMImportExportService || null
+    };
+  }
+
   const DEFAULT_TASK_STATUS = "open";
   const VALID_STATUSES = ["open", "in_progress", "blocked", "done", "archived"];
   const VALID_PRIORITIES = ["low", "medium", "high", "critical"];
@@ -70,10 +77,14 @@
   }
 
   function importTaskData(data) {
+    const importExport = services().importExport;
+    if (importExport) return importExport.importList(data, normalizeTask);
     return normalizeTasks(Array.isArray(data) ? data : []);
   }
 
   function exportTaskData(data) {
+    const importExport = services().importExport;
+    if (importExport) return importExport.exportList(data, normalizeTask);
     return normalizeTasks(Array.isArray(data) ? data : []);
   }
 

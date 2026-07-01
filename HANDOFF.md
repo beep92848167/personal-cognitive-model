@@ -2,20 +2,18 @@
 
 ## Engineering Increment
 
-Added Tasks as the second real domain plugin.
+Added Shared Domain Services for reusable domain infrastructure.
 
 ## Changes
 
-- Added `src/domains/tasks/tasks-domain.js`.
-- Registered Tasks through `src/domains.js`.
-- Added task schema normalization.
-- Added task validation.
-- Added task import/export.
-- Added task route and storage-key registration.
-- Added `tests/tasks-domain-tests.js`.
-- Added `REQ-TASKS-001` through `REQ-TASKS-004`.
-- Added `docs/TASKS_DOMAIN.md`.
-- Updated `docs/DOMAIN_ARCHITECTURE.md`.
+- Added shared validation service.
+- Added shared import/export service.
+- Added shared search service.
+- Added shared storage service.
+- Updated Evidence and Tasks domains to use shared import/export helpers when available.
+- Added shared service tests.
+- Added `REQ-SERVICE-001` through `REQ-SERVICE-005`.
+- Added `docs/SHARED_DOMAIN_SERVICES.md`.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -29,4 +27,4 @@ node tools/engineering-dashboard.js
 
 ## Suggested Commit
 
-feat(tasks): add tasks domain plugin
+feat(services): add shared domain services

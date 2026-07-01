@@ -202,3 +202,14 @@
 | REQ-TASKS-002 | The Tasks domain must validate malformed task records and invalid status or priority values. | High | Active |
 | REQ-TASKS-003 | The Tasks domain must provide import and export through the standard domain interface. | High | Active |
 | REQ-TASKS-004 | The Tasks domain must register routes and storage keys through the domain plugin registry. | High | Active |
+
+
+## Shared Domain Services
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-SERVICE-001 | OpenPCM must provide shared validation helpers for domain plugins. | High | Active |
+| REQ-SERVICE-002 | OpenPCM must provide shared import/export helpers for domain plugins. | High | Active |
+| REQ-SERVICE-003 | OpenPCM must provide shared search helpers for token-based domain search. | Medium | Active |
+| REQ-SERVICE-004 | OpenPCM must provide shared JSON storage helpers for domain persistence. | Medium | Active |
+| REQ-SERVICE-005 | Domain plugins must be able to use shared services without changing their public interface. | High | Active |

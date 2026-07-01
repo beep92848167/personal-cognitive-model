@@ -6,24 +6,24 @@
     "workflowVersion": 0,
     "runId": ""
   },
-  "timestamp": "2026-07-01T10:10:14.661Z",
+  "timestamp": "2026-07-01T10:41:59.215Z",
   "branch": "main",
-  "commit": "6785d05",
+  "commit": "018a386",
   "repository": {
     "dirty": false,
     "dirtyFiles": []
   },
   "tests": {
     "status": "PASS",
-    "passed": 138,
+    "passed": 143,
     "failed": 0,
-    "total": 138
+    "total": 143
   },
   "requirements": {
-    "total": 62,
-    "implemented": 62,
-    "covered": 62,
-    "coverageTotal": 62,
+    "total": 67,
+    "implemented": 67,
+    "covered": 67,
+    "coverageTotal": 67,
     "uncovered": [],
     "byArea": {
       "Evidence": 6,
@@ -50,25 +50,26 @@
       "OpenPCM Agent": 13,
       "Engineering Dashboard": 3,
       "Domain Architecture": 5,
-      "Tasks Domain": 4
+      "Tasks Domain": 4,
+      "Shared Domain Services": 5
     },
     "byPriority": {
-      "High": 55,
-      "Medium": 7
+      "High": 58,
+      "Medium": 9
     },
     "byStatus": {
-      "Active": 62
+      "Active": 67
     }
   },
   "sync": {
-    "workflowVersion": 11,
-    "syncCommit": "6785d05",
+    "workflowVersion": 12,
+    "syncCommit": "018a386",
     "syncStatus": "PASS"
   },
   "patch": {
-    "patchId": "20260701-tasks-domain-foundation",
-    "commitMessage": "feat(tasks): add tasks domain plugin",
-    "targetCommit": "6785d05",
+    "patchId": "20260701-shared-domain-services",
+    "commitMessage": "feat(services): add shared domain services",
+    "targetCommit": "018a386",
     "targetBranch": "main"
   },
   "health": {

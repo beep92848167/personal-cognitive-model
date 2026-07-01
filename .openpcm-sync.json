@@ -1,21 +1,21 @@
 {
-  "workflowVersion": 11,
-  "timestamp": "2026-07-01T10:08:11Z",
+  "workflowVersion": 12,
+  "timestamp": "2026-07-01T10:19:27Z",
   "branch": "main",
-  "commit": "6785d05",
+  "commit": "018a386",
   "status": "PASS",
   "agent": {
     "name": "OpenPCM Agent",
-    "version": "1.1.0",
-    "workflowVersion": 11,
-    "runId": "20260701-200800"
+    "version": "1.1.1",
+    "workflowVersion": 12,
+    "runId": "20260701-201916"
   },
   "tests": {
-    "passed": "134",
+    "passed": "138",
     "failed": "0"
   },
   "requirements": {
-    "covered": "58",
-    "total": "58"
+    "covered": "62",
+    "total": "62"
   }
 }

@@ -622,6 +622,56 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-SERVICE-001",
+      "title": "OpenPCM must provide shared validation helpers for domain plugins.",
+      "shortTitle": "Shared validation service",
+      "area": "Shared Domain Services",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-SERVICE-002",
+      "title": "OpenPCM must provide shared import/export helpers for domain plugins.",
+      "shortTitle": "Shared import/export service",
+      "area": "Shared Domain Services",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-SERVICE-003",
+      "title": "OpenPCM must provide shared search helpers for token-based domain search.",
+      "shortTitle": "Shared search service",
+      "area": "Shared Domain Services",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-SERVICE-004",
+      "title": "OpenPCM must provide shared JSON storage helpers for domain persistence.",
+      "shortTitle": "Shared storage service",
+      "area": "Shared Domain Services",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-SERVICE-005",
+      "title": "Domain plugins must be able to use shared services without changing their public interface.",
+      "shortTitle": "Domains use shared services",
+      "area": "Shared Domain Services",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }
