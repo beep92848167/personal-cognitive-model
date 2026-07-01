@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260701-domain-plugin-foundation",
+  "patchId": "20260701-evidence-domain-interface",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "5d2fd3b",
+  "targetCommit": "bf2411d",
   "minimumWorkflowVersion": 10,
-  "commitMessage": "feat(domain): add plugin registry foundation"
+  "commitMessage": "refactor(domain): move evidence behavior behind domain interface"
 }

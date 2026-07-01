@@ -38,6 +38,14 @@
       has(id) {
         return domains.has(id);
       },
+      routes() {
+        return this.list().flatMap(domain => domain.routes || []);
+      },
+
+      storageKeys() {
+        return this.list().flatMap(domain => domain.storageKeys || []);
+      },
+
       clear() {
         domains.clear();
       }

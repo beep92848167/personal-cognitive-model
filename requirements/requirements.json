@@ -522,6 +522,26 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-DOMAIN-004",
+      "title": "Applications must be able to discover domain routes dynamically through the domain registry.",
+      "shortTitle": "Dynamic domain route discovery",
+      "area": "Domain Architecture",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-DOMAIN-005",
+      "title": "The Evidence domain must provide validation, import, and export behavior through the standard domain interface.",
+      "shortTitle": "Evidence domain interface behavior",
+      "area": "Domain Architecture",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

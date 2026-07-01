@@ -2,18 +2,20 @@
 
 ## Engineering Increment
 
-Added the foundation for a Domain Plugin Architecture.
+Moved Evidence behaviour behind the standard domain interface.
 
 ## Changes
 
-- Added `src/core/domain-registry.js`.
-- Added `src/domains/evidence/evidence-domain.js`.
-- Added `src/domains.js` bootstrap.
-- Registered Evidence as the first domain plugin.
-- Updated `index.html` and test loading.
-- Added `tests/domain-registry-tests.js`.
-- Added `REQ-DOMAIN-001`, `REQ-DOMAIN-002`, and `REQ-DOMAIN-003`.
-- Added `docs/DOMAIN_ARCHITECTURE.md`.
+- Enhanced `src/core/domain-registry.js` with dynamic route and storage-key discovery.
+- Enhanced `src/domains/evidence/evidence-domain.js` with:
+  - validation
+  - import
+  - export
+  - normalization bridge to core Evidence logic when available
+- Enhanced `src/domains.js` with browser discovery helpers.
+- Added tests for dynamic route discovery and Evidence domain behaviour.
+- Added `REQ-DOMAIN-004` and `REQ-DOMAIN-005`.
+- Updated `docs/DOMAIN_ARCHITECTURE.md`.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -27,4 +29,4 @@ node tools/engineering-dashboard.js
 
 ## Suggested Commit
 
-feat(domain): add plugin registry foundation
+refactor(domain): move evidence behavior behind domain interface

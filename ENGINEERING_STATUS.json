@@ -1,23 +1,23 @@
 {
   "schemaVersion": "openpcm_engineering_status_v1",
-  "timestamp": "2026-07-01T02:40:18.289Z",
+  "timestamp": "2026-07-01T03:16:19.953Z",
   "branch": "main",
-  "commit": "5d2fd3b",
+  "commit": "bf2411d",
   "repository": {
     "dirty": false,
     "dirtyFiles": []
   },
   "tests": {
     "status": "PASS",
-    "passed": 127,
+    "passed": 130,
     "failed": 0,
-    "total": 127
+    "total": 130
   },
   "requirements": {
-    "total": 52,
-    "implemented": 52,
-    "covered": 52,
-    "coverageTotal": 52,
+    "total": 54,
+    "implemented": 54,
+    "covered": 54,
+    "coverageTotal": 54,
     "uncovered": [],
     "byArea": {
       "Evidence": 6,
@@ -43,25 +43,25 @@
       "Testing": 3,
       "OpenPCM Agent": 9,
       "Engineering Dashboard": 3,
-      "Domain Architecture": 3
+      "Domain Architecture": 5
     },
     "byPriority": {
-      "High": 45,
+      "High": 47,
       "Medium": 7
     },
     "byStatus": {
-      "Active": 52
+      "Active": 54
     }
   },
   "sync": {
     "workflowVersion": 10,
-    "syncCommit": "5d2fd3b",
+    "syncCommit": "bf2411d",
     "syncStatus": "PASS"
   },
   "patch": {
-    "patchId": "20260701-domain-plugin-foundation",
-    "commitMessage": "feat(domain): add plugin registry foundation",
-    "targetCommit": "5d2fd3b",
+    "patchId": "20260701-evidence-domain-interface",
+    "commitMessage": "refactor(domain): move evidence behavior behind domain interface",
+    "targetCommit": "bf2411d",
     "targetBranch": "main"
   },
   "health": {

@@ -180,3 +180,7 @@
 | REQ-DOMAIN-001 | OpenPCM must provide a registry for registering and listing domain plugins. | High | Active |
 | REQ-DOMAIN-002 | The domain registry must reject duplicate domain identifiers. | High | Active |
 | REQ-DOMAIN-003 | The existing Evidence capability must be represented as the first registered domain plugin. | High | Active |
+
+| REQ-DOMAIN-004 | Applications must be able to discover domain routes dynamically through the domain registry. | High | Active |
+
+| REQ-DOMAIN-005 | The Evidence domain must provide validation, import, and export behavior through the standard domain interface. | High | Active |

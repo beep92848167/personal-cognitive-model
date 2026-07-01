@@ -36,4 +36,28 @@
   test("global registry includes evidence domain", ["REQ-DOMAIN-003"], () => {
     assert(window.OpenPCMDomainRegistry.has("evidence"), "global domain registry should include evidence domain");
   });
+
+  test("domain registry exposes routes dynamically", ["REQ-DOMAIN-004"], () => {
+    const routes = window.OpenPCMDomainRegistry.routes();
+    assert(Array.isArray(routes), "routes should be an array");
+    assert(routes.some(route => route.id === "evidence-library"), "evidence route should be discoverable");
+  });
+
+  test("evidence domain imports and exports through domain interface", ["REQ-DOMAIN-005"], () => {
+    const domain = window.OpenPCMDomainRegistry.get("evidence");
+    const imported = domain.importData([{ title: "Example", medium: "Book" }]);
+    const exported = domain.exportData(imported);
+
+    assert(Array.isArray(imported), "importData should return an array");
+    assert(Array.isArray(exported), "exportData should return an array");
+    assert(exported[0].title === "Example", "exportData should preserve title");
+  });
+
+  test("evidence domain validation reports malformed entries", ["REQ-DOMAIN-005"], () => {
+    const domain = window.OpenPCMDomainRegistry.get("evidence");
+    const issues = domain.validate([null, { title: "" }]);
+
+    assert(issues.length >= 2, "validation should report invalid and titleless entries");
+  });
 })();
+

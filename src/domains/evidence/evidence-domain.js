@@ -1,6 +1,57 @@
 (function (global) {
   "use strict";
 
+  function getEvidenceCore() {
+    return global.OpenPCMEvidence || {};
+  }
+
+  function normalizeEntries(data) {
+    const entries = Array.isArray(data) ? data : [];
+    const core = getEvidenceCore();
+
+    if (typeof core.normalizeEntry === "function") {
+      return entries.map(entry => core.normalizeEntry(entry));
+    }
+
+    return entries.map(entry => Object.assign({}, entry));
+  }
+
+  function validateEvidenceEntries(data) {
+    const issues = [];
+    const entries = Array.isArray(data) ? data : [];
+
+    entries.forEach((entry, index) => {
+      if (!entry || typeof entry !== "object") {
+        issues.push({
+          index,
+          severity: "error",
+          code: "invalid-entry",
+          message: "Evidence entry must be an object."
+        });
+        return;
+      }
+
+      if (!entry.title || typeof entry.title !== "string" || !entry.title.trim()) {
+        issues.push({
+          index,
+          severity: "warning",
+          code: "missing-title",
+          message: "Evidence entry is missing a title."
+        });
+      }
+    });
+
+    return issues;
+  }
+
+  function importEvidenceData(data) {
+    return normalizeEntries(Array.isArray(data) ? data : []);
+  }
+
+  function exportEvidenceData(data) {
+    return normalizeEntries(Array.isArray(data) ? data : []);
+  }
+
   const evidenceDomain = {
     id: "evidence",
     title: "Evidence",
@@ -17,35 +68,24 @@
       "REQ-EVIDENCE-005",
       "REQ-EVIDENCE-006",
       "REQ-LIBRARY-001",
-      "REQ-LIBRARY-002"
+      "REQ-LIBRARY-002",
+      "REQ-DOMAIN-004",
+      "REQ-DOMAIN-005"
     ],
-
-    validate(data) {
-      const issues = [];
-      const entries = Array.isArray(data) ? data : [];
-
-      entries.forEach((entry, index) => {
-        if (!entry || typeof entry !== "object") {
-          issues.push({ index, severity: "error", message: "Evidence entry must be an object." });
-          return;
-        }
-        if (!entry.title || typeof entry.title !== "string") {
-          issues.push({ index, severity: "warning", message: "Evidence entry is missing a title." });
-        }
-      });
-
-      return issues;
-    },
-
-    importData(data) {
-      return Array.isArray(data) ? data.slice() : [];
-    },
-
-    exportData(data) {
-      return Array.isArray(data) ? data.slice() : [];
-    }
+    validate: validateEvidenceEntries,
+    importData: importEvidenceData,
+    exportData: exportEvidenceData
   };
 
   global.OpenPCMEvidenceDomain = evidenceDomain;
-  if (typeof module !== "undefined" && module.exports) module.exports = evidenceDomain;
+  global.OpenPCMEvidenceDomainAPI = {
+    validateEvidenceEntries,
+    importEvidenceData,
+    exportEvidenceData,
+    normalizeEntries
+  };
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = evidenceDomain;
+  }
 })(typeof window !== "undefined" ? window : globalThis);

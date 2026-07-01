@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-07-01T03:13:42.183Z",
+  "timestamp": "2026-07-01T03:17:34.903Z",
   "status": "PASS",
-  "passed": 127,
+  "passed": 130,
   "failed": 0,
-  "total": 127,
-  "durationMs": 88,
+  "total": 130,
+  "durationMs": 73,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 52,
-    "covered": 52,
+    "total": 54,
+    "covered": 54,
     "uncovered": []
   },
   "failures": [],
@@ -889,6 +889,27 @@
       "status": "PASS",
       "requirements": [
         "REQ-DOMAIN-003"
+      ]
+    },
+    {
+      "name": "domain registry exposes routes dynamically",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DOMAIN-004"
+      ]
+    },
+    {
+      "name": "evidence domain imports and exports through domain interface",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DOMAIN-005"
+      ]
+    },
+    {
+      "name": "evidence domain validation reports malformed entries",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DOMAIN-005"
       ]
     },
     {

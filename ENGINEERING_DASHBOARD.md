@@ -1,25 +1,25 @@
 # OpenPCM Engineering Dashboard
 
-Generated: 2026-07-01T02:40:18.289Z
+Generated: 2026-07-01T03:16:19.953Z
 
 ## Repository
 
 - Branch: `main`
-- Commit: `5d2fd3b`
+- Commit: `bf2411d`
 - Working tree: clean
 
 ## Tests
 
 - Status: PASS
-- Passed: 127
+- Passed: 130
 - Failed: 0
-- Total: 127
+- Total: 130
 
 ## Requirements
 
-- Registry total: 52
-- Implemented: 52
-- Covered by tests: 52/52
+- Registry total: 54
+- Implemented: 54
+- Covered by tests: 54/54
 - Uncovered: 0
 
 ### Requirements by area
@@ -29,7 +29,7 @@ Generated: 2026-07-01T02:40:18.289Z
 - Catalogue: 1
 - Decision History: 1
 - Discover: 2
-- Domain Architecture: 3
+- Domain Architecture: 5
 - Engineering Dashboard: 3
 - Evidence: 6
 - Experiments: 1
@@ -59,6 +59,6 @@ Generated: 2026-07-01T02:40:18.289Z
 
 ## Latest patch metadata
 
-- Patch ID: 20260701-domain-plugin-foundation
-- Commit message: `feat(domain): add plugin registry foundation`
+- Patch ID: 20260701-evidence-domain-interface
+- Commit message: `refactor(domain): move evidence behavior behind domain interface`
 
