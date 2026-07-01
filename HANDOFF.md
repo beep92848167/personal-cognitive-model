@@ -2,15 +2,18 @@
 
 ## Engineering Increment
 
-Fixed stale engineering dashboard artifacts by regenerating them immediately before packaging.
+Added the foundation for a Domain Plugin Architecture.
 
 ## Changes
 
-- `tools/agent.sh` now regenerates `ENGINEERING_STATUS.json` and `ENGINEERING_DASHBOARD.md` before creating the sync ZIP.
-- `tools/engineering-dashboard.js` now ignores generated files when assessing dirty working-tree health.
-- Updated `docs/ENGINEERING_DASHBOARD.md`.
-- Added `REQ-ENG-003`.
-- Expanded engineering dashboard tests.
+- Added `src/core/domain-registry.js`.
+- Added `src/domains/evidence/evidence-domain.js`.
+- Added `src/domains.js` bootstrap.
+- Registered Evidence as the first domain plugin.
+- Updated `index.html` and test loading.
+- Added `tests/domain-registry-tests.js`.
+- Added `REQ-DOMAIN-001`, `REQ-DOMAIN-002`, and `REQ-DOMAIN-003`.
+- Added `docs/DOMAIN_ARCHITECTURE.md`.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -18,11 +21,10 @@ Fixed stale engineering dashboard artifacts by regenerating them immediately bef
 Ran:
 
 ```bash
-bash -n tools/agent.sh
 node tools/run-tests.js
 node tools/engineering-dashboard.js
 ```
 
 ## Suggested Commit
 
-fix(engineering): regenerate dashboard before packaging
+feat(domain): add plugin registry foundation

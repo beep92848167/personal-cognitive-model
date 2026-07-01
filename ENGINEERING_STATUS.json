@@ -1,23 +1,23 @@
 {
   "schemaVersion": "openpcm_engineering_status_v1",
-  "timestamp": "2026-06-30T23:20:29.792Z",
+  "timestamp": "2026-07-01T02:40:18.289Z",
   "branch": "main",
-  "commit": "7413d02",
+  "commit": "5d2fd3b",
   "repository": {
     "dirty": false,
     "dirtyFiles": []
   },
   "tests": {
     "status": "PASS",
-    "passed": 123,
+    "passed": 127,
     "failed": 0,
-    "total": 123
+    "total": 127
   },
   "requirements": {
-    "total": 49,
-    "implemented": 49,
-    "covered": 49,
-    "coverageTotal": 49,
+    "total": 52,
+    "implemented": 52,
+    "covered": 52,
+    "coverageTotal": 52,
     "uncovered": [],
     "byArea": {
       "Evidence": 6,
@@ -42,25 +42,26 @@
       "Android Workflow": 2,
       "Testing": 3,
       "OpenPCM Agent": 9,
-      "Engineering Dashboard": 3
+      "Engineering Dashboard": 3,
+      "Domain Architecture": 3
     },
     "byPriority": {
-      "High": 42,
+      "High": 45,
       "Medium": 7
     },
     "byStatus": {
-      "Active": 49
+      "Active": 52
     }
   },
   "sync": {
     "workflowVersion": 10,
-    "syncCommit": "7413d02",
+    "syncCommit": "5d2fd3b",
     "syncStatus": "PASS"
   },
   "patch": {
-    "patchId": "20260701-fresh-engineering-status",
-    "commitMessage": "fix(engineering): regenerate dashboard before packaging",
-    "targetCommit": "7413d02",
+    "patchId": "20260701-domain-plugin-foundation",
+    "commitMessage": "feat(domain): add plugin registry foundation",
+    "targetCommit": "5d2fd3b",
     "targetBranch": "main"
   },
   "health": {

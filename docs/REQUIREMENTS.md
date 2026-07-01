@@ -171,3 +171,12 @@
 | REQ-ENG-002 | The project must generate a human-readable engineering dashboard. | Medium | Active |
 
 | REQ-ENG-003 | The engineering dashboard must be regenerated immediately before packaging so it matches the generated sync ZIP. | High | Active |
+
+
+## Domain Architecture
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-DOMAIN-001 | OpenPCM must provide a registry for registering and listing domain plugins. | High | Active |
+| REQ-DOMAIN-002 | The domain registry must reject duplicate domain identifiers. | High | Active |
+| REQ-DOMAIN-003 | The existing Evidence capability must be represented as the first registered domain plugin. | High | Active |

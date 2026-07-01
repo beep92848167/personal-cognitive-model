@@ -492,6 +492,36 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-DOMAIN-001",
+      "title": "OpenPCM must provide a registry for registering and listing domain plugins.",
+      "shortTitle": "Domain plugin registry",
+      "area": "Domain Architecture",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-DOMAIN-002",
+      "title": "The domain registry must reject duplicate domain identifiers.",
+      "shortTitle": "Unique domain identifiers",
+      "area": "Domain Architecture",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-DOMAIN-003",
+      "title": "The existing Evidence capability must be represented as the first registered domain plugin.",
+      "shortTitle": "Evidence domain plugin",
+      "area": "Domain Architecture",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

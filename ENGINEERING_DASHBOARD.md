@@ -1,25 +1,25 @@
 # OpenPCM Engineering Dashboard
 
-Generated: 2026-06-30T23:20:29.792Z
+Generated: 2026-07-01T02:40:18.289Z
 
 ## Repository
 
 - Branch: `main`
-- Commit: `7413d02`
+- Commit: `5d2fd3b`
 - Working tree: clean
 
 ## Tests
 
 - Status: PASS
-- Passed: 123
+- Passed: 127
 - Failed: 0
-- Total: 123
+- Total: 127
 
 ## Requirements
 
-- Registry total: 49
-- Implemented: 49
-- Covered by tests: 49/49
+- Registry total: 52
+- Implemented: 52
+- Covered by tests: 52/52
 - Uncovered: 0
 
 ### Requirements by area
@@ -29,6 +29,7 @@ Generated: 2026-06-30T23:20:29.792Z
 - Catalogue: 1
 - Decision History: 1
 - Discover: 2
+- Domain Architecture: 3
 - Engineering Dashboard: 3
 - Evidence: 6
 - Experiments: 1
@@ -58,6 +59,6 @@ Generated: 2026-06-30T23:20:29.792Z
 
 ## Latest patch metadata
 
-- Patch ID: 20260701-fresh-engineering-status
-- Commit message: `fix(engineering): regenerate dashboard before packaging`
+- Patch ID: 20260701-domain-plugin-foundation
+- Commit message: `feat(domain): add plugin registry foundation`
 

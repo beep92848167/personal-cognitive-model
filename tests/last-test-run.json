@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-07-01T01:29:15.169Z",
+  "timestamp": "2026-07-01T03:13:42.183Z",
   "status": "PASS",
-  "passed": 123,
+  "passed": 127,
   "failed": 0,
-  "total": 123,
-  "durationMs": 74,
+  "total": 127,
+  "durationMs": 88,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 49,
-    "covered": 49,
+    "total": 52,
+    "covered": 52,
     "uncovered": []
   },
   "failures": [],
@@ -861,6 +861,34 @@
       "status": "PASS",
       "requirements": [
         "REQ-ENG-003"
+      ]
+    },
+    {
+      "name": "domain registry registers and lists domains",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DOMAIN-001"
+      ]
+    },
+    {
+      "name": "domain registry rejects duplicate ids",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DOMAIN-002"
+      ]
+    },
+    {
+      "name": "evidence domain exposes standard plugin shape",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DOMAIN-003"
+      ]
+    },
+    {
+      "name": "global registry includes evidence domain",
+      "status": "PASS",
+      "requirements": [
+        "REQ-DOMAIN-003"
       ]
     },
     {

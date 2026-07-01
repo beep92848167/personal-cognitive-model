@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260701-fresh-engineering-status",
+  "patchId": "20260701-domain-plugin-foundation",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "7413d02",
+  "targetCommit": "5d2fd3b",
   "minimumWorkflowVersion": 10,
-  "commitMessage": "fix(engineering): regenerate dashboard before packaging"
+  "commitMessage": "feat(domain): add plugin registry foundation"
 }
