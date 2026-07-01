@@ -85,6 +85,7 @@ const scripts = [
   "src/core/portable.js",
   "src/core/domain-registry.js",
   "src/domains/evidence/evidence-domain.js",
+  "src/domains/tasks/tasks-domain.js",
   "src/domains.js",
   "src/core/evidence.js",
   "src/core/validation.js",
@@ -130,6 +131,7 @@ const scripts = [
   "tests/agent-tests.js",
   "tests/engineering-dashboard-tests.js",
   "tests/domain-registry-tests.js",
+  "tests/tasks-domain-tests.js",
   "tests/browser-testing-tests.js"
 ];
 

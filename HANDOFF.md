@@ -2,18 +2,20 @@
 
 ## Engineering Increment
 
-Fixed stale `RUN_METADATA.json` by refreshing it after final package creation.
+Added Tasks as the second real domain plugin.
 
 ## Changes
 
-- Bumped agent to `OpenPCM Agent 1.1.1`.
-- Bumped workflow version to `12`.
-- `tools/agent.sh` now refreshes `RUN_METADATA.json` after the sync ZIP exists so package size is known.
-- The agent updates metadata files inside the generated sync ZIP after the final metadata refresh.
-- `tools/run-metadata.js` now prints package size.
-- Updated `docs/RUN_METADATA.md`.
-- Added `REQ-AGENT-013`.
-- Added regression test coverage.
+- Added `src/domains/tasks/tasks-domain.js`.
+- Registered Tasks through `src/domains.js`.
+- Added task schema normalization.
+- Added task validation.
+- Added task import/export.
+- Added task route and storage-key registration.
+- Added `tests/tasks-domain-tests.js`.
+- Added `REQ-TASKS-001` through `REQ-TASKS-004`.
+- Added `docs/TASKS_DOMAIN.md`.
+- Updated `docs/DOMAIN_ARCHITECTURE.md`.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -21,12 +23,10 @@ Fixed stale `RUN_METADATA.json` by refreshing it after final package creation.
 Ran:
 
 ```bash
-bash -n tools/agent.sh
-bash tools/agent.sh --version
 node tools/run-tests.js
-node tools/run-metadata.js
+node tools/engineering-dashboard.js
 ```
 
 ## Suggested Commit
 
-fix(agent): refresh run metadata after final package
+feat(tasks): add tasks domain plugin

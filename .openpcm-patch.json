@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260701-fresh-run-metadata",
+  "patchId": "20260701-tasks-domain-foundation",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "a62e975",
+  "targetCommit": "6785d05",
   "minimumWorkflowVersion": 11,
-  "commitMessage": "fix(agent): refresh run metadata after final package"
+  "commitMessage": "feat(tasks): add tasks domain plugin"
 }

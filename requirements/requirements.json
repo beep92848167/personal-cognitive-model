@@ -582,6 +582,46 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-TASKS-001",
+      "title": "The Tasks domain must normalize task records with default status and priority.",
+      "shortTitle": "Task normalization",
+      "area": "Tasks Domain",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-TASKS-002",
+      "title": "The Tasks domain must validate malformed task records and invalid status or priority values.",
+      "shortTitle": "Task validation",
+      "area": "Tasks Domain",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-TASKS-003",
+      "title": "The Tasks domain must provide import and export through the standard domain interface.",
+      "shortTitle": "Task import/export",
+      "area": "Tasks Domain",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-TASKS-004",
+      "title": "The Tasks domain must register routes and storage keys through the domain plugin registry.",
+      "shortTitle": "Task plugin registration",
+      "area": "Tasks Domain",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

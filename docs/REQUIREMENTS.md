@@ -192,3 +192,13 @@
 | REQ-AGENT-012 | The phone agent must write an authoritative RUN_METADATA.json file for each successful run. | High | Active |
 
 | REQ-AGENT-013 | The phone agent must refresh RUN_METADATA.json after package creation and include the final version in the generated sync ZIP. | High | Active |
+
+
+## Tasks Domain
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-TASKS-001 | The Tasks domain must normalize task records with default status and priority. | High | Active |
+| REQ-TASKS-002 | The Tasks domain must validate malformed task records and invalid status or priority values. | High | Active |
+| REQ-TASKS-003 | The Tasks domain must provide import and export through the standard domain interface. | High | Active |
+| REQ-TASKS-004 | The Tasks domain must register routes and storage keys through the domain plugin registry. | High | Active |

@@ -1,25 +1,25 @@
 # OpenPCM Engineering Dashboard
 
-Generated: 2026-07-01T10:06:02.881Z
+Generated: 2026-07-01T10:10:14.661Z
 
 ## Repository
 
 - Branch: `main`
-- Commit: `a62e975`
+- Commit: `6785d05`
 - Working tree: clean
 
 ## Tests
 
 - Status: PASS
-- Passed: 134
+- Passed: 138
 - Failed: 0
-- Total: 134
+- Total: 138
 
 ## Requirements
 
-- Registry total: 58
-- Implemented: 58
-- Covered by tests: 58/58
+- Registry total: 62
+- Implemented: 62
+- Covered by tests: 62/62
 - Uncovered: 0
 
 ### Requirements by area
@@ -46,6 +46,7 @@ Generated: 2026-07-01T10:06:02.881Z
 - Recommendation Detail: 1
 - Recommendation Timeline: 1
 - Statistics: 3
+- Tasks Domain: 4
 - Testing: 3
 - Workspace: 1
 
@@ -59,6 +60,6 @@ Generated: 2026-07-01T10:06:02.881Z
 
 ## Latest patch metadata
 
-- Patch ID: 20260701-fresh-run-metadata
-- Commit message: `fix(agent): refresh run metadata after final package`
+- Patch ID: 20260701-tasks-domain-foundation
+- Commit message: `feat(tasks): add tasks domain plugin`
 

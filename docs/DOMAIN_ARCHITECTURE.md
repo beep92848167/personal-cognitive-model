@@ -70,3 +70,10 @@ Evidence now provides real domain-interface behaviour:
 - `exportData(data)`
 
 These functions preserve existing behaviour while giving future OpenPCM features a standard integration point.
+
+
+## Second domain
+
+Tasks is now registered as the second domain plugin.
+
+This proves the domain architecture is not Evidence-specific and can support future modules such as Knowledge, Goals, Memory, Health, and Finance.

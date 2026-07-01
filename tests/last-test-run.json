@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-07-01T10:08:07.360Z",
+  "timestamp": "2026-07-01T10:19:23.591Z",
   "status": "PASS",
-  "passed": 134,
+  "passed": 138,
   "failed": 0,
-  "total": 134,
-  "durationMs": 60,
+  "total": 138,
+  "durationMs": 45,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 58,
-    "covered": 58,
+    "total": 62,
+    "covered": 62,
     "uncovered": []
   },
   "failures": [],
@@ -938,6 +938,34 @@
       "status": "PASS",
       "requirements": [
         "REQ-DOMAIN-005"
+      ]
+    },
+    {
+      "name": "tasks domain normalizes minimal task input",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TASKS-001"
+      ]
+    },
+    {
+      "name": "tasks domain validates invalid task data",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TASKS-002"
+      ]
+    },
+    {
+      "name": "tasks domain imports and exports through standard interface",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TASKS-003"
+      ]
+    },
+    {
+      "name": "tasks domain is registered as a plugin",
+      "status": "PASS",
+      "requirements": [
+        "REQ-TASKS-004"
       ]
     },
     {

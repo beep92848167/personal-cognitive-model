@@ -6,24 +6,24 @@
     "workflowVersion": 0,
     "runId": ""
   },
-  "timestamp": "2026-07-01T10:06:02.881Z",
+  "timestamp": "2026-07-01T10:10:14.661Z",
   "branch": "main",
-  "commit": "a62e975",
+  "commit": "6785d05",
   "repository": {
     "dirty": false,
     "dirtyFiles": []
   },
   "tests": {
     "status": "PASS",
-    "passed": 134,
+    "passed": 138,
     "failed": 0,
-    "total": 134
+    "total": 138
   },
   "requirements": {
-    "total": 58,
-    "implemented": 58,
-    "covered": 58,
-    "coverageTotal": 58,
+    "total": 62,
+    "implemented": 62,
+    "covered": 62,
+    "coverageTotal": 62,
     "uncovered": [],
     "byArea": {
       "Evidence": 6,
@@ -49,25 +49,26 @@
       "Testing": 3,
       "OpenPCM Agent": 13,
       "Engineering Dashboard": 3,
-      "Domain Architecture": 5
+      "Domain Architecture": 5,
+      "Tasks Domain": 4
     },
     "byPriority": {
-      "High": 51,
+      "High": 55,
       "Medium": 7
     },
     "byStatus": {
-      "Active": 58
+      "Active": 62
     }
   },
   "sync": {
-    "workflowVersion": 10,
-    "syncCommit": "a62e975",
+    "workflowVersion": 11,
+    "syncCommit": "6785d05",
     "syncStatus": "PASS"
   },
   "patch": {
-    "patchId": "20260701-fresh-run-metadata",
-    "commitMessage": "fix(agent): refresh run metadata after final package",
-    "targetCommit": "a62e975",
+    "patchId": "20260701-tasks-domain-foundation",
+    "commitMessage": "feat(tasks): add tasks domain plugin",
+    "targetCommit": "6785d05",
     "targetBranch": "main"
   },
   "health": {

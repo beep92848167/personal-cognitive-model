@@ -1,9 +1,9 @@
 {
   "schemaVersion": "openpcm_run_metadata_v1",
   "run": {
-    "id": "patch-build",
-    "startedAt": "",
-    "generatedAt": ""
+    "id": "20260701-200800",
+    "startedAt": "2026-07-01T10:08:00Z",
+    "generatedAt": "2026-07-01T10:08:12Z"
   },
   "agent": {
     "name": "OpenPCM Agent",
@@ -12,14 +12,40 @@
   },
   "repository": {
     "branch": "main",
-    "commit": "ed23633"
+    "commit": "6785d05"
   },
   "patch": {
-    "patchId": "20260701-agent-run-metadata",
-    "commitMessage": "feat(agent): add run metadata and version reporting",
-    "targetCommit": "ed23633",
+    "patchId": "20260701-fresh-run-metadata",
+    "commitMessage": "fix(agent): refresh run metadata after final package",
+    "targetCommit": "a62e975",
     "targetBranch": "main",
-    "sourceFile": "openpcm-agent-run-metadata.zip"
+    "sourceFile": "openpcm-agent-fresh-run-metadata-1.zip"
+  },
+  "tools": {
+    "git": "git version 2.54.0",
+    "node": "v26.3.1",
+    "bash": "5.3.9(1)-release"
+  },
+  "platform": {
+    "os": "android",
+    "arch": "arm64",
+    "release": "6.12.30-android16-5-pd30ff70-abogkiS948BXXS3AZF1-4k"
+  },
+  "tests": {
+    "status": "PASS",
+    "passed": 134,
+    "failed": 0,
+    "total": 134,
+    "durationMs": 60
+  },
+  "requirements": {
+    "covered": 58,
+    "total": 58,
+    "uncovered": []
+  },
+  "package": {
+    "zipName": "20260701-200811-openpcm-main-6785d05.zip",
+    "zipSizeBytes": 183298
   },
   "workflow": {
     "version": 11,
