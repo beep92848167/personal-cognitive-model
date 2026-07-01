@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-07-01T03:23:09.729Z",
+  "timestamp": "2026-07-01T10:03:41.984Z",
   "status": "PASS",
-  "passed": 130,
+  "passed": 133,
   "failed": 0,
-  "total": 130,
-  "durationMs": 42,
+  "total": 133,
+  "durationMs": 72,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 54,
-    "covered": 54,
+    "total": 57,
+    "covered": 57,
     "uncovered": []
   },
   "failures": [],
@@ -840,6 +840,27 @@
       "status": "PASS",
       "requirements": [
         "REQ-AGENT-009"
+      ]
+    },
+    {
+      "name": "agent exposes version metadata",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-010"
+      ]
+    },
+    {
+      "name": "workflow artifacts include agent identity",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-011"
+      ]
+    },
+    {
+      "name": "agent writes authoritative run metadata",
+      "status": "PASS",
+      "requirements": [
+        "REQ-AGENT-012"
       ]
     },
     {

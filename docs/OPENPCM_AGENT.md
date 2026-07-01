@@ -107,3 +107,21 @@ The agent chooses the commit message in this order:
 3. The default fallback: `chore: apply OpenPCM patch`.
 
 This means ChatGPT-generated patches can carry their own commit messages and the phone workflow does not need manual commit-message entry.
+
+
+## Agent versioning
+
+The agent exposes its version with:
+
+```bash
+bash tools/agent.sh --version
+```
+
+The agent version and workflow version are included in generated artifacts:
+
+- `.openpcm-sync.json`
+- `SYNC_SUMMARY.json`
+- `ENGINEERING_STATUS.json`
+- `RUN_METADATA.json`
+
+This makes it possible to diagnose which version of the phone workflow produced any uploaded sync package.

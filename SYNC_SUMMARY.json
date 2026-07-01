@@ -1,12 +1,12 @@
 {
   "schemaVersion": "openpcm_sync_summary_v1",
-  "timestamp": "2026-07-01T03:17:40Z",
+  "timestamp": "2026-07-01T03:23:13Z",
   "branch": "main",
-  "commit": "22d2bf4",
-  "latestPackage": "20260701-131739-openpcm-main-22d2bf4.zip",
+  "commit": "ed23633",
+  "latestPackage": "20260701-132313-openpcm-main-ed23633.zip",
   "patch": {
-    "patchId": "20260701-evidence-domain-interface",
-    "targetCommit": "bf2411d",
+    "patchId": "20260701-download-inbox",
+    "targetCommit": "22d2bf4",
     "targetBranch": "main"
   },
   "status": "PASS",

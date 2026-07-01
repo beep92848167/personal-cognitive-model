@@ -184,3 +184,9 @@
 | REQ-DOMAIN-004 | Applications must be able to discover domain routes dynamically through the domain registry. | High | Active |
 
 | REQ-DOMAIN-005 | The Evidence domain must provide validation, import, and export behavior through the standard domain interface. | High | Active |
+
+| REQ-AGENT-010 | The phone agent must expose its version and workflow version. | High | Active |
+
+| REQ-AGENT-011 | Generated workflow artifacts must include agent identity and run metadata. | High | Active |
+
+| REQ-AGENT-012 | The phone agent must write an authoritative RUN_METADATA.json file for each successful run. | High | Active |

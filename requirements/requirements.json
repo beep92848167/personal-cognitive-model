@@ -542,6 +542,36 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-AGENT-010",
+      "title": "The phone agent must expose its version and workflow version.",
+      "shortTitle": "Agent version reporting",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-AGENT-011",
+      "title": "Generated workflow artifacts must include agent identity and run metadata.",
+      "shortTitle": "Agent metadata in artifacts",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-AGENT-012",
+      "title": "The phone agent must write an authoritative RUN_METADATA.json file for each successful run.",
+      "shortTitle": "Authoritative run metadata",
+      "area": "OpenPCM Agent",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

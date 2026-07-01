@@ -68,6 +68,12 @@ const dirtyLines = dirty
 
 const status = {
   schemaVersion: "openpcm_engineering_status_v1",
+  agent: {
+    name: process.env.AGENT_NAME || "",
+    version: process.env.AGENT_VERSION || "",
+    workflowVersion: Number(process.env.WORKFLOW_VERSION || 0),
+    runId: process.env.RUN_ID || ""
+  },
   timestamp: new Date().toISOString(),
   branch,
   commit,

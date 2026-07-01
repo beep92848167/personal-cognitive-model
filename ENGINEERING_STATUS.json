@@ -1,23 +1,29 @@
 {
   "schemaVersion": "openpcm_engineering_status_v1",
-  "timestamp": "2026-07-01T03:16:19.953Z",
+  "agent": {
+    "name": "",
+    "version": "",
+    "workflowVersion": 0,
+    "runId": ""
+  },
+  "timestamp": "2026-07-01T09:29:07.556Z",
   "branch": "main",
-  "commit": "bf2411d",
+  "commit": "ed23633",
   "repository": {
     "dirty": false,
     "dirtyFiles": []
   },
   "tests": {
     "status": "PASS",
-    "passed": 130,
+    "passed": 133,
     "failed": 0,
-    "total": 130
+    "total": 133
   },
   "requirements": {
-    "total": 54,
-    "implemented": 54,
-    "covered": 54,
-    "coverageTotal": 54,
+    "total": 57,
+    "implemented": 57,
+    "covered": 57,
+    "coverageTotal": 57,
     "uncovered": [],
     "byArea": {
       "Evidence": 6,
@@ -41,27 +47,27 @@
       "Calibration": 1,
       "Android Workflow": 2,
       "Testing": 3,
-      "OpenPCM Agent": 9,
+      "OpenPCM Agent": 12,
       "Engineering Dashboard": 3,
       "Domain Architecture": 5
     },
     "byPriority": {
-      "High": 47,
+      "High": 50,
       "Medium": 7
     },
     "byStatus": {
-      "Active": 54
+      "Active": 57
     }
   },
   "sync": {
     "workflowVersion": 10,
-    "syncCommit": "bf2411d",
+    "syncCommit": "ed23633",
     "syncStatus": "PASS"
   },
   "patch": {
-    "patchId": "20260701-evidence-domain-interface",
-    "commitMessage": "refactor(domain): move evidence behavior behind domain interface",
-    "targetCommit": "bf2411d",
+    "patchId": "20260701-agent-run-metadata",
+    "commitMessage": "feat(agent): add run metadata and version reporting",
+    "targetCommit": "ed23633",
     "targetBranch": "main"
   },
   "health": {

@@ -1,25 +1,25 @@
 # OpenPCM Engineering Dashboard
 
-Generated: 2026-07-01T03:16:19.953Z
+Generated: 2026-07-01T09:29:07.556Z
 
 ## Repository
 
 - Branch: `main`
-- Commit: `bf2411d`
+- Commit: `ed23633`
 - Working tree: clean
 
 ## Tests
 
 - Status: PASS
-- Passed: 130
+- Passed: 133
 - Failed: 0
-- Total: 130
+- Total: 133
 
 ## Requirements
 
-- Registry total: 54
-- Implemented: 54
-- Covered by tests: 54/54
+- Registry total: 57
+- Implemented: 57
+- Covered by tests: 57/57
 - Uncovered: 0
 
 ### Requirements by area
@@ -38,7 +38,7 @@ Generated: 2026-07-01T03:16:19.953Z
 - Import / Export: 2
 - Learning: 1
 - Library: 4
-- OpenPCM Agent: 9
+- OpenPCM Agent: 12
 - Preferences: 1
 - Profile Source: 2
 - Profile Transfer: 1
@@ -59,6 +59,6 @@ Generated: 2026-07-01T03:16:19.953Z
 
 ## Latest patch metadata
 
-- Patch ID: 20260701-evidence-domain-interface
-- Commit message: `refactor(domain): move evidence behavior behind domain interface`
+- Patch ID: 20260701-agent-run-metadata
+- Commit message: `feat(agent): add run metadata and version reporting`
 

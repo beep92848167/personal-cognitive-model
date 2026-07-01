@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "openpcm_run_metadata_v1",
+  "run": {
+    "id": "patch-build",
+    "startedAt": "",
+    "generatedAt": ""
+  },
+  "agent": {
+    "name": "OpenPCM Agent",
+    "version": "1.1.0",
+    "workflowVersion": 11
+  },
+  "repository": {
+    "branch": "main",
+    "commit": "ed23633"
+  },
+  "patch": {
+    "patchId": "20260701-agent-run-metadata",
+    "commitMessage": "feat(agent): add run metadata and version reporting",
+    "targetCommit": "ed23633",
+    "targetBranch": "main",
+    "sourceFile": "openpcm-agent-run-metadata.zip"
+  },
+  "workflow": {
+    "version": 11,
+    "schemaVersions": {
+      "runMetadata": 1,
+      "syncSummary": 1,
+      "engineeringStatus": 1,
+      "patchManifest": 2
+    }
+  }
+}

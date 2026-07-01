@@ -1,8 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260701-download-inbox",
-  "targetCommit": "22d2bf4",
+  "patchId": "20260701-agent-run-metadata",
+  "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "commitMessage": "feat(agent): support single active download inbox"
+  "targetCommit": "ed23633",
+  "minimumWorkflowVersion": 10,
+  "commitMessage": "feat(agent): add run metadata and version reporting"
 }

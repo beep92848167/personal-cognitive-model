@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+AGENT_NAME="OpenPCM Agent"
+AGENT_VERSION="1.1.0"
+WORKFLOW_VERSION="11"
+
 DOWNLOADS_DIR="${DOWNLOADS_DIR:-$HOME/storage/downloads}"
 REPO_DIR="${REPO_DIR:-$DOWNLOADS_DIR/pcm-git}"
 COMMIT_MSG="${1:-chore: apply OpenPCM patch}"
@@ -8,11 +12,14 @@ POLL_SECONDS="${POLL_SECONDS:-5}"
 AGENT_LOG="${AGENT_LOG:-$REPO_DIR/agent.log}"
 MODE="${OPENPCM_AGENT_MODE:-watch}"
 
+RUN_ID=""
+RUN_STARTED_AT=""
 PATCH_COMMIT_MSG=""
 PATCH_ID=""
 PATCH_TARGET_BRANCH=""
 PATCH_TARGET_COMMIT=""
 PATCH_MIN_WORKFLOW=""
+CURRENT_PATCH_FILE=""
 
 if [[ "${1:-}" == "--once" ]]; then
   MODE="once"
@@ -20,6 +27,8 @@ if [[ "${1:-}" == "--once" ]]; then
   COMMIT_MSG="${1:-chore: apply OpenPCM patch}"
 elif [[ "${1:-}" == "--status" ]]; then
   MODE="status"
+elif [[ "${1:-}" == "--version" ]]; then
+  MODE="version"
 fi
 
 log() {
@@ -30,7 +39,26 @@ log() {
   echo "[$stamp] $1" >> "$AGENT_LOG"
 }
 
+new_run_id() {
+  date '+%Y%m%d-%H%M%S'
+}
+
+tool_version() {
+  local tool="$1"
+  if command -v "$tool" >/dev/null 2>&1; then
+    "$tool" --version 2>/dev/null | head -n 1
+  else
+    echo ""
+  fi
+}
+
 newest_patch_zip() {
+  local current="$DOWNLOADS_DIR/openpcm-current.zip"
+  if [[ -f "$current" ]]; then
+    echo "$current"
+    return 0
+  fi
+
   local zips=()
   local filtered=()
   local file base
@@ -50,8 +78,14 @@ newest_patch_zip() {
   ls -t "${filtered[@]}" | head -n 1
 }
 
+agent_version() {
+  echo "$AGENT_NAME $AGENT_VERSION"
+  echo "Workflow version: $WORKFLOW_VERSION"
+}
+
 agent_status() {
-  echo "OpenPCM Agent status"
+  agent_version
+  echo
   echo "Downloads: $DOWNLOADS_DIR"
   echo "Repo:      $REPO_DIR"
   echo "Log:       $AGENT_LOG"
@@ -103,6 +137,9 @@ ensure_repo_ready() {
     | grep -v '^ M tests/last-test-run.json$' \
     | grep -v '^ M .openpcm-sync.json$' \
     | grep -v '^ M SYNC_SUMMARY.json$' \
+    | grep -v '^ M ENGINEERING_STATUS.json$' \
+    | grep -v '^ M ENGINEERING_DASHBOARD.md$' \
+    | grep -v '^ M RUN_METADATA.json$' \
     | grep -v '^?? agent.log$' \
     | grep -v '^?? .openpcm-watch-seen$' \
     || true)"
@@ -264,17 +301,24 @@ write_sync_metadata() {
   branch="$(git rev-parse --abbrev-ref HEAD)"
   timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
+  AGENT_NAME="$AGENT_NAME" AGENT_VERSION="$AGENT_VERSION" WORKFLOW_VERSION="$WORKFLOW_VERSION" RUN_ID="$RUN_ID" \
   node - "$commit" "$branch" "$timestamp" <<'NODE'
 const fs = require("fs");
 const [commit, branch, timestamp] = process.argv.slice(2);
 let tests = { status: "UNKNOWN", passed: "", failed: "", requirements: { covered: "", total: "" } };
 try { tests = JSON.parse(fs.readFileSync("tests/last-test-run.json", "utf8")); } catch {}
 const sync = {
-  workflowVersion: 10,
+  workflowVersion: Number(process.env.WORKFLOW_VERSION || 0),
   timestamp,
   branch,
   commit,
   status: tests.status || "UNKNOWN",
+  agent: {
+    name: process.env.AGENT_NAME || "",
+    version: process.env.AGENT_VERSION || "",
+    workflowVersion: Number(process.env.WORKFLOW_VERSION || 0),
+    runId: process.env.RUN_ID || ""
+  },
   tests: {
     passed: String(tests.passed ?? ""),
     failed: String(tests.failed ?? "")
@@ -297,6 +341,7 @@ write_sync_summary() {
   timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
   latest_package="${1:-}"
 
+  AGENT_NAME="$AGENT_NAME" AGENT_VERSION="$AGENT_VERSION" WORKFLOW_VERSION="$WORKFLOW_VERSION" RUN_ID="$RUN_ID" \
   PATCH_ID="${PATCH_ID:-}" PATCH_TARGET_COMMIT="${PATCH_TARGET_COMMIT:-}" PATCH_TARGET_BRANCH="${PATCH_TARGET_BRANCH:-}" \
   node - "$commit" "$branch" "$timestamp" "$latest_package" <<'NODE'
 const fs = require("fs");
@@ -315,6 +360,12 @@ const summary = {
   branch,
   commit,
   latestPackage,
+  agent: {
+    name: process.env.AGENT_NAME || "",
+    version: process.env.AGENT_VERSION || "",
+    workflowVersion: Number(process.env.WORKFLOW_VERSION || 0),
+    runId: process.env.RUN_ID || ""
+  },
   patch: {
     patchId: process.env.PATCH_ID || "",
     targetCommit: process.env.PATCH_TARGET_COMMIT || "",
@@ -337,6 +388,106 @@ fs.writeFileSync("SYNC_SUMMARY.json", JSON.stringify(summary, null, 2) + "\n");
 NODE
 }
 
+write_engineering_status() {
+  cd "$REPO_DIR"
+
+  if [[ -f tools/engineering-dashboard.js ]] && command -v node >/dev/null 2>&1; then
+    log "Writing fresh engineering status..."
+    AGENT_NAME="$AGENT_NAME" AGENT_VERSION="$AGENT_VERSION" WORKFLOW_VERSION="$WORKFLOW_VERSION" RUN_ID="$RUN_ID" \
+      node tools/engineering-dashboard.js >/dev/null
+  fi
+}
+
+write_run_metadata() {
+  cd "$REPO_DIR"
+
+  local commit branch generated_at package_name package_path package_size
+  commit="$(git rev-parse --short HEAD)"
+  branch="$(git rev-parse --abbrev-ref HEAD)"
+  generated_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  package_name="${1:-}"
+  package_path="${2:-}"
+  package_size="0"
+
+  if [[ -n "$package_path" && -f "$package_path" ]]; then
+    package_size="$(stat -c %s "$package_path" 2>/dev/null || wc -c < "$package_path")"
+  fi
+
+  AGENT_NAME="$AGENT_NAME" AGENT_VERSION="$AGENT_VERSION" WORKFLOW_VERSION="$WORKFLOW_VERSION" RUN_ID="$RUN_ID" RUN_STARTED_AT="$RUN_STARTED_AT" \
+  PATCH_ID="${PATCH_ID:-}" PATCH_TARGET_COMMIT="${PATCH_TARGET_COMMIT:-}" PATCH_TARGET_BRANCH="${PATCH_TARGET_BRANCH:-}" PATCH_COMMIT_MSG="${PATCH_COMMIT_MSG:-}" CURRENT_PATCH_FILE="${CURRENT_PATCH_FILE:-}" \
+  PACKAGE_NAME="$package_name" PACKAGE_SIZE="$package_size" GENERATED_AT="$generated_at" \
+  GIT_VERSION="$(tool_version git)" NODE_VERSION="$(tool_version node)" BASH_VERSION_TEXT="$BASH_VERSION" \
+  node - "$commit" "$branch" <<'NODE'
+const fs = require("fs");
+const os = require("os");
+const [commit, branch] = process.argv.slice(2);
+let tests = { status: "UNKNOWN", passed: 0, failed: 0, total: 0, durationMs: 0, requirements: { covered: 0, total: 0, uncovered: [] } };
+try { tests = JSON.parse(fs.readFileSync("tests/last-test-run.json", "utf8")); } catch {}
+
+const metadata = {
+  schemaVersion: "openpcm_run_metadata_v1",
+  run: {
+    id: process.env.RUN_ID || "",
+    startedAt: process.env.RUN_STARTED_AT || "",
+    generatedAt: process.env.GENERATED_AT || ""
+  },
+  agent: {
+    name: process.env.AGENT_NAME || "",
+    version: process.env.AGENT_VERSION || "",
+    workflowVersion: Number(process.env.WORKFLOW_VERSION || 0)
+  },
+  repository: {
+    branch,
+    commit
+  },
+  patch: {
+    patchId: process.env.PATCH_ID || "",
+    commitMessage: process.env.PATCH_COMMIT_MSG || "",
+    targetCommit: process.env.PATCH_TARGET_COMMIT || "",
+    targetBranch: process.env.PATCH_TARGET_BRANCH || "",
+    sourceFile: process.env.CURRENT_PATCH_FILE || ""
+  },
+  tools: {
+    git: process.env.GIT_VERSION || "",
+    node: process.env.NODE_VERSION || "",
+    bash: process.env.BASH_VERSION_TEXT || ""
+  },
+  platform: {
+    os: os.platform(),
+    arch: os.arch(),
+    release: os.release()
+  },
+  tests: {
+    status: tests.status || "UNKNOWN",
+    passed: Number(tests.passed ?? 0),
+    failed: Number(tests.failed ?? 0),
+    total: Number(tests.total ?? 0),
+    durationMs: Number(tests.durationMs ?? 0)
+  },
+  requirements: {
+    covered: Number(tests.requirements?.covered ?? 0),
+    total: Number(tests.requirements?.total ?? 0),
+    uncovered: tests.requirements?.uncovered ?? []
+  },
+  package: {
+    zipName: process.env.PACKAGE_NAME || "",
+    zipSizeBytes: Number(process.env.PACKAGE_SIZE || 0)
+  },
+  workflow: {
+    version: Number(process.env.WORKFLOW_VERSION || 0),
+    schemaVersions: {
+      runMetadata: 1,
+      syncSummary: 1,
+      engineeringStatus: 1,
+      patchManifest: 2
+    }
+  }
+};
+
+fs.writeFileSync("RUN_METADATA.json", JSON.stringify(metadata, null, 2) + "\n");
+NODE
+}
+
 commit_and_push() {
   cd "$REPO_DIR"
 
@@ -354,15 +505,6 @@ commit_and_push() {
 
   log "Pushing..."
   git push
-}
-
-write_engineering_status() {
-  cd "$REPO_DIR"
-
-  if [[ -f tools/engineering-dashboard.js ]] && command -v node >/dev/null 2>&1; then
-    log "Writing engineering status..."
-    node tools/engineering-dashboard.js >/dev/null
-  fi
 }
 
 create_sync_package() {
@@ -383,11 +525,19 @@ create_sync_package() {
 
   write_engineering_status
 
+  log "Writing run metadata..."
+  write_run_metadata "$package_name" ""
+
   log "Creating sync package: $package_name"
   rm -f "$package_path"
   zip -qr "$package_path" . -x ".git/*" "node_modules/*" "*.zip" "archive_*/*" "agent.log"
 
   [[ ! -s "$package_path" ]] && { log "ERROR: Sync package was not created."; return 1; }
+
+  log "Refreshing run metadata with package size..."
+  write_run_metadata "$package_name" "$package_path"
+  zip -q "$package_path" RUN_METADATA.json
+
   log "Sync package ready: $package_path"
 }
 
@@ -412,7 +562,12 @@ archive_patch() {
 
 process_patch() {
   local patch="$1"
+  RUN_ID="$(new_run_id)"
+  RUN_STARTED_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  CURRENT_PATCH_FILE="$(basename "$patch")"
+
   log "Patch detected: $(basename "$patch")"
+  log "Run ID: $RUN_ID"
   wait_until_stable "$patch"
   ensure_repo_ready
   sync_remote
@@ -424,13 +579,20 @@ process_patch() {
   log "Patch processing complete."
 }
 
+if [[ "$MODE" == "version" ]]; then
+  agent_version
+  exit 0
+fi
+
 if [[ "$MODE" == "status" ]]; then
   agent_status
   exit 0
 fi
 
 log "========================="
-log "OpenPCM Agent"
+log "$AGENT_NAME"
+log "Version: $AGENT_VERSION"
+log "Workflow: $WORKFLOW_VERSION"
 log "========================="
 log "Watching: $DOWNLOADS_DIR"
 log "Repo: $REPO_DIR"
@@ -456,9 +618,3 @@ while true; do
 
   sleep "$POLL_SECONDS"
 done
-
-
-# Preferred Downloads workflow:
-# The agent should primarily watch for ~/storage/downloads/openpcm-current.zip.
-# After successful application it archives the processed ZIP into archive_YYYYMMDD/
-# and removes it from Downloads so only one active patch remains.
