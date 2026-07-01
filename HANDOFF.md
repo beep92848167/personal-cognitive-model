@@ -2,18 +2,21 @@
 
 ## Engineering Increment
 
-Added Shared Domain Services for reusable domain infrastructure.
+Added Knowledge as the third real domain plugin.
 
 ## Changes
 
-- Added shared validation service.
-- Added shared import/export service.
-- Added shared search service.
-- Added shared storage service.
-- Updated Evidence and Tasks domains to use shared import/export helpers when available.
-- Added shared service tests.
-- Added `REQ-SERVICE-001` through `REQ-SERVICE-005`.
-- Added `docs/SHARED_DOMAIN_SERVICES.md`.
+- Added `src/domains/knowledge/knowledge-domain.js`.
+- Registered Knowledge through `src/domains.js`.
+- Added knowledge schema normalization.
+- Added knowledge validation.
+- Added knowledge import/export.
+- Added token-based knowledge search through the shared search service.
+- Added knowledge route and storage-key registration.
+- Added `tests/knowledge-domain-tests.js`.
+- Added `REQ-KNOWLEDGE-001` through `REQ-KNOWLEDGE-005`.
+- Added `docs/KNOWLEDGE_DOMAIN.md`.
+- Updated `docs/DOMAIN_ARCHITECTURE.md`.
 - Added `.openpcm-patch.json` with this patch's commit message.
 
 ## Verification
@@ -27,4 +30,4 @@ node tools/engineering-dashboard.js
 
 ## Suggested Commit
 
-feat(services): add shared domain services
+feat(knowledge): add knowledge domain plugin

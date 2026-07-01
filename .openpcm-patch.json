@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
   "kind": "openpcm-patch",
-  "patchId": "20260701-shared-domain-services",
+  "patchId": "20260701-knowledge-domain-foundation",
   "createdBy": "ChatGPT",
   "targetBranch": "main",
-  "targetCommit": "018a386",
+  "targetCommit": "f16fe8b",
   "minimumWorkflowVersion": 12,
-  "commitMessage": "feat(services): add shared domain services"
+  "commitMessage": "feat(knowledge): add knowledge domain plugin"
 }

@@ -5,6 +5,7 @@
 
   registry.register(global.OpenPCMEvidenceDomain);
   if (global.OpenPCMTasksDomain) registry.register(global.OpenPCMTasksDomain);
+  if (global.OpenPCMKnowledgeDomain) registry.register(global.OpenPCMKnowledgeDomain);
 
   global.OpenPCMDomainRegistry = registry;
   global.OpenPCMDomainRoutes = () => registry.routes();

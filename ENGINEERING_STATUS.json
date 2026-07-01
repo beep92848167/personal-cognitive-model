@@ -6,24 +6,24 @@
     "workflowVersion": 0,
     "runId": ""
   },
-  "timestamp": "2026-07-01T10:41:59.215Z",
+  "timestamp": "2026-07-01T12:00:33.720Z",
   "branch": "main",
-  "commit": "018a386",
+  "commit": "f16fe8b",
   "repository": {
     "dirty": false,
     "dirtyFiles": []
   },
   "tests": {
     "status": "PASS",
-    "passed": 143,
+    "passed": 148,
     "failed": 0,
-    "total": 143
+    "total": 148
   },
   "requirements": {
-    "total": 67,
-    "implemented": 67,
-    "covered": 67,
-    "coverageTotal": 67,
+    "total": 72,
+    "implemented": 72,
+    "covered": 72,
+    "coverageTotal": 72,
     "uncovered": [],
     "byArea": {
       "Evidence": 6,
@@ -51,25 +51,26 @@
       "Engineering Dashboard": 3,
       "Domain Architecture": 5,
       "Tasks Domain": 4,
-      "Shared Domain Services": 5
+      "Shared Domain Services": 5,
+      "Knowledge Domain": 5
     },
     "byPriority": {
-      "High": 58,
-      "Medium": 9
+      "High": 62,
+      "Medium": 10
     },
     "byStatus": {
-      "Active": 67
+      "Active": 72
     }
   },
   "sync": {
     "workflowVersion": 12,
-    "syncCommit": "018a386",
+    "syncCommit": "f16fe8b",
     "syncStatus": "PASS"
   },
   "patch": {
-    "patchId": "20260701-shared-domain-services",
-    "commitMessage": "feat(services): add shared domain services",
-    "targetCommit": "018a386",
+    "patchId": "20260701-knowledge-domain-foundation",
+    "commitMessage": "feat(knowledge): add knowledge domain plugin",
+    "targetCommit": "f16fe8b",
     "targetBranch": "main"
   },
   "health": {

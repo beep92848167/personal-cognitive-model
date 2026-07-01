@@ -213,3 +213,14 @@
 | REQ-SERVICE-003 | OpenPCM must provide shared search helpers for token-based domain search. | Medium | Active |
 | REQ-SERVICE-004 | OpenPCM must provide shared JSON storage helpers for domain persistence. | Medium | Active |
 | REQ-SERVICE-005 | Domain plugins must be able to use shared services without changing their public interface. | High | Active |
+
+
+## Knowledge Domain
+
+| ID | Requirement | Priority | Status |
+|---|---|---:|---|
+| REQ-KNOWLEDGE-001 | The Knowledge domain must normalize knowledge records with default kind and status. | High | Active |
+| REQ-KNOWLEDGE-002 | The Knowledge domain must validate malformed records, invalid kind or status values, and invalid links or source IDs. | High | Active |
+| REQ-KNOWLEDGE-003 | The Knowledge domain must provide import and export through the standard domain interface. | High | Active |
+| REQ-KNOWLEDGE-004 | The Knowledge domain must register routes and storage keys through the domain plugin registry. | High | Active |
+| REQ-KNOWLEDGE-005 | The Knowledge domain must support token-based search through the shared search service. | Medium | Active |

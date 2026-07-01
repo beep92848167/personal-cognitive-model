@@ -77,3 +77,16 @@ These functions preserve existing behaviour while giving future OpenPCM features
 Tasks is now registered as the second domain plugin.
 
 This proves the domain architecture is not Evidence-specific and can support future modules such as Knowledge, Goals, Memory, Health, and Finance.
+
+
+## Third domain
+
+Knowledge is now registered as the third domain plugin.
+
+The architecture now supports:
+
+- Evidence
+- Tasks
+- Knowledge
+
+This provides a stronger template for future domains such as Goals, Memory, Health, and Finance.

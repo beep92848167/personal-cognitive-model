@@ -1,16 +1,16 @@
 {
   "workflowVersion": 4,
-  "timestamp": "2026-07-01T11:55:31.146Z",
+  "timestamp": "2026-07-01T13:14:54.870Z",
   "status": "PASS",
-  "passed": 143,
+  "passed": 148,
   "failed": 0,
-  "total": 143,
+  "total": 148,
   "durationMs": 51,
   "runner": "tools/run-tests.js",
   "requirements": {
     "source": "requirements/requirements.json",
-    "total": 67,
-    "covered": 67,
+    "total": 72,
+    "covered": 72,
     "uncovered": []
   },
   "failures": [],
@@ -966,6 +966,41 @@
       "status": "PASS",
       "requirements": [
         "REQ-TASKS-004"
+      ]
+    },
+    {
+      "name": "knowledge domain normalizes minimal knowledge input",
+      "status": "PASS",
+      "requirements": [
+        "REQ-KNOWLEDGE-001"
+      ]
+    },
+    {
+      "name": "knowledge domain validates invalid records",
+      "status": "PASS",
+      "requirements": [
+        "REQ-KNOWLEDGE-002"
+      ]
+    },
+    {
+      "name": "knowledge domain imports and exports through standard interface",
+      "status": "PASS",
+      "requirements": [
+        "REQ-KNOWLEDGE-003"
+      ]
+    },
+    {
+      "name": "knowledge domain is registered as a plugin",
+      "status": "PASS",
+      "requirements": [
+        "REQ-KNOWLEDGE-004"
+      ]
+    },
+    {
+      "name": "knowledge domain can search through shared search service",
+      "status": "PASS",
+      "requirements": [
+        "REQ-KNOWLEDGE-005"
       ]
     },
     {

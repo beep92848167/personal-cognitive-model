@@ -1,29 +1,29 @@
 {
   "schemaVersion": "openpcm_sync_summary_v1",
-  "timestamp": "2026-07-01T10:19:27Z",
+  "timestamp": "2026-07-01T11:55:35Z",
   "branch": "main",
-  "commit": "018a386",
-  "latestPackage": "20260701-201927-openpcm-main-018a386.zip",
+  "commit": "f16fe8b",
+  "latestPackage": "20260701-215535-openpcm-main-f16fe8b.zip",
   "agent": {
     "name": "OpenPCM Agent",
     "version": "1.1.1",
     "workflowVersion": 12,
-    "runId": "20260701-201916"
+    "runId": "20260701-215523"
   },
   "patch": {
-    "patchId": "20260701-tasks-domain-foundation",
-    "targetCommit": "6785d05",
+    "patchId": "20260701-shared-domain-services",
+    "targetCommit": "018a386",
     "targetBranch": "main"
   },
   "status": "PASS",
   "tests": {
-    "passed": 138,
+    "passed": 143,
     "failed": 0,
-    "total": 138
+    "total": 143
   },
   "requirements": {
-    "covered": 62,
-    "total": 62,
+    "covered": 67,
+    "total": 67,
     "uncovered": []
   },
   "nextInstruction": "Upload the timestamped sync ZIP to ChatGPT and type Sync."

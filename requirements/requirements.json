@@ -672,6 +672,56 @@
       "status": "Active",
       "implemented": true,
       "tests": []
+    },
+    {
+      "id": "REQ-KNOWLEDGE-001",
+      "title": "The Knowledge domain must normalize knowledge records with default kind and status.",
+      "shortTitle": "Knowledge normalization",
+      "area": "Knowledge Domain",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-KNOWLEDGE-002",
+      "title": "The Knowledge domain must validate malformed records, invalid kind or status values, and invalid links or source IDs.",
+      "shortTitle": "Knowledge validation",
+      "area": "Knowledge Domain",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-KNOWLEDGE-003",
+      "title": "The Knowledge domain must provide import and export through the standard domain interface.",
+      "shortTitle": "Knowledge import/export",
+      "area": "Knowledge Domain",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-KNOWLEDGE-004",
+      "title": "The Knowledge domain must register routes and storage keys through the domain plugin registry.",
+      "shortTitle": "Knowledge plugin registration",
+      "area": "Knowledge Domain",
+      "priority": "High",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
+    },
+    {
+      "id": "REQ-KNOWLEDGE-005",
+      "title": "The Knowledge domain must support token-based search through the shared search service.",
+      "shortTitle": "Knowledge search",
+      "area": "Knowledge Domain",
+      "priority": "Medium",
+      "status": "Active",
+      "implemented": true,
+      "tests": []
     }
   ]
 }

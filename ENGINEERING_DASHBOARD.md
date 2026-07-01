@@ -1,25 +1,25 @@
 # OpenPCM Engineering Dashboard
 
-Generated: 2026-07-01T10:41:59.215Z
+Generated: 2026-07-01T12:00:33.720Z
 
 ## Repository
 
 - Branch: `main`
-- Commit: `018a386`
+- Commit: `f16fe8b`
 - Working tree: clean
 
 ## Tests
 
 - Status: PASS
-- Passed: 143
+- Passed: 148
 - Failed: 0
-- Total: 143
+- Total: 148
 
 ## Requirements
 
-- Registry total: 67
-- Implemented: 67
-- Covered by tests: 67/67
+- Registry total: 72
+- Implemented: 72
+- Covered by tests: 72/72
 - Uncovered: 0
 
 ### Requirements by area
@@ -36,6 +36,7 @@ Generated: 2026-07-01T10:41:59.215Z
 - Explanation Graph: 1
 - Graph Viewer: 1
 - Import / Export: 2
+- Knowledge Domain: 5
 - Learning: 1
 - Library: 4
 - OpenPCM Agent: 13
@@ -61,6 +62,6 @@ Generated: 2026-07-01T10:41:59.215Z
 
 ## Latest patch metadata
 
-- Patch ID: 20260701-shared-domain-services
-- Commit message: `feat(services): add shared domain services`
+- Patch ID: 20260701-knowledge-domain-foundation
+- Commit message: `feat(knowledge): add knowledge domain plugin`
 
